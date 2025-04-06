@@ -17,7 +17,7 @@ To effectively use a concept, it helps greatly to have the right mental model wh
 
 For example, understanding and thinking of binary search in terms of bisect left and bisect right makes it easy to actually use it in a consistent manner.
 
-Another example, for array partitioning, just thinking of and defining defining the loop invariant correctly is the key. 
+Another example, for array partitioning, just thinking of and defining defining the loop invariant correctly is key. 
 
 My effort is always to develop the correct understanding and mental model for any concept.
 
