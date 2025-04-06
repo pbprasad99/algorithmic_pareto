@@ -1,6 +1,6 @@
 # algorithmic_pareto
 
-Algorithms and Data Structures - The Pareto Set
+[WIP]  Algorithms and Data Structures - The Pareto Set
 
 The absolute basics to master.
 
