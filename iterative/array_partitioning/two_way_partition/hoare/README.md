@@ -51,7 +51,7 @@ While left <= right :
 
 # Important things to Note:
 
-***This algorithm does not neceassrily place the pivot in its sorted position.***
+***This algorithm does not necessarily place the pivot in its sorted position.***
 Or rather, the problem is not asking us to do this,
 
 This array is partitioned by 4 but 4 is not in its sorted position.
