@@ -61,8 +61,8 @@ This array is partitioned by 4 but 4 is not in its sorted position.
 ```
 
 We can put the pivot in its sorted position by swapping it with the right pointer after running the algorithm.  A good way to handle this is :
-1) Place the pivot in the index 0 .
-2) Run the partitioning algorithm on [1,n-1]
+1) Ensure that  the pivot at index 0 .
+2) Run the partitioning algorithm 
 3) Swap right with 0.
 
 But again, this will not group multiple instances of pivot together if pivot is duplicated. That is another problem called three way partitioning.
