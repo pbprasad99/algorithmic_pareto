@@ -38,7 +38,7 @@ We can simply swap these and keep moving until left and right pass each other.
 ```
 Invariant 1) [0,Left) only contains elements less than or equal to pivot
 Invariant 2) (right, len(arr) -1] only contains elements greater than pivot
-```
+
 
 While left <= right :
       while  (Invaraint 1) is True :
@@ -47,6 +47,7 @@ While left <= right :
            right -=1
       if left < right :
           swap left and right
+```
 
 # Important things to Note:
 
