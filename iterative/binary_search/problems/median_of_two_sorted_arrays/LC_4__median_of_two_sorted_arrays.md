@@ -17,6 +17,7 @@ Consider :
 [1 2 |3 4]  #right partition is inclusive 
 ``` 
 If we partition an even lengthed sorted array such that the left and right partitions are of equal size.
+
 The median is ( max(left partition) + min(right partition)  ) / 2
 
 If the array is odd lengthed :
@@ -46,6 +47,7 @@ A  [  5, |10  ]
 ```
 Example 2 :
 B [ |5, 6, 7, 8, 9 ] # consider left out of bounds position to be -inf and right out of bounds position to be +inf
+
 A [ 1, 2, 3, 4| ]
 
 1,2,3,4 < 5,6,7,8,9
@@ -87,7 +89,7 @@ partition_a + partition_b = (m+n) //2
 
 It makes sense to binary search on the smaller array. Lets call this array A and the partition on it,  partition_a.
 
-For each partition_a we ask is,  left_b > partition_a. If this is TRUE, then partition_a cannot be the pivot and needs to be moved right i.e. made larger.
+For each partition_a we ask ***is left_b > partition_a***. If this is TRUE, then partition_a cannot be the pivot and needs to be moved right i.e. made larger.
 
 ```
  INIT:         
@@ -125,10 +127,13 @@ Binary search will converge on first false value.
      [2     |6    7    8]
       T     F    F    F
 ```
+
 In our binary search we need a function move_right which simply returns left_b > right_a
 
 **Thats it. Once , we have the right partition, calculate mean:**
+
 If (m+n) is odd : return min(right_a, right_b)
+
 If (m+n) is even : return (max(left_a, left_b) + min(right_a, right_b)) /2 
 
 # Code
