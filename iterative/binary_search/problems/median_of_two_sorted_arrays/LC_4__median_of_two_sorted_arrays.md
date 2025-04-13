@@ -29,6 +29,7 @@ We can consider the middle element to belong to both partitions. In which case
 [1 2 3 4 5]
      *
 ```  
+
 The middle element IS the median i.e. index len(arr)//2
 
 
@@ -57,7 +58,9 @@ If we find the correct partitions like this, we can calculate the mean,
 partition_a + partition_b = (m+n+1) //2 OR partition_a + partition_b = (m+n) // 2 
 
 let len(A) =m and len(B) = n 
-FOR ODD LENGTHED ARRAY
+
+FOR ODD LENGTHED ARRAY :
+
 ```
 B  [1]   ; #IFF partition_b = (m+n +1 )//2 - partition_a  = 2//2 -0 = 1 But *IFF partition_b =  (m+n)//2 - partition_a =  1//2 -0 = 0-0 = 0 
    *0 #1  
@@ -66,6 +69,7 @@ A  [ ]   ; partition_a = (0+ 0)//2 =0
 ```
 
 *If we say that **partition_x + partition_y = (m+n)//2 then median is in the right partition** in case of odd lengthed array.*
+
 *If we say that **partition_x + partition_y = (m+n+1)//2 then median is in the left partition** in case of odd lenghted array.*
 
 ***It makes no difference for arrays where m+n is even.***
@@ -74,10 +78,13 @@ B [1 2]   ; #IFF partition_b = (m+n+1)//2 - partition_a  = 5//2 - 1 = 2- 1 = 1 a
     #*1
 A [1 2]   ; partition_a = (0 + 2) // 2 = 1
 ```
+
 Lets pick one convention : 
+
 partition_a + partition_b = (m+n) //2
 
 **Now for the binary search:**
+
 It makes sense to binary search on the smaller array. Lets call this array A and the partition on it,  partition_a.
 
 For each partition_a we ask is,  left_b > partition_a. If this is TRUE, then partition_a cannot be the pivot and needs to be moved right i.e. made larger.
