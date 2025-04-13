@@ -1,8 +1,11 @@
 **What is the data?** 
+
 nums1 = [1,2], nums2 = [3,4]
+
 Two sorted arrays.
 
 **What is being asked?**
+
 To find the median in logarithmic time.
 
 # Thoughts
