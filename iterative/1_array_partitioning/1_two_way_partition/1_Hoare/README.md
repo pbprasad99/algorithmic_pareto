@@ -3,7 +3,7 @@
 Given an array of integers, rearrange the elements such that the left part contains elements less than or equal to a pivot value and the right part contains values greater than the pivot value.
 
 
-# Deriving the algorithm - Hoare partition with strict condition
+# The algorithm - Hoare partition with strict condition
 
 Consider this example array and a pivot value of 4   :
 
@@ -52,7 +52,7 @@ return right
 
 
 
-# Deriving the algorithm - Hoare partition with weak condition
+# The algorithm - Hoare partition with weak condition
 The problem with the partition scheme with a strict condition (where we always put pivot values  in one of the partitions) is that it produces unbalanced partitions when used in quickselect or quicksort.
 
 Consider if the above partition scheme were used in quickselect for finding the smallest element in an array of size n). 
