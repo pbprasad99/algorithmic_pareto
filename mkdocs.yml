@@ -1,0 +1,59 @@
+site_name: Algorithmic Pareto
+site_url: https://pbprasad99.github.io/algorithmic_pareto/
+site_author: pbprasad99
+site_description: Algorithmic Pareto - Algorithmic techniques and implementations
+repo_name: pbprasad99/algorithmic_pareto
+repo_url: https://github.com/pbprasad99/algorithmic_pareto
+edit_uri: edit/main/docs/
+theme:
+  name: material
+  palette:
+  - media: '(prefers-color-scheme: dark)'
+    scheme: slate
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to light mode
+  - media: '(prefers-color-scheme: light)'
+    scheme: default
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/weather-night
+      name: Switch to dark mode
+  features:
+  - navigation.instant
+  - navigation.tracking
+  - navigation.tabs
+  - navigation.sections
+  - navigation.expand
+  - navigation.indexes
+  - search.suggest
+  - search.highlight
+  - content.tabs.link
+  - content.code.copy
+  - content.code.annotate
+  icon:
+    repo: fontawesome/brands/github
+extra_css:
+- assets/css/extra.css
+markdown_extensions:
+- pymdownx.highlight
+- pymdownx.superfences
+- pymdownx.inlinehilite
+- pymdownx.tabbed
+- pymdownx.critic
+- pymdownx.tasklist
+- pymdownx.emoji
+- admonition
+- footnotes
+- toc
+- toc:
+    permalink: true
+plugins:
+- search
+- minify
+- awesome-pages
+- git-revision-date-localized:
+    enable_creation_date: true
