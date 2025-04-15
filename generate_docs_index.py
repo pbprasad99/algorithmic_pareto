@@ -49,7 +49,7 @@ def generate_markdown_index(root_dir, github_base_url=None):
             link = f"{github_base_url}/{link_path}"
         else:
             # For local, just link to the folder
-            link = rel_path
+            link = rel_path.replace('\\','/')
         
         # Add entry to index
         result.append(f"{indent}- [{folder_name}]({link})")
