@@ -1,4 +1,5 @@
 # Defining the problem
+Let us consider the simplest version of the problem.
 
 Given an array of integers, rearrange the elements such that the left part contains elements less than or equal to a pivot value and the right part contains values greater than the pivot value.
 
@@ -82,6 +83,10 @@ Invariant 1) [low,right] only contains elements less than OR EQUAL to pivot
 Invariant 2) (right, high] only contains elements greater OR EQUAL to pivot
 
 That is, pivot values are allowed to be in either partition.
+
+Our problem now becomes : 
+
+Given an array of integers, rearrange the elements such that the left part contains elements less than or equal to a pivot value and the right part contains values greater than or equal to the pivot value.
 
 The implementation is tricky when handling values equal to pivot. 
 
