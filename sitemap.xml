@@ -2,46 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://pbprasad99.github.io/algorithmic_pareto/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
-         <loc>https://pbprasad99.github.io/algorithmic_pareto/assets/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <loc>https://pbprasad99.github.io/algorithmic_pareto/iterative/1_array_partitioning/1_two_way_partition/1_Hoare/</loc>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
-         <loc>https://pbprasad99.github.io/algorithmic_pareto/assets/css/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <loc>https://pbprasad99.github.io/algorithmic_pareto/iterative/1_array_partitioning/1_two_way_partition/2_Lomuto/</loc>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
-         <loc>https://pbprasad99.github.io/algorithmic_pareto/assets/images/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <loc>https://pbprasad99.github.io/algorithmic_pareto/iterative/1_array_partitioning/2_three_way_partition/Djikstra/</loc>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
-         <loc>https://pbprasad99.github.io/algorithmic_pareto/iterative/</loc>
-         <lastmod>2025-04-15</lastmod>
-    </url>
-    <url>
-         <loc>https://pbprasad99.github.io/algorithmic_pareto/iterative/1_array_partitioning/</loc>
-         <lastmod>2025-04-15</lastmod>
-    </url>
-    <url>
-         <loc>https://pbprasad99.github.io/algorithmic_pareto/iterative/1_array_partitioning/properties_of_comparison_based_sorting_algorithms/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <loc>https://pbprasad99.github.io/algorithmic_pareto/iterative/1_array_partitioning/3_quick_select/</loc>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://pbprasad99.github.io/algorithmic_pareto/iterative/2_binary_search/</loc>
-         <lastmod>2025-04-15</lastmod>
-    </url>
-    <url>
-         <loc>https://pbprasad99.github.io/algorithmic_pareto/iterative/2_binary_search/problems/</loc>
-         <lastmod>2025-04-15</lastmod>
-    </url>
-    <url>
-         <loc>https://pbprasad99.github.io/algorithmic_pareto/iterative/2_binary_search/problems/median_of_two_sorted_arrays/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
     </url>
     <url>
          <loc>https://pbprasad99.github.io/algorithmic_pareto/iterative/2_binary_search/problems/median_of_two_sorted_arrays/LC_4__median_of_two_sorted_arrays/</loc>
-         <lastmod>2025-04-15</lastmod>
+         <lastmod>2025-04-16</lastmod>
+    </url>
+    <url>
+         <loc>https://pbprasad99.github.io/algorithmic_pareto/iterative/3_Sorting/properties_of_comparison_based_sorting_algorithms/</loc>
+         <lastmod>2025-04-16</lastmod>
+    </url>
+    <url>
+         <loc>https://pbprasad99.github.io/algorithmic_pareto/recursive/1_basics/</loc>
+         <lastmod>2025-04-16</lastmod>
+    </url>
+    <url>
+         <loc>https://pbprasad99.github.io/algorithmic_pareto/recursive/1_basics/TEST/</loc>
+         <lastmod>2025-04-16</lastmod>
+    </url>
+    <url>
+         <loc>https://pbprasad99.github.io/algorithmic_pareto/recursive/2_backtracking/</loc>
+         <lastmod>2025-04-16</lastmod>
     </url>
 </urlset>

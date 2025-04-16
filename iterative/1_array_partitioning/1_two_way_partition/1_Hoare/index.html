@@ -12,28 +12,28 @@
         <meta name="author" content="pbprasad99">
       
       
-        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/iterative/2_binary_search/problems/median_of_two_sorted_arrays/LC_4__median_of_two_sorted_arrays/">
+        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/iterative/1_array_partitioning/1_two_way_partition/1_Hoare/">
       
       
-        <link rel="prev" href="../../../">
+        <link rel="prev" href="../../../..">
       
       
-        <link rel="next" href="../../../../3_Sorting/properties_of_comparison_based_sorting_algorithms/">
+        <link rel="next" href="../2_Lomuto/">
       
       
-      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
     
     
       
-        <title>What is the data? - patibanb.me</title>
+        <title>Defining the problem - patibanb.me</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.4af4bdda.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.4af4bdda.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,9 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../../../assets/css/extra.css">
     
-    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#what-is-the-data" class="md-skip">
+        <a href="#defining-the-problem" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../.." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+    <a href="../../../.." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              What is the data?
+              Defining the problem
             
           </span>
         </div>
@@ -227,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         
   
   
@@ -277,7 +277,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../../1_array_partitioning/1_two_way_partition/1_Hoare/" class="md-tabs__link">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -315,7 +315,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../recursive/1_basics/" class="md-tabs__link">
+        <a href="../../../../recursive/1_basics/" class="md-tabs__link">
           
   
   
@@ -354,7 +354,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+    <a href="../../../.." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -384,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -457,8 +457,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -475,13 +477,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -497,7 +497,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             1 array partitioning
@@ -508,8 +508,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -524,13 +526,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
@@ -546,7 +546,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1_1">
             <span class="md-nav__icon md-icon"></span>
             1 two way partition
@@ -557,6 +557,8 @@
                 
   
   
+    
+  
   
   
     
@@ -573,17 +575,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_1_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1_1" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../1_array_partitioning/1_two_way_partition/1_Hoare/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   
@@ -597,7 +597,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_1_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1_1_1">
             <span class="md-nav__icon md-icon"></span>
             1 Hoare
@@ -644,7 +644,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../1_array_partitioning/1_two_way_partition/2_Lomuto/" class="md-nav__link ">
+            <a href="../2_Lomuto/" class="md-nav__link ">
               
   
   
@@ -760,7 +760,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../1_array_partitioning/2_three_way_partition/Djikstra/" class="md-nav__link ">
+            <a href="../../2_three_way_partition/Djikstra/" class="md-nav__link ">
               
   
   
@@ -829,7 +829,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../1_array_partitioning/3_quick_select/" class="md-nav__link ">
+            <a href="../../3_quick_select/" class="md-nav__link ">
               
   
   
@@ -872,8 +872,6 @@
                 
   
   
-    
-  
   
   
     
@@ -892,15 +890,17 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../" class="md-nav__link ">
+            <a href="../../../2_binary_search/" class="md-nav__link ">
               
   
   
@@ -919,7 +919,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             2 binary search
@@ -932,8 +932,6 @@
                 
   
   
-    
-  
   
   
     
@@ -948,11 +946,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2" >
         
           
           <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
@@ -968,7 +968,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2_2">
             <span class="md-nav__icon md-icon"></span>
             Problems
@@ -979,8 +979,6 @@
                 
   
   
-    
-  
   
   
     
@@ -995,11 +993,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_1" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_2_1" >
         
           
           <label class="md-nav__link" for="__nav_2_2_2_1" id="__nav_2_2_2_1_label" tabindex="0">
@@ -1015,7 +1015,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2_2_1">
             <span class="md-nav__icon md-icon"></span>
             Median of two sorted arrays
@@ -1026,19 +1026,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../2_binary_search/problems/median_of_two_sorted_arrays/LC_4__median_of_two_sorted_arrays/" class="md-nav__link">
         
   
   
@@ -1049,7 +1040,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1133,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../3_Sorting/properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
+      <a href="../../../3_Sorting/properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
         
   
   
@@ -1245,7 +1235,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../recursive/1_basics/" class="md-nav__link ">
+            <a href="../../../../recursive/1_basics/" class="md-nav__link ">
               
   
   
@@ -1280,7 +1270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../recursive/1_basics/TEST/" class="md-nav__link">
+      <a href="../../../../recursive/1_basics/TEST/" class="md-nav__link">
         
   
   
@@ -1334,7 +1324,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../recursive/2_backtracking/" class="md-nav__link ">
+            <a href="../../../../recursive/2_backtracking/" class="md-nav__link ">
               
   
   
@@ -1409,149 +1399,103 @@
   
 
 
-<h1 id="what-is-the-data">What is the data?<a class="headerlink" href="#what-is-the-data" title="Permanent link">&para;</a></h1>
-<p>nums1 = [1,2], nums2 = [3,4]</p>
-<p>Two sorted arrays.</p>
-<h1 id="what-is-being-asked">What is being asked?<a class="headerlink" href="#what-is-being-asked" title="Permanent link">&para;</a></h1>
-<p>To find the median in logarithmic time.</p>
-<h1 id="thoughts">Thoughts<a class="headerlink" href="#thoughts" title="Permanent link">&para;</a></h1>
-<p><strong>What is a median</strong></p>
-<p>Consider :
-<div class="highlight"><pre><span></span><code>[1 2 |3 4]  #right partition is inclusive 
+<h1 id="defining-the-problem">Defining the problem<a class="headerlink" href="#defining-the-problem" title="Permanent link">&para;</a></h1>
+<p>Let us consider the simplest version of the problem.</p>
+<p>Given an array of integers, rearrange the elements such that the left part contains elements less than or equal to a pivot value and the right part contains values greater than the pivot value.</p>
+<h1 id="the-algorithm-hoare-partition-with-strict-condition">The algorithm - Hoare partition with strict condition<a class="headerlink" href="#the-algorithm-hoare-partition-with-strict-condition" title="Permanent link">&para;</a></h1>
+<p>Consider this example array and a pivot value of 4   :</p>
+<p>[ 1 , 9, 3, 5, 7, 4, 8  ]</p>
+<p>If this array were already partitioned s.t. the left partition has only elements less than or equal to the pivot.
+These would hold true :
+<div class="highlight"><pre><span></span><code>Any element in left partition &lt;= pivot
+Any element in right partition &gt; pivot
 </code></pre></div>
-If we partition an even lengthed sorted array such that the left and right partitions are of equal size.</p>
-<p>The median is ( max(left partition) + min(right partition)  ) / 2</p>
-<p>If the array is odd lengthed :
-<div class="highlight"><pre><span></span><code>[1 2 3 4 5]
-     *
+If we take left and right pointers  while verifying that arr[left] &lt;= pivot and arr[right] &gt; pivot, left and right pointers would move past each other before evaluating to False for the first time. Left pointer would end up at the BEGINNING of the right partition and the right pointer would end up at the END of the left partition.</p>
+<div class="highlight"><pre><span></span><code>[ 1,   3,     4,   5,   7,   8,   9 ]
+  L/T  L/T   L/T *L/F*                            # L = Left pointer, T = arr[left]&lt;= pivot is True , F = Its False
+            *R/F* R/T   R/T     R/T    R/T        # R = right pointer, T = arr[right] &gt; pivot is True, F = Its False   
 </code></pre></div>
-We can consider the middle element to belong to both partitions. In which case
-<div class="highlight"><pre><span></span><code>[1 2 3 4 5]
-     *
-</code></pre></div></p>
-<p>The middle element IS the median i.e. index len(arr)//2</p>
-<p>We can always find partitions on A and B such that elements to the left of both partitions are less than elements to their right.</p>
-<div class="highlight"><pre><span></span><code>Example 1: 
-B [ 1, 2, |6, 7]  # right pertition is inclusive
-A  [  5, |10  ]
-
-1,2,5  &lt; 6,7,10
+<p>If left evaluates to True while its less than right, it would mean that this element is in the wrong partition. This also implies that there must be an element in the right partition which belongs to the left partition. </p>
+<div class="highlight"><pre><span></span><code>[  1 ,   9,   3,   5,   7,   4,   8  ]         
+  L/T **L/F**                                    # L = Left pointer, T = arr[left]&lt;= pivot is True, F = Its False
+                          **R/F**   R/T          # R = right pointer, T = arr[right] &gt; pivot is True, F = Its False                
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Example 2 :
-B [ |5, 6, 7, 8, 9 ] # consider left out of bounds position to be -inf and right out of bounds position to be +inf
+<p>We can simply swap these and keep moving until left and right pass each other.</p>
+<p><strong>So, the algorithm would be:</strong></p>
+<div class="highlight"><pre><span></span><code>Invariant 1) [0,right] only contains elements less than or equal to pivot
+Invariant 2) (right, len(arr) -1] only contains elements greater than pivot
 
-A [ 1, 2, 3, 4| ]
 
-1,2,3,4 &lt; 5,6,7,8,9
+While left &lt;= right :
+      while left&lt;=right and &gt; (Invaraint 1) is True :
+           left +=1
+      while left&lt;=right and (Invariant 2) is True :
+           right -=1
+      if left &lt; right :
+          swap left and right
+return right
 </code></pre></div>
-<p>If we find the correct partitions like this, we can calculate the mean,</p>
-<p><strong>The first question is how should we define the partitions?</strong></p>
-<p>partition_a + partition_b = (m+n+1) //2 OR partition_a + partition_b = (m+n) // 2 </p>
-<p>let len(A) =m and len(B) = n </p>
-<p>FOR ODD LENGTHED ARRAY :</p>
-<div class="highlight"><pre><span></span><code>B  [1]   ; #IFF partition_b = (m+n +1 )//2 - partition_a  = 2//2 -0 = 1 But *IFF partition_b =  (m+n)//2 - partition_a =  1//2 -0 = 0-0 = 0 
-   *0 #1  
-A  [ ]   ; partition_a = (0+ 0)//2 =0 
-    0
+<h1 id="the-algorithm-hoare-partition-with-weak-condition">The algorithm - Hoare partition with weak condition<a class="headerlink" href="#the-algorithm-hoare-partition-with-weak-condition" title="Permanent link">&para;</a></h1>
+<p>The problem with the partition scheme with a strict condition (where we always put pivot values  in one of the partitions) is that it produces unbalanced partitions when used in quickselect or quicksort.</p>
+<p>Consider if the above partition scheme were used in quickselect for finding the smallest element in an array of size n). </p>
+<p>What happens when all elements are duplicates :</p>
+<p><div class="highlight"><pre><span></span><code>    [1,1,1,1,1,1]
+     l         r   Iter 1 : 5  comparisons
+     l       r     Iter 2 : 4  comparisons
+     l     r       Iter 3 : 3  comparisons
+     l   r         Iter 4 : 2  comparisons
+     l r           Iter 5 : 1  comparisons
+     lr            Iter 6 : 0  comparisons
 </code></pre></div>
-<p><em>If we say that </em><em>partition_x + partition_y = (m+n)//2 then median is in the right partition</em><em> in case of odd lengthed array.</em></p>
-<p><em>If we say that </em><em>partition_x + partition_y = (m+n+1)//2 then median is in the left partition</em><em> in case of odd lenghted array.</em></p>
-<p><strong><em>It makes no difference for arrays where m+n is even.</em></strong>
-<div class="highlight"><pre><span></span><code>B [1 2]   ; #IFF partition_b = (m+n+1)//2 - partition_a  = 5//2 - 1 = 2- 1 = 1 and *IFF partition_b = (m+n)//2 - partition_a = 4//2 -1 = 1
-    #*1
-A [1 2]   ; partition_a = (0 + 2) // 2 = 1
-</code></pre></div></p>
-<p>Lets pick one convention : </p>
-<p>partition_a + partition_b = (m+n) //2</p>
-<p><strong>Now for the binary search:</strong></p>
-<p>It makes sense to binary search on the smaller array. Lets call this array A and the partition on it,  partition_a.</p>
-<p>For each partition_a we ask <strong><em>is left_b &gt; partition_a</em></strong>. If this is TRUE, then partition_a cannot be the pivot and needs to be moved right i.e. made larger.</p>
-<div class="highlight"><pre><span></span><code> INIT:         
- [ 1  3  4  5   6  ]
-  [ 2  6  7   8   ] 
-    lo          hi
-ITER 1:
- [1  3  4  5  6  ]
-        *            #left_b is 3.
-  [ 2 6 7  8 ]  
-   lo   *            #3 &gt; 7 is F; this could be the right partition_a ; hi = mid
-       F/hi
-ITER 2 :
- [1  3  4  5  6  ]
-           *
-  [ 2  6 7  8 ]
-   lo  *           #4&gt; 6 is F  ; this could be partition_a hi = mid            
-      F/hi
-ITER 3 :
- [1  3  4  5  6  ]
-              *
-  [ 2    6  7  8 ]
-    *              #5&gt;2 T; This cannot be the right partition_a ;
-    T/lo hi        #lo = mid+1  ; loop exits in next iteration
-ITER 5 :
-[2     6   7   8]
-       *
-       F/lo,hi
-lo = hi = 1 and loop exits
+Number of comparisons = SUM([1.....n]) = n(n+1)/2 = (n*2 + n ) /2
+Therefore, Complexity is O(n^2)  in this case.</p>
+<p>To mitigate this, we could slightly modify the definition of our partitions :</p>
+<div class="highlight"><pre><span></span><code>Any element in left partition &lt;= pivot
+Any element in right partition &gt;= pivot
 </code></pre></div>
-<p>Binary search will converge on first false value.
-<div class="highlight"><pre><span></span><code>   [1    3    4     |5    6  ]
-     [2     |6    7    8]
-      T     F    F    F
-</code></pre></div></p>
-<p>In our binary search we need a function move_right which simply returns left_b &gt; right_a</p>
-<p><strong>Thats it. Once , we have the right partition, calculate mean:</strong></p>
-<p>If (m+n) is odd : return min(right_a, right_b)</p>
-<p>If (m+n) is even : return (max(left_a, left_b) + min(right_a, right_b)) /2 </p>
-<h1 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">findMedianSortedArrays</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums1</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">nums2</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-        <span class="c1"># A is always the smaller array</span>
-        <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">nums1</span><span class="p">,</span> <span class="n">nums2</span> 
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">)</span> <span class="p">:</span>
-            <span class="n">A</span> <span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">B</span><span class="p">,</span> <span class="n">A</span>
-
-        <span class="c1">#measure their lengths    </span>
-        <span class="n">m</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-
-        <span class="k">def</span><span class="w"> </span><span class="nf">find_partition_b</span><span class="p">(</span><span class="n">partition_a</span><span class="p">)</span> <span class="p">:</span> 
-            <span class="k">return</span> <span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="n">n</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span> <span class="o">-</span> <span class="n">partition_a</span>
-
-        <span class="k">def</span><span class="w"> </span><span class="nf">get_left</span><span class="p">(</span><span class="n">partition</span><span class="p">,</span><span class="n">array</span><span class="p">)</span> <span class="p">:</span>
-            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;-inf&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">partition</span><span class="o">-</span><span class="mi">1</span> <span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span> <span class="k">else</span> <span class="n">array</span><span class="p">[</span><span class="n">partition</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-        <span class="k">def</span><span class="w"> </span><span class="nf">get_right</span><span class="p">(</span><span class="n">partition</span><span class="p">,</span><span class="n">array</span><span class="p">)</span> <span class="p">:</span>
-            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">partition</span><span class="p">)</span><span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="k">else</span> <span class="n">array</span><span class="p">[</span><span class="n">partition</span><span class="p">]</span>
-
-        <span class="k">def</span><span class="w"> </span><span class="nf">move_right</span><span class="p">(</span><span class="n">partition_a</span><span class="p">)</span> <span class="p">:</span> 
-            <span class="n">partition_b</span> <span class="o">=</span> <span class="n">find_partition_b</span><span class="p">(</span><span class="n">partition_a</span><span class="p">)</span>
-            <span class="n">left_b</span> <span class="o">=</span> <span class="n">get_left</span><span class="p">(</span><span class="n">partition_b</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
-            <span class="n">right_a</span> <span class="o">=</span> <span class="n">get_right</span><span class="p">(</span><span class="n">partition_a</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">left_b</span> <span class="o">&gt;</span> <span class="n">right_a</span>
-
-        <span class="c1">#binary search to find the correct partition_a</span>
-        <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span>  <span class="o">=</span> <span class="mi">0</span> <span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-        <span class="k">while</span> <span class="n">lo</span> <span class="o">&lt;</span> <span class="n">hi</span> <span class="p">:</span>
-            <span class="n">partition_a</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span><span class="n">hi</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-            <span class="k">if</span> <span class="n">move_right</span><span class="p">(</span><span class="n">partition_a</span><span class="p">)</span> <span class="p">:</span>
-                <span class="n">lo</span> <span class="o">=</span> <span class="n">partition_a</span><span class="o">+</span><span class="mi">1</span>
-            <span class="k">else</span> <span class="p">:</span>
-                <span class="n">hi</span> <span class="o">=</span> <span class="n">partition_a</span>
-
-        <span class="c1">#lo and hi have converged on the correct partition_a </span>
-        <span class="n">partition_a</span><span class="p">,</span><span class="n">partition_b</span>   <span class="o">=</span> <span class="n">lo</span><span class="p">,</span> <span class="n">find_partition_b</span><span class="p">(</span><span class="n">lo</span><span class="p">)</span>
-        <span class="n">right_a</span> <span class="o">=</span> <span class="n">get_right</span><span class="p">(</span><span class="n">partition_a</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
-        <span class="n">right_b</span> <span class="o">=</span> <span class="n">get_right</span><span class="p">(</span><span class="n">partition_b</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
-
-        <span class="c1">#combined array length is odd</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="n">n</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">:</span>
-            <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">right_a</span><span class="p">,</span><span class="n">right_b</span><span class="p">)</span>
-
-        <span class="c1">#combined array length is even    </span>
-        <span class="n">left_a</span> <span class="o">=</span> <span class="n">get_left</span><span class="p">(</span><span class="n">partition_a</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
-        <span class="n">left_b</span> <span class="o">=</span> <span class="n">get_left</span><span class="p">(</span><span class="n">partition_b</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">(</span> <span class="nb">max</span><span class="p">(</span><span class="n">left_a</span><span class="p">,</span><span class="n">left_b</span><span class="p">)</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">right_a</span><span class="p">,</span><span class="n">right_b</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>        
+<p>Invariant 1) [low,right] only contains elements less than OR EQUAL to pivot
+Invariant 2) (right, high] only contains elements greater OR EQUAL to pivot</p>
+<p>That is, pivot values are allowed to be in either partition.</p>
+<p>Our problem now becomes : </p>
+<p>Given an array of integers, rearrange the elements such that the left part contains elements less than or equal to a pivot value and the right part contains values greater than or equal to the pivot value.</p>
+<p>The implementation is tricky when handling values equal to pivot. </p>
+<p>We also stop scanning when left or right are equal to pivot in both partitions. 
+We swap and move the left and right pointers.
+After any swap, both partitions will increase by 1. Pivot values might end up in any partition. 
+This will also be the case when, left and right are both pointing to pivot value i.e. both partitions increase by 1 and there is a redundant swap between two pivot values.</p>
+<div class="highlight"><pre><span></span><code>While left &lt;= right :
+      while  left&lt;=right and left &lt; pivot :
+           left +=1
+      while left&lt;=right and right &gt; pivot:
+           right -=1
+      if left &lt;= right :
+          swap left and right
+          left-=1
+          right-=1
+return right
 </code></pre></div>
+<p>Let us see the behavior of quickselect with this scheme for the same case :</p>
+<div class="highlight"><pre><span></span><code>    [1,1,1,1,1,1]
+     l         r   Iter 1 : 5  comparisons
+     l   r         Iter 2 : 3  comparisons; This iteration returns r=0 and ends the loop
+     rl            Iter 2 END 
+</code></pre></div>
+<p>The complexity is reduced to nLOG(n) now.</p>
+<h2 id="important-things-to-note">Important things to Note:<a class="headerlink" href="#important-things-to-note" title="Permanent link">&para;</a></h2>
+<p><strong><em>This algorithm does not necessarily place the pivot in its sorted position.</em></strong>
+Or rather, the problem is not asking us to do this,</p>
+<p>This array is partitioned by 4 but 4 is not in its sorted position.</p>
+<div class="highlight"><pre><span></span><code>[ 1,   4,    3,  |5,   7,   8,   9 ]
+</code></pre></div>
+<p>We can put the pivot in its sorted position by swapping it with the right pointer after running the algorithm.  A good way to handle this is :
+1) Ensure that  the pivot at the lowest index  .
+2) Run the partitioning algorithm on the rest of the array.
+3) Swap right with low.</p>
+<p>But again, this will not group multiple instances of pivot together if pivot is duplicated. That is another problem called three way partitioning.</p>
+<p><strong>This algorithm is not stable. The relative order of elements will not be preserved.</strong>
+Naive partitioning using extra space is the only algorithm which preserves relative order of elements.</p>
+<p>Additional References :
+https://algs4.cs.princeton.edu/23quicksort/</p>
 
 
 
@@ -1584,7 +1528,7 @@ lo = hi = 1 and loop exits
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 13, 2025 06:11:52">April 13, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 7, 2025 00:04:07">April 7, 2025</span>
   </span>
 
     
@@ -1634,10 +1578,10 @@ lo = hi = 1 and loop exits
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.indexes", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.expand", "navigation.indexes", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>
