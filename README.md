@@ -24,25 +24,3 @@ My effort is always to develop the correct understanding and mental model for an
 ### call a thing by its right name
 
 Just knowing the name of a thing is very powerful.  Know the name of the problem and know the name of the algorithm.
-
-<!-- BEGIN_DOCS_INDEX -->
-
-# index
-
-- [iterative](iterative)
-  - [1_array_partitioning](iterative/1_array_partitioning)
-    - [1_two_way_partition](iterative/1_array_partitioning/1_two_way_partition)
-      - [1_Hoare](iterative/1_array_partitioning/1_two_way_partition/1_Hoare)
-      - [2_Lomuto](iterative/1_array_partitioning/1_two_way_partition/2_Lomuto)
-    - [2_three_way_partition](iterative/1_array_partitioning/2_three_way_partition)
-      - [Djikstra](iterative/1_array_partitioning/2_three_way_partition/Djikstra)
-    - [3_quick_select](iterative/1_array_partitioning/3_quick_select)
-  - [2_binary_search](iterative/2_binary_search)
-    - [problems](iterative/2_binary_search/problems)
-      - [median_of_two_sorted_arrays](iterative/2_binary_search/problems/median_of_two_sorted_arrays)
-- [recursive](recursive)
-  - [1)basics](recursive/1)basics)
-  - [2)backtracking](recursive/2)backtracking)
-
-<!-- END_DOCS_INDEX -->
-

@@ -1,4 +1,4 @@
-site_name: patibanb.me
+site_name: Algorithmic Pareto
 site_url: https://pbprasad99.github.io/algorithmic_pareto/
 site_author: pbprasad99
 site_description: Algorithmic Pareto - Algorithmic techniques and implementations
@@ -8,17 +8,17 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   palette:
-  - media: '(prefers-color-scheme: light)'
+  - media: '(prefers-color-scheme: dark)'
     scheme: slate
-    primary: blue grey
-    accent: blue grey
+    primary: indigo
+    accent: indigo
     toggle:
       icon: material/weather-sunny
       name: Switch to light mode
   - media: '(prefers-color-scheme: dark)'
     scheme: default
-    primary: black
-    accent: black
+    primary: indigo
+    accent: indigo
     toggle:
       icon: material/weather-night
       name: Switch to dark mode
@@ -26,6 +26,7 @@ theme:
   - navigation.instant
   - navigation.tracking
   - navigation.tabs
+  - navigation.sections
   - navigation.expand
   - navigation.indexes
   - search.suggest
@@ -56,3 +57,4 @@ plugins:
 - awesome-pages
 - git-revision-date-localized:
     enable_creation_date: true
+collapse: false

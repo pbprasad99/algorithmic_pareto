@@ -1,14 +1,10 @@
----
-title: Lc 4  Median Of Two Sorted Arrays
----
-
-**What is the data?** 
+# What is the data?
 
 nums1 = [1,2], nums2 = [3,4]
 
 Two sorted arrays.
 
-**What is being asked?**
+# What is being asked?
 
 To find the median in logarithmic time.
 
@@ -142,7 +138,8 @@ If (m+n) is even : return (max(left_a, left_b) + min(right_a, right_b)) /2
 
 # Code
 
-```python3 []
+```python
+
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         # A is always the smaller array
@@ -189,8 +186,5 @@ class Solution:
         #combined array length is even    
         left_a = get_left(partition_a,A)
         left_b = get_left(partition_b,B)
-        return ( max(left_a,left_b) + min(right_a,right_b) ) / 2
-
-
-        
+        return ( max(left_a,left_b) + min(right_a,right_b) ) / 2        
 ```

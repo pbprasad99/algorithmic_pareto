@@ -33,6 +33,17 @@ Just knowing the name of a thing is very powerful.  Know the name of the problem
 
 # index
 
+- [.github](.github)
+  - [workflows](.github/workflows)
+- [docs](docs)
+  - [assets](docs/assets)
+    - [css](docs/assets/css)
+    - [images](docs/assets/images)
+  - [iterative](docs/iterative)
+    - [1_array_partitioning](docs/iterative/1_array_partitioning)
+    - [2_binary_search](docs/iterative/2_binary_search)
+      - [problems](docs/iterative/2_binary_search/problems)
+        - [median_of_two_sorted_arrays](docs/iterative/2_binary_search/problems/median_of_two_sorted_arrays)
 - [iterative](iterative)
   - [1_array_partitioning](iterative/1_array_partitioning)
     - [1_two_way_partition](iterative/1_array_partitioning/1_two_way_partition)
@@ -45,8 +56,8 @@ Just knowing the name of a thing is very powerful.  Know the name of the problem
     - [problems](iterative/2_binary_search/problems)
       - [median_of_two_sorted_arrays](iterative/2_binary_search/problems/median_of_two_sorted_arrays)
 - [recursive](recursive)
-  - [1)basics](recursive/1)basics)
-  - [2)backtracking](recursive/2)backtracking)
+  - [1_basics](recursive/1_basics)
+  - [2_backtracking](recursive/2_backtracking)
 
 <!-- END_DOCS_INDEX -->
 

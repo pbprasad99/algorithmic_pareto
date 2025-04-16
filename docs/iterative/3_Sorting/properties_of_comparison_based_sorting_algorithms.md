@@ -1,8 +1,7 @@
----
-title: Properties Of Comparison Based Sorting Algorithms
----
+# Properties of Comparison Based Sorting Algorithms
 
-# Quicksort  
+## Quicksort 
+
 Not Stable, Not adaptive. In-Place. O(NlogN) Average Case. 
 
 Pivot Selection and partitioning schemes affect Complexity in a major way. 
@@ -20,12 +19,14 @@ Important thing to note, The most common partitioning scheme found on the intern
 Lomuto was popularized by Bentley in the book Programming Pearls because he found Hoare difficult and unintuitve. One advantage to note: because Lomuto uses two forward iterators, it can be used on singly linked lists.
 
 
-# Mergesort
-Quadratic. In-place. Stable. Not adaptive. Not In-place (Needs extra space)
+## Mergesort
+
+In-place. Stable. Not adaptive. Not In-place (Needs extra space) . O(NlogN) worst case.
 Can be combined with Insertion sort for small subproblem sizes.
 
 
-# Bubble Sort  
+## Bubble Sort  
+
 Stable. Can be made adaptive (just add a flag to tell if a swap has occurred. If not exit early). 
 
 Invariant for inner loop
@@ -46,7 +47,7 @@ def optimized_bubble_sort(arr):
     return arr
 ```
 
-# Insertion Sort
+## Insertion Sort
 
 Quadratic. In-place. Stable. Adaptive.
 
@@ -72,12 +73,12 @@ https://stackoverflow.com/questions/47712062/how-to-distinguish-online-and-offli
 
 https://cs.stackexchange.com/questions/55012/what-is-the-fastest-online-sorting-algorithm
 
-# Selection Sort
+## Selection Sort
 Quadratic. In-Place. Not Stable. Not Adaptive. 
 
 Only advantage over insertion sort : performs less swaps than insertion sort.
 
 
-# Additional References 
+## Additional References 
 
 https://www.toptal.com/developers/sorting-algorithms

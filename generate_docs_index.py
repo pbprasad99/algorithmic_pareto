@@ -26,6 +26,8 @@ def generate_markdown_index(root_dir, github_base_url=None):
     for root, dirs, files in os.walk(root_dir):
         if '.git' in dirs:
             dirs.remove('.git')  # Skip git directories
+        if 'venv' in dirs:
+            dirs.remove('venv')  # Skip git directories
         
         # Skip root directory itself
         if root == root_dir:
