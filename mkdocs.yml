@@ -1,12 +1,15 @@
 site_name: patibanb.me
 site_url: https://pbprasad99.github.io/algorithmic_pareto/
 site_author: pbprasad99
-site_description: Algorithmic Pareto - Algorithmic techniques and implementations
+site_description: Personal Website
 repo_name: pbprasad99/algorithmic_pareto
 repo_url: https://github.com/pbprasad99/algorithmic_pareto
 edit_uri: edit/main/docs/
 theme:
   name: material
+  custom_dir: overrides
+  logo: assets/images/logo.png
+  favicon : assets/images/favicon.
   palette:
   - media: '(prefers-color-scheme: light)'
     scheme: slate
@@ -54,5 +57,10 @@ plugins:
 - search
 - minify
 - awesome-pages
-- git-revision-date-localized:
-    enable_creation_date: true
+- gen-files:
+    scripts:
+      - gen_pages.py
+- blog
+  # Add other plugins (like a theme) here
+# - git-revision-date-localized:
+#     enable_creation_date: true
