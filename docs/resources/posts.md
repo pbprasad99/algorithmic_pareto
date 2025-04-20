@@ -1,11 +1,21 @@
 # Posts
 
+## Productivity, Leadership, etc
+
+https://modelthinkers.com/playbook
+
+https://borretti.me/article/depth-first-procrastination
+
+https://dineshpandiyan.com/notes/multipliers-takeaways/
+
 
 ## SQL Optimization
 
 https://blog.devgenius.io/mastering-explain-analyze-become-a-db-query-optimization-pro-cf1e52bcb92e
 
 https://planetscale.com/blog/what-is-n-1-query-problem-and-how-to-solve-it (N+1 Problem)
+
+https://dineshpandiyan.com/blog/graphql-n+1/
 
 
 
@@ -23,11 +33,9 @@ https://github.com/coiled/benchmarks/issues/1515
 
 
 ## Airflow
+
 https://medium.com/nerd-for-tech/airflow-features-callback-trigger-clsuter-policy-cc7f8022e7d3
 
-## Productivity 
-
-https://borretti.me/article/depth-first-procrastination
 
 ## Interviewing
 
