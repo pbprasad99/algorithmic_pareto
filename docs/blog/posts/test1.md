@@ -1,5 +1,6 @@
 ---
-title: Your Post Title
+title: Building Serverless ETL Pipelines on AWS
+slug: test
 date: 2025-04-17
 tags:
   - tag1
@@ -13,6 +14,8 @@ categories:
 # Building Serverless ETL Pipelines on AWS
 
 In this post, I'll share my experience building a serverless ETL pipeline to extract and map medical entities using various AWS services including Lambda, SNS, Textract, Translate, Comprehend Medical, Glue, and Athena.
+
+<!-- more -->
 
 ## The Challenge
 

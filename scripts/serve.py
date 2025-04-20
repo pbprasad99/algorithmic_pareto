@@ -71,7 +71,7 @@ def setup_virtual_env(project_dir):
 
 def install_dependencies(activate_cmd):
     print("\n📦 Installing MkDocs and plugins...")
-    run_command(f"{activate_cmd} && pip install -r ../requirements.txt",
+    run_command(f"{activate_cmd}  && pip install -r ../requirements.txt",
                  "Failed to install dependencies")
 
 # def install_dependencies(activate_cmd):

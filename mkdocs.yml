@@ -3,33 +3,37 @@ site_url: https://pbprasad99.github.io/algorithmic_pareto/
 site_author: pbprasad99
 site_description: Personal Website
 repo_name: pbprasad99/algorithmic_pareto
-repo_url: https://github.com/pbprasad99/algorithmic_pareto
-edit_uri: edit/main/docs/
+# repo_url: https://github.com/pbprasad99/algorithmic_pareto
+# edit_uri: edit/main/docs/
 theme:
   name: material
   custom_dir: overrides
   logo: assets/images/logo.png
-  favicon : assets/images/favicon.
+  favicon : assets/images/favicon.ico
   palette:
-  - media: '(prefers-color-scheme: light)'
-    scheme: slate
-    primary: blue grey
-    accent: blue grey
-    toggle:
-      icon: material/weather-sunny
-      name: Switch to light mode
-  - media: '(prefers-color-scheme: dark)'
-    scheme: default
-    primary: black
-    accent: black
-    toggle:
-      icon: material/weather-night
-      name: Switch to dark mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      accent: light blue
+      primary: black
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      accent: light blue
+      primary: black
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
   features:
   - navigation.instant
-  - navigation.tracking
+  #- navigation.tracking
   - navigation.tabs
-  - navigation.expand
+  #- navigation.expand
+  - navigation.path
   - navigation.indexes
   - search.suggest
   - search.highlight
@@ -38,8 +42,15 @@ theme:
   - content.code.annotate
   icon:
     repo: fontawesome/brands/github
+
+hooks:
+  - scripts/mkdocs_hooks.py
+
+watch:
+  - overrides/
+
 extra_css:
-- assets/css/extra.css
+- assets/stylesheets/extra.css
 markdown_extensions:
 - pymdownx.highlight
 - pymdownx.superfences
@@ -48,19 +59,30 @@ markdown_extensions:
 - pymdownx.critic
 - pymdownx.tasklist
 - pymdownx.emoji
+- pymdownx.magiclink
 - admonition
 - footnotes
-- toc
 - toc:
     permalink: true
 plugins:
 - search
 - minify
-- awesome-pages
+- awesome-nav
 - gen-files:
     scripts:
       - gen_pages.py
-- blog
+- blog:
+    blog_toc: true
+    post_url_format: "{slug}"
+    post_excerpt: required
+- social
+- tags
+- glightbox
   # Add other plugins (like a theme) here
 # - git-revision-date-localized:
 #     enable_creation_date: true
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/vega@5
+  - https://cdn.jsdelivr.net/npm/vega-lite@5
+  - https://cdn.jsdelivr.net/npm/vega-embed@6

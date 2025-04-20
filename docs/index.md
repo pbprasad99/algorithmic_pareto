@@ -1,11 +1,12 @@
 ---
 template: home.html
+title: Home
+social:
+  cards_layout_options:
+    title: Personal website patibanb
 hide:
   - navigation
   - toc
 ---
 
-Memory is fleeting. But some things are worth remembering.
-
-Knowing everything is impossible. But some things are worth knowing.
-
+Welcome to patibanb.me
