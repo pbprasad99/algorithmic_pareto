@@ -35,6 +35,7 @@ theme:
   #- navigation.expand
   - navigation.path
   - navigation.indexes
+  - navigation.footer
   - search.suggest
   - search.highlight
   - content.tabs.link
