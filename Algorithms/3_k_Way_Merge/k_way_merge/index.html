@@ -12,28 +12,28 @@
         <meta name="author" content="pbprasad99">
       
       
-        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/4_Merge_Sort/">
+        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/3_k_Way_Merge/k_way_merge/">
       
       
-        <link rel="prev" href="../3_k_Way_Merge/two_way_merge_list/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../5_Sorting_Other/External_Sorting/">
+        <link rel="next" href="../k_way_merge_list/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.ico">
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
-        <title>Merge Sort - patibanb.me</title>
+        <title>k_way_merge.py - patibanb.me</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,9 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -63,11 +63,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Merge Sort - patibanb.me" >
+        <meta  property="og:title"  content="k_way_merge.py - patibanb.me" >
       
         <meta  property="og:description"  content="Personal Website" >
       
-        <meta  property="og:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/4_Merge_Sort/README.png" >
+        <meta  property="og:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/3_k_Way_Merge/k_way_merge.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -75,19 +75,19 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/4_Merge_Sort/" >
+        <meta  property="og:url"  content="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/3_k_Way_Merge/k_way_merge/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Merge Sort - patibanb.me" >
+        <meta  name="twitter:title"  content="k_way_merge.py - patibanb.me" >
       
         <meta  name="twitter:description"  content="Personal Website" >
       
-        <meta  name="twitter:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/4_Merge_Sort/README.png" >
+        <meta  name="twitter:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/3_k_Way_Merge/k_way_merge.png" >
       
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -96,7 +96,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -115,7 +115,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#merge-sort" class="md-skip">
+        <a href="#k_way_mergepy" class="md-skip">
           Skip to content
         </a>
       
@@ -129,9 +129,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+    <a href="../../.." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -148,7 +148,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Merge Sort
+              k_way_merge.py
             
           </span>
         </div>
@@ -249,7 +249,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -272,7 +272,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -294,7 +294,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../blog/" class="md-tabs__link">
+        <a href="../../../blog/" class="md-tabs__link">
           
   
   
@@ -316,7 +316,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../resources/playgrounds/" class="md-tabs__link">
+        <a href="../../../resources/playgrounds/" class="md-tabs__link">
           
   
   
@@ -338,7 +338,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../About/about/" class="md-tabs__link">
+        <a href="../../../About/about/" class="md-tabs__link">
           
   
   
@@ -374,9 +374,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+    <a href="../../.." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     patibanb.me
@@ -391,7 +391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -453,7 +453,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -513,7 +513,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../1_Array_Partitioning/" class="md-nav__link ">
+            <a href="../../1_Array_Partitioning/" class="md-nav__link ">
               
   
   
@@ -622,7 +622,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../1_Array_Partitioning/1_two_way_partition/1_Hoare/" class="md-nav__link ">
+            <a href="../../1_Array_Partitioning/1_two_way_partition/1_Hoare/" class="md-nav__link ">
               
   
   
@@ -657,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1_Array_Partitioning/1_two_way_partition/1_Hoare/hoare_two_way_partition_1/" class="md-nav__link">
+      <a href="../../1_Array_Partitioning/1_two_way_partition/1_Hoare/hoare_two_way_partition_1/" class="md-nav__link">
         
   
   
@@ -680,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1_Array_Partitioning/1_two_way_partition/1_Hoare/hoare_two_way_partition_2/" class="md-nav__link">
+      <a href="../../1_Array_Partitioning/1_two_way_partition/1_Hoare/hoare_two_way_partition_2/" class="md-nav__link">
         
   
   
@@ -703,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1_Array_Partitioning/1_two_way_partition/1_Hoare/hoare_two_way_partition_3/" class="md-nav__link">
+      <a href="../../1_Array_Partitioning/1_two_way_partition/1_Hoare/hoare_two_way_partition_3/" class="md-nav__link">
         
   
   
@@ -755,7 +755,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../1_Array_Partitioning/1_two_way_partition/2_Lomuto/" class="md-nav__link ">
+            <a href="../../1_Array_Partitioning/1_two_way_partition/2_Lomuto/" class="md-nav__link ">
               
   
   
@@ -867,7 +867,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../1_Array_Partitioning/2_three_way_partition/Djikstra/" class="md-nav__link ">
+            <a href="../../1_Array_Partitioning/2_three_way_partition/Djikstra/" class="md-nav__link ">
               
   
   
@@ -948,7 +948,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../2_Quick_Select_And_Quick_Sort/" class="md-nav__link ">
+            <a href="../../2_Quick_Select_And_Quick_Sort/" class="md-nav__link ">
               
   
   
@@ -983,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2_Quick_Select_And_Quick_Sort/quickselect_hoare_two_way_partition_1/" class="md-nav__link">
+      <a href="../../2_Quick_Select_And_Quick_Sort/quickselect_hoare_two_way_partition_1/" class="md-nav__link">
         
   
   
@@ -1006,7 +1006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2_Quick_Select_And_Quick_Sort/quickselect_hoare_two_way_partition_2/" class="md-nav__link">
+      <a href="../../2_Quick_Select_And_Quick_Sort/quickselect_hoare_two_way_partition_2/" class="md-nav__link">
         
   
   
@@ -1029,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2_Quick_Select_And_Quick_Sort/quicksort_hoare_two_way_partition_1/" class="md-nav__link">
+      <a href="../../2_Quick_Select_And_Quick_Sort/quicksort_hoare_two_way_partition_1/" class="md-nav__link">
         
   
   
@@ -1057,6 +1057,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1083,15 +1085,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../3_k_Way_Merge/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1110,7 +1112,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             3 k Way Merge
@@ -1123,10 +1125,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../3_k_Way_Merge/k_way_merge/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1137,6 +1148,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1149,7 +1161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3_k_Way_Merge/k_way_merge_list/" class="md-nav__link">
+      <a href="../k_way_merge_list/" class="md-nav__link">
         
   
   
@@ -1172,7 +1184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3_k_Way_Merge/test_two_way_merge/" class="md-nav__link">
+      <a href="../test_two_way_merge/" class="md-nav__link">
         
   
   
@@ -1195,7 +1207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3_k_Way_Merge/two_way_merge/" class="md-nav__link">
+      <a href="../two_way_merge/" class="md-nav__link">
         
   
   
@@ -1218,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3_k_Way_Merge/two_way_merge_list/" class="md-nav__link">
+      <a href="../two_way_merge_list/" class="md-nav__link">
         
   
   
@@ -1246,8 +1258,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1264,15 +1274,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../4_Merge_Sort/" class="md-nav__link ">
               
   
   
@@ -1286,7 +1296,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             4 Merge Sort
@@ -1357,7 +1367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../5_Sorting_Other/External_Sorting/" class="md-nav__link">
+      <a href="../../5_Sorting_Other/External_Sorting/" class="md-nav__link">
         
   
   
@@ -1380,7 +1390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../5_Sorting_Other/properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
+      <a href="../../5_Sorting_Other/properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
         
   
   
@@ -1434,7 +1444,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../6_Binary_search/" class="md-nav__link ">
+            <a href="../../6_Binary_search/" class="md-nav__link ">
               
   
   
@@ -1559,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../6_Binary_search/problems/median_of_two_sorted_arrays/LC_4__median_of_two_sorted_arrays/" class="md-nav__link">
+      <a href="../../6_Binary_search/problems/median_of_two_sorted_arrays/LC_4__median_of_two_sorted_arrays/" class="md-nav__link">
         
   
   
@@ -1680,7 +1690,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../recursive/1_basics/" class="md-nav__link ">
+            <a href="../../recursive/1_basics/" class="md-nav__link ">
               
   
   
@@ -1715,7 +1725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../recursive/1_basics/recursion_print_numbers_1/" class="md-nav__link">
+      <a href="../../recursive/1_basics/recursion_print_numbers_1/" class="md-nav__link">
         
   
   
@@ -1738,7 +1748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../recursive/1_basics/recursion_print_numbers_2/" class="md-nav__link">
+      <a href="../../recursive/1_basics/recursion_print_numbers_2/" class="md-nav__link">
         
   
   
@@ -1761,7 +1771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../recursive/1_basics/recursion_print_numbers_3/" class="md-nav__link">
+      <a href="../../recursive/1_basics/recursion_print_numbers_3/" class="md-nav__link">
         
   
   
@@ -1823,7 +1833,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../recursive/2_backtracking/" class="md-nav__link ">
+            <a href="../../recursive/2_backtracking/" class="md-nav__link ">
               
   
   
@@ -1858,7 +1868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../recursive/2_backtracking/generate_nbit_binary_numbers_1/" class="md-nav__link">
+      <a href="../../recursive/2_backtracking/generate_nbit_binary_numbers_1/" class="md-nav__link">
         
   
   
@@ -1881,7 +1891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../recursive/2_backtracking/generate_nbit_binary_numbers_2/" class="md-nav__link">
+      <a href="../../recursive/2_backtracking/generate_nbit_binary_numbers_2/" class="md-nav__link">
         
   
   
@@ -1904,7 +1914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../recursive/2_backtracking/generate_nbit_binary_numbers_3/" class="md-nav__link">
+      <a href="../../recursive/2_backtracking/generate_nbit_binary_numbers_3/" class="md-nav__link">
         
   
   
@@ -1927,7 +1937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../recursive/2_backtracking/generate_nbit_binary_numbers_4/" class="md-nav__link">
+      <a href="../../recursive/2_backtracking/generate_nbit_binary_numbers_4/" class="md-nav__link">
         
   
   
@@ -1950,7 +1960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../recursive/2_backtracking/generate_nbit_binary_numbers_5/" class="md-nav__link">
+      <a href="../../recursive/2_backtracking/generate_nbit_binary_numbers_5/" class="md-nav__link">
         
   
   
@@ -2021,7 +2031,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../blog/" class="md-nav__link ">
+            <a href="../../../blog/" class="md-nav__link ">
               
   
   
@@ -2103,7 +2113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2025/" class="md-nav__link">
+      <a href="../../../blog/archive/2025/" class="md-nav__link">
         
   
   
@@ -2185,7 +2195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/aws/" class="md-nav__link">
+      <a href="../../../blog/category/aws/" class="md-nav__link">
         
   
   
@@ -2210,7 +2220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/etl/" class="md-nav__link">
+      <a href="../../../blog/category/etl/" class="md-nav__link">
         
   
   
@@ -2235,7 +2245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/serverless/" class="md-nav__link">
+      <a href="../../../blog/category/serverless/" class="md-nav__link">
         
   
   
@@ -2322,7 +2332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/playgrounds/" class="md-nav__link">
+      <a href="../../../resources/playgrounds/" class="md-nav__link">
         
   
   
@@ -2345,7 +2355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/blogs/" class="md-nav__link">
+      <a href="../../../resources/blogs/" class="md-nav__link">
         
   
   
@@ -2368,7 +2378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../resources/posts/" class="md-nav__link">
+      <a href="../../../resources/posts/" class="md-nav__link">
         
   
   
@@ -2443,7 +2453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../About/about/" class="md-nav__link">
+      <a href="../../../About/about/" class="md-nav__link">
         
   
   
@@ -2500,8 +2510,54 @@
 
 
 
-<h1 id="merge-sort">Merge Sort<a class="headerlink" href="#merge-sort" title="Permanent link">&para;</a></h1>
-<p>Coming Soon.</p>
+<h1 id="k_way_mergepy"><code>k_way_merge.py</code><a class="headerlink" href="#k_way_mergepy" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The same problem but with a different signature :</span>
+<span class="sd">https://www.geeksforgeeks.org/problems/merge-k-sorted-arrays/1</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1">#User function Template for python3</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">heapq</span><span class="w"> </span><span class="kn">import</span> <span class="n">heapify</span><span class="p">,</span> <span class="n">heappop</span><span class="p">,</span> <span class="n">heappush</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
+    <span class="c1">#Function to merge k sorted arrays.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mergeKArrays</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given k sorted arrays, return a single merged array.</span>
+<span class="sd">        Input :</span>
+<span class="sd">         arr : a list of integer arrays</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># return merged list</span>
+        <span class="n">len_res</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1">#Priority Queue- min heap</span>
+        <span class="n">pq</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">#Assume that arrays can be of unequal length</span>
+        <span class="c1">#Initialize min heap</span>
+        <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">arr</span> <span class="p">:</span>
+            <span class="n">len_res</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+            <span class="c1">#Store the current index and a reference to the array for getting the next value in the array</span>
+            <span class="n">pq</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="n">array</span><span class="p">))</span>
+
+        <span class="c1">#heapify pq</span>
+        <span class="n">heapify</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
+
+        <span class="c1">#allocate result array</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">len_res</span>
+
+        <span class="c1">#write pointer</span>
+        <span class="n">write_ptr</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="c1">#Pick the lowest value from the current choices and write it to res</span>
+        <span class="k">while</span> <span class="n">pq</span> <span class="p">:</span>
+            <span class="n">curr_val</span><span class="p">,</span> <span class="n">curr_ptr</span><span class="p">,</span> <span class="n">curr_arr</span> <span class="o">=</span> <span class="n">heappop</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
+            <span class="n">res</span><span class="p">[</span><span class="n">write_ptr</span><span class="p">]</span> <span class="o">=</span> <span class="n">curr_val</span>
+            <span class="k">if</span> <span class="n">curr_ptr</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">curr_arr</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span>  <span class="p">:</span> 
+                <span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,</span> <span class="p">(</span><span class="n">curr_arr</span><span class="p">[</span><span class="n">curr_ptr</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> <span class="n">curr_ptr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">curr_arr</span> <span class="p">))</span>
+            <span class="n">write_ptr</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span> <span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">Solution</span><span class="p">()</span><span class="o">.</span><span class="n">mergeKArrays</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]])</span> <span class="p">)</span>
+</code></pre></div>
 
 
 
@@ -2536,7 +2592,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../3_k_Way_Merge/two_way_merge_list/" class="md-footer__link md-footer__link--prev" aria-label="Previous: two_way_merge_list.py">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Merging Sorted Containers">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2546,20 +2602,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                two_way_merge_list.py
+                Merging Sorted Containers
               </div>
             </div>
           </a>
         
         
           
-          <a href="../5_Sorting_Other/External_Sorting/" class="md-footer__link md-footer__link--next" aria-label="Next: External Sorting">
+          <a href="../k_way_merge_list/" class="md-footer__link md-footer__link--next" aria-label="Next: k_way_merge_list.py">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                External Sorting
+                k_way_merge_list.py
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2595,10 +2651,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

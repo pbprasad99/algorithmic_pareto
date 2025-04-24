@@ -18,7 +18,7 @@
         <link rel="prev" href="../2_Quick_Select_And_Quick_Sort/quicksort_hoare_two_way_partition_1/">
       
       
-        <link rel="next" href="test_two_way_merge/">
+        <link rel="next" href="k_way_merge/">
       
       
       <link rel="icon" href="../../assets/images/favicon.ico">
@@ -1074,6 +1074,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1115,6 +1119,52 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="k_way_merge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    k_way_merge.py
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="k_way_merge_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    k_way_merge_list.py
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -2475,6 +2525,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-k-way-merge-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      The k-way Merge problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The k-way Merge problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#merging-k-sorted-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merging k sorted arrays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merging-k-sorted-linked-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merging k sorted linked lists
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-things-to-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important things to note
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2578,6 +2670,103 @@
 <p>We have a write pointer p3 and we have two read pointers, p1 and p2.
 In each iteration of the while loop, we pick the smaller read pointer to write to the write location and move both pointers (write pointer and one of the read pointers) ahead.</p>
 <p>If either p1 or p2 have still not reached the end of their read containers, we just write the rest of that read container at the write pointer.</p>
+<h2 id="the-k-way-merge-problem">The k-way Merge problem<a class="headerlink" href="#the-k-way-merge-problem" title="Permanent link">&para;</a></h2>
+<h3 id="merging-k-sorted-arrays">Merging k sorted arrays<a class="headerlink" href="#merging-k-sorted-arrays" title="Permanent link">&para;</a></h3>
+<p>We can think of the k-way merge problem as a generalization of the 2-way merge problem. That is given, k sorted containers, return a merged sorted container.</p>
+<p>In the 2-way merge problem , we had a binary choice when picking the next value to write to the merged container. 
+Now we have a k-way choice among k or less elements at each step. We basically need a good way to pick the smallest value from among all posssible choices. This is what a heap does. Since we are considering containers sorted in a non decreasing order, a Min Heap is what we need to dynamically pick the smallest value at each step.</p>
+<p>The crux of the algorithm is :</p>
+<div class="highlight"><pre><span></span><code>initialize a Min heap of all possible choices. 
+While there is something in the heap : 
+   Pop the heap top and write it to the merged container.
+   Get the element next to popped element in the container to which it belongs (If it exists). Put it in the heap.
+</code></pre></div>
+<p>Thats it.</p>
+<p>The code should actually simpler than handling the 2-way merge because there are no if else conditions to handle unequal lengthed arrays.</p>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The same problem but with a different signature :</span>
+<span class="sd">https://www.geeksforgeeks.org/problems/merge-k-sorted-arrays/1</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1">#User function Template for python3</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">heapq</span><span class="w"> </span><span class="kn">import</span> <span class="n">heapify</span><span class="p">,</span> <span class="n">heappop</span><span class="p">,</span> <span class="n">heappush</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
+    <span class="c1">#Function to merge k sorted arrays.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mergeKArrays</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given k sorted arrays, return a single merged array.</span>
+<span class="sd">        Input :</span>
+<span class="sd">         arr : a list of integer arrays</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># return merged list</span>
+        <span class="n">len_res</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1">#Priority Queue- min heap</span>
+        <span class="n">pq</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">#Assume that arrays can be of unequal length</span>
+        <span class="c1">#Initialize min heap</span>
+        <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">arr</span> <span class="p">:</span>
+            <span class="n">len_res</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+            <span class="c1">#Store the current index and a reference to the array for getting the next value in the array</span>
+            <span class="n">pq</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="n">array</span><span class="p">))</span>
+
+        <span class="c1">#heapify pq</span>
+        <span class="n">heapify</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
+
+        <span class="c1">#allocate result array</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">len_res</span>
+
+        <span class="c1">#write pointer</span>
+        <span class="n">write_ptr</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="c1">#Pick the lowest value from the current choices and write it to res</span>
+        <span class="k">while</span> <span class="n">pq</span> <span class="p">:</span>
+            <span class="n">curr_val</span><span class="p">,</span> <span class="n">curr_ptr</span><span class="p">,</span> <span class="n">curr_arr</span> <span class="o">=</span> <span class="n">heappop</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
+            <span class="n">res</span><span class="p">[</span><span class="n">write_ptr</span><span class="p">]</span> <span class="o">=</span> <span class="n">curr_val</span>
+            <span class="k">if</span> <span class="n">curr_ptr</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">curr_arr</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span>  <span class="p">:</span> 
+                <span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,</span> <span class="p">(</span><span class="n">curr_arr</span><span class="p">[</span><span class="n">curr_ptr</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> <span class="n">curr_ptr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">curr_arr</span> <span class="p">))</span>
+            <span class="n">write_ptr</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span> <span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">Solution</span><span class="p">()</span><span class="o">.</span><span class="n">mergeKArrays</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]])</span> <span class="p">)</span>
+</code></pre></div>
+<h3 id="merging-k-sorted-linked-lists">Merging k sorted linked lists<a class="headerlink" href="#merging-k-sorted-linked-lists" title="Permanent link">&para;</a></h3>
+<p>The same thing for linked lists. </p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">heapq</span><span class="w"> </span><span class="kn">import</span> <span class="n">heapify</span><span class="p">,</span><span class="n">heappush</span><span class="p">,</span><span class="n">heappop</span>
+<span class="c1">#Definition for singly-linked list.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ListNode</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mergeKLists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
+        <span class="n">pq</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">head</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lists</span><span class="p">)</span> <span class="p">:</span> 
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">head</span> <span class="p">:</span> <span class="k">continue</span>
+            <span class="c1">#Put idx between the value and the node object  to avoid comparing objects in case of a tie </span>
+            <span class="c1">#Which will lead to this error :&#39;&lt;&#39; not supported between instances of &#39;ListNode&#39; and &#39;ListNode&#39;</span>
+            <span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,(</span><span class="n">head</span><span class="o">.</span><span class="n">val</span><span class="p">,</span><span class="n">idx</span><span class="p">,</span> <span class="n">head</span><span class="p">))</span> 
+
+        <span class="c1">#Allocate Write container and write pointer</span>
+        <span class="n">dummy</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">write_ptr</span> <span class="o">=</span> <span class="n">dummy</span>
+
+        <span class="k">while</span> <span class="n">pq</span> <span class="p">:</span>
+            <span class="c1">#Pick the lowest valued node from available choices.</span>
+            <span class="n">_</span><span class="p">,</span><span class="n">idx</span><span class="p">,</span><span class="n">curr_node</span> <span class="o">=</span> <span class="n">heappop</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
+
+            <span class="c1">#write to write container and move write pointer ahead</span>
+            <span class="n">write_ptr</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">curr_node</span>
+            <span class="n">write_ptr</span> <span class="o">=</span> <span class="n">write_ptr</span><span class="o">.</span><span class="n">next</span>
+
+            <span class="c1">#For curr_node, put its next node in the heap  </span>
+            <span class="n">nxt_node</span> <span class="o">=</span> <span class="n">curr_node</span><span class="o">.</span><span class="n">next</span> 
+            <span class="k">if</span> <span class="n">nxt_node</span> <span class="p">:</span> <span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,(</span><span class="n">nxt_node</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">nxt_node</span> <span class="p">))</span>
+        <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="n">next</span>
+</code></pre></div>
+<h2 id="important-things-to-note">Important things to note<a class="headerlink" href="#important-things-to-note" title="Permanent link">&para;</a></h2>
+<p>As we saw earlier, quicksort is just an application of array partitioning where we can think of a partition happening at the preorder position in the traversal of a binary tree. </p>
+<p>Similaraly, Merge sort is an application of 2-way merge where we can think of a merge happening in the post order position of a binary tree traversal.</p>
 
 
 
@@ -2629,13 +2818,13 @@ In each iteration of the while loop, we pick the smaller read pointer to write t
         
         
           
-          <a href="test_two_way_merge/" class="md-footer__link md-footer__link--next" aria-label="Next: test_two_way_merge.py">
+          <a href="k_way_merge/" class="md-footer__link md-footer__link--next" aria-label="Next: k_way_merge.py">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                test_two_way_merge.py
+                k_way_merge.py
               </div>
             </div>
             <div class="md-footer__button md-icon">
