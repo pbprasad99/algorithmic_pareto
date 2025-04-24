@@ -61,6 +61,7 @@ markdown_extensions:
 - pymdownx.tasklist
 - pymdownx.emoji
 - pymdownx.magiclink
+- pymdownx.snippets
 - admonition
 - footnotes
 - toc:

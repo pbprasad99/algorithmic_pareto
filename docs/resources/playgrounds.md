@@ -1,7 +1,10 @@
 
-# Playgrounds
+# Learning/Playgrounds
 
 Playgrounds and learning platforms.
+
+## Data Engineering
+https://datatalks.club/
 
 ## K8S/ Linux / Containers
 https://labs.iximiuz.com/

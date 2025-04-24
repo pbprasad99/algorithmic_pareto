@@ -1,13 +1,6 @@
 # Posts
 
-## Productivity, Leadership, etc
-
-https://modelthinkers.com/playbook
-
-https://borretti.me/article/depth-first-procrastination
-
-https://dineshpandiyan.com/notes/multipliers-takeaways/
-
+A collection of interesting blog posts.
 
 ## SQL Optimization
 
@@ -43,11 +36,22 @@ https://www.tik.dev/blog/tech-interviews
 
 
 ## MkDocs
+
 https://whliao.me/blog/material-for-mkdocs-advanced-customization/
 
 ## Other
 
 https://planetscale.com/blog/what-is-n-1-query-problem-and-how-to-solve-it
 
+
+## Productivity, Leadership, etc
+
+https://modelthinkers.com/playbook
+
+https://borretti.me/article/depth-first-procrastination
+
+https://dineshpandiyan.com/notes/multipliers-takeaways/
+
+https://youtu.be/eaKZ2Brzpz0?si=SvqhLuzfA9i5tynD
 
 

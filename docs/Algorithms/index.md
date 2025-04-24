@@ -1,10 +1,10 @@
 ---
-title: Algorithms
+title: Algorithms - The Pareto Set 
 ---
 
 # Algorithms
 
-Notes on Algorithms.
+These are my notes on Algorithms. This is very much a work in progress. My plan is to put down everything in a rough way first, and keep refining it over time.
 
 
 ### Philosophy

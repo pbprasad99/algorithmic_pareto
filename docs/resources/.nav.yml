@@ -1,0 +1,6 @@
+# .site
+nav :
+ - ./playgrounds.md
+ - "*"
+
+ 

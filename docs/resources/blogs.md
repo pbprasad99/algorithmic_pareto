@@ -1,5 +1,7 @@
 # Blogs
 
+A collection of interesting blogs.
+
 ## Data Engineering
 https://asrathore08.medium.com/
 
