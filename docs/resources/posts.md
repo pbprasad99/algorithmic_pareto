@@ -55,3 +55,8 @@ https://dineshpandiyan.com/notes/multipliers-takeaways/
 https://youtu.be/eaKZ2Brzpz0?si=SvqhLuzfA9i5tynD
 
 
+# Vibe Coding
+
+https://www.reddit.com/r/ChatGPTCoding/comments/1hodcs7/guide_on_how_to_use_deepseekv3_model_with_cline/
+
+
