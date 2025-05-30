@@ -54,7 +54,11 @@ extra_css:
 - assets/stylesheets/extra.css
 markdown_extensions:
 - pymdownx.highlight
-- pymdownx.superfences
+- pymdownx.superfences:
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
 - pymdownx.inlinehilite
 - pymdownx.tabbed
 - pymdownx.critic
@@ -85,7 +89,13 @@ plugins:
 # - git-revision-date-localized:
 #     enable_creation_date: true
 extra_javascript:
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
+  - https://d3js.org/d3.v7.min.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - https://cdn.jsdelivr.net/npm/vega@5
   - https://cdn.jsdelivr.net/npm/vega-lite@5
   - https://cdn.jsdelivr.net/npm/vega-embed@6
+draft_docs: |
+  drafts/               # A "drafts" directory anywhere.
+  _unpublished.md       # A md file ending in _unpublished.md
+  !/foo_unpublished.md  # But keep this particular file.

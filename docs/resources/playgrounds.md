@@ -1,6 +1,5 @@
 
 # Learning/Playgrounds
-
 Playgrounds and learning platforms.
 
 ## Data Engineering
