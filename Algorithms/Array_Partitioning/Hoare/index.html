@@ -626,15 +626,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#defining-the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Defining the problem
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#hoare-partition-with-strict-condition" class="md-nav__link">
     <span class="md-ellipsis">
       Hoare partition with strict condition
@@ -656,6 +647,15 @@
   <a href="#important-things-to-note" class="md-nav__link">
     <span class="md-ellipsis">
       Important things to Note:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional References :
     </span>
   </a>
   
@@ -2161,15 +2161,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#defining-the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Defining the problem
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#hoare-partition-with-strict-condition" class="md-nav__link">
     <span class="md-ellipsis">
       Hoare partition with strict condition
@@ -2196,6 +2187,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#additional-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional References :
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2213,35 +2213,45 @@
 
 
 <h1 id="hoare-partition">Hoare Partition<a class="headerlink" href="#hoare-partition" title="Permanent link">&para;</a></h1>
-<h2 id="defining-the-problem">Defining the problem<a class="headerlink" href="#defining-the-problem" title="Permanent link">&para;</a></h2>
+<h2 id="hoare-partition-with-strict-condition">Hoare partition with strict condition<a class="headerlink" href="#hoare-partition-with-strict-condition" title="Permanent link">&para;</a></h2>
 <p>Let us consider the simplest version of the problem.</p>
 <p>Given an array of integers, rearrange the elements such that the left part contains elements less than or equal to a pivot value and the right part contains values greater than the pivot value.</p>
-<h2 id="hoare-partition-with-strict-condition">Hoare partition with strict condition<a class="headerlink" href="#hoare-partition-with-strict-condition" title="Permanent link">&para;</a></h2>
 <p>Consider this example array and a pivot value of 4   :</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
 <p>[ 1 , 9, 3, 5, 7, 4, 8  ]</p>
+</div>
 <p>If this array were already partitioned s.t. the left partition has only elements less than or equal to the pivot.
 These would hold true :
 <div class="highlight"><pre><span></span><code>Any element in left partition &lt;= pivot
 Any element in right partition &gt; pivot
 </code></pre></div>
 If we take left and right pointers  while verifying that arr[left] &lt;= pivot and arr[right] &gt; pivot, left and right pointers would move past each other before evaluating to False for the first time. Left pointer would end up at the BEGINNING of the right partition and the right pointer would end up at the END of the left partition.</p>
+<div class="admonition info">
+<p class="admonition-title">Pointers</p>
 <div class="highlight"><pre><span></span><code>[ 1,   3,     4,   5,   7,   8,   9 ]
   L/T  L/T   L/T *L/F*                            # L = Left pointer, T = arr[left]&lt;= pivot is True , F = Its False
             *R/F* R/T   R/T     R/T    R/T        # R = right pointer, T = arr[right] &gt; pivot is True, F = Its False   
 </code></pre></div>
+</div>
 <p>If left evaluates to True while its less than right, it would mean that this element is in the wrong partition. This also implies that there must be an element in the right partition which belongs to the left partition. </p>
+<div class="admonition info">
+<p class="admonition-title">Pointers</p>
 <div class="highlight"><pre><span></span><code>[  1 ,   9,   3,   5,   7,   4,   8  ]         
   L/T **L/F**                                    # L = Left pointer, T = arr[left]&lt;= pivot is True, F = Its False
                           **R/F**   R/T          # R = right pointer, T = arr[right] &gt; pivot is True, F = Its False                
 </code></pre></div>
+</div>
 <p>We can simply swap these and keep moving until left and right pass each other.</p>
-<p><strong>So, the algorithm would be:</strong></p>
+<p>So, the algorithm would be:</p>
+<div class="admonition info">
+<p class="admonition-title">Algorithm</p>
 <div class="highlight"><pre><span></span><code>Invariant 1) [0,right] only contains elements less than or equal to pivot
 Invariant 2) (right, len(arr) -1] only contains elements greater than pivot
 
 
 While left &lt;= right :
-      while left&lt;=right and &gt; (Invaraint 1) is True :
+      while left&lt;=right and (Invaraint 1) is True :
            left +=1
       while left&lt;=right and (Invariant 2) is True :
            right -=1
@@ -2249,11 +2259,143 @@ While left &lt;= right :
           swap left and right
 return right
 </code></pre></div>
+</div>
+<p><strong><em>This algorithm does not necessarily place the pivot in its sorted position.</em></strong></p>
+<p>Or rather, the problem is not asking us to do this,</p>
+<p>This array is partitioned by 4 but 4 is not in its sorted position.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code>[ 1,   4,    3,  |5,   7,   8,   9 ]
+</code></pre></div>
+</div>
+<p>We can put the pivot in its sorted position by swapping it with the right pointer after running the algorithm.  A good way to handle this is :</p>
+<ul>
+<li>Ensure that  the pivot at the lowest index.</li>
+<li>Run the partitioning algorithm on the rest of the array.</li>
+<li>Swap right with low.</li>
+</ul>
+<p>But again, this will not group multiple instances of pivot together if pivot is duplicated. That is another problem called three way partitioning.</p>
+<p>Here is the python implementation for both cases :</p>
+<details class="code">
+<summary>Code</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Without placing pivot in sorted postition</label><label for="__tabbed_1_2">Placing Pivot in its sorted position</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+
+<span class="c1">#Given a list return partition index after partition on the pivot index value</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">partition</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span><span class="n">lo</span><span class="p">,</span><span class="n">hi</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Hoare partition with strong condition.</span>
+<span class="sd">    Picks the first element as the pivot value.</span>
+<span class="sd">    There is no guarantee that pivot will be in its right place in this implementation.</span>
+<span class="sd">    All we get is that the first half has elements less than or equal to pivot.</span>
+<span class="sd">    Pivot can be any value in the array. (Pivot Value can actually be any arbitrary value in this version).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">lo</span><span class="p">]</span>
+    <span class="n">left</span><span class="p">,</span><span class="n">right</span> <span class="o">=</span> <span class="n">lo</span><span class="o">+</span><span class="mi">1</span> <span class="p">,</span><span class="n">hi</span>
+
+    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span> <span class="p">:</span>
+        <span class="k">while</span> <span class="n">left</span><span class="o">&lt;=</span> <span class="n">right</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">&lt;=</span>  <span class="n">pivot</span> <span class="p">:</span>
+            <span class="n">left</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;=</span><span class="n">right</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">pivot</span> <span class="p">:</span>
+            <span class="n">right</span><span class="o">-=</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span> <span class="p">:</span>
+            <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">],</span><span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">],</span><span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pivot Value: </span><span class="si">{</span><span class="n">pivot</span><span class="si">}</span><span class="s2"> , Partitioned list : </span><span class="si">{</span><span class="n">nums</span><span class="si">}</span><span class="s2">, Partition Index = </span><span class="si">{</span><span class="n">right</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">right</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span> <span class="p">:</span>
+    <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+    <span class="n">partition</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">partition</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="c1"># Given a list return partition index after partition on the pivot index value</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">partition</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span><span class="n">lo</span><span class="p">,</span><span class="n">hi</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Hoare partition with strong condition.</span>
+<span class="sd">    Here we modififed the code slightly to:</span>
+<span class="sd">    Fix pivot value at index zero.</span>
+<span class="sd">    Partition by the pivot value.</span>
+<span class="sd">    Finally place the pivot  at the end of the left partition.</span>
+<span class="sd">    This implementation puts pivot in the sorted position as well after partitioning.</span>
+<span class="sd">    This version is  not entropy optimal . That is, it does not lead to balanced partitions when there are a lot of duplicates. </span>
+
+<span class="sd">    Why? Consider,  if this partition scheme is used in quickselect for finding the smallest element in an array of size n). </span>
+<span class="sd">    What happens when all elements are duplicates (disregarding random pivot selection):</span>
+<span class="sd">    [1,1,1,1,1,1]</span>
+<span class="sd">     l         r   Iter 1 : 6  comparisons</span>
+<span class="sd">     l       r     Iter 2 : 5  comparisons</span>
+<span class="sd">     l     r       Iter 3 : 4  comparisons</span>
+<span class="sd">     l   r         Iter 4 : 3  comparisons</span>
+<span class="sd">     l r           Iter 5 : 2  comparisons</span>
+<span class="sd">     lr            Iter 6 : 1  comparisons</span>
+
+<span class="sd">    Number of comparisons = SUM([1.....n]) = n(n+1)/2 = (n*2 + n ) /2</span>
+<span class="sd">    Therefore, Complexity is O(n^2) </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input List : </span><span class="si">{</span><span class="n">nums</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">lo</span><span class="p">,</span><span class="n">hi</span>
+
+    <span class="c1"># RANDOM PIVOT SELECTION</span>
+    <span class="c1"># Always keep pivot at index lo</span>
+    <span class="c1"># pivot_index = random.randint(lo,hi)</span>
+    <span class="c1"># nums[lo],nums[pivot_index] =  nums[pivot_index],nums[lo]</span>
+
+    <span class="c1">#PARTITIONING</span>
+    <span class="n">left</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="n">pivot_val</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">lo</span><span class="p">]</span>
+
+    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span> <span class="p">:</span>
+
+        <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">pivot_val</span> <span class="p">:</span>
+            <span class="n">left</span><span class="o">+=</span><span class="mi">1</span>
+
+        <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">pivot_val</span> <span class="p">:</span>
+            <span class="n">right</span><span class="o">-=</span><span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span> <span class="p">:</span>
+            <span class="c1">#swap</span>
+            <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">],</span><span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">],</span><span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>
+
+    <span class="c1">#Put pivot Value in sorted  position</span>
+    <span class="n">nums</span><span class="p">[</span><span class="n">lo</span><span class="p">]</span> <span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">=</span>  <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="p">,</span><span class="n">nums</span><span class="p">[</span><span class="n">lo</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pivot Value: </span><span class="si">{</span><span class="n">pivot_val</span><span class="si">}</span><span class="s2">  ,Partitioned list : </span><span class="si">{</span><span class="n">nums</span><span class="si">}</span><span class="s2">, Partition Index = </span><span class="si">{</span><span class="n">right</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">right</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span> <span class="p">:</span> 
+    <span class="c1"># nums= [1,2,3]</span>
+    <span class="c1"># partition(nums, 0, len(nums)-1)</span>
+    <span class="c1"># nums = [2,2,2,2]</span>
+    <span class="c1"># partition(nums, 0, len(nums)-1)</span>
+    <span class="c1"># nums = [2,4,5,1,4,8,9]</span>
+    <span class="c1"># partition(nums, 0, len(nums)-1)</span>
+    <span class="c1"># nums= [3,2]</span>
+    <span class="c1"># partition(nums, 0, len(nums)-1)</span>
+    <span class="c1"># nums= [3]</span>
+    <span class="c1"># partition(nums, 0, len(nums)-1)</span>
+    <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+    <span class="n">partition</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
 <h2 id="hoare-partition-with-weak-condition">Hoare partition with weak condition<a class="headerlink" href="#hoare-partition-with-weak-condition" title="Permanent link">&para;</a></h2>
 <p>The problem with the partition scheme with a strict condition (where we always put pivot values  in one of the partitions) is that it produces unbalanced partitions when used in quickselect or quicksort.</p>
 <p>Consider if the above partition scheme were used in quickselect for finding the smallest element in an array of size n). </p>
 <p>What happens when all elements are duplicates :</p>
-<p><div class="highlight"><pre><span></span><code>    [1,1,1,1,1,1]
+<div class="admonition info">
+<p class="admonition-title">Dry Run</p>
+<div class="highlight"><pre><span></span><code>    [1,1,1,1,1,1]
      l         r   Iter 1 : 5  comparisons
      l       r     Iter 2 : 4  comparisons
      l     r       Iter 3 : 3  comparisons
@@ -2261,14 +2403,21 @@ return right
      l r           Iter 5 : 1  comparisons
      lr            Iter 6 : 0  comparisons
 </code></pre></div>
-Number of comparisons = SUM([1.....n]) = n(n+1)/2 = (n*2 + n ) /2
+</div>
+<p>Number of comparisons = SUM([1.....n]) = n(n+1)/2 = (n*2 + n ) /2
 Therefore, Complexity is O(n^2)  in this case.</p>
 <p>To mitigate this, we could slightly modify the definition of our partitions :</p>
-<div class="highlight"><pre><span></span><code>Any element in left partition &lt;= pivot
+<p><div class="highlight"><pre><span></span><code>Any element in left partition &lt;= pivot
 Any element in right partition &gt;= pivot
 </code></pre></div>
-<p>Invariant 1) [low,right] only contains elements less than OR EQUAL to pivot
-Invariant 2) (right, high] only contains elements greater OR EQUAL to pivot</p>
+In terms of Invariants :</p>
+<div class="admonition info">
+<p class="admonition-title">Invariants</p>
+<div class="highlight"><pre><span></span><code>Invariant 1) [low,right] only contains elements less than OR EQUAL to pivot
+
+Invariant 2) (right, high] only contains elements greater OR EQUAL to pivot
+</code></pre></div>
+</div>
 <p>That is, pivot values are allowed to be in either partition.</p>
 <p>Our problem now becomes : </p>
 <p>Given an array of integers, rearrange the elements such that the left part contains elements less than or equal to a pivot value and the right part contains values greater than or equal to the pivot value.</p>
@@ -2277,6 +2426,8 @@ Invariant 2) (right, high] only contains elements greater OR EQUAL to pivot</p>
 We swap and move the left and right pointers.
 After any swap, both partitions will increase by 1. Pivot values might end up in any partition. 
 This will also be the case when, left and right are both pointing to pivot value i.e. both partitions increase by 1 and there is a redundant swap between two pivot values.</p>
+<div class="admonition info">
+<p class="admonition-title">Algorithm</p>
 <div class="highlight"><pre><span></span><code>While left &lt;= right :
       while  left&lt;=right and left &lt; pivot :
            left +=1
@@ -2288,28 +2439,101 @@ This will also be the case when, left and right are both pointing to pivot value
           right-=1
 return right
 </code></pre></div>
+</div>
 <p>Let us see the behavior of quickselect with this scheme for the same case :</p>
+<div class="admonition info">
+<p class="admonition-title">Dry Run</p>
 <div class="highlight"><pre><span></span><code>    [1,1,1,1,1,1]
      l         r   Iter 1 : 5  comparisons
      l   r         Iter 2 : 3  comparisons; This iteration returns r=0 and ends the loop
      rl            Iter 2 END 
 </code></pre></div>
+</div>
 <p>The complexity is reduced to nLOG(n) now.</p>
-<h2 id="important-things-to-note">Important things to Note:<a class="headerlink" href="#important-things-to-note" title="Permanent link">&para;</a></h2>
-<p><strong><em>This algorithm does not necessarily place the pivot in its sorted position.</em></strong>
-Or rather, the problem is not asking us to do this,</p>
-<p>This array is partitioned by 4 but 4 is not in its sorted position.</p>
-<div class="highlight"><pre><span></span><code>[ 1,   4,    3,  |5,   7,   8,   9 ]
+<p>Here is the implementation :</p>
+<details class="code">
+<summary>Code</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Hoare Partition with Weak Condition</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">partition</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Entropy Optimal Hoare partition.</span>
+<span class="sd">    Produces balanced partitions when there are large number of duplicates.</span>
+<span class="sd">    [lo,right] contains elements less than or equal to pivot.</span>
+<span class="sd">    (right,hi]  contains elements greater than or equal to pivot.</span>
+<span class="sd">    Invariants for the while loop :</span>
+<span class="sd">    [lo] has pivot  </span>
+<span class="sd">    [lo, left)  &lt;= pivot    #Has values &lt;= pivot</span>
+<span class="sd">    (right, hi] &gt;= pivot</span>
+<span class="sd">    [pivot|--- &lt;=pivot-----|-----Undetermined-------|---&gt;=pivot----]</span>
+<span class="sd">                            left               right</span>
+<span class="sd">    After execution of while loop : </span>
+<span class="sd">    [pivot|----&lt;=pivot------|-----&gt;=pivot------]</span>
+<span class="sd">    lo                  right                  hi</span>
+<span class="sd">    [lo,right] &lt;= pivot</span>
+<span class="sd">    After Putting pivot in sorted position : </span>
+<span class="sd">    [----&lt;=pivot----|pivot|-----&gt;=pivot------]</span>
+<span class="sd">    lo               right                  hi</span>
+<span class="sd">    Finally, return right.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#PIVOT SELECTION</span>
+    <span class="c1">#Pick a random pivot index and always keep pivot at index lo</span>
+    <span class="c1">#NB:  random.randint(0,0) is 0.</span>
+    <span class="n">pivot_index</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span><span class="n">hi</span><span class="p">)</span>
+    <span class="n">arr</span><span class="p">[</span><span class="n">lo</span><span class="p">],</span><span class="n">arr</span><span class="p">[</span><span class="n">pivot_index</span><span class="p">]</span> <span class="o">=</span>  <span class="n">arr</span><span class="p">[</span><span class="n">pivot_index</span><span class="p">],</span><span class="n">arr</span><span class="p">[</span><span class="n">lo</span><span class="p">]</span>
+    <span class="c1">#read pivot value</span>
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">lo</span><span class="p">]</span>
+
+    <span class="c1">#PARTITIONING</span>
+    <span class="c1">#partition [lo+1,hi] ; </span>
+    <span class="c1">#NB : when lo == hi , while loop will not be executed</span>
+    <span class="n">left</span><span class="p">,</span><span class="n">right</span> <span class="o">=</span> <span class="n">lo</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">hi</span>
+    <span class="k">while</span> <span class="n">left</span><span class="o">&lt;=</span><span class="n">right</span><span class="p">:</span>
+        <span class="c1">#Move left ahead if arr[left] is strictly less than pivot value</span>
+        <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span> <span class="ow">and</span> <span class="n">arr</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">pivot</span> <span class="p">:</span>
+            <span class="n">left</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="c1">#Move right to the left if it is strictly higher than pivot</span>
+        <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span>  <span class="ow">and</span> <span class="n">arr</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">pivot</span> <span class="p">:</span>
+            <span class="n">right</span><span class="o">-=</span><span class="mi">1</span>
+        <span class="c1">#Swap left and right and move pointers</span>
+        <span class="c1">#If both values are equal to pivot this will do a swap,move pointers and effectively leave pivot values where they are. </span>
+        <span class="k">if</span> <span class="n">left</span> <span class="o">&lt;=</span>  <span class="n">right</span> <span class="p">:</span>
+            <span class="n">arr</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">right</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>
+            <span class="n">right</span><span class="o">-=</span><span class="mi">1</span>
+            <span class="n">left</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="c1">#Put pivot in sorted position</span>
+    <span class="n">arr</span><span class="p">[</span><span class="n">lo</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">right</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">lo</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pivot Value: </span><span class="si">{</span><span class="n">pivot</span><span class="si">}</span><span class="s2">  ,Partitioned list : </span><span class="si">{</span><span class="n">arr</span><span class="si">}</span><span class="s2">, Partition Index = </span><span class="si">{</span><span class="n">right</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">right</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span> <span class="p">:</span> 
+    <span class="c1"># nums= [1,2,3]</span>
+    <span class="c1"># partition(nums, 0, len(nums)-1)</span>
+    <span class="c1"># nums = [2,2,2,2]</span>
+    <span class="c1"># partition(nums, 0, len(nums)-1)</span>
+    <span class="c1"># nums = [2,4,5,1,4,8,9]</span>
+    <span class="c1"># partition(nums, 0, len(nums)-1)</span>
+    <span class="c1"># nums= [3,2]</span>
+    <span class="c1"># partition(nums, 0, len(nums)-1)</span>
+    <span class="c1"># nums= [3]</span>
+    <span class="c1"># partition(nums, 0, len(nums)-1)</span>
+    <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+    <span class="n">partition</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-<p>We can put the pivot in its sorted position by swapping it with the right pointer after running the algorithm.  A good way to handle this is :
-1) Ensure that  the pivot at the lowest index  .
-2) Run the partitioning algorithm on the rest of the array.
-3) Swap right with low.</p>
-<p>But again, this will not group multiple instances of pivot together if pivot is duplicated. That is another problem called three way partitioning.</p>
+</div>
+</div>
+</div>
+</details>
+<h2 id="important-things-to-note">Important things to Note:<a class="headerlink" href="#important-things-to-note" title="Permanent link">&para;</a></h2>
 <p><strong>This algorithm is not stable. The relative order of elements will not be preserved.</strong>
 Naive partitioning using extra space is the only algorithm which preserves relative order of elements.</p>
-<p>Additional References :
-<a href="https://algs4.cs.princeton.edu/23quicksort/">https://algs4.cs.princeton.edu/23quicksort/</a></p>
+<h2 id="additional-references">Additional References :<a class="headerlink" href="#additional-references" title="Permanent link">&para;</a></h2>
+<p><a href="https://algs4.cs.princeton.edu/23quicksort/">https://algs4.cs.princeton.edu/23quicksort/</a></p>
 
 
 
