@@ -1,6 +1,4 @@
-# Quickselect and Quicksort
-
-## QuickSelect 
+# QuickSelect 
 
 ### Defining the problem.
 

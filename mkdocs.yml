@@ -54,13 +54,11 @@ extra_css:
 - assets/stylesheets/extra.css
 markdown_extensions:
 - pymdownx.highlight
-- pymdownx.superfences:
-    custom_fences:
-      - name: mermaid
-        class: mermaid
-        format: !!python/name:pymdownx.superfences.fence_code_format
+- pymdownx.superfences
+- pymdownx.details
 - pymdownx.inlinehilite
-- pymdownx.tabbed
+- pymdownx.tabbed:
+    alternate_style: true
 - pymdownx.critic
 - pymdownx.tasklist
 - pymdownx.emoji
