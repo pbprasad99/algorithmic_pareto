@@ -91,7 +91,7 @@ Pay attention to the difference in the recursive implementation for array and li
 
 For arrays, we pass pointers to the merge function to denote subarrays to be merged. For linked lists, we actually split the list and pass two separate lists.
 
-```
+```python
 """
 Solution for : https://leetcode.com/problems/sort-list/description/
 Recursively  :

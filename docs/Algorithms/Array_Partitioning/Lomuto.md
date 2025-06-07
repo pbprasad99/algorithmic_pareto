@@ -2,7 +2,7 @@
 
 ## Defining the problem
 
-Let us consider the simplaest case, that of an array of integers.
+Let us consider the simplest case, that of an array of integers.
 
 Given an array of integers, rearrange the elements such that the left part contains elements less than or equal to a pivot value and the right part contains values greater than the pivot value.
 

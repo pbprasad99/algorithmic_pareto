@@ -1,0 +1,4 @@
+nav :
+ - Introduction.md
+ - Hoare Partition : Hoare.md
+ - Lomuto.md

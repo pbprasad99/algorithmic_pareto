@@ -11,10 +11,9 @@ https://howqueryengineswork.com/
 ## Healthcare Data
 [Examining the Impact of Real-World Evidence on Medical Product Development](https://nap.nationalacademies.org/read/25352/chapter/1#v){target="_blank"}
 
-##
-
 ## Cloud
 [AWS SAP Cert Notes](https://adavoudi.info/aws-sap/){target="_blank"}
+
 [The Azure Data Lakehouse Toolkit](https://www.amazon.com/Azure-Data-Lakehouse-Toolkit-Lakehouses/dp/1484282329){target="_blank"}
 
 

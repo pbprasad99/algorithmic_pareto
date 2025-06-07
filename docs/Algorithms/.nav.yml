@@ -1,0 +1,9 @@
+nav :
+ - Array_Partitioning
+ - Quickselect
+ - Quicksort
+ - Two_Way_Merge
+ - Merge_Sort
+ - K_Way_merge
+ - "*"
+ 

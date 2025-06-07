@@ -75,9 +75,9 @@ plugins:
 - search
 - minify
 - awesome-nav
-- gen-files:
-    scripts:
-      - gen_pages.py
+# - gen-files:
+#     scripts:
+#       - gen_pages.py
 - blog:
     blog_toc: true
     post_url_format: "{slug}"

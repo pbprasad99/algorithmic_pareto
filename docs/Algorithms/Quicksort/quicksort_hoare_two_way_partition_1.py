@@ -1,8 +1,10 @@
+
+
 from typing import List
 import random
 
 
-def partition(arr, lo, hi):
+def hoare_partition(arr, lo, hi):
     """
     Entropy Optimal Hoare partition.
     Produces balanced partitions when there are large number of duplicates.
@@ -50,19 +52,22 @@ def partition(arr, lo, hi):
             left+=1
     #Put pivot in sorted position
     arr[lo], arr[right] = arr[right], arr[lo]
-    print(f"Pivot Value: {pivot}  ,Partitioned list : {arr}, Partition Index = {right}")
     return right
 
-if __name__ == "__main__" : 
-    # nums= [1,2,3]
-    # partition(nums, 0, len(nums)-1)
-    # nums = [2,2,2,2]
-    # partition(nums, 0, len(nums)-1)
-    # nums = [2,4,5,1,4,8,9]
-    # partition(nums, 0, len(nums)-1)
-    # nums= [3,2]
-    # partition(nums, 0, len(nums)-1)
-    # nums= [3]
-    # partition(nums, 0, len(nums)-1)
-    nums = [5,2,1,1,1,1,1,1,1,1,1,5,5,-3,-2,-5]
-    partition(nums, 0, len(nums)-1)
+def quicksort(arr: List[int],lo: int,hi: int) -> int :
+    """
+    Quicksort using Hoare partition with weak condition and random pivot.
+    This uses Hoare's partition scheme with a weak condition and which also puts pivot in its sorted position.
+    """ 
+    if lo >= hi :
+        return
+    p = hoare_partition(arr,lo,hi)
+    quicksort(arr,lo, p-1)
+    quicksort(arr,p+1,hi)
+
+        
+
+if __name__ == "__main__" :
+    nums = [24,23,22,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1]
+    quicksort(nums,0,len(nums)-1)
+    print (nums)

@@ -34,7 +34,8 @@ https://medium.com/nerd-for-tech/airflow-features-callback-trigger-clsuter-polic
 ## Cloud
 
 https://www.reddit.com/r/aws/comments/1eseqlh/aws_app_runner_is_garbage/ (AWS App Runner)
-https://github.com/aws/apprunner-roadmap/issues/110 (AWS App Runner)
+[AWS App Runner - Git Issue Thread](https://github.com/aws/apprunner-roadmap/issues/110){target="_blank"}
+[AWS vs Azure vs Google Cloud  for SAAS startups](https://itnext.io/aws-vs-azure-vs-google-cloud-for-saas-startups-part-1-ce2f1b9aa78b){target="_blank"}
 
 
 ## Interviewing
@@ -49,6 +50,9 @@ https://whliao.me/blog/material-for-mkdocs-advanced-customization/
 ## Other
 
 https://planetscale.com/blog/what-is-n-1-query-problem-and-how-to-solve-it
+
+## Frontend
+
 https://dev.to/mandrasch/rich-harris-explains-why-sveltekit-pushes-for-server-side-rendering-and-against-spa-5flj
 
 
