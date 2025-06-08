@@ -75,7 +75,7 @@ Here is the python implementation for both cases :
 
 ??? code
     === "Without placing pivot in sorted postition"
-        ```python
+        ```python 
         --8<--
         docs/Algorithms/Array_Partitioning/hoare_two_way_partition_1.py
         --8<--
@@ -171,5 +171,5 @@ Here is the implementation :
 **This algorithm is not stable. The relative order of elements will not be preserved.**
 Naive partitioning using extra space is the only algorithm which preserves relative order of elements.
 
-## Additional References :
+## Additional Resources
 https://algs4.cs.princeton.edu/23quicksort/

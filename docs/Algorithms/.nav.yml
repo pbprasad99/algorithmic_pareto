@@ -5,5 +5,6 @@ nav :
  - Two_Way_Merge
  - Merge_Sort
  - K_Way_merge
+ - "Comparison Based Sorting" : properties_of_comparison_based_sorting_algorithms.md
  - "*"
  

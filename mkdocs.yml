@@ -71,6 +71,7 @@ markdown_extensions:
     permalink: true
 plugins:
 - search
+# - markdown-exec
 - minify
 - awesome-nav
 # - gen-files:

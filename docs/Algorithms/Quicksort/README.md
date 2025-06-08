@@ -14,15 +14,23 @@ Assume, you have a partitioning scheme which returns some partition index / pivo
 
 The algorithm is :
 
+!!! info "Algorithm"
+    ```
+    def quicksort(arr,lo,hi, k ) :
+        if lo >= hi  :
+           return 
+        p = partition(arr,lo,hi)
+        quicksort(arr,lo,p-1,k)
+        quicksort(arr,p+1,hi,k)
+    ```
 
-```
-def quicksort(arr,lo,hi, k ) :
-    if lo >= hi  :
-       return 
-    p = partition(arr,lo,hi)
-    quicksort(arr,lo,p-1,k)
-    quicksort(arr,p+1,hi,k)
-```
+Implementation using Hoare Partitioning :
+
+??? code 
+    === "Hoare Partition with Weak Condition and random pivot"
+        ```python 
+                 --8<-- "docs/Algorithms/Quicksort/quicksort_hoare_two_way_partition_1.py"
+        ```
 
 ## Additional References :
 

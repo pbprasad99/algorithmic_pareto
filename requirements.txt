@@ -6,6 +6,7 @@ mkdocs-minify-plugin>=0.6.0
 pymdown-extensions>=10.0.0
 pillow>=9.5.0
 cairosvg>=2.7.0
-mkdocs-gen-files
+mkdocs-gen-files>=0.5.0
 mkdocs-glightbox>=0.4.0
-mkdocs-awesome-nav
+mkdocs-awesome-nav>=3.1.1
+# markdown-exec[ansi]

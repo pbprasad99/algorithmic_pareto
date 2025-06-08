@@ -8,23 +8,31 @@ Before considering K-way merge, let us first look at the simpler version of the 
 
 Given 2 integer arrays, sorted in non decreasing order, merge them into a single sorted array. 
 
-
-```python
---8<--
-docs/Algorithms/Two_Way_Merge/two_way_merge.py
---8<--
-```
+??? code 
+    === "Two Way Merge on Arrays"
+        ```python
+        --8<--
+        docs/Algorithms/Two_Way_Merge/two_way_merge.py
+        --8<--
+        ```
+    === "Unit Tests for Two Merge on Arrays"
+        ```python
+        --8<--
+        docs/Algorithms/Two_Way_Merge/test_two_way_merge.py
+        --8<--
+        ```
 
 ### Merging two sorted lists
 
 The same thing for a linked list :
 
-```python
---8<--
-docs/Algorithms/Two_Way_Merge/two_way_merge_list.py
---8<-
-```
-
+??? code 
+    === "Two Way Merge on Lists"
+        ```python
+        --8<--
+        docs/Algorithms/Two_Way_Merge/two_way_merge_list.py
+        --8<-
+        ```
 
 So, how are we solving the problem of two way merging?
 

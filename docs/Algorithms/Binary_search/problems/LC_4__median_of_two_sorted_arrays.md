@@ -1,14 +1,16 @@
-# What is the data?
+# Median of two sorted arrays
+
+## What is the data?
 
 nums1 = [1,2], nums2 = [3,4]
 
 Two sorted arrays.
 
-# What is being asked?
+## What is being asked?
 
 To find the median in logarithmic time.
 
-# Thoughts
+## Thoughts
 
 **What is a median**
 
@@ -136,55 +138,56 @@ If (m+n) is odd : return min(right_a, right_b)
 
 If (m+n) is even : return (max(left_a, left_b) + min(right_a, right_b)) /2 
 
-# Code
+## Code
 
-```python
-
-class Solution:
-    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        # A is always the smaller array
-        A, B = nums1, nums2 
-        if len(A) > len(B) :
-            A , B = B, A
-
-        #measure their lengths    
-        m,n = len(A), len(B)
-
-        def find_partition_b(partition_a) : 
-            return (m+n)//2 - partition_a
-
-        def get_left(partition,array) :
-            return float('-inf') if (partition-1 )<0 else array[partition-1]
-        
-        def get_right(partition,array) :
-            return float('inf') if (partition)>= len(array) else array[partition]
-        
-        def move_right(partition_a) : 
-            partition_b = find_partition_b(partition_a)
-            left_b = get_left(partition_b,B)
-            right_a = get_right(partition_a,A)
-            return left_b > right_a
-        
-        #binary search to find the correct partition_a
-        lo, hi  = 0 , len(A)
-        while lo < hi :
-            partition_a = (lo +hi) // 2
-            if move_right(partition_a) :
-                lo = partition_a+1
-            else :
-                hi = partition_a
-        
-        #lo and hi have converged on the correct partition_a 
-        partition_a,partition_b   = lo, find_partition_b(lo)
-        right_a = get_right(partition_a,A)
-        right_b = get_right(partition_b,B)
-
-        #combined array length is odd
-        if (m+n) % 2 == 1 :
-            return min(right_a,right_b)
-
-        #combined array length is even    
-        left_a = get_left(partition_a,A)
-        left_b = get_left(partition_b,B)
-        return ( max(left_a,left_b) + min(right_a,right_b) ) / 2        
-```
+???+ code
+     ```python
+     
+     class Solution:
+         def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+             # A is always the smaller array
+             A, B = nums1, nums2 
+             if len(A) > len(B) :
+                 A , B = B, A
+     
+             #measure their lengths    
+             m,n = len(A), len(B)
+     
+             def find_partition_b(partition_a) : 
+                 return (m+n)//2 - partition_a
+     
+             def get_left(partition,array) :
+                 return float('-inf') if (partition-1 )<0 else array[partition-1]
+             
+             def get_right(partition,array) :
+                 return float('inf') if (partition)>= len(array) else array[partition]
+             
+             def move_right(partition_a) : 
+                 partition_b = find_partition_b(partition_a)
+                 left_b = get_left(partition_b,B)
+                 right_a = get_right(partition_a,A)
+                 return left_b > right_a
+             
+             #binary search to find the correct partition_a
+             lo, hi  = 0 , len(A)
+             while lo < hi :
+                 partition_a = (lo +hi) // 2
+                 if move_right(partition_a) :
+                     lo = partition_a+1
+                 else :
+                     hi = partition_a
+             
+             #lo and hi have converged on the correct partition_a 
+             partition_a,partition_b   = lo, find_partition_b(lo)
+             right_a = get_right(partition_a,A)
+             right_b = get_right(partition_b,B)
+     
+             #combined array length is odd
+             if (m+n) % 2 == 1 :
+                 return min(right_a,right_b)
+     
+             #combined array length is even    
+             left_a = get_left(partition_a,A)
+             left_b = get_left(partition_b,B)
+             return ( max(left_a,left_b) + min(right_a,right_b) ) / 2        
+     ```

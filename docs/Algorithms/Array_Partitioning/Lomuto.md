@@ -183,26 +183,21 @@ We swap pivot with s and return s.
     
 # Important things to note.
 
-With quickselect or quicksort, using Hoare partition with a weak condition is preferable to Lomuto.
-
+!!! tip 
+    With quickselect or quicksort, using Hoare partition with a weak condition is preferable to Lomuto.
+    
 Lomuto partition has the same problem as Hoare partition with a strict condition when it somes to duplicate keys. It degenrates to O(n^2). Also, performs more swaps.
 
-Since it uses two forward iterators, it can be applied to singly linked lists.
+!!! tip
+    Lomuto is semi-stable. Some 'easy' interview style problems can be solved only if you know Lomuto and this property of the algorithm.
 
-# Additional Resources
-https://www.cs.virginia.edu/~horton/cs4102/page4/files/06-ch6-sorting.ppt.pdf
+Also, since it uses two forward iterators, it can be applied to singly linked lists.
 
+## Additional Resources
 
-https://iq.opengenus.org/lomuto-partition-scheme/
-
-
-https://www.stepanovpapers.com/PAM3-partition_notes.pdf
-
-
-https://dlang.org/blog/2020/05/14/lomutos-comeback/
-
-
-https://nicholasvadivelu.com/2021/01/11/array-partition/
-
-
-https://cs-notes.gitbook.io/algorithm-notes/outline/overview-2/quick-sort
+1. [Sorting Lecture Notes](https://www.cs.virginia.edu/~horton/cs4102/page4/files/06-ch6-sorting.ppt.pdf)
+2. [Lomuto Partition Scheme](https://iq.opengenus.org/lomuto-partition-scheme/)
+3. [Partition Notes by Stepanov](https://www.stepanovpapers.com/PAM3-partition_notes.pdf)
+4. [Lomuto's Comeback](https://dlang.org/blog/2020/05/14/lomutos-comeback/)
+5. [Array Partition Blog](https://nicholasvadivelu.com/2021/01/11/array-partition/)
+6. [Quick Sort Notes](https://cs-notes.gitbook.io/algorithm-notes/outline/overview-2/quick-sort)

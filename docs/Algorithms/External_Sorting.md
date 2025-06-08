@@ -16,5 +16,4 @@ Suppose, we have an X GB file and only 2GB RAM where X > 2
 
 
 ## Additional References
-
-https://en.wikipedia.org/wiki/External_sorting
+1. https://en.wikipedia.org/wiki/External_sorting

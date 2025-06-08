@@ -29,7 +29,7 @@ Can be combined with Insertion sort for small subproblem sizes.
 
 Stable. Can be made adaptive (just add a flag to tell if a swap has occurred. If not exit early). 
 
-```
+```python
 def optimized_bubble_sort(arr):
     n = len(arr)
     for i in range(n - 1):
@@ -47,7 +47,7 @@ def optimized_bubble_sort(arr):
 
 Quadratic. In-place. Stable. Adaptive.
 
-```
+```python
 def insertion_sort(arr):
     for i in range(1, len(arr)):
         key = arr[i]
@@ -75,6 +75,6 @@ Quadratic. In-Place. Not Stable. Not Adaptive.
 Only advantage over insertion sort : performs less swaps than insertion sort.
 
 
-## Additional References 
-
-https://www.toptal.com/developers/sorting-algorithms
+## Additional Resources 
+1. https://www.toptal.com/developers/sorting-algorithms
+2. https://www.youtube.com/playlist?list=PL9xmBV_5YoZOZSbGAXAPIq1BeUf4j20pl

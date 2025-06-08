@@ -10,7 +10,7 @@ def quickselect(arr: List[int],lo: int,hi: int,k : int) -> int :
     This is the implementation which you will find in textbooks using do..while style loops which in python becomes while True loops.
     I prefer avoiding white True loops. 
     It's still using Hoare partition with a weak condition. But the pivot selection is not random.
-    Notice how the performance degrades to O(n^2) for sorted array because the pivot selection is not random.
+    Notice how the performance degrades to O(n^2) for sorted input array because the pivot selection is not random.
     Compare this with next version which uses a random pivot.
     """
     v = arr[lo]
