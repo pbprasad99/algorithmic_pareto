@@ -172,4 +172,4 @@ Here is the implementation :
 Naive partitioning using extra space is the only algorithm which preserves relative order of elements.
 
 ## Additional Resources
-https://algs4.cs.princeton.edu/23quicksort/
+1. [ALGS4 - Sedgewick](https://algs4.cs.princeton.edu/23quicksort/){target="_blank"} 

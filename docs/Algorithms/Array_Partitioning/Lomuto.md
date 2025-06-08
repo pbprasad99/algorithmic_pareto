@@ -195,9 +195,9 @@ Also, since it uses two forward iterators, it can be applied to singly linked li
 
 ## Additional Resources
 
-1. [Sorting Lecture Notes](https://www.cs.virginia.edu/~horton/cs4102/page4/files/06-ch6-sorting.ppt.pdf)
-2. [Lomuto Partition Scheme](https://iq.opengenus.org/lomuto-partition-scheme/)
-3. [Partition Notes by Stepanov](https://www.stepanovpapers.com/PAM3-partition_notes.pdf)
-4. [Lomuto's Comeback](https://dlang.org/blog/2020/05/14/lomutos-comeback/)
-5. [Array Partition Blog](https://nicholasvadivelu.com/2021/01/11/array-partition/)
-6. [Quick Sort Notes](https://cs-notes.gitbook.io/algorithm-notes/outline/overview-2/quick-sort)
+1. [Sorting Lecture Notes](https://www.cs.virginia.edu/~horton/cs4102/page4/files/06-ch6-sorting.ppt.pdf){target="_blank"}
+2. [Lomuto Partition Scheme](https://iq.opengenus.org/lomuto-partition-scheme/){target="_blank"}
+3. [Partition Notes by Stepanov](https://www.stepanovpapers.com/PAM3-partition_notes.pdf){target="_blank"}
+4. [Lomuto's Comeback](https://dlang.org/blog/2020/05/14/lomutos-comeback/){target="_blank"}
+5. [Array Partition Blog](https://nicholasvadivelu.com/2021/01/11/array-partition/){target="_blank"}
+6. [Quick Sort Notes](https://cs-notes.gitbook.io/algorithm-notes/outline/overview-2/quick-sort){target="_blank"}
