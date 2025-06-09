@@ -939,18 +939,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#defining-the-problem" class="md-nav__link">
+  <a href="#problem-definition" class="md-nav__link">
     <span class="md-ellipsis">
-      Defining the problem
+      Problem Definition
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#one-solution" class="md-nav__link">
+  <a href="#solution" class="md-nav__link">
     <span class="md-ellipsis">
-      One Solution
+      Solution
     </span>
   </a>
   
@@ -2039,18 +2039,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#defining-the-problem" class="md-nav__link">
+  <a href="#problem-definition" class="md-nav__link">
     <span class="md-ellipsis">
-      Defining the problem
+      Problem Definition
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#one-solution" class="md-nav__link">
+  <a href="#solution" class="md-nav__link">
     <span class="md-ellipsis">
-      One Solution
+      Solution
     </span>
   </a>
   
@@ -2082,24 +2082,35 @@
 
 
 <h1 id="external-sorting">External Sorting<a class="headerlink" href="#external-sorting" title="Permanent link">&para;</a></h1>
-<h2 id="defining-the-problem">Defining the problem<a class="headerlink" href="#defining-the-problem" title="Permanent link">&para;</a></h2>
-<p>Given limited RAM , sort a large file.</p>
-<h2 id="one-solution">One Solution<a class="headerlink" href="#one-solution" title="Permanent link">&para;</a></h2>
-<p>Suppose, we have an X GB file and only 2GB RAM where X &gt; 2 </p>
+<hr />
+<h2 id="problem-definition">Problem Definition<a class="headerlink" href="#problem-definition" title="Permanent link">&para;</a></h2>
+<p>Given limited RAM, how do you sort a file that is too large to fit into memory?</p>
+<hr />
+<h2 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h2>
+<p>Suppose you have an <strong>X GB</strong> file and only <strong>2 GB</strong> of RAM, where <strong>X &gt; 2</strong>.</p>
+<p><strong>Steps:</strong></p>
 <ol>
-<li>
-<p>Divide the file into X//2  2GB chunks ( FILE_SZ//RAM ).</p>
+<li><strong>Divide the file</strong> into chunks of size equal to available RAM (e.g., X // 2 GB chunks if RAM is 2 GB).</li>
+<li><strong>For each chunk:</strong><ul>
+<li>Read the chunk into memory.</li>
+<li>Sort it.</li>
+<li>Write it back to disk as a "part file".</li>
+</ul>
 </li>
-<li>
-<p>Read each chunk into memory . Sort it and write it back to disk as a part file.</p>
+<li><strong>Merge the sorted part files:</strong><ul>
+<li>This is now a <em>k-way merge</em> problem.</li>
+<li>You can either:<ul>
+<li>Run a single k-way merge, or</li>
+<li>Use multiple passes of two-way merges to ultimately merge all part files into a single sorted file.</li>
+</ul>
 </li>
-<li>
-<p>Now we have k-way merge problem. You can either run a single k-way merge, or mutliple passes of two way merges to utlimately merge the part files into a single sorted file.</p>
+</ul>
 </li>
 </ol>
+<hr />
 <h2 id="additional-references">Additional References<a class="headerlink" href="#additional-references" title="Permanent link">&para;</a></h2>
 <ol>
-<li><a href="https://en.wikipedia.org/wiki/External_sorting">https://en.wikipedia.org/wiki/External_sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/External_sorting" target="_blank" rel="noopener noreferrer">Wikipedia: External Sorting</a></li>
 </ol>
 
 

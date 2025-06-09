@@ -2135,21 +2135,57 @@
 
 
 
-<h1 id="properties-of-comparison-based-sorting-algorithms">Properties of Comparison Based Sorting Algorithms<a class="headerlink" href="#properties-of-comparison-based-sorting-algorithms" title="Permanent link">&para;</a></h1>
+<h1 id="properties-of-comparison-based-sorting-algorithms">Properties of Comparison-Based Sorting Algorithms<a class="headerlink" href="#properties-of-comparison-based-sorting-algorithms" title="Permanent link">&para;</a></h1>
+<hr />
 <h2 id="quicksort">Quicksort<a class="headerlink" href="#quicksort" title="Permanent link">&para;</a></h2>
-<p>Not Stable, Not adaptive. In-Place. O(NlogN) Average Case. </p>
-<p>Pivot Selection and partitioning schemes affect Complexity in a major way. </p>
-<p>Pivot Selection : Fixed at hi or lo (worst), random (Good enough in practicw), Median of three, etc. </p>
-<p>Partitoning  :  Two way partitioning ( Eg. Hoare Partitioning with weak condition) , Three way partitioning (Eg : Djikstra) , Dual Pivot partitioning.  </p>
-<p>Quicksort is a highly reaearched algorithm and there are many variations and derivatives. It is more like a family of algorithms. </p>
-<p>Can degrade to O(n^2) in cases for duplicate keys and sorted inputs, depending on pivot selection and partitioning scheme.</p>
-<p>Important thing to note, The most common partitioning scheme found on the internet (Lomuto parition) performs more swaps than Hoare partition with a weak condition. Also, it degrades to O(n^2) when all elements are the same ( Hoare partition with a strict condition will also degrade to O(n^2) for duplicate keys).   </p>
-<p>Lomuto was popularized by Bentley in the book Programming Pearls because he found Hoare difficult and unintuitve. One advantage to note: because Lomuto uses two forward iterators, it can be used on singly linked lists.</p>
+<ul>
+<li><strong>Stability:</strong> Not stable  </li>
+<li><strong>Adaptivity:</strong> Not adaptive  </li>
+<li><strong>In-Place:</strong> Yes  </li>
+<li><strong>Time Complexity:</strong> O(N log N) average case  </li>
+<li><strong>Worst Case:</strong> O(N²) (e.g., sorted input, duplicate keys, poor pivot selection)  </li>
+</ul>
+<p><strong>Notes:</strong>
+- Pivot selection and partitioning schemes significantly affect complexity.</p>
+<p><strong>Pivot Selection:</strong>  </p>
+<ul>
+<li>Fixed at high or low index (worst case)</li>
+<li>Random (good enough in practice)</li>
+<li>Median-of-three, etc.</li>
+</ul>
+<p><strong>Partitioning:</strong>  </p>
+<ul>
+<li>Two-way (e.g., Hoare partitioning with weak condition)</li>
+<li>Three-way (e.g., Dijkstra)</li>
+<li>Dual-pivot partitioning</li>
+</ul>
+<p>Quicksort is a highly researched algorithm with many variations and derivatives—it's more like a family of algorithms.</p>
+<p><strong>Important:</strong> </p>
+<ul>
+<li>The most common partitioning scheme found online (Lomuto partition) performs more swaps than Hoare partition with a weak condition.</li>
+<li>Lomuto degrades to O(N²) when all elements are the same.</li>
+<li>Hoare partition with a strict condition also degrades to O(N²) for duplicate keys.</li>
+<li>Lomuto was popularized by Bentley in "Programming Pearls" because he found Hoare unintuitive.  </li>
+<li><strong>Advantage:</strong> Lomuto uses two forward iterators, so it can be used on singly linked lists.</li>
+</ul>
+<hr />
 <h2 id="mergesort">Mergesort<a class="headerlink" href="#mergesort" title="Permanent link">&para;</a></h2>
-<p>In-place. Stable. Not adaptive. Not In-place (Needs extra space) . O(NlogN) worst case.
-Can be combined with Insertion sort for small subproblem sizes.</p>
+<ul>
+<li><strong>Stability:</strong> Stable  </li>
+<li><strong>Adaptivity:</strong> Not adaptive  </li>
+<li><strong>In-Place:</strong> No (needs extra space)  </li>
+<li><strong>Time Complexity:</strong> O(N log N) worst case  </li>
+</ul>
+<p>Can be combined with insertion sort for small subproblem sizes.</p>
+<hr />
 <h2 id="bubble-sort">Bubble Sort<a class="headerlink" href="#bubble-sort" title="Permanent link">&para;</a></h2>
-<p>Stable. Can be made adaptive (just add a flag to tell if a swap has occurred. If not exit early). </p>
+<ul>
+<li><strong>Stability:</strong> Stable  </li>
+<li><strong>Adaptivity:</strong> Can be made adaptive (add a flag to check if a swap occurred; if not, exit early)  </li>
+<li><strong>In-Place:</strong> Yes  </li>
+<li><strong>Time Complexity:</strong> O(N²)  </li>
+</ul>
+<p><strong>Optimized Bubble Sort Example:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">optimized_bubble_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
@@ -2162,30 +2198,49 @@ Can be combined with Insertion sort for small subproblem sizes.</p>
             <span class="k">return</span>  <span class="c1"># Already sorted, no more passes needed</span>
     <span class="k">return</span> <span class="n">arr</span>
 </code></pre></div>
+<hr />
 <h2 id="insertion-sort">Insertion Sort<a class="headerlink" href="#insertion-sort" title="Permanent link">&para;</a></h2>
-<p>Quadratic. In-place. Stable. Adaptive.</p>
+<ul>
+<li><strong>Stability:</strong> Stable  </li>
+<li><strong>Adaptivity:</strong> Adaptive  </li>
+<li><strong>In-Place:</strong> Yes  </li>
+<li><strong>Time Complexity:</strong> O(N²)  </li>
+</ul>
+<p><strong>Example:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">insertion_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
         <span class="n">key</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="k">while</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
-            <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
             <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
-        <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
 </code></pre></div>
-<p>This is quite similar to optimized bubble sort except that in bubble sort,the sort element (maximimum) is bubbled into unsorted section while in insertion sort, the sort element (minimum) is bubbled into the sorted section. </p>
-<p>Insertion sort is ONLINE. Each new element can be put in its sorted place as it is received.</p>
-<p>Shell Sort is a faster variation of Insertion sort (named after D.L. Shell who invented it). It uses insertion sort on periodic subarrays.</p>
-<p>Alse see : 
-<a href="https://stackoverflow.com/questions/47712062/how-to-distinguish-online-and-offline-sorting-algorithms">https://stackoverflow.com/questions/47712062/how-to-distinguish-online-and-offline-sorting-algorithms</a></p>
-<p><a href="https://cs.stackexchange.com/questions/55012/what-is-the-fastest-online-sorting-algorithm">https://cs.stackexchange.com/questions/55012/what-is-the-fastest-online-sorting-algorithm</a></p>
+<ul>
+<li>Similar to optimized bubble sort, except:</li>
+<li>In bubble sort, the maximum element is bubbled into the unsorted section.</li>
+<li>In insertion sort, the minimum element is inserted into the sorted section.</li>
+<li><strong>Online:</strong> Each new element can be put in its sorted place as it is received.</li>
+<li><strong>Shell Sort:</strong> A faster variation of insertion sort (named after D.L. Shell), using insertion sort on periodic subarrays.</li>
+</ul>
+<p><strong>See also:</strong><br />
+- <a href="https://stackoverflow.com/questions/47712062/how-to-distinguish-online-and-offline-sorting-algorithms">Stack Overflow: Online vs Offline Sorting Algorithms</a><br />
+- <a href="https://cs.stackexchange.com/questions/55012/what-is-the-fastest-online-sorting-algorithm">CS StackExchange: Fastest Online Sorting Algorithm</a></p>
+<hr />
 <h2 id="selection-sort">Selection Sort<a class="headerlink" href="#selection-sort" title="Permanent link">&para;</a></h2>
-<p>Quadratic. In-Place. Not Stable. Not Adaptive. </p>
-<p>Only advantage over insertion sort : performs less swaps than insertion sort.</p>
+<ul>
+<li><strong>Stability:</strong> Not stable  </li>
+<li><strong>Adaptivity:</strong> Not adaptive  </li>
+<li><strong>In-Place:</strong> Yes  </li>
+<li><strong>Time Complexity:</strong> O(N²)  </li>
+</ul>
+<p><strong>Note:</strong><br />
+- Only advantage over insertion sort: performs fewer swaps.</p>
+<hr />
 <h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
 <ol>
-<li><a href="https://www.toptal.com/developers/sorting-algorithms">https://www.toptal.com/developers/sorting-algorithms</a></li>
-<li><a href="https://www.youtube.com/playlist?list=PL9xmBV_5YoZOZSbGAXAPIq1BeUf4j20pl">https://www.youtube.com/playlist?list=PL9xmBV_5YoZOZSbGAXAPIq1BeUf4j20pl</a></li>
+<li><a href="https://www.toptal.com/developers/sorting-algorithms" target="_blank" rel="noopener noreferrer">Toptal: Sorting Algorithms</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PL9xmBV_5YoZOZSbGAXAPIq1BeUf4j20pl" target="_blank" rel="noopener noreferrer">YouTube: Sorting Algorithms Playlist</a></li>
 </ol>
 
 
