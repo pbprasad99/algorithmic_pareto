@@ -1,19 +1,32 @@
 # External Sorting
 
-## Defining the problem
+---
 
-Given limited RAM , sort a large file.
+## Problem Definition
 
-## One Solution
+Given limited RAM, how do you sort a file that is too large to fit into memory?
 
-Suppose, we have an X GB file and only 2GB RAM where X > 2 
+---
 
-1. Divide the file into X//2  2GB chunks ( FILE_SZ//RAM ).
+## Solution
 
-2. Read each chunk into memory . Sort it and write it back to disk as a part file.
+Suppose you have an **X GB** file and only **2 GB** of RAM, where **X > 2**.
 
-3. Now we have k-way merge problem. You can either run a single k-way merge, or mutliple passes of two way merges to utlimately merge the part files into a single sorted file.
+**Steps:**
 
+1. **Divide the file** into chunks of size equal to available RAM (e.g., X // 2 GB chunks if RAM is 2 GB).
+2. **For each chunk:**
+    - Read the chunk into memory.
+    - Sort it.
+    - Write it back to disk as a "part file".
+3. **Merge the sorted part files:**
+    - This is now a *k-way merge* problem.
+    - You can either:
+        - Run a single k-way merge, or
+        - Use multiple passes of two-way merges to ultimately merge all part files into a single sorted file.
+
+---
 
 ## Additional References
-1. https://en.wikipedia.org/wiki/External_sorting
+
+1. <a href="https://en.wikipedia.org/wiki/External_sorting" target="_blank" rel="noopener noreferrer">Wikipedia: External Sorting</a>

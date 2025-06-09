@@ -1,33 +1,61 @@
-# Properties of Comparison Based Sorting Algorithms
+# Properties of Comparison-Based Sorting Algorithms
 
-## Quicksort 
+---
 
-Not Stable, Not adaptive. In-Place. O(NlogN) Average Case. 
+## Quicksort
 
-Pivot Selection and partitioning schemes affect Complexity in a major way. 
+- **Stability:** Not stable  
+- **Adaptivity:** Not adaptive  
+- **In-Place:** Yes  
+- **Time Complexity:** O(N log N) average case  
+- **Worst Case:** O(N²) (e.g., sorted input, duplicate keys, poor pivot selection)  
 
-Pivot Selection : Fixed at hi or lo (worst), random (Good enough in practicw), Median of three, etc. 
+**Notes:**
+- Pivot selection and partitioning schemes significantly affect complexity.
 
-Partitoning  :  Two way partitioning ( Eg. Hoare Partitioning with weak condition) , Three way partitioning (Eg : Djikstra) , Dual Pivot partitioning.  
+**Pivot Selection:**  
 
-Quicksort is a highly reaearched algorithm and there are many variations and derivatives. It is more like a family of algorithms. 
+  - Fixed at high or low index (worst case)
+  - Random (good enough in practice)
+  - Median-of-three, etc.
 
-Can degrade to O(n^2) in cases for duplicate keys and sorted inputs, depending on pivot selection and partitioning scheme.
+**Partitioning:**  
 
-Important thing to note, The most common partitioning scheme found on the internet (Lomuto parition) performs more swaps than Hoare partition with a weak condition. Also, it degrades to O(n^2) when all elements are the same ( Hoare partition with a strict condition will also degrade to O(n^2) for duplicate keys).   
+  - Two-way (e.g., Hoare partitioning with weak condition)
+  - Three-way (e.g., Dijkstra)
+  - Dual-pivot partitioning
 
-Lomuto was popularized by Bentley in the book Programming Pearls because he found Hoare difficult and unintuitve. One advantage to note: because Lomuto uses two forward iterators, it can be used on singly linked lists.
+Quicksort is a highly researched algorithm with many variations and derivatives—it's more like a family of algorithms.
 
+**Important:** 
+ 
+- The most common partitioning scheme found online (Lomuto partition) performs more swaps than Hoare partition with a weak condition.
+- Lomuto degrades to O(N²) when all elements are the same.
+- Hoare partition with a strict condition also degrades to O(N²) for duplicate keys.
+- Lomuto was popularized by Bentley in "Programming Pearls" because he found Hoare unintuitive.  
+  - **Advantage:** Lomuto uses two forward iterators, so it can be used on singly linked lists.
+
+---
 
 ## Mergesort
 
-In-place. Stable. Not adaptive. Not In-place (Needs extra space) . O(NlogN) worst case.
-Can be combined with Insertion sort for small subproblem sizes.
+- **Stability:** Stable  
+- **Adaptivity:** Not adaptive  
+- **In-Place:** No (needs extra space)  
+- **Time Complexity:** O(N log N) worst case  
 
+Can be combined with insertion sort for small subproblem sizes.
 
-## Bubble Sort  
+---
 
-Stable. Can be made adaptive (just add a flag to tell if a swap has occurred. If not exit early). 
+## Bubble Sort
+
+- **Stability:** Stable  
+- **Adaptivity:** Can be made adaptive (add a flag to check if a swap occurred; if not, exit early)  
+- **In-Place:** Yes  
+- **Time Complexity:** O(N²)  
+
+**Optimized Bubble Sort Example:**
 
 ```python
 def optimized_bubble_sort(arr):
@@ -43,38 +71,53 @@ def optimized_bubble_sort(arr):
     return arr
 ```
 
+---
+
 ## Insertion Sort
 
-Quadratic. In-place. Stable. Adaptive.
+- **Stability:** Stable  
+- **Adaptivity:** Adaptive  
+- **In-Place:** Yes  
+- **Time Complexity:** O(N²)  
+
+**Example:**
 
 ```python
 def insertion_sort(arr):
     for i in range(1, len(arr)):
         key = arr[i]
-        j = i-1
+        j = i - 1
         while j >= 0 and key < arr[j]:
-            arr[j+1] = arr[j]
+            arr[j + 1] = arr[j]
             j -= 1
-        arr[j+1] = key
+        arr[j + 1] = key
 ```
 
-This is quite similar to optimized bubble sort except that in bubble sort,the sort element (maximimum) is bubbled into unsorted section while in insertion sort, the sort element (minimum) is bubbled into the sorted section. 
+- Similar to optimized bubble sort, except:
+  - In bubble sort, the maximum element is bubbled into the unsorted section.
+  - In insertion sort, the minimum element is inserted into the sorted section.
+- **Online:** Each new element can be put in its sorted place as it is received.
+- **Shell Sort:** A faster variation of insertion sort (named after D.L. Shell), using insertion sort on periodic subarrays.
 
-Insertion sort is ONLINE. Each new element can be put in its sorted place as it is received.
+**See also:**  
+- [Stack Overflow: Online vs Offline Sorting Algorithms](https://stackoverflow.com/questions/47712062/how-to-distinguish-online-and-offline-sorting-algorithms)  
+- [CS StackExchange: Fastest Online Sorting Algorithm](https://cs.stackexchange.com/questions/55012/what-is-the-fastest-online-sorting-algorithm)
 
-Shell Sort is a faster variation of Insertion sort (named after D.L. Shell who invented it). It uses insertion sort on periodic subarrays.
-
-Alse see : 
-https://stackoverflow.com/questions/47712062/how-to-distinguish-online-and-offline-sorting-algorithms
-
-https://cs.stackexchange.com/questions/55012/what-is-the-fastest-online-sorting-algorithm
+---
 
 ## Selection Sort
-Quadratic. In-Place. Not Stable. Not Adaptive. 
 
-Only advantage over insertion sort : performs less swaps than insertion sort.
+- **Stability:** Not stable  
+- **Adaptivity:** Not adaptive  
+- **In-Place:** Yes  
+- **Time Complexity:** O(N²)  
 
+**Note:**  
+- Only advantage over insertion sort: performs fewer swaps.
 
-## Additional Resources 
-1. https://www.toptal.com/developers/sorting-algorithms
-2. https://www.youtube.com/playlist?list=PL9xmBV_5YoZOZSbGAXAPIq1BeUf4j20pl
+---
+
+## Additional Resources
+
+1. <a href="https://www.toptal.com/developers/sorting-algorithms" target="_blank" rel="noopener noreferrer">Toptal: Sorting Algorithms</a>
+2. <a href="https://www.youtube.com/playlist?list=PL9xmBV_5YoZOZSbGAXAPIq1BeUf4j20pl" target="_blank" rel="noopener noreferrer">YouTube: Sorting Algorithms Playlist</a>
