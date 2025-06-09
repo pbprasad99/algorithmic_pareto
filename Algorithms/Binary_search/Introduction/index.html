@@ -972,6 +972,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -983,6 +996,82 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bisect-left" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bisect Left
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bisect Left">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checking-the-return-value-of-bisect-left" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking the return value of Bisect Left
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bisect-right" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bisect Right
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bisect Right">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checking-the-return-value-of-bisect-right" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking the return value of Bisect Right
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1975,6 +2064,71 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bisect-left" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bisect Left
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bisect Left">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checking-the-return-value-of-bisect-left" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking the return value of Bisect Left
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bisect-right" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bisect Right
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bisect Right">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checking-the-return-value-of-bisect-right" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking the return value of Bisect Right
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1990,10 +2144,199 @@
 
 
 <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
-<div class="pdf-container">
-    <iframe src="../Binary_Search.pdf" width="100%" height="800px" style="border: none;">
-        <p>PDF not supported on this device. <a href="../Binary_Search.pdf">Download PDF</a></p>
-    </iframe>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This article is heavily based on <a href="https://youtu.be/tgVSkMA8joQ?si=dt5o2em5Nv2ghTj2" target="_blank">this awesome video by mcoding</a>. This is perhaps the best resource on the internet to understand binary search.</p>
+</div>
+<h2 id="bisect-left">Bisect Left<a class="headerlink" href="#bisect-left" title="Permanent link">&para;</a></h2>
+<p>Binary search (also called <strong>bisection search</strong>) is an algorithm to find an element quickly in a sorted array.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Suppose we are trying to find 7 in this array :
+<code>[2,3,3,4,6,7,8,9]</code></p>
+</div>
+<ol>
+<li>
+<p><strong>Is the element you want to find in the left half or the right half?</strong> → Right half</p>
+<p>Our search space is now only the right half.
+ <div class="highlight"><pre><span></span><code>[        6,7,8,9 ] # remaining 4
+</code></pre></div>
+2. <strong>Repeat the process</strong>
+ <div class="highlight"><pre><span></span><code>[        6,7     ] # remaining 2
+[          7     ] # remaining 1
+</code></pre></div>
+3. <strong>Finally there is just one element left. That's our element.</strong></p>
+</li>
+</ol>
+<p>At each step you cut out half of the search space. How can the idea be so simple, but the implementation be so difficult?. It's not - you just have to think about it in the right way.</p>
+<p><strong>The First Decision: What Do You Want to Return? The object itself, or the index where it is at?</strong></p>
+<ul>
+<li>The index itself is a "more useful piece of information". You can always just grab the object at that index later.</li>
+</ul>
+<p><strong>What do we do when the object we are looking for is not there?</strong></p>
+<ul>
+<li>Return -1? Raise exception? </li>
+<li>What if there are multiple valid indices to choose from? </li>
+</ul>
+<p>With every arbitrary choice we make, we would have to remember the implementation details for each choice.</p>
+<div class="admonition warning">
+<p class="admonition-title">Implementation Complexity</p>
+<p>A better way to do it, is to rephrase the question, so that there is always exactly one answer.If I were going to add another element to the array, say 7, where should I put it so that it is the first 7?</p>
+</div>
+<ul>
+<li>If there are no 7s in the array, this answer would be the index where you would put 7 to maintain the sorted property of the array. </li>
+<li>If there is at least one 7, the answer would be the index of the first 7.</li>
+<li>The index would be zero if the array is empty, which is not actually a valid index, but is the right answer to our Question!</li>
+<li>It could also be <code>(n-1) + 1</code> if the element is absent from the array and greater than all elements in a non-empty array. This is also not a valid index. But, again,it is the right answer to our Question.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Correct Implementation Strategy</p>
+<p>The array being <strong>sorted</strong> is not actually the property being used in binary search. The property is that everything greater than 7 is to the right of 7 and everything less than 7 is to the left of 7.</p>
+</div>
+<p>Here, I disturbed the order of some elements in a sorted array:
+<code>[2, 3, 5, 4, 6, 7, 9, 8]</code></p>
+<p>The array is no longer in sorted order, but notice the steps are exactly the same. What we need is that everything less than 7 is to the left of 7 and everything greater than 7 should be to the right. </p>
+<div class="admonition tip">
+<p class="admonition-title">Important Insight</p>
+<p>In fact, the numbers can be replaced with the important information: <strong>Is this number less than 7?</strong></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Pointers</p>
+<div class="highlight"><pre><span></span><code>[2, 3, 5, 4, 6, 7, 9, 8]
+ T  T  T  T  T  F  F  F  #&lt;7?
+</code></pre></div>
+</div>
+<p>Notice how any <strong>Trues</strong> are on the left and any <strong>Falses</strong> are on the right.</p>
+<p>Now that we are looking at the relevant data, where do we insert 7 so that it is the first 7?</p>
+<p>Notice that the answer we are looking for is the index of the first <strong>False</strong> value or the end of the array if there are no false values. This is the key insight, we need to keep in mind that makes the implementation extremely easy to remember :</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Squint Your Eyes and Find the First False Value</p>
+</div>
+<p>Ok, let's write the implementation:</p>
+<div class="admonition code">
+<p class="admonition-title">Bisect Left</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">bisect</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">lo</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">hi</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>     
+    <span class="k">while</span> <span class="n">lo</span> <span class="o">&lt;</span> <span class="n">hi</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">:</span>  <span class="c1"># mid is a True value</span>
+            <span class="n">lo</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>            <span class="c1"># mid is a False Value</span>
+            <span class="n">hi</span> <span class="o">=</span> <span class="n">mid</span>
+    <span class="k">return</span> <span class="n">lo</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<p>The first two lines inside the function, initialize lo and hi.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong><em>lo and hi are lower and upper bounds on where this First FALSE index is.</em></strong> </p>
+</div>
+<p>If our answer is zero, it would mean that first value is False or array is empty. If it is len(arr), it would mean that all the values are True and we would have to put the new element at the end of the array.</p>
+<p>The idea of the while loop (line 4), is that we continuously decrease the upper bound and increase the upper bound until they are equal. lo and hi will meet at the unique index we are looking for. So, we could return lo or high, once the while loop runs, it would make no difference.</p>
+<p>Next, we calculate the midpoint in each iteration of the while loop. Python can represent arbitrarily large integers, so you do not have to worry about overflow. But, if you were using another language, you might have to worry about overflow. In that case, you would represent mid as <code>lo+(hi-lo)//2</code> : lo plus half the distance between hi and lo. If you do it this way, it will never overflow.</p>
+<div class="admonition warning">
+<p class="admonition-title">Comparing mid with x</p>
+<p>Next comes the part which is often written incorrectly. We must compare whatever is at mid with our search term <code>x</code>. Remember, we are looking for the first False value where True of False is determined by the question : Is this element strictly Less than <code>x</code>: 
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="p">:</span>
+    <span class="n">lo</span> <span class="o">=</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span>   <span class="c1"># mid is a True Value</span>
+<span class="k">else</span> <span class="p">:</span>
+    <span class="n">hi</span> <span class="o">=</span><span class="n">mid</span>      <span class="c1"># mid is a False Value</span>
+</code></pre></div>
+If <code>mid</code> is strictly less than <code>x</code>, it is a <code>True</code> Value. Since the Value at <code>mid</code> is <code>True</code>, the earliest a <code>False</code> Value could occur is the next index which is <code>mid+1</code>. Therefore, our lower bound becomes <code>mid+1</code></p>
+<p>What if <code>mid</code> is a <code>False</code> Value? In this case the FIRST <code>False</code> Value could not be any later than mid. But it could be mid or earlier than mid. There could be other <code>False</code> values before midm. So our upper bound becomes mid.</p>
+<p>When the while loop is done, lo and hi meet at the index we are looking for.</p>
+</div>
+<p>How do we know that this implementation always gives the right answer?
+ - We know that lo is always &lt;=  answer
+ - We also know that answer is always &lt;= hi
+ - In each iteration the difference between hi and lo always decreases by at least one.</p>
+<p>Thereifre, lo and hi always meet at the answer.</p>
+<p>But how do we know that in each iteration lo and hi come closer to each other by at least one?<br />
+If we enter the True clause on line no. 6 <code>lo = mid+1</code> ensures that lo always increases by at least one.</p>
+<p>If we enter the False clause on lines 8,9 we are setting hi to mid. So, hopefully we are lowering hi. But how do we know mid is actually strictly less than hi?</p>
+<p>Here we are actually using the property that <strong>integer division rounds down</strong>. Inside the while loop: <strong>while lo &lt; hi, lo is strictly less than hi</strong>.
+So <strong>lo + hi</strong> is strictly less than <strong>hi + hi</strong>.</p>
+<p>That means for calculating <strong>mid</strong>:
+<strong>mid = (lo + hi) // 2</strong></p>
+<p>When we divide <strong>(lo + hi)</strong> by 2 and round down we will get something strictly less than <strong>(hi + hi) // 2</strong> i.e. <strong>hi</strong>.</p>
+<h3 id="checking-the-return-value-of-bisect-left">Checking the return value of Bisect Left<a class="headerlink" href="#checking-the-return-value-of-bisect-left" title="Permanent link">&para;</a></h3>
+<p>Since bisect left can return an out of bounds index and not necessarily the index of a matching value, you have to handle this when using it, depending on what you are trying to do.  </p>
+<div class="admonition example">
+<p class="admonition-title">Checking if x exists using bisect left</p>
+<div class="highlight"><pre><span></span><code>def search(arr:list, x) -&gt;int :
+    idx = bisect_left(arr,x)
+    if i != len(arr) and arr[i] == x:
+        return i
+    raise ValueError(f&quot;{x} not found!&quot;)
+</code></pre></div>
+</div>
+<h2 id="bisect-right">Bisect Right<a class="headerlink" href="#bisect-right" title="Permanent link">&para;</a></h2>
+<p>But wait. Your ask: instead of returning a 7 so that it is the first seven, could I not return the index, so that it would be the last 7?</p>
+<p>You could. You could follow the same analysis and get a very similar algorithm.</p>
+<p>To find where it should go to be the first 7, the relevant piece of information is: <strong>"Is this (current element) strictly less than 7"</strong></p>
+<p>To find where it should go to be the last element, the relevant piece of information i: <strong>"Is this (current element) less than or equal to  7"</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Bisect Left vs Bisect Right</p>
+<div class="highlight"><pre><span></span><code>[2, 3, 5, 4, 6, 7, 7, 7, 8, 9]
+[T, T, T, T, T, F, F, F, F, F] #&lt;7  ; Bisect Left
+[T, T, T, T, T, T, T, T, F, F] #&lt;=7 ; Bisect Right
+</code></pre></div>
+</div>
+<p>In either case, you are looking for the <strong>first False value</strong>. You just need to decide what you mean by True or False.</p>
+<div class="admonition code">
+<p class="admonition-title">Bisect Right</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">bisect_right</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">lo</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">hi</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>     
+    <span class="k">while</span> <span class="n">lo</span> <span class="o">&lt;</span> <span class="n">hi</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>  <span class="c1"># mid is a True value</span>
+            <span class="n">lo</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>            <span class="c1"># mid is a False Value</span>
+            <span class="n">hi</span> <span class="o">=</span> <span class="n">mid</span>
+    <span class="k">return</span> <span class="n">lo</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<h3 id="checking-the-return-value-of-bisect-right">Checking the return value of Bisect Right<a class="headerlink" href="#checking-the-return-value-of-bisect-right" title="Permanent link">&para;</a></h3>
+<p>Bisect right can return values from 0 to len(arr). If it returns zero it means that either arr is empty or all elements in the array are greater than x. Any other value could mean x exists at i-1. A return value of len(arr) means x is greater than or equal to all elements in the array.</p>
+<div class="admonition example">
+<p class="admonition-title">Checking if x exists using bisect right</p>
+<div class="highlight"><pre><span></span><code>def search(arr:list, x) -&gt;int :
+    idx = bisect_right(arr,x)
+    if i &gt; 0 and arr[i-1] == x:
+        return i
+    raise ValueError(f&quot;{x} not found!&quot;)
+</code></pre></div>
+</div>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<div class="admonition success">
+<p class="admonition-title">Key Takeaways</p>
+<ul>
+<li>Binary search is fundamentally about finding boundaries in sorted data</li>
+<li>Reframe the problem as "find the first False value" </li>
+<li>The difference between <code>bisect_left</code> and <code>bisect_right</code> is just changing <code>&lt;</code> to <code>≤</code></li>
+<li>Always think about what "True" and "False" mean in your specific context</li>
+</ul>
 </div>
 
 
