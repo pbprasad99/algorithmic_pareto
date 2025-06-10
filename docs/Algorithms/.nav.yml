@@ -4,7 +4,7 @@ nav :
  - Quicksort
  - Two_Way_Merge
  - Merge_Sort
- - K_Way_merge
+ - K_Way_Merge
  - "Comparison Based Sorting" : properties_of_comparison_based_sorting_algorithms.md
  - External_Sorting.md
  - Binary_Search
