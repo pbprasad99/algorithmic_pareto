@@ -12,6 +12,7 @@ A curated collection of learning materials, documentation, and references.
 
 ### SQL
 - [Mode SQL Tutorial](https://mode.com/sql-tutorial/sql-in-mode){target="_blank"}
+- [JDBC - a short guide](https://www.marcobehler.com/guides/jdbc){target="_blank"}
 
 ### Spark
 - [Spark Playground](https://www.sparkplayground.com/){target="_blank"}
@@ -92,7 +93,10 @@ A curated collection of learning materials, documentation, and references.
 
 ### AI Engineering
 - [Amit Chaudhary's Blog](https://amitness.com/){target="_blank"}
-- [Coding The Smart Way](https://codingthesmartway.com/){target="_blank"}
+- [Coding The Smart Way](https://codingthesmartway.com/){}
+
+### Java
+ - [Marco Behler's Blog](https://www.marcobehler.com/){target="_blank"}
 
 ## Cheat Sheets
 - [PySpark RDD Cheat Sheet](https://stanford.edu/~rezab/dao/notes/L11/spark_cheat_sheet.pdf){target="_blank"}

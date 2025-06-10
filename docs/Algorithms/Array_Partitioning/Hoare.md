@@ -39,8 +39,10 @@ We can simply swap these and keep moving until left and right pass each other.
 So, the algorithm would be:
 !!! info "Algorithm"
     ```
-    Invariant 1) [0,right] only contains elements less than or equal to pivot
-    Invariant 2) (right, len(arr) -1] only contains elements greater than pivot
+    #Initialize pivot = arr[0]
+
+    #Invariant 1) [0,right] only contains elements less than or equal to pivot
+    #Invariant 2) (right, len(arr) -1] only contains elements greater than pivot
     
     
     While left <= right :
@@ -53,7 +55,7 @@ So, the algorithm would be:
     return right
     ```
 
-***This algorithm does not necessarily place the pivot in its sorted position.***
+***This implementation does not necessarily place the pivot in its sorted position.***
 
 Or rather, the problem is not asking us to do this,
 
@@ -89,11 +91,14 @@ Here is the python implementation for both cases :
 ##  Hoare partition with weak condition
 The problem with the partition scheme with a strict condition (where we always put pivot values  in one of the partitions) is that it produces unbalanced partitions when used in quickselect or quicksort.
 
-Consider if the above partition scheme were used in quickselect for finding the smallest element in an array of size n). 
+Consider if the above partition scheme were used in [quickselect](../Quickselect/README.md) for finding the smallest element in an array with k=0 and fixed pivot selection at arr[0]. 
 
 What happens when all elements are duplicates :
+
 !!! info "Dry Run"
-    ```
+    >l and r indicate the search space for each iteration of quickselect loop/each recursive call to quickselect. Comparisons refer to those made by the partitioning subroutine.
+
+    ``` 
         [1,1,1,1,1,1]
          l         r   Iter 1 : 5  comparisons
          l       r     Iter 2 : 4  comparisons
@@ -102,6 +107,8 @@ What happens when all elements are duplicates :
          l r           Iter 5 : 1  comparisons
          lr            Iter 6 : 0  comparisons
     ```
+The Hoare partition, after performing r-l+1 comparisons, would return the rightmost position for each call recursive call to quickselect. r would reduce linearly until it meets l, thus giving a quadratic running time!
+
 Number of comparisons = SUM([1.....n]) = n(n+1)/2 = (n*2 + n ) /2
 Therefore, Complexity is O(n^2)  in this case.
 
@@ -123,14 +130,11 @@ That is, pivot values are allowed to be in either partition.
 
 Our problem now becomes : 
 
-Given an array of integers, rearrange the elements such that the left part contains elements less than or equal to a pivot value and the right part contains values greater than or equal to the pivot value.
-
-The implementation is tricky when handling values equal to pivot. 
-
-We also stop scanning when left or right are equal to pivot in both partitions. 
-We swap and move the left and right pointers.
-After any swap, both partitions will increase by 1. Pivot values might end up in any partition. 
-This will also be the case when, left and right are both pointing to pivot value i.e. both partitions increase by 1 and there is a redundant swap between two pivot values.
+!!! info "Reframed Problem"
+    Given an array of integers, rearrange the elements such that the left part contains elements less than or equal to a pivot value and the right part contains values greater than or equal to the pivot value.
+    
+The implementation is tricky when handling values equal to pivot. We stop scanning when left or right are equal to pivot in either partition. We swap and move the left and right pointers.
+After any swap, both partitions will increase by 1. Pivot values might end up in any partition. This will also be the case when, left and right are both pointing to pivot value i.e. both partitions increase by 1 and there is a redundant swap between two pivot values.
 
 !!! info "Algorithm"
     ```
@@ -141,7 +145,7 @@ This will also be the case when, left and right are both pointing to pivot value
                right -=1
           if left <= right :
               swap left and right
-              left-=1
+              left+=1
               right-=1
     return right
     ```
@@ -155,7 +159,8 @@ Let us see the behavior of quickselect with this scheme for the same case :
          rl            Iter 2 END 
     ```
 
-The complexity is reduced to nLOG(n) now.
+Now the hoare partitioning subroutine will reduce r by half in each iteration. And quickselect is called LOG(n) times in the worst case, when k = 0.
+The complexity is reduced to LOG(n)*LOG(n).
 
 Here is the implementation :
 
@@ -168,8 +173,11 @@ Here is the implementation :
         ```
 
 ## Important things to Note:
-**This algorithm is not stable. The relative order of elements will not be preserved.**
+
+- **This algorithm is not stable. The relative order of elements will not be preserved.**
 Naive partitioning using extra space is the only algorithm which preserves relative order of elements.
+
+- When used in quicksort/quickselect, instead of fixed pivot selection either random pivot selection or selection algorithms like Median of Medians are used to pick the pivot.  
 
 ## Additional Resources
 1. [ALGS4 - Sedgewick](https://algs4.cs.princeton.edu/23quicksort/){target="_blank"} 

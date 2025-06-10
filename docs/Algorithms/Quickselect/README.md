@@ -2,7 +2,11 @@
 
 ### Defining the problem.
 
-Given an array, find the sorted value in non decreasing order at the kth smallest index when indices are counted from zero.
+Given an array, find the sorted value in non decreasing order at the kth index (Lets assume indices are counted from zero). 
+
+In other words what would be the value at the kth index if the array were sorted in non decreasing order?
+
+This is also called the kth order statistic.
 
 ### The Algorithm
 
