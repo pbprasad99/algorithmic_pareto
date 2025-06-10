@@ -12,28 +12,28 @@
         <meta name="author" content="pbprasad99">
       
       
-        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Binary_search/Median_of_two_sorted_arrays/">
+        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Backtracking/">
       
       
-        <link rel="prev" href="../Introduction/">
+        <link rel="prev" href="../Basic_Recursion/">
       
       
-        <link rel="next" href="../../K_Way_Merge/">
+        <link rel="next" href="../">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.ico">
+      <link rel="icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>Median of two sorted arrays - patibanb.me</title>
+        <title>Backtracking - patibanb.me</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,9 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -63,11 +63,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Median of two sorted arrays - patibanb.me" >
+        <meta  property="og:title"  content="Backtracking - patibanb.me" >
       
         <meta  property="og:description"  content="Personal Website" >
       
-        <meta  property="og:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Binary_search/Median_of_two_sorted_arrays.png" >
+        <meta  property="og:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Backtracking/README.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -75,19 +75,19 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Binary_search/Median_of_two_sorted_arrays/" >
+        <meta  property="og:url"  content="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Backtracking/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Median of two sorted arrays - patibanb.me" >
+        <meta  name="twitter:title"  content="Backtracking - patibanb.me" >
       
         <meta  name="twitter:description"  content="Personal Website" >
       
-        <meta  name="twitter:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Binary_search/Median_of_two_sorted_arrays.png" >
+        <meta  name="twitter:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Backtracking/README.png" >
       
     
     
-   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -96,7 +96,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -115,7 +115,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#median-of-two-sorted-arrays" class="md-skip">
+        <a href="#backtracking" class="md-skip">
           Skip to content
         </a>
       
@@ -129,9 +129,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+    <a href="../.." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -148,7 +148,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Median of two sorted arrays
+              Backtracking
             
           </span>
         </div>
@@ -249,7 +249,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -281,7 +281,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../Array_Partitioning/Introduction/" class="md-tabs__link">
+        <a href="../Array_Partitioning/Introduction/" class="md-tabs__link">
           
   
   
@@ -306,7 +306,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../blog/" class="md-tabs__link">
+        <a href="../../blog/" class="md-tabs__link">
           
   
   
@@ -328,7 +328,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../resources/" class="md-tabs__link">
+        <a href="../../resources/" class="md-tabs__link">
           
   
   
@@ -350,7 +350,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../About/" class="md-tabs__link">
+        <a href="../../About/" class="md-tabs__link">
           
   
   
@@ -386,9 +386,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+    <a href="../.." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     patibanb.me
@@ -403,7 +403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -473,7 +473,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -555,7 +555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Array_Partitioning/Introduction/" class="md-nav__link">
+      <a href="../Array_Partitioning/Introduction/" class="md-nav__link">
         
   
   
@@ -578,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Array_Partitioning/Hoare/" class="md-nav__link">
+      <a href="../Array_Partitioning/Hoare/" class="md-nav__link">
         
   
   
@@ -601,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Array_Partitioning/Lomuto/" class="md-nav__link">
+      <a href="../Array_Partitioning/Lomuto/" class="md-nav__link">
         
   
   
@@ -653,7 +653,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Quickselect/" class="md-nav__link ">
+            <a href="../Quickselect/" class="md-nav__link ">
               
   
   
@@ -712,7 +712,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Quicksort/" class="md-nav__link ">
+            <a href="../Quicksort/" class="md-nav__link ">
               
   
   
@@ -771,7 +771,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Two_Way_Merge/" class="md-nav__link ">
+            <a href="../Two_Way_Merge/" class="md-nav__link ">
               
   
   
@@ -830,7 +830,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Merge_Sort/" class="md-nav__link ">
+            <a href="../Merge_Sort/" class="md-nav__link ">
               
   
   
@@ -868,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
+      <a href="../properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
         
   
   
@@ -891,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../External_Sorting/" class="md-nav__link">
+      <a href="../External_Sorting/" class="md-nav__link">
         
   
   
@@ -935,7 +935,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Basic_Recursion/" class="md-nav__link ">
+            <a href="../Basic_Recursion/" class="md-nav__link ">
               
   
   
@@ -970,6 +970,8 @@
                 
   
   
+    
+  
   
   
     
@@ -986,15 +988,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Backtracking/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   
@@ -1008,7 +1010,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_9">
             <span class="md-nav__icon md-icon"></span>
             Backtracking
@@ -1031,10 +1033,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1049,11 +1049,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
         
           
           <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
@@ -1069,7 +1069,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_11">
             <span class="md-nav__icon md-icon"></span>
             Binary search
@@ -1083,7 +1083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Introduction/" class="md-nav__link">
+      <a href="../Binary_search/Introduction/" class="md-nav__link">
         
   
   
@@ -1103,32 +1103,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Median of two sorted arrays
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Binary_search/Median_of_two_sorted_arrays/" class="md-nav__link">
         
   
   
@@ -1139,62 +1117,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-the-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is the data?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-being-asked" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is being asked?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#thoughts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Thoughts
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1236,7 +1158,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../K_Way_Merge/" class="md-nav__link ">
+            <a href="../K_Way_Merge/" class="md-nav__link ">
               
   
   
@@ -1306,7 +1228,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../blog/" class="md-nav__link ">
+            <a href="../../blog/" class="md-nav__link ">
               
   
   
@@ -1388,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/archive/2025/" class="md-nav__link">
+      <a href="../../blog/archive/2025/" class="md-nav__link">
         
   
   
@@ -1478,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/aws/" class="md-nav__link">
+      <a href="../../blog/category/aws/" class="md-nav__link">
         
   
   
@@ -1503,7 +1425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/basics/" class="md-nav__link">
+      <a href="../../blog/category/basics/" class="md-nav__link">
         
   
   
@@ -1528,7 +1450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/c/" class="md-nav__link">
+      <a href="../../blog/category/c/" class="md-nav__link">
         
   
   
@@ -1553,7 +1475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/etl/" class="md-nav__link">
+      <a href="../../blog/category/etl/" class="md-nav__link">
         
   
   
@@ -1578,7 +1500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/encodings/" class="md-nav__link">
+      <a href="../../blog/category/encodings/" class="md-nav__link">
         
   
   
@@ -1603,7 +1525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/iam/" class="md-nav__link">
+      <a href="../../blog/category/iam/" class="md-nav__link">
         
   
   
@@ -1628,7 +1550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/serverless/" class="md-nav__link">
+      <a href="../../blog/category/serverless/" class="md-nav__link">
         
   
   
@@ -1687,7 +1609,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../resources/" class="md-nav__link ">
+            <a href="../../resources/" class="md-nav__link ">
               
   
   
@@ -1745,7 +1667,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../About/" class="md-nav__link ">
+            <a href="../../About/" class="md-nav__link ">
               
   
   
@@ -1802,38 +1724,68 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-the-data" class="md-nav__link">
+  <a href="#problem-generate-n-bit-binary-numbers" class="md-nav__link">
     <span class="md-ellipsis">
-      What is the data?
+      Problem: Generate N-bit Binary Numbers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem: Generate N-bit Binary Numbers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constraints:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Approaches
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-being-asked" class="md-nav__link">
+  <a href="#comparison-of-approaches" class="md-nav__link">
     <span class="md-ellipsis">
-      What is being asked?
+      Comparison of Approaches
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparison of Approaches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#thoughts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Thoughts
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1853,219 +1805,339 @@
 
 
 
-<h1 id="median-of-two-sorted-arrays">Median of two sorted arrays<a class="headerlink" href="#median-of-two-sorted-arrays" title="Permanent link">&para;</a></h1>
-<p>This is one of those problems which I like to call an "Algorithm in itself". Although categorized under Binary Search, its not just a straightforward application of it.</p>
-<div class="admonition info">
-<p class="admonition-title">Description</p>
-<p><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/description/" target="_blank">Leetcode Link</a>      </p>
-<div class="highlight"><pre><span></span><code>Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+<h1 id="backtracking">Backtracking<a class="headerlink" href="#backtracking" title="Permanent link">&para;</a></h1>
+<p>Backtracking seems confusion and difficult to learn, because there are so many different ways of doing the same thing.</p>
+<p>Here, we solve the same problem in many different ways only to see the possibilities.</p>
+<h2 id="problem-generate-n-bit-binary-numbers">Problem: Generate N-bit Binary Numbers<a class="headerlink" href="#problem-generate-n-bit-binary-numbers" title="Permanent link">&para;</a></h2>
+<p>Given an integer n, generate all possible binary numbers of length n and return them as a list of strings.</p>
+<h3 id="examples">Examples:<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Input: n = 2
+Output: [&quot;00&quot;, &quot;01&quot;, &quot;10&quot;, &quot;11&quot;]
 
-The overall run time complexity should be O(log (m+n)).
-
-
-
-Example 1:
-
-Input: nums1 = [1,3], nums2 = [2]
-Output: 2.00000
-Explanation: merged array = [1,2,3] and median is 2.
-Example 2:
-
-Input: nums1 = [1,2], nums2 = [3,4]
-Output: 2.50000
-Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
-
-
-Constraints:
-
-nums1.length == m
-nums2.length == n
-0 &lt;= m &lt;= 1000
-0 &lt;= n &lt;= 1000
-1 &lt;= m + n &lt;= 2000
--106 &lt;= nums1[i], nums2[i] &lt;= 106
+Input: n = 3
+Output: [&quot;000&quot;, &quot;001&quot;, &quot;010&quot;, &quot;011&quot;, &quot;100&quot;, &quot;101&quot;, &quot;110&quot;, &quot;111&quot;]
 </code></pre></div>
-</div>
-<p>Let us figure out how binary search can be applied to solve this problem..</p>
-<h2 id="what-is-the-data">What is the data?<a class="headerlink" href="#what-is-the-data" title="Permanent link">&para;</a></h2>
-<p>nums1 = [1,2], nums2 = [3,4]</p>
-<p>Two sorted arrays.</p>
-<h2 id="what-is-being-asked">What is being asked?<a class="headerlink" href="#what-is-being-asked" title="Permanent link">&para;</a></h2>
-<p>To find the median in logarithmic time.</p>
-<h2 id="thoughts">Thoughts<a class="headerlink" href="#thoughts" title="Permanent link">&para;</a></h2>
-<p><strong>What is a median</strong></p>
-<p>Consider :
-<div class="highlight"><pre><span></span><code>[1 2 |3 4]  #right partition is inclusive 
-</code></pre></div>
-If we partition an even lengthed sorted array such that the left and right partitions are of equal size.</p>
-<p>The median is ( max(left partition) + min(right partition)  ) / 2</p>
-<p>If the array is odd lengthed :
-<div class="highlight"><pre><span></span><code>[1 2 3 4 5]
-     *
-</code></pre></div>
-We can consider the middle element to belong to both partitions. In which case
-<div class="highlight"><pre><span></span><code>[1 2 3 4 5]
-     *
-</code></pre></div></p>
-<p>The middle element IS the median i.e. index len(arr)//2</p>
-<p>Provided A and B are both sorted, We can always find partitions on A and B such that elements to the left of both partitions are less than elements to their right and both partitions combined divide the combined arrays in half. It will be clear what is meant from the examples below (Consider left out of bounds position to be -inf and right out of bounds position to be +inf). </p>
-<div class="admonition example">
-<p class="admonition-title">Example 1 : Valid Partitions</p>
-<div class="highlight"><pre><span></span><code>Example 1: 
-B [ 1, 2, |6, 7]  # right pertition is inclusive
-A  [  5, |10  ]
-
-1,2,5  &lt; 6,7,10
-</code></pre></div>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example 2 : Valid Partitions</p>
-<div class="highlight"><pre><span></span><code>Example 2 :
-B [ |5, 6, 7, 8, 9 ] # consider left out of bounds position to be -inf and right out of bounds position to be +inf
-
-A [ 1, 2, 3, 4| ]
-
-1,2,3,4 &lt; 5,6,7,8,9
-</code></pre></div>
-</div>
-<p>Note that if you pick a partition on array A, there is only one corresponding partition on array B because we are looking for the set of partitions which divide the combined arrays in two halves.</p>
-<p>We can tell a set of partitions COULD BE a valid by verifying that the last element of the left partition of one array is less than or equal to the first element of the other arrays right partition. We can check the inverse to confirm that the partitions are in fact not valid. </p>
-<p>We can in fact use binary search to find the correct partitions. All we need is to know which way should we move one of the partitions. We will go into this in more detail. </p>
-<p>The idea is if we find the correct partitions, we can calculate the median by looking at the elements clustered around both partitions. Let's see how..</p>
-<p><strong>The first question is how should we define the partitions?</strong></p>
-<p>partition_a + partition_b = (m+n+1) //2 OR partition_a + partition_b = (m+n) // 2 </p>
-<p>let len(A) =m and len(B) = n </p>
-<p>FOR ODD LENGTHED ARRAY :</p>
-<div class="highlight"><pre><span></span><code>B  [1]   ; #IFF partition_b = (m+n +1 )//2 - partition_a  = 2//2 -0 = 1 But *IFF partition_b =  (m+n)//2 - partition_a =  1//2 -0 = 0-0 = 0 
-   *0 #1  
-A  [ ]   ; partition_a = (0+ 0)//2 =0 
-    0
-</code></pre></div>
-<p><em>If we say that </em><em>partition_x + partition_y = (m+n)//2 then median is in the right partition</em><em> in case of odd lengthed array.</em></p>
-<p><em>If we say that </em><em>partition_x + partition_y = (m+n+1)//2 then median is in the left partition</em><em> in case of odd lenghted array.</em></p>
-<p><strong><em>It makes no difference for arrays where m+n is even.</em></strong>
-<div class="highlight"><pre><span></span><code>B [1 2]   ; #IFF partition_b = (m+n+1)//2 - partition_a  = 5//2 - 1 = 2- 1 = 1 and *IFF partition_b = (m+n)//2 - partition_a = 4//2 -1 = 1
-    #*1
-A [1 2]   ; partition_a = (0 + 2) // 2 = 1
-</code></pre></div></p>
-<p>Lets pick one convention : </p>
-<p>partition_a + partition_b = (m+n) //2</p>
-<p><strong>Now for the binary search:</strong></p>
-<p>It makes sense to binary search on the smaller array. Lets call this array A and the partition on it,  partition_a.</p>
-<div class="admonition info">
-<p class="admonition-title">Binary Search Logic</p>
-<p>In each iteration of the binary search, we consider mid as partition_a.
-For each partition_a we determine partition_b (as per our definition) and ask <strong><em>is left_b &gt; partition_a</em></strong> where left_b is the last element in the left partition of array B. </p>
+<h3 id="constraints">Constraints:<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
 <ul>
-<li>If this is TRUE, then partition_a cannot be the pivot. Now the question is where do we move partition_a: to the left or to the right?
-We know that left_b is too big right now, so it needs to be made SMALLER i.e. Moved left. For doing this, by definition of our partitions, we NEED TO MOVE partition_a to the right i.e. partition_a need to be made larger. This is like increasing our lower bound.</li>
-<li>If this is FALSE, it means that the current set of partitions COULD BE VALID. Therefore, we set hi = mid. That is, decrease our upper bound.</li>
+<li>1 ≤ n ≤ 16</li>
+<li>The result list should be in lexicographically sorted order</li>
+<li>Each binary number in the output should be exactly n digits long (pad with leading zeros if necessary)</li>
 </ul>
+<h2 id="implementation-approaches">Implementation Approaches<a class="headerlink" href="#implementation-approaches" title="Permanent link">&para;</a></h2>
+<div class="admonition approach">
+<p class="admonition-title">Approach 0: Pure Recursion</p>
+<p>Uses recursive decomposition without backtracking. Each recursive call returns its own result list.
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Recursive Decomposition- There is no need to maintain a path in this implementation. Therefore, no backtracking is required.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">:</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Eg : For n = 3 , We have 3 spots each of which can be filled with 0 or 1.</span>
+
+<span class="sd">    -    -   -</span>
+<span class="sd">    1/0</span>
+<span class="sd">         1/0  </span>
+<span class="sd">             1/0</span>
+
+<span class="sd">    1 1 1</span>
+<span class="sd">    1 1 0</span>
+<span class="sd">    1 0 1</span>
+<span class="sd">    1 0 0</span>
+<span class="sd">    0 1 1</span>
+<span class="sd">    0 1 0</span>
+<span class="sd">    0 0 1</span>
+<span class="sd">    0 0 0 </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span> 
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+    <span class="c1"># Recursively generate the binary numbers for n-1 bits</span>
+    <span class="c1"># generate(n-1) returns a list of binary numbers of length n-1</span>
+    <span class="c1"># We will take each of these binary numbers and prepend &#39;1&#39; and &#39;0&#39; to each of them</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span> <span class="o">+</span> <span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span>  <span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">]</span> 
+    <span class="n">r</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span>  <span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> , l = </span><span class="si">{</span><span class="n">l</span><span class="si">}</span><span class="s2"> , r = </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="c1">#Concatenate the two lists</span>
+    <span class="k">return</span> <span class="n">l</span> <span class="o">+</span> <span class="n">r</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div></p>
+<p>This approach:
+- Uses pure recursive decomposition
+- Each call builds its own result independently
+- No need for global state or backtracking
+- More intuitive but less memory efficient
+- Time: O(2^n), Space: O(2^n) due to string copies</p>
 </div>
-<div class="admonition info">
-<p class="admonition-title">Dry Run</p>
-<div class="highlight"><pre><span></span><code>INIT:         
-B [ 1  3  4  5   6  ]
-A  [ 2  6  7   8   ] 
-     lo          hi
+<div class="admonition approach">
+<p class="admonition-title">Approach 1: Pre-allocated Array</p>
+<p>Uses a fixed-size array with direct index assignments. Most memory efficient for known size problems.
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Backtracking Implementation Using Pre-allocated Array Strategy</span>
+<span class="sd">Key Features:</span>
+<span class="sd">- Uses fixed-size array instead of growing/shrinking structure</span>
+<span class="sd">- No push/pop operations needed</span>
+<span class="sd">- Memory efficient as array size is known upfront</span>
+<span class="sd">- Implicit undoing of choices through overwriting</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">:</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementation Notes:</span>
+<span class="sd">    1. Pre-allocated array of size &#39;n&#39; with None values</span>
+<span class="sd">    2. Each position directly overwritten with 0 or 1</span>
+<span class="sd">    3. No need for explicit undo operations</span>
+<span class="sd">    4. More efficient than stack-based approaches for known size problems</span>
 
-ITER 1:
-A [1  3  4  5  6  ]
-         *            #left_b is 3.
-B  [ 2 6  7  8 ]  
-     lo   *            #3 &gt; 7 is F; this could be the right partition_a ; hi = mid
-         F/hi
+<span class="sd">    Memory Layout (n=3):</span>
+<span class="sd">    Initial: [None, None, None]</span>
+<span class="sd">    During:  [&#39;0&#39;/&#39;1&#39;, &#39;0&#39;/&#39;1&#39;, &#39;0&#39;/&#39;1&#39;]</span>
 
-ITER 2 :
-A [1  3  4  5  6  ]
-            *
-B  [ 2  6 7  8 ]
-   lo   *           #4&gt; 6 is F  ; this could be partition_a hi = mid            
-       F/hi
+<span class="sd">    Time Complexity: O(2^n) - must generate all binary numbers</span>
+<span class="sd">    Space Complexity: O(n) - fixed size array, no additional growth</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-ITER 3 :
-A [1  3  4  5  6  ]
-               *
-B  [ 2    6  7  8 ]
-     *              #5&gt;2 T; This cannot be the right partition_a ;
-     T/lo hi        #lo = mid+1  ; Now lo == hi; lo and hi have converged and  loop exits in next iteration
+    <span class="c1"># Pre-allocate array of size n - more efficient than growing/shrinking a list</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
 
-ITER 5 :
-B [2   6   7   8]  # lo = hi = 1 and while loop exits
-       *
-       F/lo,hi
-</code></pre></div>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">tl;dr</p>
-<p>Binary search will converge on the first false value.
-<div class="highlight"><pre><span></span><code>   [1    3    4     |5    6  ]
-     [2     |6    7    8]
-      T     F    F    F
+    <span class="c1">#choose  0 or 1 at idx</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="p">:</span> 
+        <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">):</span> 
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">[:]))</span>
+            <span class="k">return</span> 
+        <span class="c1"># Direct assignment to index - no push/pop needed</span>
+        <span class="n">path</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
+        <span class="n">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># No explicit undo needed - next assignment overwrites</span>
+
+        <span class="n">path</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
+        <span class="n">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># No explicit undo needed at end - array will be reused</span>
+
+    <span class="n">backtrack</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">generate</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 </code></pre></div></p>
 </div>
-<p>In our binary search we need a function move_right which simply returns left_b &gt; right_a</p>
-<p><strong>Thats it. Once , we have the right partition, calculate median:</strong></p>
-<ul>
-<li>
-<p>If (m+n) is odd : return min(right_a, right_b)</p>
-</li>
-<li>
-<p>If (m+n) is even : return (max(left_a, left_b) + min(right_a, right_b)) /2 </p>
-</li>
-</ul>
-<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<details class="code" open="open">
-<summary>Code</summary>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">findMedianSortedArrays</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums1</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">nums2</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-        <span class="c1"># A is always the smaller array</span>
-        <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">nums1</span><span class="p">,</span> <span class="n">nums2</span> 
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">)</span> <span class="p">:</span>
-            <span class="n">A</span> <span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">B</span><span class="p">,</span> <span class="n">A</span>
+<div class="admonition approach">
+<p class="admonition-title">Approach 2: Stack-based with Dual Recursion</p>
+<p>Uses explicit push/pop operations with two separate recursive calls for '0' and '1'.
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Generate n-bit binary numbers using backtracking.</span>
+<span class="sd">Implementation Strategy: Stack-based Backtracking </span>
+<span class="sd">- Uses list as stack for building binary numbers</span>
+<span class="sd">- For each position, we make TWO recursive calls because:</span>
+<span class="sd">  1. First recursive call explores path after choosing &#39;0&#39;</span>
+<span class="sd">  2. Second recursive call explores path after choosing &#39;1&#39;</span>
+<span class="sd">- This creates a binary tree where each node represents a digit position</span>
+<span class="sd">  and has exactly two children (one for &#39;0&#39; and one for &#39;1&#39;)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">:</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decision Tree Shows Two Branches at Each Level:</span>
+<span class="sd">    Root</span>
+<span class="sd">    ├── 0 (First recursive call)</span>
+<span class="sd">    │   ├── 00</span>
+<span class="sd">    │   └── 01</span>
+<span class="sd">    └── 1 (Second recursive call)</span>
+<span class="sd">        ├── 10</span>
+<span class="sd">        └── 11</span>
 
-        <span class="c1">#measure their lengths    </span>
-        <span class="n">m</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="sd">    Two Recursive Calls Pattern:</span>
+<span class="sd">    1. First Call (with &#39;0&#39;): Explores all possibilities starting with &#39;0&#39;</span>
+<span class="sd">    2. Second Call (with &#39;1&#39;): Explores all possibilities starting with &#39;1&#39;</span>
 
-        <span class="k">def</span><span class="w"> </span><span class="nf">find_partition_b</span><span class="p">(</span><span class="n">partition_a</span><span class="p">)</span> <span class="p">:</span> 
-            <span class="k">return</span> <span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="n">n</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span> <span class="o">-</span> <span class="n">partition_a</span>
+<span class="sd">    This ensures we generate ALL possible combinations systematically</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-        <span class="k">def</span><span class="w"> </span><span class="nf">get_left</span><span class="p">(</span><span class="n">partition</span><span class="p">,</span><span class="n">array</span><span class="p">)</span> <span class="p">:</span>
-            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;-inf&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">partition</span><span class="o">-</span><span class="mi">1</span> <span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span> <span class="k">else</span> <span class="n">array</span><span class="p">[</span><span class="n">partition</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#We will treat this as a stack in this implementation</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">def</span><span class="w"> </span><span class="nf">get_right</span><span class="p">(</span><span class="n">partition</span><span class="p">,</span><span class="n">array</span><span class="p">)</span> <span class="p">:</span>
-            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">partition</span><span class="p">)</span><span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="k">else</span> <span class="n">array</span><span class="p">[</span><span class="n">partition</span><span class="p">]</span>
+    <span class="c1">#choose  0 or 1 at idx</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="p">:</span> 
+        <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span> 
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">[:]))</span>
+            <span class="k">return</span> 
 
-        <span class="k">def</span><span class="w"> </span><span class="nf">move_right</span><span class="p">(</span><span class="n">partition_a</span><span class="p">)</span> <span class="p">:</span> 
-            <span class="n">partition_b</span> <span class="o">=</span> <span class="n">find_partition_b</span><span class="p">(</span><span class="n">partition_a</span><span class="p">)</span>
-            <span class="n">left_b</span> <span class="o">=</span> <span class="n">get_left</span><span class="p">(</span><span class="n">partition_b</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
-            <span class="n">right_a</span> <span class="o">=</span> <span class="n">get_right</span><span class="p">(</span><span class="n">partition_a</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">left_b</span> <span class="o">&gt;</span> <span class="n">right_a</span>
+        <span class="c1"># First Recursive Branch: Try &#39;0&#39; at current position</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+        <span class="n">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Explore all possibilities after choosing &#39;0&#39;</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>        <span class="c1"># Backtrack by removing &#39;0&#39;</span>
 
-        <span class="c1">#binary search to find the correct partition_a</span>
-        <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span>  <span class="o">=</span> <span class="mi">0</span> <span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-        <span class="k">while</span> <span class="n">lo</span> <span class="o">&lt;</span> <span class="n">hi</span> <span class="p">:</span>
-            <span class="n">partition_a</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span><span class="n">hi</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-            <span class="k">if</span> <span class="n">move_right</span><span class="p">(</span><span class="n">partition_a</span><span class="p">)</span> <span class="p">:</span>
-                <span class="n">lo</span> <span class="o">=</span> <span class="n">partition_a</span><span class="o">+</span><span class="mi">1</span>
-            <span class="k">else</span> <span class="p">:</span>
-                <span class="n">hi</span> <span class="o">=</span> <span class="n">partition_a</span>
+        <span class="c1"># Second Recursive Branch: Try &#39;1&#39; at current position</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+        <span class="n">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Explore all possibilities after choosing &#39;1&#39;</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>        <span class="c1"># Backtrack by removing &#39;1&#39;</span>
 
-        <span class="c1">#lo and hi have converged on the correct partition_a </span>
-        <span class="n">partition_a</span><span class="p">,</span><span class="n">partition_b</span>   <span class="o">=</span> <span class="n">lo</span><span class="p">,</span> <span class="n">find_partition_b</span><span class="p">(</span><span class="n">lo</span><span class="p">)</span>
-        <span class="n">right_a</span> <span class="o">=</span> <span class="n">get_right</span><span class="p">(</span><span class="n">partition_a</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
-        <span class="n">right_b</span> <span class="o">=</span> <span class="n">get_right</span><span class="p">(</span><span class="n">partition_b</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+    <span class="n">backtrack</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
 
-        <span class="c1">#combined array length is odd</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="n">n</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">:</span>
-            <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">right_a</span><span class="p">,</span><span class="n">right_b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div></p>
+</div>
+<div class="admonition approach">
+<p class="admonition-title">Approach 3: For-loop Choices</p>
+<p>Uses iteration over choices, making it more extensible for problems with multiple choices.
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Generate n-bit binary numbers using backtracking with for-loop iteration.</span>
+<span class="sd">Implementation Strategy: For-loop Based Choice Selection</span>
+<span class="sd">- Uses pre-allocated array like version 2</span>
+<span class="sd">- Iterates over choices using for-loop instead of explicit recursive calls</span>
+<span class="sd">- More generalizable pattern that can handle multiple choices beyond just binary</span>
+<span class="sd">- Common pattern in backtracking problems where we iterate over available choices</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">:</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Key Differences from Other Versions:</span>
+<span class="sd">    1. Uses for-loop to iterate over choices [&#39;0&#39;,&#39;1&#39;]</span>
+<span class="sd">    2. Single recursive call instead of multiple explicit ones</span>
+<span class="sd">    3. More extensible - easy to add more choices if needed</span>
+<span class="sd">    4. Common pattern seen in other backtracking problems like:</span>
+<span class="sd">       - Generating permutations (choices are remaining numbers)</span>
+<span class="sd">       - N-Queens (choices are valid positions)</span>
+<span class="sd">       - Sudoku (choices are valid digits)</span>
 
-        <span class="c1">#combined array length is even    </span>
-        <span class="n">left_a</span> <span class="o">=</span> <span class="n">get_left</span><span class="p">(</span><span class="n">partition_a</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
-        <span class="n">left_b</span> <span class="o">=</span> <span class="n">get_left</span><span class="p">(</span><span class="n">partition_b</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">(</span> <span class="nb">max</span><span class="p">(</span><span class="n">left_a</span><span class="p">,</span><span class="n">left_b</span><span class="p">)</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">right_a</span><span class="p">,</span><span class="n">right_b</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>        
-</code></pre></div>
-</details>
+<span class="sd">    Memory Layout:</span>
+<span class="sd">    - Pre-allocated array: [None] * n</span>
+<span class="sd">    - Choices handled by for-loop: for choice in [&#39;0&#39;,&#39;1&#39;]</span>
+<span class="sd">    - Implicit undo through overwriting</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1">#choose  0 or 1 at idx</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="p">:</span> 
+        <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">):</span> 
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">[:]))</span>
+            <span class="k">return</span> 
+        <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">]</span> <span class="p">:</span> 
+            <span class="n">path</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">choice</span>
+            <span class="n">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="c1">#Here we dont care if path[idx] overwritten,</span>
+            <span class="c1">#Undo of choice is implicit</span>
+
+    <span class="n">backtrack</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div></p>
+</div>
+<div class="admonition approach">
+<p class="admonition-title">Approach 4: Dynamic Stack with For-loop</p>
+<p>Combines dynamic stack operations with for-loop choice iteration for clearer state management.
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Backtracking with Dynamic Stack &amp; For-loop Choices</span>
+<span class="sd">Key Features:</span>
+<span class="sd">- Combines dynamic stack operations (like version 3) with for-loop choice iteration (like version 4)</span>
+<span class="sd">- Explicit undo operations through pop() (unlike version 2 &amp; 4&#39;s implicit overwrites)</span>
+<span class="sd">- More verbose but clearer state management</span>
+<span class="sd">- Shows complete choice-explore-undo cycle explicitly</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">:</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Implementation Characteristics:</span>
+<span class="sd">    1. Dynamic Growth: path grows/shrinks as we make/undo choices</span>
+<span class="sd">    2. Explicit State Management:</span>
+<span class="sd">       - Choice: path.append(choice)</span>
+<span class="sd">       - Explore: backtrack(idx+1)</span>
+<span class="sd">       - Undo: path.pop()</span>
+<span class="sd">    3. Uses for-loop for choices (more flexible than dual recursion)</span>
+<span class="sd">    4. Memory Usage: O(n) but with dynamic resizing overhead</span>
+
+<span class="sd">    Choice-Explore-Undo Pattern:</span>
+<span class="sd">    For each position:</span>
+<span class="sd">        For each choice (0,1):</span>
+<span class="sd">            1. Make choice (append)</span>
+<span class="sd">            2. Explore further (recurse)</span>
+<span class="sd">            3. Undo choice (pop)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># We will treat this like a stack in this implementation</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1">#choose  0 or 1 at idx</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="p">:</span> 
+        <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span> 
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">[:]))</span>
+            <span class="k">return</span> 
+        <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">]</span> <span class="p">:</span> 
+            <span class="c1"># State Change: Add choice to current path</span>
+            <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span>
+            <span class="c1"># Explore: Recurse with this choice in place</span>
+            <span class="n">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="c1"># State Restoration: Remove choice before next iteration</span>
+            <span class="n">path</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>  <span class="c1"># Explicit undo - different from array overwrite versions</span>
+
+    <span class="n">backtrack</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div></p>
+</div>
+<h2 id="comparison-of-approaches">Comparison of Approaches<a class="headerlink" href="#comparison-of-approaches" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Memory Usage</th>
+<th>State Management</th>
+<th>Extensibility</th>
+<th>Code Clarity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pure Recursion</td>
+<td>O(2^n)</td>
+<td>None (functional)</td>
+<td>Limited</td>
+<td>Excellent</td>
+</tr>
+<tr>
+<td>Pre-allocated Array</td>
+<td>Most efficient (O(n) fixed)</td>
+<td>Implicit (overwrites)</td>
+<td>Limited</td>
+<td>Good</td>
+</tr>
+<tr>
+<td>Stack with Dual Recursion</td>
+<td>O(n) with resizing</td>
+<td>Explicit (push/pop)</td>
+<td>Limited</td>
+<td>Very Good</td>
+</tr>
+<tr>
+<td>For-loop Choices</td>
+<td>O(n) fixed</td>
+<td>Implicit (overwrites)</td>
+<td>Excellent</td>
+<td>Good</td>
+</tr>
+<tr>
+<td>Dynamic Stack with For-loop</td>
+<td>O(n) with resizing</td>
+<td>Most explicit</td>
+<td>Excellent</td>
+<td>Excellent</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Pure Recursion</strong>: Most intuitive but least memory efficient</li>
+<li><strong>Pre-allocated Array</strong>: Best for memory efficiency when size is known</li>
+<li><strong>Stack with Dual Recursion</strong>: Most intuitive for binary choices</li>
+<li><strong>For-loop Choices</strong>: Most extensible for varying number of choices</li>
+<li><strong>Dynamic Stack with For-loop</strong>: Best balance of clarity and flexibility</li>
+</ol>
+<p>Choose the approach based on your specific needs:
+- Memory constraints → Pre-allocated Array
+- Binary choices → Stack with Dual Recursion
+- Multiple choices → For-loop based approaches
+- Learning/Teaching → Dynamic Stack with For-loop</p>
 
 
 
@@ -2100,7 +2172,7 @@ B [2   6   7   8]  # lo = hi = 1 and while loop exits
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../Introduction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction">
+          <a href="../Basic_Recursion/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Basic Recursion">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2110,20 +2182,20 @@ B [2   6   7   8]  # lo = hi = 1 and while loop exits
                 Previous
               </span>
               <div class="md-ellipsis">
-                Introduction
+                Basic Recursion
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../K_Way_Merge/" class="md-footer__link md-footer__link--next" aria-label="Next: The k-way Merge problem">
+          <a href="../" class="md-footer__link md-footer__link--next" aria-label="Next: Algorithms - The Pareto Set">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                The k-way Merge problem
+                Algorithms - The Pareto Set
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2159,10 +2231,10 @@ B [2   6   7   8]  # lo = hi = 1 and while loop exits
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
       
