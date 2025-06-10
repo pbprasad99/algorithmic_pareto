@@ -1940,8 +1940,10 @@ If we take left and right pointers  while verifying that arr[left] &lt;= pivot a
 <p>So, the algorithm would be:</p>
 <div class="admonition info">
 <p class="admonition-title">Algorithm</p>
-<div class="highlight"><pre><span></span><code>Invariant 1) [0,right] only contains elements less than or equal to pivot
-Invariant 2) (right, len(arr) -1] only contains elements greater than pivot
+<div class="highlight"><pre><span></span><code>#Initialize pivot = arr[0]
+
+#Invariant 1) [0,right] only contains elements less than or equal to pivot
+#Invariant 2) (right, len(arr) -1] only contains elements greater than pivot
 
 
 While left &lt;= right :
@@ -1954,7 +1956,7 @@ While left &lt;= right :
 return right
 </code></pre></div>
 </div>
-<p><strong><em>This algorithm does not necessarily place the pivot in its sorted position.</em></strong></p>
+<p><strong><em>This implementation does not necessarily place the pivot in its sorted position.</em></strong></p>
 <p>Or rather, the problem is not asking us to do this,</p>
 <p>This array is partitioned by 4 but 4 is not in its sorted position.</p>
 <div class="admonition example">
@@ -2085,10 +2087,13 @@ return right
 </details>
 <h2 id="hoare-partition-with-weak-condition">Hoare partition with weak condition<a class="headerlink" href="#hoare-partition-with-weak-condition" title="Permanent link">&para;</a></h2>
 <p>The problem with the partition scheme with a strict condition (where we always put pivot values  in one of the partitions) is that it produces unbalanced partitions when used in quickselect or quicksort.</p>
-<p>Consider if the above partition scheme were used in quickselect for finding the smallest element in an array of size n). </p>
+<p>Consider if the above partition scheme were used in <a href="../../Quickselect/">quickselect</a> for finding the smallest element in an array with k=0 and fixed pivot selection at arr[0]. </p>
 <p>What happens when all elements are duplicates :</p>
 <div class="admonition info">
 <p class="admonition-title">Dry Run</p>
+<blockquote>
+<p>l and r indicate the search space for each iteration of quickselect loop/each recursive call to quickselect. Comparisons refer to those made by the partitioning subroutine.</p>
+</blockquote>
 <div class="highlight"><pre><span></span><code>    [1,1,1,1,1,1]
      l         r   Iter 1 : 5  comparisons
      l       r     Iter 2 : 4  comparisons
@@ -2098,6 +2103,7 @@ return right
      lr            Iter 6 : 0  comparisons
 </code></pre></div>
 </div>
+<p>The Hoare partition, after performing r-l+1 comparisons, would return the rightmost position for each call recursive call to quickselect. r would reduce linearly until it meets l, thus giving a quadratic running time!</p>
 <p>Number of comparisons = SUM([1.....n]) = n(n+1)/2 = (n*2 + n ) /2
 Therefore, Complexity is O(n^2)  in this case.</p>
 <p>To mitigate this, we could slightly modify the definition of our partitions :</p>
@@ -2114,12 +2120,12 @@ Invariant 2) (right, high] only contains elements greater OR EQUAL to pivot
 </div>
 <p>That is, pivot values are allowed to be in either partition.</p>
 <p>Our problem now becomes : </p>
+<div class="admonition info">
+<p class="admonition-title">Reframed Problem</p>
 <p>Given an array of integers, rearrange the elements such that the left part contains elements less than or equal to a pivot value and the right part contains values greater than or equal to the pivot value.</p>
-<p>The implementation is tricky when handling values equal to pivot. </p>
-<p>We also stop scanning when left or right are equal to pivot in both partitions. 
-We swap and move the left and right pointers.
-After any swap, both partitions will increase by 1. Pivot values might end up in any partition. 
-This will also be the case when, left and right are both pointing to pivot value i.e. both partitions increase by 1 and there is a redundant swap between two pivot values.</p>
+</div>
+<p>The implementation is tricky when handling values equal to pivot. We stop scanning when left or right are equal to pivot in either partition. We swap and move the left and right pointers.
+After any swap, both partitions will increase by 1. Pivot values might end up in any partition. This will also be the case when, left and right are both pointing to pivot value i.e. both partitions increase by 1 and there is a redundant swap between two pivot values.</p>
 <div class="admonition info">
 <p class="admonition-title">Algorithm</p>
 <div class="highlight"><pre><span></span><code>While left &lt;= right :
@@ -2129,7 +2135,7 @@ This will also be the case when, left and right are both pointing to pivot value
            right -=1
       if left &lt;= right :
           swap left and right
-          left-=1
+          left+=1
           right-=1
 return right
 </code></pre></div>
@@ -2143,7 +2149,8 @@ return right
      rl            Iter 2 END 
 </code></pre></div>
 </div>
-<p>The complexity is reduced to nLOG(n) now.</p>
+<p>Now the hoare partitioning subroutine will reduce r by half in each iteration. And quickselect is called LOG(n) times in the worst case, when k = 0.
+The complexity is reduced to LOG(n)*LOG(n).</p>
 <p>Here is the implementation :</p>
 <details class="code">
 <summary>Code</summary>
@@ -2224,8 +2231,15 @@ return right
 </div>
 </details>
 <h2 id="important-things-to-note">Important things to Note:<a class="headerlink" href="#important-things-to-note" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
 <p><strong>This algorithm is not stable. The relative order of elements will not be preserved.</strong>
 Naive partitioning using extra space is the only algorithm which preserves relative order of elements.</p>
+</li>
+<li>
+<p>When used in quicksort/quickselect, instead of fixed pivot selection either random pivot selection or selection algorithms like Median of Medians are used to pick the pivot.  </p>
+</li>
+</ul>
 <h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
 <ol>
 <li><a href="https://algs4.cs.princeton.edu/23quicksort/" target="_blank">ALGS4 - Sedgewick</a> </li>
