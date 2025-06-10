@@ -1,28 +1,9 @@
-!!! warning "Status: Draft"
-
 # Basic Recursion
 
 Recursion can be tricky to understand, especially when it comes to the order of operations. Here, we'll try to understand what happens when you "do" something before the recursive call (preorder position) or after the recursive call (postorder position). 
 
 Debug this in your IDE and see what is happening on the stack and how function calls are stacked and unwound.
 
-## Problem: Print Numbers in Different Orders
-
-Given a positive integer n, print numbers in different orders using recursion to understand how the placement of operations affects the output. The input n represents the highest number in the sequence, and we always start counting from 1.
-
-### Input Assumptions:
-- Input n is a positive integer
-- The sequence always starts from 1 and goes up to n
-- For example, if n=5, we work with the sequence [1,2,3,4,5]
-
-### Examples:
-```
-Input: n = 3
-Sequence we work with: [1,2,3]
-Approach 1 (1 to n): 1, 2, 3
-Approach 2 (n to 1): 3, 2, 1
-Approach 3 (n to 1, then 1 to n): 3, 2, 1, 1, 2, 3
-```
 
 ## Understanding Recursive Positions
 
@@ -32,31 +13,23 @@ Approach 3 (n to 1, then 1 to n): 3, 2, 1, 1, 2, 3
 
 ## Implementation Approaches
 
-!!! approach "Approach 1: Print 1 to n"
-    Uses postorder position to print numbers in ascending order.
+!!! approach "Print i to 5 forwards and backwards"
+    Input is the starting point .Use preorder position to print in ascending order and postorder position to print in reverse order. Base Case is when i exceeds 5.
     ```python 
     --8<--
     docs/Algorithms/Basic_Recursion/recursion_print_numbers_1.py
     --8<--
     ```
+    In preorder position, numbers are printed along with stack build up. In postorder, stack builds up before any print statement is executed and numbers are printed as the stack unwinds.
     
-    This approach:
-    - Uses postorder position (print after recursive call)
-    - Natural ascending order
-    - Stack builds up before any printing
-    
-!!! approach "Approach 2: Print n to 1"
-    Uses preorder position to print numbers in descending order.
+!!! approach "Print numbers forward and backward in the range 1 to n." 
+    n is the input parameter to the function. Base case is when n becomes less than 1 i.e. equal to zero. Here, we have to print in postorder position to get the output in ascending order. We use preorder position to print in descending order. This is becuase we are taking the upper bound as input. Whereas, in the previous example, we took the lower bound as input. 
     ```python
     --8<--
     docs/Algorithms/Basic_Recursion/recursion_print_numbers_2.py
     --8<--
     ```
-    
-    This approach:
-    - Uses preorder position (print before recursive call)
-    - Natural descending order
-    - Prints immediately during stack building
+    The takeaway is that preorder position matches the input order and postorder position matches the reverse of the input order.
 
 !!! approach "Approach 3: Print Both Ways"
     Uses both preorder and postorder positions to print numbers in both orders.
@@ -65,11 +38,6 @@ Approach 3 (n to 1, then 1 to n): 3, 2, 1, 1, 2, 3
     docs/Algorithms/Basic_Recursion/recursion_print_numbers_3.py
     --8<--
     ```
-    
-    This approach:
-    - Uses both preorder and postorder positions
-    - Shows stack building and unwinding
-    - Demonstrates recursive call sequence
 
 ## Comparison of Approaches
 

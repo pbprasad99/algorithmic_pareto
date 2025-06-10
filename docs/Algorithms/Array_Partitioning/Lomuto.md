@@ -8,7 +8,7 @@ Given an array of integers, rearrange the elements such that the left part conta
 
 ## The Algorithm
 
-The Lomuto partition fixes uses two forward iterators to maintains two invariants :
+The Lomuto partition uses two forward iterators to maintains two invariants :
 
 [lo,s) contains only elements less than or equal to the pivot.  # Left closed Right open interval
 
