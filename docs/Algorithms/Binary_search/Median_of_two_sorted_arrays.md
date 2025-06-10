@@ -95,9 +95,9 @@ Provided A and B are both sorted, We can always find partitions on A and B such 
 
 Note that if you pick a partition on array A, there is only one corresponding partition on array B because we are looking for the set of partitions which divide the combined arrays in two halves.
 
-We can tell a set of partitions is valid by verifying that the last element of the left partition of one array is less than or equal to the first element of the other arrays right partition. We can check the inverse to confirm that the partitions are in fact not valid. 
+We can tell a set of partitions COULD BE a valid by verifying that the last element of the left partition of one array is less than or equal to the first element of the other arrays right partition. We can check the inverse to confirm that the partitions are in fact not valid. 
 
-We can in fact use binary search to determine the correct partitions. All we need is to know which way should we move one of the partitions. We will go into this in more detail. 
+We can in fact use binary search to find the correct partitions. All we need is to know which way should we move one of the partitions. We will go into this in more detail. 
 
 The idea is if we find the correct partitions, we can calculate the median by looking at the elements clustered around both partitions. Let's see how..
 
@@ -153,15 +153,15 @@ It makes sense to binary search on the smaller array. Lets call this array A and
     ITER 1:
     A [1  3  4  5  6  ]
              *            #left_b is 3.
-    B  [ 2 6 7  8 ]  
-         lo    *            #3 > 7 is F; this could be the right partition_a ; hi = mid
-            F/hi
+    B  [ 2 6  7  8 ]  
+         lo   *            #3 > 7 is F; this could be the right partition_a ; hi = mid
+             F/hi
     
     ITER 2 :
     A [1  3  4  5  6  ]
                 *
     B  [ 2  6 7  8 ]
-       lo  *           #4> 6 is F  ; this could be partition_a hi = mid            
+       lo   *           #4> 6 is F  ; this could be partition_a hi = mid            
            F/hi
     
     ITER 3 :
@@ -187,7 +187,7 @@ It makes sense to binary search on the smaller array. Lets call this array A and
 
 In our binary search we need a function move_right which simply returns left_b > right_a
 
-**Thats it. Once , we have the right partition, calculate mean:**
+**Thats it. Once , we have the right partition, calculate median:**
 
 - If (m+n) is odd : return min(right_a, right_b)
 
