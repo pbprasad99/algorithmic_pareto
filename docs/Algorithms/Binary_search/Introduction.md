@@ -197,7 +197,7 @@ Bisect right can return values from 0 to len(arr). If it returns zero it means t
 ## Summary
 
 !!! success "Key Takeaways"
-    - Binary search is fundamentally about finding boundaries in sorted data
+    - Binary search is fundamentally about finding boundaries in bisected data
     - Reframe the problem as "find the first False value" 
     - The difference between `bisect_left` and `bisect_right` is just changing `<` to `≤`
     - Always think about what "True" and "False" mean in your specific context
