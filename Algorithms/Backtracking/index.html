@@ -514,6 +514,8 @@
       
         
       
+        
+      
     
     
     
@@ -607,6 +609,29 @@
   
   <span class="md-ellipsis">
     Lomuto Partition
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Array_Partitioning/In-Place_Deduplication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In-Place Deduplication
     
   </span>
   
@@ -1772,21 +1797,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Comparison of Approaches">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-takeaways" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Takeaways
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -1806,8 +1816,11 @@
 
 
 <h1 id="backtracking">Backtracking<a class="headerlink" href="#backtracking" title="Permanent link">&para;</a></h1>
-<p>Backtracking seems confusion and difficult to learn, because there are so many different ways of doing the same thing.</p>
+<p>Backtracking seems confusing and difficult to learn, because there are so many different ways of doing the same thing.</p>
 <p>Here, we solve the same problem in many different ways only to see the possibilities.</p>
+<p>There is no stasifying and clear definition of backtracking I have found yet. I like to define it as an exhaustive search technique where you make a choice, explore that choice and then undo the choice (backtrack) to make another choice. </p>
+<p><strong><em>This act of making a choice and undoing it is what I think backtracking is.</em></strong></p>
+<p>It looks very much like a depth first tree traversal with state management.</p>
 <h2 id="problem-generate-n-bit-binary-numbers">Problem: Generate N-bit Binary Numbers<a class="headerlink" href="#problem-generate-n-bit-binary-numbers" title="Permanent link">&para;</a></h2>
 <p>Given an integer n, generate all possible binary numbers of length n and return them as a list of strings.</p>
 <h3 id="examples">Examples:<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
@@ -2125,19 +2138,16 @@ Output: [&quot;000&quot;, &quot;001&quot;, &quot;010&quot;, &quot;011&quot;, &qu
 </tr>
 </tbody>
 </table>
-<h3 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h3>
+<div class="admonition success">
+<p class="admonition-title">Key Takeaways</p>
 <ol>
-<li><strong>Pure Recursion</strong>: Most intuitive but least memory efficient</li>
+<li><strong>Pure Recursion</strong>: Intuitive but least memory efficient. No bactracking involved.</li>
 <li><strong>Pre-allocated Array</strong>: Best for memory efficiency when size is known</li>
 <li><strong>Stack with Dual Recursion</strong>: Most intuitive for binary choices</li>
 <li><strong>For-loop Choices</strong>: Most extensible for varying number of choices</li>
 <li><strong>Dynamic Stack with For-loop</strong>: Best balance of clarity and flexibility</li>
 </ol>
-<p>Choose the approach based on your specific needs:
-- Memory constraints → Pre-allocated Array
-- Binary choices → Stack with Dual Recursion
-- Multiple choices → For-loop based approaches
-- Learning/Teaching → Dynamic Stack with For-loop</p>
+</div>
 
 
 

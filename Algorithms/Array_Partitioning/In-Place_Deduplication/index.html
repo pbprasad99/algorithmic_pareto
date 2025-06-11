@@ -12,28 +12,28 @@
         <meta name="author" content="pbprasad99">
       
       
-        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/K_Way_Merge/">
+        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Array_Partitioning/In-Place_Deduplication/">
       
       
-        <link rel="prev" href="../Merge_Sort/">
+        <link rel="prev" href="../Lomuto/">
       
       
-        <link rel="next" href="../properties_of_comparison_based_sorting_algorithms/">
+        <link rel="next" href="../../Quickselect/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.ico">
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>The k-way Merge problem - patibanb.me</title>
+        <title>In-Place Deduplication - patibanb.me</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,9 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -63,11 +63,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="The k-way Merge problem - patibanb.me" >
+        <meta  property="og:title"  content="In-Place Deduplication - patibanb.me" >
       
         <meta  property="og:description"  content="Personal Website" >
       
-        <meta  property="og:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/K_Way_Merge/README.png" >
+        <meta  property="og:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Array_Partitioning/In-Place_Deduplication.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -75,19 +75,19 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/K_Way_Merge/" >
+        <meta  property="og:url"  content="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Array_Partitioning/In-Place_Deduplication/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="The k-way Merge problem - patibanb.me" >
+        <meta  name="twitter:title"  content="In-Place Deduplication - patibanb.me" >
       
         <meta  name="twitter:description"  content="Personal Website" >
       
-        <meta  name="twitter:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/K_Way_Merge/README.png" >
+        <meta  name="twitter:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Array_Partitioning/In-Place_Deduplication.png" >
       
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -96,7 +96,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -115,7 +115,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-k-way-merge-problem" class="md-skip">
+        <a href="#in-place-deduplication" class="md-skip">
           Skip to content
         </a>
       
@@ -129,9 +129,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+    <a href="../../.." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -148,7 +148,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              The k-way Merge problem
+              In-Place Deduplication
             
           </span>
         </div>
@@ -249,7 +249,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -281,7 +281,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../Array_Partitioning/Introduction/" class="md-tabs__link">
+        <a href="../Introduction/" class="md-tabs__link">
           
   
   
@@ -306,7 +306,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../blog/" class="md-tabs__link">
+        <a href="../../../blog/" class="md-tabs__link">
           
   
   
@@ -328,7 +328,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../resources/" class="md-tabs__link">
+        <a href="../../../resources/" class="md-tabs__link">
           
   
   
@@ -350,7 +350,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../About/" class="md-tabs__link">
+        <a href="../../../About/" class="md-tabs__link">
           
   
   
@@ -386,9 +386,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+    <a href="../../.." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     patibanb.me
@@ -403,7 +403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -473,7 +473,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -503,8 +503,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -523,11 +525,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -543,7 +545,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             Array Partitioning
@@ -557,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Array_Partitioning/Introduction/" class="md-nav__link">
+      <a href="../Introduction/" class="md-nav__link">
         
   
   
@@ -580,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Array_Partitioning/Hoare/" class="md-nav__link">
+      <a href="../Hoare/" class="md-nav__link">
         
   
   
@@ -603,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Array_Partitioning/Lomuto/" class="md-nav__link">
+      <a href="../Lomuto/" class="md-nav__link">
         
   
   
@@ -623,10 +625,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Array_Partitioning/In-Place_Deduplication/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    In-Place Deduplication
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -637,6 +661,110 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-place-deduplication-of-sorted-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      In-Place deduplication of Sorted Array
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="In-Place deduplication of Sorted Array">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defining-the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defining the Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-place-deduplication-with-unique-elements-appearing-at-most-twice" class="md-nav__link">
+    <span class="md-ellipsis">
+      In-Place deduplication with Unique Elements appearing at most Twice
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="In-Place deduplication with Unique Elements appearing at most Twice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defining-the-problem_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defining the Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complexity_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -678,7 +806,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Quickselect/" class="md-nav__link ">
+            <a href="../../Quickselect/" class="md-nav__link ">
               
   
   
@@ -737,7 +865,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Quicksort/" class="md-nav__link ">
+            <a href="../../Quicksort/" class="md-nav__link ">
               
   
   
@@ -796,7 +924,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Two_Way_Merge/" class="md-nav__link ">
+            <a href="../../Two_Way_Merge/" class="md-nav__link ">
               
   
   
@@ -855,7 +983,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Merge_Sort/" class="md-nav__link ">
+            <a href="../../Merge_Sort/" class="md-nav__link ">
               
   
   
@@ -890,8 +1018,6 @@
                 
   
   
-    
-  
   
   
     
@@ -908,15 +1034,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../K_Way_Merge/" class="md-nav__link ">
               
   
   
@@ -930,7 +1056,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             K Way Merge
@@ -954,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
+      <a href="../../properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
         
   
   
@@ -977,7 +1103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../External_Sorting/" class="md-nav__link">
+      <a href="../../External_Sorting/" class="md-nav__link">
         
   
   
@@ -1047,7 +1173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Binary_search/Introduction/" class="md-nav__link">
+      <a href="../../Binary_search/Introduction/" class="md-nav__link">
         
   
   
@@ -1070,7 +1196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Binary_search/Median_of_two_sorted_arrays/" class="md-nav__link">
+      <a href="../../Binary_search/Median_of_two_sorted_arrays/" class="md-nav__link">
         
   
   
@@ -1122,7 +1248,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Basic_Recursion/" class="md-nav__link ">
+            <a href="../../Basic_Recursion/" class="md-nav__link ">
               
   
   
@@ -1181,7 +1307,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Backtracking/" class="md-nav__link ">
+            <a href="../../Backtracking/" class="md-nav__link ">
               
   
   
@@ -1253,7 +1379,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../blog/" class="md-nav__link ">
+            <a href="../../../blog/" class="md-nav__link ">
               
   
   
@@ -1335,7 +1461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2025/" class="md-nav__link">
+      <a href="../../../blog/archive/2025/" class="md-nav__link">
         
   
   
@@ -1425,7 +1551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/aws/" class="md-nav__link">
+      <a href="../../../blog/category/aws/" class="md-nav__link">
         
   
   
@@ -1450,7 +1576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/basics/" class="md-nav__link">
+      <a href="../../../blog/category/basics/" class="md-nav__link">
         
   
   
@@ -1475,7 +1601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/c/" class="md-nav__link">
+      <a href="../../../blog/category/c/" class="md-nav__link">
         
   
   
@@ -1500,7 +1626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/etl/" class="md-nav__link">
+      <a href="../../../blog/category/etl/" class="md-nav__link">
         
   
   
@@ -1525,7 +1651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/encodings/" class="md-nav__link">
+      <a href="../../../blog/category/encodings/" class="md-nav__link">
         
   
   
@@ -1550,7 +1676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/iam/" class="md-nav__link">
+      <a href="../../../blog/category/iam/" class="md-nav__link">
         
   
   
@@ -1575,7 +1701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/serverless/" class="md-nav__link">
+      <a href="../../../blog/category/serverless/" class="md-nav__link">
         
   
   
@@ -1634,7 +1760,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../resources/" class="md-nav__link ">
+            <a href="../../../resources/" class="md-nav__link ">
               
   
   
@@ -1692,7 +1818,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../About/" class="md-nav__link ">
+            <a href="../../../About/" class="md-nav__link ">
               
   
   
@@ -1749,20 +1875,86 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#merging-k-sorted-arrays" class="md-nav__link">
+  <a href="#in-place-deduplication-of-sorted-array" class="md-nav__link">
     <span class="md-ellipsis">
-      Merging k sorted arrays
+      In-Place deduplication of Sorted Array
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="In-Place deduplication of Sorted Array">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defining-the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defining the Problem
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#merging-k-sorted-linked-lists" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#algorithm" class="md-nav__link">
     <span class="md-ellipsis">
-      Merging k sorted linked lists
+      Algorithm
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-place-deduplication-with-unique-elements-appearing-at-most-twice" class="md-nav__link">
+    <span class="md-ellipsis">
+      In-Place deduplication with Unique Elements appearing at most Twice
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="In-Place deduplication with Unique Elements appearing at most Twice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defining-the-problem_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defining the Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complexity_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1782,120 +1974,165 @@
 
 
 
-<h1 id="the-k-way-merge-problem">The k-way Merge problem<a class="headerlink" href="#the-k-way-merge-problem" title="Permanent link">&para;</a></h1>
-<h2 id="merging-k-sorted-arrays">Merging k sorted arrays<a class="headerlink" href="#merging-k-sorted-arrays" title="Permanent link">&para;</a></h2>
-<p>We can think of the k-way merge problem as a generalization of the 2-way merge problem. That is given, k sorted containers, return a merged sorted container.</p>
-<p>In the 2-way merge problem , we had a binary choice when picking the next value to write to the merged container. 
-Now we have a k-way choice among k or less elements at each step. We basically need a good way to pick the smallest value from among all possible choices. This is what a heap does. Since we are considering containers sorted in a non decreasing order, a Min Heap is what we need to dynamically pick the smallest value at each step.</p>
-<p>The crux of the algorithm is :</p>
+<h1 id="in-place-deduplication">In-Place Deduplication<a class="headerlink" href="#in-place-deduplication" title="Permanent link">&para;</a></h1>
+<h2 id="in-place-deduplication-of-sorted-array">In-Place deduplication of Sorted Array<a class="headerlink" href="#in-place-deduplication-of-sorted-array" title="Permanent link">&para;</a></h2>
+<h3 id="defining-the-problem">Defining the Problem<a class="headerlink" href="#defining-the-problem" title="Permanent link">&para;</a></h3>
+<p>The task is to partition a sorted array s.t the left partition contains only unique elements. The relative order of elements must be maintained. The function should return the length of the left partition.
+(<a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/" target="_blank">Leetcode Link</a>)</p>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code>Example 1:
+
+Input: nums = [1,1,2]
+Output: 2, nums = [1,2,_]
+Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+Example 2:
+
+Input: nums = [0,0,1,1,1,2,2,3,3,4]
+Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+</code></pre></div>
+</details>
+<h3 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h3>
+<p>Intialize two pointers at index 0 :</p>
+<p>s,f =0,0 </p>
+<p>Define an invariant to hold non-duplicate values.</p>
+<p><code>Invariant 1 : Interval [0,s] contains only 
+non-duplicate elements</code></p>
+<ul>
+<li>
+<p>s stays at the inclusive right boundary of the interval with no duplicates.</p>
+</li>
+<li>
+<p>To maintain this invariant, f moves forward to find the next unique element which should be placed at s+1. </p>
+</li>
+<li>
+<p>This means if s and f are equal, we move only f ahead to find the next unique element.</p>
+</li>
+<li>
+<p>Once a swap is made the interval with duplicates increases by 1 so s is incremented and Invariant 1 is maintained.</p>
+</li>
+</ul>
+<p>Notice that f is incremented in both cases. But s is only incremented if a swap is made. </p>
 <div class="admonition info">
-<p class="admonition-title">Algorithm</p>
-<div class="highlight"><pre><span></span><code>initialize a Min heap of all possible choices. 
-While there is something in the heap : 
-   Pop the heap top and write it to the merged container.
-   Get the element next to popped element in the container to which it belongs (If it exists). Put it in the heap.
+<p class="admonition-title">DRY RUN</p>
+<div class="highlight"><pre><span></span><code>    [ 1  1  1  2  2  3  4  5]
+      sf                      # s and f are equal, only f moves forward  
+      s  f                    # ----&quot;----
+      s     f                 # ----&quot;----
+      s        f              # ----&quot;----
+    [ 1  2  1  1  2  3  4  5] # s and f are not equal ; f is at next unique element; Swap s+1 with f and move both pointers forward
+         s        f           # s and f are equal, only f moves forward
+         s           f        # s and f are not equal ;f is at next unique element; Swap s+1 with f and move both pointers forward
+    [ 1  3  1  1  2  2  4  5]
+            s           f     # s and f are not equal ;f is at next unique element; Swap s+1 with f and move both pointers forward
+    [ 1  3  4  1  2  2  1  5]
+               s           f  # s and f are not equal ;f is at next unique element; Swap s+1 with f and move both pointers forward 
+    [ 1  3  4  5  2  2  1  1]
+                  s           f  # Final state after loop ends     
+
+    Notice that (s,f) always contains duplicates of elements from [0,s]
 </code></pre></div>
 </div>
-<p>Thats it.</p>
-<p>The code should actually simpler than handling the 2-way merge because there are no if else conditions to handle unequal lengthed arrays.</p>
-<details class="code">
-<summary>Code</summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">K Way Merge on Arrays</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
+<div class="admonition code">
+<p class="admonition-title">Code</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">removeDuplicates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span><span class="mi">0</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="p">:</span>
+                <span class="n">nums</span><span class="p">[</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">f</span><span class="p">],</span><span class="n">nums</span><span class="p">[</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">s</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="c1">#[0,s] is the interval with no duplicates</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">s</span><span class="o">+</span><span class="mi">1</span> <span class="c1"># is the number of elements in this interval</span>
+        <span class="k">return</span> <span class="n">k</span> 
+</code></pre></div>
 </div>
-</div>
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">The same problem but with a different signature :</span>
-<span class="sd">https://www.geeksforgeeks.org/problems/merge-k-sorted-arrays/1</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="c1">#User function Template for python3</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">heapq</span><span class="w"> </span><span class="kn">import</span> <span class="n">heapify</span><span class="p">,</span> <span class="n">heappop</span><span class="p">,</span> <span class="n">heappush</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
-    <span class="c1">#Function to merge k sorted arrays.</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">mergeKArrays</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Given k sorted arrays, return a single merged array.</span>
-<span class="sd">        Input :</span>
-<span class="sd">         arr : a list of integer arrays</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># return merged list</span>
-        <span class="n">len_res</span> <span class="o">=</span> <span class="mi">0</span>
+<h3 id="complexity">Complexity<a class="headerlink" href="#complexity" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>O(n) time complexity</code></li>
+<li><code>O(1) Space Complexity</code></li>
+</ul>
+<h2 id="in-place-deduplication-with-unique-elements-appearing-at-most-twice">In-Place deduplication with Unique Elements appearing at most Twice<a class="headerlink" href="#in-place-deduplication-with-unique-elements-appearing-at-most-twice" title="Permanent link">&para;</a></h2>
+<h3 id="defining-the-problem_1">Defining the Problem<a class="headerlink" href="#defining-the-problem_1" title="Permanent link">&para;</a></h3>
+<p>Partition a sorted array s.t. the left partition contains at most two duplicates for each value. The relative order should be maintained. </p>
+<p>More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.</p>
+<p>This is similar to the first problem with a relaxed constraint that allows one duplicate in the left partition.(<a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/" target="_blank">Leetcode Link</a>)</p>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code>Example 1:
 
-        <span class="c1">#Priority Queue- min heap</span>
-        <span class="n">pq</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="c1">#Assume that arrays can be of unequal length</span>
-        <span class="c1">#Initialize min heap</span>
-        <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">arr</span> <span class="p">:</span>
-            <span class="n">len_res</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-            <span class="c1">#Store the current index and a reference to the array for getting the next value in the array</span>
-            <span class="n">pq</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="n">array</span><span class="p">))</span>
+Input: nums = [1,1,1,2,2,3]
+Output: 5, nums = [1,1,2,2,3,_]
+Explanation: Your function should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+Example 2:
 
-        <span class="c1">#heapify pq</span>
-        <span class="n">heapify</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
-
-        <span class="c1">#allocate result array</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">len_res</span>
-
-        <span class="c1">#write pointer</span>
-        <span class="n">write_ptr</span> <span class="o">=</span> <span class="mi">0</span> 
-        <span class="c1">#Pick the lowest value from the current choices and write it to res</span>
-        <span class="k">while</span> <span class="n">pq</span> <span class="p">:</span>
-            <span class="n">curr_val</span><span class="p">,</span> <span class="n">curr_ptr</span><span class="p">,</span> <span class="n">curr_arr</span> <span class="o">=</span> <span class="n">heappop</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
-            <span class="n">res</span><span class="p">[</span><span class="n">write_ptr</span><span class="p">]</span> <span class="o">=</span> <span class="n">curr_val</span>
-            <span class="k">if</span> <span class="n">curr_ptr</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">curr_arr</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span>  <span class="p">:</span> 
-                <span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,</span> <span class="p">(</span><span class="n">curr_arr</span><span class="p">[</span><span class="n">curr_ptr</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> <span class="n">curr_ptr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">curr_arr</span> <span class="p">))</span>
-            <span class="n">write_ptr</span><span class="o">+=</span><span class="mi">1</span>
-        <span class="k">return</span> <span class="n">res</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span> <span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span> <span class="n">Solution</span><span class="p">()</span><span class="o">.</span><span class="n">mergeKArrays</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]])</span> <span class="p">)</span>
+Input: nums = [0,0,1,1,1,1,2,3,3]
+Output: 7, nums = [0,0,1,1,2,3,3,_,_]
+Explanation: Your function should return k = 7, with the first seven elements of nums being 0, 0, 1, 1, 2, 3 and 3 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
 </code></pre></div>
 </details>
-<h2 id="merging-k-sorted-linked-lists">Merging k sorted linked lists<a class="headerlink" href="#merging-k-sorted-linked-lists" title="Permanent link">&para;</a></h2>
-<p>The same thing for linked lists. </p>
-<details class="code">
-<summary>Code</summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">K Way Merge on Arrays</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">heapq</span><span class="w"> </span><span class="kn">import</span> <span class="n">heapify</span><span class="p">,</span><span class="n">heappush</span><span class="p">,</span><span class="n">heappop</span>
-<span class="c1">#Definition for singly-linked list.</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">ListNode</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">mergeKLists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
-        <span class="n">pq</span><span class="o">=</span><span class="p">[]</span>
-        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">head</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lists</span><span class="p">)</span> <span class="p">:</span> 
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">head</span> <span class="p">:</span> <span class="k">continue</span>
-            <span class="c1">#Put idx between the value and the node object  to avoid comparing objects in case of a tie </span>
-            <span class="c1">#Which will lead to this error :&#39;&lt;&#39; not supported between instances of &#39;ListNode&#39; and &#39;ListNode&#39;</span>
-            <span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,(</span><span class="n">head</span><span class="o">.</span><span class="n">val</span><span class="p">,</span><span class="n">idx</span><span class="p">,</span> <span class="n">head</span><span class="p">))</span> 
-
-        <span class="c1">#Allocate Write container and write pointer</span>
-        <span class="n">dummy</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">write_ptr</span> <span class="o">=</span> <span class="n">dummy</span>
-
-        <span class="k">while</span> <span class="n">pq</span> <span class="p">:</span>
-            <span class="c1">#Pick the lowest valued node from available choices.</span>
-            <span class="n">_</span><span class="p">,</span><span class="n">idx</span><span class="p">,</span><span class="n">curr_node</span> <span class="o">=</span> <span class="n">heappop</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
-
-            <span class="c1">#write to write container and move write pointer ahead</span>
-            <span class="n">write_ptr</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">curr_node</span>
-            <span class="n">write_ptr</span> <span class="o">=</span> <span class="n">write_ptr</span><span class="o">.</span><span class="n">next</span>
-
-            <span class="c1">#For curr_node, put its next node in the heap  </span>
-            <span class="n">nxt_node</span> <span class="o">=</span> <span class="n">curr_node</span><span class="o">.</span><span class="n">next</span> 
-            <span class="k">if</span> <span class="n">nxt_node</span> <span class="p">:</span> <span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,(</span><span class="n">nxt_node</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">nxt_node</span> <span class="p">))</span>
-        <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="n">next</span>
+<h3 id="algorithm_1">Algorithm<a class="headerlink" href="#algorithm_1" title="Permanent link">&para;</a></h3>
+<p>This problem is all about defining the invariant correctly. This can be done in various ways.</p>
+<p>I will do it like this.
+I will say that </p>
+<ul>
+<li>[0,s] - Is the inclusive interval containing no more than two duplicate</li>
+<li>(s,f) - Is the exclusive interval containing only duplicates from [0,s]</li>
+</ul>
+<p><strong>Initialization:</strong></p>
+<details class="warning">
+<summary>Warning</summary>
+<p>#s,f= 1,1 # Cannot Initialize like this. f has to be s+1 initially for swapping to work correctly. If f=s, you will end up putting s ahead of f initially if f !=s-1, since we are swapping s+1 with f. Besides if (s,f) is an exclusive interval, f should be initialized to s+1.</p>
+</details>
+<p>Initially,</p>
+<ul>
+<li>s,f = 1,2</li>
+<li>[0,1] - Has only two elements</li>
+<li>(1,2) - Empty set</li>
+</ul>
+<p><strong>Maintenance</strong></p>
+<p>In the loop we will maintain the invariants. Here is the dry run: </p>
+<div class="admonition info">
+<p class="admonition-title">DRY RUN</p>
+<div class="highlight"><pre><span></span><code>[1,1,1,2,2,3] # everything before s including s is good
+   s f        # (s,f) empty,  f = s-1 . f moves ahead, After s moves ahead : (s,f) will contain the excess 1. 1 is a duplicate wrt to elements in [0,1]
+   s   f      # If we move f ahead now, it will contain 2 which is not a duplicate,swap s+1 with f and move both ahead to maintain both invariants 
+[1,1,2,1,2,3] # swapped s+1 with f and s+=1, f+=1
+     s   f    # f!=s-1 : swap s+1 with f
+[1,1,2,2,1,3] #swapped s+1 with f and s+=1,f+=1
+       s   f  # f!=s-1  : swap f with s+1 
+[1,1,2,2,3,1] #swapped s+1 with f and s+=1,f+=1
+         s   f
 </code></pre></div>
 </div>
+<div class="admonition code">
+<p class="admonition-title">Code</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">removeDuplicates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="c1">#Edge case - nums has only one element</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
+
+        <span class="c1">#Initialization: s=1 and f=2</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">f</span>  <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span> <span class="p">:</span>
+            <span class="c1">#Maintenance</span>
+            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="p">[</span><span class="n">s</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">:</span>
+                <span class="n">nums</span><span class="p">[</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">nums</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">f</span><span class="p">],</span><span class="n">nums</span><span class="p">[</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">s</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="n">s</span><span class="o">+</span><span class="mi">1</span>
+</code></pre></div>
 </div>
-</div>
-</details>
+<h3 id="complexity_1">Complexity<a class="headerlink" href="#complexity_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>O(n) time complexity</code></li>
+<li><code>O(1) Space Complexity</code></li>
+</ul>
 
 
 
@@ -1930,7 +2167,7 @@ While there is something in the heap :
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../Merge_Sort/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Merge Sort">
+          <a href="../Lomuto/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lomuto Partition">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1940,20 +2177,20 @@ While there is something in the heap :
                 Previous
               </span>
               <div class="md-ellipsis">
-                Merge Sort
+                Lomuto Partition
               </div>
             </div>
           </a>
         
         
           
-          <a href="../properties_of_comparison_based_sorting_algorithms/" class="md-footer__link md-footer__link--next" aria-label="Next: Comparison Based Sorting">
+          <a href="../../Quickselect/" class="md-footer__link md-footer__link--next" aria-label="Next: QuickSelect">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Comparison Based Sorting
+                QuickSelect
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1989,10 +2226,10 @@ While there is something in the heap :
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
       
