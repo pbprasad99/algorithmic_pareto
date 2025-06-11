@@ -181,5 +181,5 @@ For arrays, we pass pointers to the merge function to denote subarrays to be mer
 
 As we saw earlier, quicksort is just an application of array partitioning where we can think of a partition happening at the preorder position in the traversal of a binary tree. Similarly : 
 
-!!! tip "tl;dr"
+!!! tip "tl;dr (Again!)"
     Merge sort is an application of 2-way merge where we can think of a merge happening in the post order position of a binary tree traversal.
