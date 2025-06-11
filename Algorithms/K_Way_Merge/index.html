@@ -1766,6 +1766,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practice
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1895,6 +1904,71 @@ While there is something in the heap :
 </div>
 </div>
 </div>
+</details>
+<h2 id="practice">Practice<a class="headerlink" href="#practice" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary><a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/" target="_blank">Kth Smallest Element in a Sorted Matrix</a></summary>
+<div class="highlight"><pre><span></span><code>&quot;&quot;&quot;
+Solution for https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/
+
+This can be solved using k-way merge. Instead of putting the next smaller value in a resultant merged array, 
+simply put it in a max heap of size k.
+
+Example :
+[
+[1,5,9],
+       *
+[10,11,13],
+    *
+[12,13,15]
+ *
+]
+
+say , k = 4
+Can we use A Max heap to maintain the k largest numbers?
+[10,9,5,1]
+
+When size becomes greater than k pop from the max heap:
+
+&gt;[11,10,9,5,1]
+&gt;size is greater than 5 
+&gt;pop from max heap
+[10,9,5,1]
+
+Memory required is : max heap of size k to  keep track of k smallest numbers
+A min heap of size len(matrix) (equal to the number of rows in matrix) to pick the next smallest number
+
+Algorithm :
+
+1) Initialize a min heap to pick next smallest number from all rows of matrix
+2) While min heap is not empty:
+    -  Pop from min heap and put in a max heap of size k
+    -  Put element next to popped element into min heap  
+3) Return the top of max heap.
+
+&quot;&quot;&quot;
+from heapq import heapify, heappush , heappop
+class Solution:
+    def kthSmallest(self, matrix: List[List[int]], k: int) -&gt; int:
+        pq = []
+        for row in matrix : 
+            e = (row[0], 0, row)  # tuple of Curr_Value, curr_index, row reference
+            pq.append(e)
+        heapify(pq)
+
+        max_hp = []
+        while pq :
+            #pick next smallest number
+            val, idx, row = pq.pop()
+            #Simulate max heap by negating values
+            heappush(max_hp,-val)
+            if len(max_hp) &gt; k :
+                heappop(max_hp)
+            if idx &lt; len(row) -1 :
+                heappush(pq,(row[idx+1],idx+1,row))
+        # Retun top of max heap
+        return -heappop(max_hp) 
+</code></pre></div>
 </details>
 
 
