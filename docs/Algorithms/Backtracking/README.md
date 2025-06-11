@@ -1,8 +1,14 @@
 # Backtracking
 
-Backtracking seems confusion and difficult to learn, because there are so many different ways of doing the same thing.
+Backtracking seems confusing and difficult to learn, because there are so many different ways of doing the same thing.
 
 Here, we solve the same problem in many different ways only to see the possibilities.
+
+There is no stasifying and clear definition of backtracking I have found yet. I like to define it as an exhaustive search technique where you make a choice, explore that choice and then undo the choice (backtrack) to make another choice. 
+
+***This act of making a choice and undoing it is what I think backtracking is.***
+
+It looks very much like a depth first tree traversal with state management.
 
 ## Problem: Generate N-bit Binary Numbers
 
@@ -81,18 +87,13 @@ Output: ["000", "001", "010", "011", "100", "101", "110", "111"]
 | For-loop Choices | O(n) fixed | Implicit (overwrites) | Excellent | Good |
 | Dynamic Stack with For-loop | O(n) with resizing | Most explicit | Excellent | Excellent |
 
-### Key Takeaways
+!!! success "Key Takeaways"
 
-1. **Pure Recursion**: Most intuitive but least memory efficient
-2. **Pre-allocated Array**: Best for memory efficiency when size is known
-3. **Stack with Dual Recursion**: Most intuitive for binary choices
-4. **For-loop Choices**: Most extensible for varying number of choices
-5. **Dynamic Stack with For-loop**: Best balance of clarity and flexibility
-
-Choose the approach based on your specific needs:
-- Memory constraints → Pre-allocated Array
-- Binary choices → Stack with Dual Recursion
-- Multiple choices → For-loop based approaches
-- Learning/Teaching → Dynamic Stack with For-loop
+    1. **Pure Recursion**: Intuitive but least memory efficient. No bactracking involved.
+    2. **Pre-allocated Array**: Best for memory efficiency when size is known
+    3. **Stack with Dual Recursion**: Most intuitive for binary choices
+    4. **For-loop Choices**: Most extensible for varying number of choices
+    5. **Dynamic Stack with For-loop**: Best balance of clarity and flexibility
+    
 
 
