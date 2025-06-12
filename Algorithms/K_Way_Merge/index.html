@@ -1970,6 +1970,97 @@ class Solution:
         return -heappop(max_hp) 
 </code></pre></div>
 </details>
+<details class="example">
+<summary><a href="https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/">Find K Pairs with Smallest Sums</a>(target="_blank")</summary>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Solution for : https://leetcode.com/problems/find-k-pairs-with-smallest-sums/</span>
+
+<span class="sd">The problem statement is confusing. Key informations is that all possible pairs are formed by </span>
+<span class="sd">taking one number from first array and combining it with a second number from the second array.</span>
+<span class="sd">        [1,7,11]</span>
+<span class="sd">        [2,4,6]</span>
+<span class="sd"> [ (1,2) , (1,4) (1,6) ,(7,2) , (7,4) , (7,6) , (11,1), (11,2) , (11,7) ]</span>
+
+<span class="sd">The problem is asking us , if we sort the above list of tuples by their sum, what would be the first k tuples.</span>
+
+<span class="sd">Thoughts :</span>
+
+<span class="sd">Do we have to enumerate all pairs? Maybe. If we do that, we can maintain a max heap fo size k. </span>
+<span class="sd">In the max heap, keep tuples ( (sum of two elements), (el1, el2))</span>
+
+<span class="sd">We can do this :</span>
+
+<span class="sd">from heapq import heappop, heappush, heapify </span>
+<span class="sd">class Solution:</span>
+<span class="sd">    def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -&gt; List[List[int]]:</span>
+<span class="sd">        res = []</span>
+<span class="sd">        ## Quadratic Time Complexity.</span>
+<span class="sd">        for n1 in nums1 :</span>
+<span class="sd">            for n2 in nums2 :</span>
+<span class="sd">                heappush(res,(-1*(n1+n2),(n1,n2)))</span>
+<span class="sd">                if len(res) &gt; k :</span>
+<span class="sd">                    heappop(res)</span>
+
+<span class="sd">        ans = []</span>
+<span class="sd">        while res : </span>
+<span class="sd">            ans.append(heappop(res)[1])</span>
+<span class="sd">        return ans</span>
+
+<span class="sd">But this has a  quadratic run time and will give TLE.</span>
+
+<span class="sd">Can we do better ? </span>
+<span class="sd">Why yes we can!</span>
+
+
+<span class="sd">Consider :</span>
+<span class="sd">[1,1,2], nums2 = [1,2,3], k = 3</span>
+
+<span class="sd">Isn&#39;t this how we are enumerating pairs?</span>
+<span class="sd">1,1 -&gt; 1,2 -&gt; 1,3</span>
+<span class="sd">*</span>
+<span class="sd">1,1 -&gt; 1,2 -&gt; 1,3</span>
+<span class="sd">*</span>
+<span class="sd">2,1 -&gt; 2,2 -&gt; 2,3</span>
+<span class="sd">* </span>
+
+<span class="sd">These look an awful lot like three linked lists. </span>
+<span class="sd">We know how to get the next element for each linked list. </span>
+<span class="sd">To get the n smallest pairs we just need to run a k-way merge n times. </span>
+<span class="sd">(Lets call the number of pairs required n to avoid confusion with the concept of k-way merge.</span>
+<span class="sd">In k-way merge, k refers to the number of linked lists we are merging )</span>
+
+<span class="sd">Lets implement the solution. </span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">heapq</span><span class="w"> </span><span class="kn">import</span> <span class="n">heappop</span><span class="p">,</span><span class="n">heappush</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">kSmallestPairs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums1</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">nums2</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">k</span> <span class="c1"># rename k to n to avoid confusion with out mental model</span>
+        <span class="n">pq</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">#Init pq </span>
+        <span class="c1">#In each linked list the first elelement is fixed and from the first array, we take second element from the second array.</span>
+        <span class="c1">#We will use the index of the first element as tie breaker</span>
+        <span class="c1">#store the index of second element to get the next element in the same linked list</span>
+
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,(</span> <span class="p">(</span> <span class="n">nums1</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span><span class="n">idx_1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">)</span> 
+            <span class="p">)</span><span class="c1">#  (sum of two elements, index of first element, index of second element )   </span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Pick the next smallest tuple k times</span>
+        <span class="k">while</span> <span class="n">pq</span> <span class="ow">and</span> <span class="n">n</span> <span class="p">:</span>
+            <span class="n">n</span><span class="o">-=</span><span class="mi">1</span>
+            <span class="n">_</span><span class="p">,</span><span class="n">idx_1</span><span class="p">,</span><span class="n">idx_2</span> <span class="o">=</span> <span class="n">heappop</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span> <span class="c1"># i is the index of element2 in the tuple</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">nums1</span><span class="p">[</span><span class="n">idx_1</span><span class="p">],</span><span class="n">nums2</span><span class="p">[</span><span class="n">idx_2</span><span class="p">])</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">idx_2</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums2</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="p">:</span>
+                <span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,(</span> <span class="p">(</span> <span class="n">nums1</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums2</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span><span class="n">idx_1</span><span class="p">,</span> <span class="n">idx_2</span> <span class="p">)</span> <span class="p">)</span>
+                 <span class="p">)</span> <span class="c1">#  (sum of two elements, index of first element, index of second element) </span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></div>
+</details>
 
 
 
