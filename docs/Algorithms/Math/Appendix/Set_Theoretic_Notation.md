@@ -2,6 +2,8 @@
 
 !!! warning "AI Generated Content" 
 
+!!! Warning "Refresh Page if math notation is not rendered"
+
 A comprehensive reference for mathematical notation used in set theory, from basic concepts to advanced topics.
 
 ## Basic Set Notation
@@ -49,6 +51,7 @@ Understanding how sets relate to each other is fundamental to set theory.
 ### Subset Relations
 
 **Subset**: \\(A \subseteq B\\) means "\\(A\\) is a subset of \\(B\\)" or "every element of \\(A\\) is also in \\(B\\)."
+
 - Formally: \\(\forall x (x \in A \rightarrow x \in B)\\)
 
 **Proper subset**: \\(A \subsetneq B\\) or \\(A \subset B\\) means "\\(A\\) is a proper subset of \\(B\\)" (\\(A \subseteq B\\) and \\(A \neq B\\)).
@@ -65,6 +68,7 @@ Understanding how sets relate to each other is fundamental to set theory.
 ### Set Equality
 
 **Set equality**: \\(A = B\\) means sets \\(A\\) and \\(B\\) have exactly the same elements.
+
 - Equivalent to: \\(A \subseteq B\\) and \\(B \subseteq A\\)
 
 **Set inequality**: \\(A \neq B\\) means sets \\(A\\) and \\(B\\) do not have the same elements.
@@ -76,15 +80,19 @@ Set operations combine or modify sets to create new sets.
 ### Basic Operations
 
 **Union**: \\(A \cup B\\) is the set of elements in \\(A\\) or \\(B\\) (or both).
+
 - \\(A \cup B = \{x : x \in A \text{ or } x \in B\}\\)
 
 **Intersection**: \\(A \cap B\\) is the set of elements in both \\(A\\) and \\(B\\).
+
 - \\(A \cap B = \{x : x \in A \text{ and } x \in B\}\\)
 
 **Difference**: \\(A \setminus B\\) or \\(A - B\\) is the set of elements in \\(A\\) but not in \\(B\\).
+
 - \\(A \setminus B = \{x : x \in A \text{ and } x \notin B\}\\)
 
 **Complement**: \\(A^c\\) or \\(\overline{A}\\) or \\(A'\\) is the set of elements not in \\(A\\) (relative to some universal set).
+
 - \\(A^c = \{x \in U : x \notin A\}\\)
 
 **Examples**:
@@ -101,6 +109,7 @@ Set operations combine or modify sets to create new sets.
 ### Extended Operations
 
 **Symmetric difference**: \\(A \triangle B\\) or \\(A \oplus B\\) contains elements in exactly one of \\(A\\) or \\(B\\).
+
 - \\(A \triangle B = (A \setminus B) \cup (B \setminus A) = (A \cup B) \setminus (A \cap B)\\)
 
 ## Generalized Operations
@@ -110,12 +119,15 @@ Set operations can be extended to collections of multiple sets.
 ### Indexed Families
 
 **Indexed union**: \\(\bigcup_{i \in I} A_i\\) is the union of all sets \\(A_i\\) where \\(i\\) ranges over index set \\(I\\).
+
 - \\(\bigcup_{i \in I} A_i = \{x : \exists i \in I, x \in A_i\}\\)
 
 **Indexed intersection**: \\(\bigcap_{i \in I} A_i\\) is the intersection of all sets \\(A_i\\) where \\(i\\) ranges over index set \\(I\\).
+
 - \\(\bigcap_{i \in I} A_i = \{x : \forall i \in I, x \in A_i\}\\)
 
 **Common notations**:
+
 - \\(\bigcup_{i=1}^{n} A_i = A_1 \cup A_2 \cup \cdots \cup A_n\\)
 - \\(\bigcap_{i=1}^{\infty} A_i\\) (intersection of countably many sets)
 - \\(\bigcup_{x \in X} A_x\\) (union indexed by elements of set \\(X\\))
@@ -124,7 +136,8 @@ Set operations can be extended to collections of multiple sets.
 
 **Partition**: A partition of set \\(A\\) is a collection of non-empty, pairwise disjoint subsets whose union is \\(A\\).
 
-If \\(\{A_i\}_{i \in I}\\) is a partition of \\(A\\), then:
+If \\(\\{A_i\\}_{i \in I}\\) is a partition of \\(A\\), then:
+
 - \\(A_i \neq \emptyset\\) for all \\(i \in I\\)
 - \\(A_i \cap A_j = \emptyset\\) for \\(i \neq j\\)
 - \\(\bigcup_{i \in I} A_i = A\\)
@@ -136,6 +149,7 @@ These concepts deal with the "size" and structure of sets.
 ### Power Set
 
 **Power set**: \\(\mathcal{P}(A)\\) or \\(2^A\\) is the set of all subsets of \\(A\\).
+
 - \\(\mathcal{P}(A) = \{X : X \subseteq A\}\\)
 
 **Examples**:
@@ -149,10 +163,12 @@ These concepts deal with the "size" and structure of sets.
 **Finite sets**: \\(|A| = n\\) for some natural number \\(n\\).
 
 **Infinite cardinalities**:
+
 - \\(|\mathbb{N}| = \aleph_0\\) (aleph-null, countable infinity)
 - \\(|\mathbb{R}| = 2^{\aleph_0} = \mathfrak{c}\\) (continuum, uncountable)
 
 **Cardinality relationships**:
+
 - \\(|A| = |B|\\) means \\(A\\) and \\(B\\) have the same cardinality
 - \\(|A| \leq |B|\\) means there exists an injection from \\(A\\) to \\(B\\)
 - \\(|A| < |B|\\) means \\(|A| \leq |B|\\) and \\(|A| \neq |B|\\)
@@ -168,6 +184,7 @@ Relations and functions are special types of sets that describe connections betw
 **Notation**: \\(aRb\\) or \\((a,b) \in R\\) means "\\(a\\) is related to \\(b\\) by relation \\(R\\)."
 
 **Types of relations on a set \\(A\\)**:
+
 - **Reflexive**: \\(\forall a \in A, aRa\\)
 - **Symmetric**: \\(\forall a,b \in A, aRb \rightarrow bRa\\)
 - **Transitive**: \\(\forall a,b,c \in A, (aRb \land bRc) \rightarrow aRc\\)
@@ -212,6 +229,7 @@ These constructions create new sets from existing ones.
 **Cartesian product**: \\(A \times B = \{(a,b) : a \in A \text{ and } b \in B\}\\) is the set of all ordered pairs.
 
 **Higher-order products**:
+
 - \\(A \times B \times C = \{(a,b,c) : a \in A, b \in B, c \in C\}\\)
 - \\(A^n = A \times A \times \cdots \times A\\) (\\(n\\) times)
 
@@ -226,6 +244,7 @@ These constructions create new sets from existing ones.
 **n-tuple**: \\((a_1, a_2, \ldots, a_n)\\) is an ordered collection of \\(n\\) elements.
 
 **Sequence**: An ordered list, often infinite:
+
 - Finite sequence: \\((a_1, a_2, \ldots, a_n)\\)
 - Infinite sequence: \\((a_1, a_2, a_3, \ldots)\\) or \\((a_n)_{n=1}^{\infty}\\)
 

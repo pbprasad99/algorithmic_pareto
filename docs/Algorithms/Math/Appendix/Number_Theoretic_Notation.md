@@ -2,6 +2,7 @@
 
 # Number Theoretic Notation
   
+!!! Warning "Refresh Page if math notation is not rendered"
 
 !!! Question "[From here](https://www.math.uh.edu/~minru/spring11/fundamental-theorem.pdf){target="_blank"}"
 
@@ -70,6 +71,7 @@ Understanding when one integer divides another forms a cornerstone of number the
 The expression \\(a \mid b\\) means "a divides b" or "a is a divisor of b." This indicates that \\(b = ka\\) for some integer \\(k\\).
 
 **Examples**:
+
 - \\(3 \mid 12\\) since \\(12 = 4 \times 3\\)
 - \\(5 \mid 35\\) since \\(35 = 7 \times 5\\)
 
@@ -80,10 +82,12 @@ The negation \\(a \nmid b\\) means "a does not divide b."
 The greatest common divisor has several notational conventions. The most unambiguous is \\(\gcd(a,b)\\), though traditional mathematics sometimes uses \\((a,b)\\).
 
 **Key Properties**:
+
 - \\(\gcd(a,b) = \gcd(b, a \bmod b)\\) (Euclidean algorithm)
 - \\(\gcd(a,b) \cdot \text{lcm}(a,b) = ab\\)
 
 **Examples**:
+
 - \\(\gcd(12, 18) = 6\\)
 - \\(\gcd(17, 19) = 1\\) (relatively prime)
 
@@ -92,6 +96,7 @@ The greatest common divisor has several notational conventions. The most unambig
 The least common multiple uses \\(\text{lcm}(a,b)\\) or traditional bracket notation \\([a,b]\\).
 
 **Examples**:
+
 - \\(\text{lcm}(12, 18) = 36\\)
 - \\(\text{lcm}(4, 6) = 12\\)
 
@@ -104,24 +109,29 @@ Prime numbers serve as the building blocks of all integers through unique factor
 Individual primes are typically denoted by lowercase \\(p\\), with subscripts for distinct primes: \\(p_1, p_2, \ldots, p_k\\).
 
 **Fundamental Theorem of Arithmetic**: Every integer \\(n > 1\\) has a unique prime factorization:
+
 \\[n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}\\]
 
 where \\(p_1 < p_2 < \cdots < p_k\\) are distinct primes and \\(e_i \geq 1\\).
 
 **Examples**:
+
 - \\(12 = 2^2 \cdot 3^1\\)
 - \\(100 = 2^2 \cdot 5^2\\)
 
 ### Prime-Related Functions
 
 **Prime counting function**: \\(\pi(x)\\) counts primes up to \\(x\\)
+
 - \\(\pi(10) = 4\\) (primes: 2, 3, 5, 7)
 
-**Number of prime factors**: 
+**Number of prime factors**:
+
 - \\(\Omega(n)\\) counts prime factors with multiplicity
 - \\(\omega(n)\\) counts distinct prime factors
 
 **Examples**:
+
 - \\(\Omega(12) = 3\\) since \\(12 = 2^2 \cdot 3\\)
 - \\(\omega(12) = 2\\) since 12 has two distinct prime factors
 
@@ -136,10 +146,12 @@ The fundamental congruence relation \\(a \equiv b \pmod{n}\\) means \\(n \mid (a
 **Standard form**: \\(a \equiv b \pmod{n}\\) with parentheses around the modulus.
 
 **Examples**:
+
 - \\(13 \equiv 1 \pmod{12}\\) since \\(12 \mid (13-1)\\)
 - \\(25 \equiv 4 \pmod{7}\\) since \\(7 \mid (25-4)\\)
 
 **Key properties**:
+
 - **Reflexive**: \\(a \equiv a \pmod{n}\\)
 - **Symmetric**: If \\(a \equiv b \pmod{n}\\), then \\(b \equiv a \pmod{n}\\)
 - **Transitive**: If \\(a \equiv b \pmod{n}\\) and \\(b \equiv c \pmod{n}\\), then \\(a \equiv c \pmod{n}\\)
@@ -147,6 +159,7 @@ The fundamental congruence relation \\(a \equiv b \pmod{n}\\) means \\(n \mid (a
 ### Modular Arithmetic Operations
 
 Operations preserve congruences:
+
 - \\((a + b) \bmod n\\)
 - \\((a \cdot b) \bmod n\\)
 - \\(a^k \bmod n\\)
@@ -164,13 +177,16 @@ Euler's totient function counts integers relatively prime to a given number.
 \\(\phi(n)\\) (or \\(\varphi(n)\\)) equals the number of positive integers less than or equal to \\(n\\) that are relatively prime to \\(n\\).
 
 **Formula for prime powers**: If \\(p\\) is prime, then:
+
 - \\(\phi(p) = p - 1\\)
 - \\(\phi(p^k) = p^k - p^{k-1} = p^{k-1}(p-1)\\)
 
 **General formula**: For \\(n\\) with prime factorization \\(n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}\\):
+
 \\[\phi(n) = n \prod_{i=1}^{k} \left(1 - \frac{1}{p_i}\right)\\]
 
 **Examples**:
+
 - \\(\phi(9) = 6\\) (numbers 1, 2, 4, 5, 7, 8 are relatively prime to 9)
 - \\(\phi(12) = 4\\) (numbers 1, 5, 7, 11 are relatively prime to 12)
 
@@ -178,7 +194,9 @@ Euler's totient function counts integers relatively prime to a given number.
 
 For \\(\gcd(a,n) = 1\\): \\(a^{\phi(n)} \equiv 1 \pmod{n}\\)
 
-**Fermat's Little Theorem** (special case): For prime \\(p\\) and \\(\gcd(a,p) = 1\\): \\(a^{p-1} \equiv 1 \pmod{p}\\)
+**Fermat's Little Theorem** (special case): 
+
+For prime \\(p\\) and \\(\gcd(a,p) = 1\\): \\(a^{p-1} \equiv 1 \pmod{p}\\)
 
 ## Floor and Ceiling Functions
 
@@ -189,6 +207,7 @@ These functions convert real numbers to integers with specific rounding behavior
 \\(\lfloor x \rfloor\\) gives the greatest integer less than or equal to \\(x\\).
 
 **Examples**:
+
 - \\(\lfloor 3.7 \rfloor = 3\\)
 - \\(\lfloor -2.3 \rfloor = -3\\)
 - \\(\lfloor 5 \rfloor = 5\\)
@@ -198,6 +217,7 @@ These functions convert real numbers to integers with specific rounding behavior
 \\(\lceil x \rceil\\) gives the smallest integer greater than or equal to \\(x\\).
 
 **Examples**:
+
 - \\(\lceil 3.2 \rceil = 4\\)
 - \\(\lceil -2.3 \rceil = -2\\)
 - \\(\lceil 5 \rceil = 5\\)
@@ -219,6 +239,7 @@ A fundamental pattern in number theory involves summing over all divisors of an 
 **Notation**: \\(\sum_{d \mid n} f(d)\\) means sum \\(f(d)\\) over all positive divisors \\(d\\) of \\(n\\).
 
 **Examples**:
+
 - \\(\sum_{d \mid n} 1 = d(n)\\) (number of divisors)
 - \\(\sum_{d \mid n} d = \sigma(n)\\) (sum of divisors)
 - \\(\sum_{d \mid n} \phi(d) = n\\) (fundamental identity)
@@ -226,15 +247,18 @@ A fundamental pattern in number theory involves summing over all divisors of an 
 ### Summation Over Primes
 
 **Examples**:
+
 - \\(\sum_{p \leq x} \frac{1}{p}\\) (sum of reciprocals of primes up to \\(x\\))
 - \\(\sum_{\substack{p \text{ prime} \\ p \equiv 1 \pmod{4}}} \frac{1}{p^s}\\) (conditional summation)
 
 ### Product Notation
 
 **Euler product formula**: 
+
 \\[\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_{p \text{ prime}} \frac{1}{1-p^{-s}}\\]
 
 **Totient function product**:
+
 \\[\phi(n) = n \prod_{\substack{p \text{ prime} \\ p \mid n}} \left(1 - \frac{1}{p}\right)\\]
 
 ## Asymptotic Notation
@@ -244,7 +268,8 @@ Asymptotic analysis describes the growth behavior of functions as their argument
 ### Big O Family (Bachmann-Landau Notation)
 
 **Big O**: \\(f(n) = O(g(n))\\) means \\(f\\) grows at most as fast as \\(g\\).
-- Formally: \\(\exists c > 0, n_0\\) such that \\(|f(n)| \leq c|g(n)|\\) for all \\(n \geq n_0\\)
+
+- Formally: \\(\exists\ c > 0, n_0\\) such that \\(|f(n)| \leq c|g(n)|\\) for all \\(n \geq n_0\\)
 
 **Big Omega**: \\(f(n) = \Omega(g(n))\\) means \\(f\\) grows at least as fast as \\(g\\).
 
@@ -286,11 +311,13 @@ For \\(n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}\\):
 ### Quadratic Reciprocity
 
 For distinct odd primes \\(p\\) and \\(q\\):
+
 \\[\left(\frac{p}{q}\right)\left(\frac{q}{p}\right) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}}\\]
 
 ### Arithmetic Functions
 
 **Möbius function**: \\(\mu(n)\\) equals:
+
 - \\(1\\) if \\(n\\) is a square-free positive integer with even number of prime factors
 - \\(-1\\) if \\(n\\) is a square-free positive integer with odd number of prime factors  
 - \\(0\\) if \\(n\\) has a squared prime factor
@@ -298,8 +325,6 @@ For distinct odd primes \\(p\\) and \\(q\\):
 **Von Mangoldt function**: \\(\Lambda(n)\\) equals \\(\ln p\\) if \\(n = p^k\\) for prime \\(p\\), and \\(0\\) otherwise.
 
 **Dirichlet characters**: \\(\chi(n)\\) are completely multiplicative functions modulo some integer.
-
-## Understanding Mathematical Expressions
 
 ## Understanding Mathematical Expressions
 
@@ -316,6 +341,7 @@ When reading number theory texts, you'll encounter mathematical expressions that
 ### Reading Order and Precedence
 
 Mathematical expressions follow standard precedence rules:
+
 1. Exponents and function applications (like \\(\phi(n)\\))
 2. Multiplication and division
 3. Addition and subtraction
