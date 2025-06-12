@@ -12,22 +12,28 @@
         <meta name="author" content="pbprasad99">
       
       
+        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Math/Division_Algorithm/">
       
       
+        <link rel="prev" href="../../Backtracking/">
       
-      <link rel="icon" href="/algorithmic_pareto/assets/images/favicon.ico">
+      
+        <link rel="next" href="../Fundamental_Theorem_Of_Arithmetic/Introduction/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>patibanb.me</title>
+        <title>The Division Algorithm - patibanb.me</title>
       
     
     
-      <link rel="stylesheet" href="/algorithmic_pareto/assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="/algorithmic_pareto/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,16 +52,51 @@
       
     
     
-      <link rel="stylesheet" href="/algorithmic_pareto/assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/algorithmic_pareto/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="The Division Algorithm - patibanb.me" >
+      
+        <meta  property="og:description"  content="Personal Website" >
+      
+        <meta  property="og:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Math/Division_Algorithm.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Math/Division_Algorithm/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="The Division Algorithm - patibanb.me" >
+      
+        <meta  name="twitter:description"  content="Personal Website" >
+      
+        <meta  name="twitter:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Math/Division_Algorithm.png" >
+      
     
-  </head>
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -73,6 +114,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#the-division-algorithm" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,9 +129,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/algorithmic_pareto/." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+    <a href="../../.." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
       
-  <img src="/algorithmic_pareto/assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -102,7 +148,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              The Division Algorithm
             
           </span>
         </div>
@@ -203,7 +249,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/algorithmic_pareto/." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -220,6 +266,8 @@
   
   
   
+    
+  
   
     
     
@@ -227,11 +275,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/algorithmic_pareto/Algorithms/Array_Partitioning/Introduction/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../Array_Partitioning/Introduction/" class="md-tabs__link">
           
   
   
@@ -256,7 +306,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/algorithmic_pareto/blog/" class="md-tabs__link">
+        <a href="../../../blog/" class="md-tabs__link">
           
   
   
@@ -278,7 +328,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/algorithmic_pareto/resources/" class="md-tabs__link">
+        <a href="../../../resources/" class="md-tabs__link">
           
   
   
@@ -300,7 +350,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/algorithmic_pareto/About/" class="md-tabs__link">
+        <a href="../../../About/" class="md-tabs__link">
           
   
   
@@ -336,9 +386,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/algorithmic_pareto/." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+    <a href="../../.." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
       
-  <img src="/algorithmic_pareto/assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     patibanb.me
@@ -353,7 +403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -372,6 +422,8 @@
       
   
   
+    
+  
   
   
     
@@ -409,18 +461,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/algorithmic_pareto/Algorithms/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -433,13 +488,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Algorithms - The Pareto Set
@@ -504,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/Algorithms/Array_Partitioning/Introduction/" class="md-nav__link">
+      <a href="../../Array_Partitioning/Introduction/" class="md-nav__link">
         
   
   
@@ -527,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/Algorithms/Array_Partitioning/Hoare/" class="md-nav__link">
+      <a href="../../Array_Partitioning/Hoare/" class="md-nav__link">
         
   
   
@@ -550,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/Algorithms/Array_Partitioning/Lomuto/" class="md-nav__link">
+      <a href="../../Array_Partitioning/Lomuto/" class="md-nav__link">
         
   
   
@@ -573,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/Algorithms/Array_Partitioning/In-Place_Deduplication/" class="md-nav__link">
+      <a href="../../Array_Partitioning/In-Place_Deduplication/" class="md-nav__link">
         
   
   
@@ -625,7 +680,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/algorithmic_pareto/Algorithms/Quickselect/" class="md-nav__link ">
+            <a href="../../Quickselect/" class="md-nav__link ">
               
   
   
@@ -684,7 +739,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/algorithmic_pareto/Algorithms/Quicksort/" class="md-nav__link ">
+            <a href="../../Quicksort/" class="md-nav__link ">
               
   
   
@@ -743,7 +798,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/algorithmic_pareto/Algorithms/Two_Way_Merge/" class="md-nav__link ">
+            <a href="../../Two_Way_Merge/" class="md-nav__link ">
               
   
   
@@ -802,7 +857,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/algorithmic_pareto/Algorithms/Merge_Sort/" class="md-nav__link ">
+            <a href="../../Merge_Sort/" class="md-nav__link ">
               
   
   
@@ -861,7 +916,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/algorithmic_pareto/Algorithms/K_Way_Merge/" class="md-nav__link ">
+            <a href="../../K_Way_Merge/" class="md-nav__link ">
               
   
   
@@ -899,7 +954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/Algorithms/properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
+      <a href="../../properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
         
   
   
@@ -922,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/Algorithms/External_Sorting/" class="md-nav__link">
+      <a href="../../External_Sorting/" class="md-nav__link">
         
   
   
@@ -992,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/Algorithms/Binary_search/Introduction/" class="md-nav__link">
+      <a href="../../Binary_search/Introduction/" class="md-nav__link">
         
   
   
@@ -1015,7 +1070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/Algorithms/Binary_search/Median_of_two_sorted_arrays/" class="md-nav__link">
+      <a href="../../Binary_search/Median_of_two_sorted_arrays/" class="md-nav__link">
         
   
   
@@ -1067,7 +1122,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/algorithmic_pareto/Algorithms/Basic_Recursion/" class="md-nav__link ">
+            <a href="../../Basic_Recursion/" class="md-nav__link ">
               
   
   
@@ -1126,7 +1181,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/algorithmic_pareto/Algorithms/Backtracking/" class="md-nav__link ">
+            <a href="../../Backtracking/" class="md-nav__link ">
               
   
   
@@ -1161,8 +1216,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1179,11 +1236,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" checked>
         
           
           <label class="md-nav__link" for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
@@ -1199,7 +1256,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_12">
             <span class="md-nav__icon md-icon"></span>
             Math
@@ -1210,10 +1267,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/algorithmic_pareto/Algorithms/Math/Division_Algorithm/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    The Division Algorithm
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1224,6 +1303,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      In Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-rounds-negative-nymbers-away-from-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Rounds Negative Nymbers away from zero
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources :
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1283,7 +1409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/Algorithms/Math/Fundamental_Theorem_Of_Arithmetic/Introduction/" class="md-nav__link">
+      <a href="../Fundamental_Theorem_Of_Arithmetic/Introduction/" class="md-nav__link">
         
   
   
@@ -1306,7 +1432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/Algorithms/Math/Fundamental_Theorem_Of_Arithmetic/claude_ugly_number_analysis/" class="md-nav__link">
+      <a href="../Fundamental_Theorem_Of_Arithmetic/claude_ugly_number_analysis/" class="md-nav__link">
         
   
   
@@ -1384,7 +1510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/Algorithms/Math/Appendix/Number_Theoretic_Notation/" class="md-nav__link">
+      <a href="../Appendix/Number_Theoretic_Notation/" class="md-nav__link">
         
   
   
@@ -1407,7 +1533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/Algorithms/Math/Appendix/Set_Theoretic_Notation/" class="md-nav__link">
+      <a href="../Appendix/Set_Theoretic_Notation/" class="md-nav__link">
         
   
   
@@ -1480,7 +1606,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/algorithmic_pareto/blog/" class="md-nav__link ">
+            <a href="../../../blog/" class="md-nav__link ">
               
   
   
@@ -1562,7 +1688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/blog/archive/2025/" class="md-nav__link">
+      <a href="../../../blog/archive/2025/" class="md-nav__link">
         
   
   
@@ -1652,7 +1778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/blog/category/aws/" class="md-nav__link">
+      <a href="../../../blog/category/aws/" class="md-nav__link">
         
   
   
@@ -1677,7 +1803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/blog/category/basics/" class="md-nav__link">
+      <a href="../../../blog/category/basics/" class="md-nav__link">
         
   
   
@@ -1702,7 +1828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/blog/category/c/" class="md-nav__link">
+      <a href="../../../blog/category/c/" class="md-nav__link">
         
   
   
@@ -1727,7 +1853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/blog/category/etl/" class="md-nav__link">
+      <a href="../../../blog/category/etl/" class="md-nav__link">
         
   
   
@@ -1752,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/blog/category/encodings/" class="md-nav__link">
+      <a href="../../../blog/category/encodings/" class="md-nav__link">
         
   
   
@@ -1777,7 +1903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/blog/category/iam/" class="md-nav__link">
+      <a href="../../../blog/category/iam/" class="md-nav__link">
         
   
   
@@ -1802,7 +1928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_pareto/blog/category/serverless/" class="md-nav__link">
+      <a href="../../../blog/category/serverless/" class="md-nav__link">
         
   
   
@@ -1861,7 +1987,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/algorithmic_pareto/resources/" class="md-nav__link ">
+            <a href="../../../resources/" class="md-nav__link ">
               
   
   
@@ -1919,7 +2045,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/algorithmic_pareto/About/" class="md-nav__link ">
+            <a href="../../../About/" class="md-nav__link ">
               
   
   
@@ -1966,6 +2092,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      In Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-rounds-negative-nymbers-away-from-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Rounds Negative Nymbers away from zero
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources :
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1977,8 +2140,134 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+<h1 id="the-division-algorithm">The Division Algorithm<a class="headerlink" href="#the-division-algorithm" title="Permanent link">&para;</a></h1>
+<div class="admonition quote">
+<p class="admonition-title"><a href="https://math.libretexts.org/Bookshelves/Combinatorics_and_Discrete_Mathematics/A_Spiral_Workbook_for_Discrete_Mathematics_(Kwong)/05%3A_Basic_Number_Theory/5.02%3A_Division_Algorithm" target="_blank">LibreTexts- Mathematics</a></p>
+<p>Given any integers <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>, where <span class="arithmatex">\(a &gt; 0\)</span>, there exist integers <span class="arithmatex">\(q\)</span> and <span class="arithmatex">\(r\)</span> such that</p>
+<p><span class="arithmatex">\(b = aq + r\)</span></p>
+<p>where <span class="arithmatex">\(0 \leq r &lt; a\)</span>. Furthermore, <span class="arithmatex">\(q\)</span> and <span class="arithmatex">\(r\)</span> are uniquely determined by <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>.</p>
+<p>The integers <span class="arithmatex">\(b\)</span>, <span class="arithmatex">\(a\)</span>, <span class="arithmatex">\(q\)</span>, and <span class="arithmatex">\(r\)</span> are called the dividend, divisor, quotient, and remainder, respectively. Notice that <span class="arithmatex">\(b\)</span> is a multiple of <span class="arithmatex">\(a\)</span> if and only if <span class="arithmatex">\(r = 0\)</span>.</p>
+</div>
+<ul>
+<li>b - Dividend</li>
+<li>a - Divisor</li>
+<li>q - Quotient</li>
+<li>r - Remainnder </li>
+</ul>
+<h2 id="in-python">In Python<a class="headerlink" href="#in-python" title="Permanent link">&para;</a></h2>
+<p>divmod(dividend,divisor) -&gt; (quotient, remainder)</p>
+<p>divmod(b,a) -&gt; (b//a,b%a)</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span><span class="nb">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">divmod</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">4</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">4</span> <span class="o">%</span> <span class="mi">2</span>
+<span class="mi">0</span>
+</code></pre></div>
+</div>
+<h2 id="python-rounds-negative-nymbers-away-from-zero">Python Rounds Negative Nymbers away from zero<a class="headerlink" href="#python-rounds-negative-nymbers-away-from-zero" title="Permanent link">&para;</a></h2>
+<p>In python :</p>
+<p>15 / -4  = - 3.75</p>
+<p>But,</p>
+<p>14// - 4 =  - 4</p>
+<p>To round towards zero, do floating point division and convert to int.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Do</span> <span class="n">floating</span> <span class="n">point</span> <span class="n">division</span> <span class="n">then</span> <span class="n">convert</span> <span class="n">to</span> <span class="n">an</span> <span class="nb">int</span><span class="o">.</span> <span class="n">No</span> <span class="n">extra</span> <span class="n">modules</span> <span class="n">needed</span><span class="o">.</span>
+
+<span class="n">Python</span> <span class="mi">3</span><span class="p">:</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">-</span><span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">1</span>
+
+<span class="n">Python</span> <span class="mi">2</span><span class="p">:</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">-</span><span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">1</span>
+</code></pre></div>
+<details class="example">
+<summary><a href="https://leetcode.com/problems/evaluate-reverse-polish-notation/" target="_blank">Example - Evaluate RPN</a></summary>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">What is the data :</span>
+<span class="sd">RPN expression as a list of tokens</span>
+<span class="sd">tokens = [&quot;2&quot;,&quot;1&quot;,&quot;+&quot;,&quot;3&quot;,&quot;*&quot;]</span>
+
+
+<span class="sd">For each opearator +,-,*,/ there will be two pops.</span>
+<span class="sd">first pop is the rhs and second pop is the lhs </span>
+
+<span class="sd">Pitfall :</span>
+<span class="sd">In python integer division truncates away from zero</span>
+<span class="sd">&gt;&gt;&gt; -4//3</span>
+<span class="sd">-2             ## Truncates away from zero for negative numbers</span>
+<span class="sd">&gt;&gt;&gt; 4//3    </span>
+<span class="sd">1              ## Truncates towards zero for positive numbers</span>
+
+<span class="sd">To handle this :</span>
+<span class="sd">&gt;&gt;&gt; -4/3               ## Do floating point division first</span>
+<span class="sd">-1.3333333333333333</span>
+<span class="sd">&gt;&gt;&gt; int(-4/3)          ## Then cast to int and result will always truncate towards zero.</span>
+<span class="sd">-1</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">evalRPN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">evaluate</span>  <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;+&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="p">,</span>
+            <span class="s1">&#39;-&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="p">:</span> <span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">,</span>
+            <span class="s1">&#39;/&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="p">),</span>
+            <span class="s1">&#39;*&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span> 
+        <span class="p">}</span>
+        <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="p">:</span> 
+            <span class="k">if</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">evaluate</span> <span class="p">:</span>
+                <span class="n">rhs</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="n">lhs</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluate</span><span class="p">[</span><span class="n">token</span><span class="p">](</span><span class="n">lhs</span><span class="p">,</span><span class="n">rhs</span><span class="p">))</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+</details>
+<h2 id="additional-resources">Additional Resources :<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
+<p><a href="https://math.libretexts.org/Bookshelves/Combinatorics_and_Discrete_Mathematics/A_Spiral_Workbook_for_Discrete_Mathematics_(Kwong)/05%3A_Basic_Number_Theory/5.02%3A_Division_Algorithm" target="_blank">LibreTexts- Mathematics</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1992,6 +2281,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../Backtracking/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Backtracking">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Backtracking
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Fundamental_Theorem_Of_Arithmetic/Introduction/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Introduction
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -2018,10 +2345,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/algorithmic_pareto/", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "/algorithmic_pareto/assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/algorithmic_pareto/assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
@@ -2038,5 +2365,7 @@
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
