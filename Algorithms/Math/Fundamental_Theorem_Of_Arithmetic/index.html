@@ -12,28 +12,28 @@
         <meta name="author" content="pbprasad99">
       
       
-        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/K_Way_Merge/">
+        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Math/Fundamental_Theorem_Of_Arithmetic/">
       
       
-        <link rel="prev" href="../Merge_Sort/">
+        <link rel="prev" href="../../Backtracking/">
       
       
-        <link rel="next" href="../properties_of_comparison_based_sorting_algorithms/">
+        <link rel="next" href="../Appendix/Number_Theoretic_Notation/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.ico">
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>The k-way Merge problem - patibanb.me</title>
+        <title>Fundamental Theorem of Arithmetic - patibanb.me</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,9 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -63,11 +63,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="The k-way Merge problem - patibanb.me" >
+        <meta  property="og:title"  content="Fundamental Theorem of Arithmetic - patibanb.me" >
       
         <meta  property="og:description"  content="Personal Website" >
       
-        <meta  property="og:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/K_Way_Merge/README.png" >
+        <meta  property="og:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Math/Fundamental_Theorem_Of_Arithmetic.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -75,19 +75,19 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/K_Way_Merge/" >
+        <meta  property="og:url"  content="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Math/Fundamental_Theorem_Of_Arithmetic/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="The k-way Merge problem - patibanb.me" >
+        <meta  name="twitter:title"  content="Fundamental Theorem of Arithmetic - patibanb.me" >
       
         <meta  name="twitter:description"  content="Personal Website" >
       
-        <meta  name="twitter:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/K_Way_Merge/README.png" >
+        <meta  name="twitter:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Math/Fundamental_Theorem_Of_Arithmetic.png" >
       
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -96,7 +96,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -115,7 +115,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-k-way-merge-problem" class="md-skip">
+        <a href="#fundamental-theorem-of-arithmetic" class="md-skip">
           Skip to content
         </a>
       
@@ -129,9 +129,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+    <a href="../../.." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -148,7 +148,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              The k-way Merge problem
+              Fundamental Theorem of Arithmetic
             
           </span>
         </div>
@@ -249,7 +249,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -281,7 +281,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../Array_Partitioning/Introduction/" class="md-tabs__link">
+        <a href="../../Array_Partitioning/Introduction/" class="md-tabs__link">
           
   
   
@@ -306,7 +306,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../blog/" class="md-tabs__link">
+        <a href="../../../blog/" class="md-tabs__link">
           
   
   
@@ -328,7 +328,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../resources/" class="md-tabs__link">
+        <a href="../../../resources/" class="md-tabs__link">
           
   
   
@@ -350,7 +350,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../About/" class="md-tabs__link">
+        <a href="../../../About/" class="md-tabs__link">
           
   
   
@@ -386,9 +386,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+    <a href="../../.." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     patibanb.me
@@ -403,7 +403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -475,7 +475,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -559,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Array_Partitioning/Introduction/" class="md-nav__link">
+      <a href="../../Array_Partitioning/Introduction/" class="md-nav__link">
         
   
   
@@ -582,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Array_Partitioning/Hoare/" class="md-nav__link">
+      <a href="../../Array_Partitioning/Hoare/" class="md-nav__link">
         
   
   
@@ -605,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Array_Partitioning/Lomuto/" class="md-nav__link">
+      <a href="../../Array_Partitioning/Lomuto/" class="md-nav__link">
         
   
   
@@ -628,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Array_Partitioning/In-Place_Deduplication/" class="md-nav__link">
+      <a href="../../Array_Partitioning/In-Place_Deduplication/" class="md-nav__link">
         
   
   
@@ -680,7 +680,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Quickselect/" class="md-nav__link ">
+            <a href="../../Quickselect/" class="md-nav__link ">
               
   
   
@@ -739,7 +739,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Quicksort/" class="md-nav__link ">
+            <a href="../../Quicksort/" class="md-nav__link ">
               
   
   
@@ -798,7 +798,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Two_Way_Merge/" class="md-nav__link ">
+            <a href="../../Two_Way_Merge/" class="md-nav__link ">
               
   
   
@@ -857,7 +857,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Merge_Sort/" class="md-nav__link ">
+            <a href="../../Merge_Sort/" class="md-nav__link ">
               
   
   
@@ -892,8 +892,6 @@
                 
   
   
-    
-  
   
   
     
@@ -910,15 +908,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../K_Way_Merge/" class="md-nav__link ">
               
   
   
@@ -932,7 +930,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             K Way Merge
@@ -956,7 +954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
+      <a href="../../properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
         
   
   
@@ -979,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../External_Sorting/" class="md-nav__link">
+      <a href="../../External_Sorting/" class="md-nav__link">
         
   
   
@@ -1049,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Binary_search/Introduction/" class="md-nav__link">
+      <a href="../../Binary_search/Introduction/" class="md-nav__link">
         
   
   
@@ -1072,7 +1070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Binary_search/Median_of_two_sorted_arrays/" class="md-nav__link">
+      <a href="../../Binary_search/Median_of_two_sorted_arrays/" class="md-nav__link">
         
   
   
@@ -1124,7 +1122,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Basic_Recursion/" class="md-nav__link ">
+            <a href="../../Basic_Recursion/" class="md-nav__link ">
               
   
   
@@ -1183,7 +1181,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Backtracking/" class="md-nav__link ">
+            <a href="../../Backtracking/" class="md-nav__link ">
               
   
   
@@ -1218,8 +1216,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1234,11 +1234,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" checked>
         
           
           <label class="md-nav__link" for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
@@ -1254,7 +1254,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_12">
             <span class="md-nav__icon md-icon"></span>
             Math
@@ -1265,10 +1265,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Math/Fundamental_Theorem_Of_Arithmetic/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1279,6 +1288,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1338,7 +1348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Math/Appendix/Number_Theoretic_Notation/" class="md-nav__link">
+      <a href="../Appendix/Number_Theoretic_Notation/" class="md-nav__link">
         
   
   
@@ -1361,7 +1371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Math/Appendix/Set_Theoretic_Notation/" class="md-nav__link">
+      <a href="../Appendix/Set_Theoretic_Notation/" class="md-nav__link">
         
   
   
@@ -1434,7 +1444,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../blog/" class="md-nav__link ">
+            <a href="../../../blog/" class="md-nav__link ">
               
   
   
@@ -1516,7 +1526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2025/" class="md-nav__link">
+      <a href="../../../blog/archive/2025/" class="md-nav__link">
         
   
   
@@ -1606,7 +1616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/aws/" class="md-nav__link">
+      <a href="../../../blog/category/aws/" class="md-nav__link">
         
   
   
@@ -1631,7 +1641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/basics/" class="md-nav__link">
+      <a href="../../../blog/category/basics/" class="md-nav__link">
         
   
   
@@ -1656,7 +1666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/c/" class="md-nav__link">
+      <a href="../../../blog/category/c/" class="md-nav__link">
         
   
   
@@ -1681,7 +1691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/etl/" class="md-nav__link">
+      <a href="../../../blog/category/etl/" class="md-nav__link">
         
   
   
@@ -1706,7 +1716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/encodings/" class="md-nav__link">
+      <a href="../../../blog/category/encodings/" class="md-nav__link">
         
   
   
@@ -1731,7 +1741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/iam/" class="md-nav__link">
+      <a href="../../../blog/category/iam/" class="md-nav__link">
         
   
   
@@ -1756,7 +1766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/serverless/" class="md-nav__link">
+      <a href="../../../blog/category/serverless/" class="md-nav__link">
         
   
   
@@ -1815,7 +1825,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../resources/" class="md-nav__link ">
+            <a href="../../../resources/" class="md-nav__link ">
               
   
   
@@ -1873,7 +1883,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../About/" class="md-nav__link ">
+            <a href="../../../About/" class="md-nav__link ">
               
   
   
@@ -1923,41 +1933,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#merging-k-sorted-arrays" class="md-nav__link">
-    <span class="md-ellipsis">
-      Merging k sorted arrays
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#merging-k-sorted-linked-lists" class="md-nav__link">
-    <span class="md-ellipsis">
-      Merging k sorted linked lists
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#practice" class="md-nav__link">
-    <span class="md-ellipsis">
-      Practice
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1972,279 +1947,18 @@
 
 
 
-<h1 id="the-k-way-merge-problem">The k-way Merge problem<a class="headerlink" href="#the-k-way-merge-problem" title="Permanent link">&para;</a></h1>
-<h2 id="merging-k-sorted-arrays">Merging k sorted arrays<a class="headerlink" href="#merging-k-sorted-arrays" title="Permanent link">&para;</a></h2>
-<p>We can think of the k-way merge problem as a generalization of the 2-way merge problem. That is given, k sorted containers, return a merged sorted container.</p>
-<p>In the 2-way merge problem , we had a binary choice when picking the next value to write to the merged container. 
-Now we have a k-way choice among k or less elements at each step. We basically need a good way to pick the smallest value from among all possible choices. This is what a heap does. Since we are considering containers sorted in a non decreasing order, a Min Heap is what we need to dynamically pick the smallest value at each step.</p>
-<p>The crux of the algorithm is :</p>
+<h1 id="fundamental-theorem-of-arithmetic">Fundamental Theorem of Arithmetic<a class="headerlink" href="#fundamental-theorem-of-arithmetic" title="Permanent link">&para;</a></h1>
+<p>Also called the unique Factorization Theorem.</p>
 <div class="admonition info">
-<p class="admonition-title">Algorithm</p>
-<div class="highlight"><pre><span></span><code>initialize a Min heap of all possible choices. 
-While there is something in the heap : 
-   Pop the heap top and write it to the merged container.
-   Get the element next to popped element in the container to which it belongs (If it exists). Put it in the heap.
-</code></pre></div>
+<p class="admonition-title">Unique Factoprization Theorem</p>
+<p>The Fundamental Theorem of Arithmetic states that every integer greater than 1 has a unique prime factorization.</p>
 </div>
-<p>Thats it.</p>
-<p>The code should actually simpler than handling the 2-way merge because there are no if else conditions to handle unequal lengthed arrays.</p>
-<details class="code">
-<summary>Code</summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">K Way Merge on Arrays</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">The same problem but with a different signature :</span>
-<span class="sd">https://www.geeksforgeeks.org/problems/merge-k-sorted-arrays/1</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="c1">#User function Template for python3</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">heapq</span><span class="w"> </span><span class="kn">import</span> <span class="n">heapify</span><span class="p">,</span> <span class="n">heappop</span><span class="p">,</span> <span class="n">heappush</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
-    <span class="c1">#Function to merge k sorted arrays.</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">mergeKArrays</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Given k sorted arrays, return a single merged array.</span>
-<span class="sd">        Input :</span>
-<span class="sd">         arr : a list of integer arrays</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># return merged list</span>
-        <span class="n">len_res</span> <span class="o">=</span> <span class="mi">0</span>
-
-        <span class="c1">#Priority Queue- min heap</span>
-        <span class="n">pq</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="c1">#Assume that arrays can be of unequal length</span>
-        <span class="c1">#Initialize min heap</span>
-        <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">arr</span> <span class="p">:</span>
-            <span class="n">len_res</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-            <span class="c1">#Store the current index and a reference to the array for getting the next value in the array</span>
-            <span class="n">pq</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="n">array</span><span class="p">))</span>
-
-        <span class="c1">#heapify pq</span>
-        <span class="n">heapify</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
-
-        <span class="c1">#allocate result array</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">len_res</span>
-
-        <span class="c1">#write pointer</span>
-        <span class="n">write_ptr</span> <span class="o">=</span> <span class="mi">0</span> 
-        <span class="c1">#Pick the lowest value from the current choices and write it to res</span>
-        <span class="k">while</span> <span class="n">pq</span> <span class="p">:</span>
-            <span class="n">curr_val</span><span class="p">,</span> <span class="n">curr_ptr</span><span class="p">,</span> <span class="n">curr_arr</span> <span class="o">=</span> <span class="n">heappop</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
-            <span class="n">res</span><span class="p">[</span><span class="n">write_ptr</span><span class="p">]</span> <span class="o">=</span> <span class="n">curr_val</span>
-            <span class="k">if</span> <span class="n">curr_ptr</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">curr_arr</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span>  <span class="p">:</span> 
-                <span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,</span> <span class="p">(</span><span class="n">curr_arr</span><span class="p">[</span><span class="n">curr_ptr</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> <span class="n">curr_ptr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">curr_arr</span> <span class="p">))</span>
-            <span class="n">write_ptr</span><span class="o">+=</span><span class="mi">1</span>
-        <span class="k">return</span> <span class="n">res</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span> <span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span> <span class="n">Solution</span><span class="p">()</span><span class="o">.</span><span class="n">mergeKArrays</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]])</span> <span class="p">)</span>
-</code></pre></div>
-</details>
-<h2 id="merging-k-sorted-linked-lists">Merging k sorted linked lists<a class="headerlink" href="#merging-k-sorted-linked-lists" title="Permanent link">&para;</a></h2>
-<p>The same thing for linked lists. </p>
-<details class="code">
-<summary>Code</summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">K Way Merge on Arrays</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">heapq</span><span class="w"> </span><span class="kn">import</span> <span class="n">heapify</span><span class="p">,</span><span class="n">heappush</span><span class="p">,</span><span class="n">heappop</span>
-<span class="c1">#Definition for singly-linked list.</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">ListNode</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">mergeKLists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
-        <span class="n">pq</span><span class="o">=</span><span class="p">[]</span>
-        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">head</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lists</span><span class="p">)</span> <span class="p">:</span> 
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">head</span> <span class="p">:</span> <span class="k">continue</span>
-            <span class="c1">#Put idx between the value and the node object  to avoid comparing objects in case of a tie </span>
-            <span class="c1">#Which will lead to this error :&#39;&lt;&#39; not supported between instances of &#39;ListNode&#39; and &#39;ListNode&#39;</span>
-            <span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,(</span><span class="n">head</span><span class="o">.</span><span class="n">val</span><span class="p">,</span><span class="n">idx</span><span class="p">,</span> <span class="n">head</span><span class="p">))</span> 
-
-        <span class="c1">#Allocate Write container and write pointer</span>
-        <span class="n">dummy</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">write_ptr</span> <span class="o">=</span> <span class="n">dummy</span>
-
-        <span class="k">while</span> <span class="n">pq</span> <span class="p">:</span>
-            <span class="c1">#Pick the lowest valued node from available choices.</span>
-            <span class="n">_</span><span class="p">,</span><span class="n">idx</span><span class="p">,</span><span class="n">curr_node</span> <span class="o">=</span> <span class="n">heappop</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
-
-            <span class="c1">#write to write container and move write pointer ahead</span>
-            <span class="n">write_ptr</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">curr_node</span>
-            <span class="n">write_ptr</span> <span class="o">=</span> <span class="n">write_ptr</span><span class="o">.</span><span class="n">next</span>
-
-            <span class="c1">#For curr_node, put its next node in the heap  </span>
-            <span class="n">nxt_node</span> <span class="o">=</span> <span class="n">curr_node</span><span class="o">.</span><span class="n">next</span> 
-            <span class="k">if</span> <span class="n">nxt_node</span> <span class="p">:</span> <span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,(</span><span class="n">nxt_node</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">nxt_node</span> <span class="p">))</span>
-        <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="n">next</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-</details>
-<h2 id="practice">Practice<a class="headerlink" href="#practice" title="Permanent link">&para;</a></h2>
-<details class="example">
-<summary><a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/" target="_blank">Kth Smallest Element in a Sorted Matrix</a></summary>
-<div class="highlight"><pre><span></span><code>&quot;&quot;&quot;
-Solution for https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/
-
-This can be solved using k-way merge. Instead of putting the next smaller value in a resultant merged array, 
-simply put it in a max heap of size k.
-
-Example :
-[
-[1,5,9],
-       *
-[10,11,13],
-    *
-[12,13,15]
- *
-]
-
-say , k = 4
-Can we use A Max heap to maintain the k largest numbers?
-[10,9,5,1]
-
-When size becomes greater than k pop from the max heap:
-
-&gt;[11,10,9,5,1]
-&gt;size is greater than 5 
-&gt;pop from max heap
-[10,9,5,1]
-
-Memory required is : max heap of size k to  keep track of k smallest numbers
-A min heap of size len(matrix) (equal to the number of rows in matrix) to pick the next smallest number
-
-Algorithm :
-
-1) Initialize a min heap to pick next smallest number from all rows of matrix
-2) While min heap is not empty:
-    -  Pop from min heap and put in a max heap of size k
-    -  Put element next to popped element into min heap  
-3) Return the top of max heap.
-
-&quot;&quot;&quot;
-from heapq import heapify, heappush , heappop
-class Solution:
-    def kthSmallest(self, matrix: List[List[int]], k: int) -&gt; int:
-        pq = []
-        for row in matrix : 
-            e = (row[0], 0, row)  # tuple of Curr_Value, curr_index, row reference
-            pq.append(e)
-        heapify(pq)
-
-        max_hp = []
-        while pq :
-            #pick next smallest number
-            val, idx, row = pq.pop()
-            #Simulate max heap by negating values
-            heappush(max_hp,-val)
-            if len(max_hp) &gt; k :
-                heappop(max_hp)
-            if idx &lt; len(row) -1 :
-                heappush(pq,(row[idx+1],idx+1,row))
-        # Retun top of max heap
-        return -heappop(max_hp) 
-</code></pre></div>
-</details>
-<details class="example">
-<summary><a href="https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/">Find K Pairs with Smallest Sums</a>(target="_blank")</summary>
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Solution for : https://leetcode.com/problems/find-k-pairs-with-smallest-sums/</span>
-
-<span class="sd">The problem statement is confusing. Key informations is that all possible pairs are formed by </span>
-<span class="sd">taking one number from first array and combining it with a second number from the second array.</span>
-<span class="sd">        [1,7,11]</span>
-<span class="sd">        [2,4,6]</span>
-<span class="sd"> [ (1,2) , (1,4) (1,6) ,(7,2) , (7,4) , (7,6) , (11,1), (11,2) , (11,7) ]</span>
-
-<span class="sd">The problem is asking us , if we sort the above list of tuples by their sum, what would be the first k tuples.</span>
-
-<span class="sd">Thoughts :</span>
-
-<span class="sd">Do we have to enumerate all pairs? Maybe. If we do that, we can maintain a max heap fo size k. </span>
-<span class="sd">In the max heap, keep tuples ( (sum of two elements), (el1, el2))</span>
-
-<span class="sd">We can do this :</span>
-
-<span class="sd">from heapq import heappop, heappush, heapify </span>
-<span class="sd">class Solution:</span>
-<span class="sd">    def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -&gt; List[List[int]]:</span>
-<span class="sd">        res = []</span>
-<span class="sd">        ## Quadratic Time Complexity.</span>
-<span class="sd">        for n1 in nums1 :</span>
-<span class="sd">            for n2 in nums2 :</span>
-<span class="sd">                heappush(res,(-1*(n1+n2),(n1,n2)))</span>
-<span class="sd">                if len(res) &gt; k :</span>
-<span class="sd">                    heappop(res)</span>
-
-<span class="sd">        ans = []</span>
-<span class="sd">        while res : </span>
-<span class="sd">            ans.append(heappop(res)[1])</span>
-<span class="sd">        return ans</span>
-
-<span class="sd">But this has a  quadratic run time and will give TLE.</span>
-
-<span class="sd">Can we do better ? </span>
-<span class="sd">Why yes we can!</span>
-
-
-<span class="sd">Consider :</span>
-<span class="sd">[1,1,2], nums2 = [1,2,3], k = 3</span>
-
-<span class="sd">Isn&#39;t this how we are enumerating pairs?</span>
-<span class="sd">1,1 -&gt; 1,2 -&gt; 1,3</span>
-<span class="sd">*</span>
-<span class="sd">1,1 -&gt; 1,2 -&gt; 1,3</span>
-<span class="sd">*</span>
-<span class="sd">2,1 -&gt; 2,2 -&gt; 2,3</span>
-<span class="sd">* </span>
-
-<span class="sd">These look an awful lot like three linked lists. </span>
-<span class="sd">We know how to get the next element for each linked list. </span>
-<span class="sd">To get the n smallest pairs we just need to run a k-way merge n times. </span>
-<span class="sd">(Lets call the number of pairs required n to avoid confusion with the concept of k-way merge.</span>
-<span class="sd">In k-way merge, k refers to the number of linked lists we are merging )</span>
-
-<span class="sd">Lets implement the solution. </span>
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">heapq</span><span class="w"> </span><span class="kn">import</span> <span class="n">heappop</span><span class="p">,</span><span class="n">heappush</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">kSmallestPairs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums1</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">nums2</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="n">k</span> <span class="c1"># rename k to n to avoid confusion with out mental model</span>
-        <span class="n">pq</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="c1">#Init pq </span>
-        <span class="c1">#Each linked list Node is a tuple of two elements.</span>
-        <span class="c1">#In each tuple the first element is fixed and from the first array. We take second element from the second array.</span>
-        <span class="c1">#We will use the index of the first element as tie breaker</span>
-        <span class="c1">#Use index of second element to get the next element in the same linked list</span>
-
-        <span class="n">idx_2</span> <span class="o">=</span> <span class="mi">0</span> 
-        <span class="k">for</span> <span class="n">idx_1</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span> <span class="p">:</span>
-            <span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,(</span> <span class="p">(</span> <span class="n">nums1</span><span class="p">[</span><span class="n">idx_1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">,</span><span class="n">idx_1</span><span class="p">,</span> <span class="n">idx_2</span><span class="p">)</span> 
-            <span class="p">))</span><span class="c1">#  (sum of two elements, index of first element, index of second element )   </span>
-
-        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
-
-        <span class="c1"># Pick the next smallest tuple k times</span>
-        <span class="k">while</span> <span class="n">pq</span> <span class="ow">and</span> <span class="n">n</span> <span class="p">:</span>
-            <span class="n">n</span><span class="o">-=</span><span class="mi">1</span>
-            <span class="n">_</span><span class="p">,</span><span class="n">idx_1</span><span class="p">,</span><span class="n">idx_2</span> <span class="o">=</span> <span class="n">heappop</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span> <span class="c1"># idx_2 is the index of element2 in the tuple</span>
-            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">nums1</span><span class="p">[</span><span class="n">idx_1</span><span class="p">],</span><span class="n">nums2</span><span class="p">[</span><span class="n">idx_2</span><span class="p">])</span>
-            <span class="p">)</span>
-            <span class="c1">#Put the element next to popped element in the min heap</span>
-            <span class="k">if</span> <span class="n">idx_2</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums2</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="p">:</span>
-                <span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,(</span> <span class="p">(</span> <span class="n">nums1</span><span class="p">[</span><span class="n">idx_1</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums2</span><span class="p">[</span><span class="n">idx_2</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span><span class="n">idx_1</span><span class="p">,</span> <span class="n">idx_2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
-                 <span class="p">)</span> <span class="c1">#  (sum of two elements, index of first element, index of second element) </span>
-        <span class="k">return</span> <span class="n">res</span>
-</code></pre></div>
-</details>
+<p><strong>Additional Resources :</strong></p>
+<ol>
+<li><a href="https://www.math.uh.edu/~minru/spring11/fundamental-theorem.pdf" target="_blank">Proof explained by Bruce Ikenaga</a></li>
+<li><a href="https://flexbooks.ck12.org/cbook/ck-12-middle-school-math-concepts-grade-6/section/5.4/primary/lesson/prime-factorization-msm6/" target="_blank">Flexbooks - Prime Factorization</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic" target="_blank">Wikipedia Article</a></li>
+</ol>
 
 
 
@@ -2279,7 +1993,7 @@ class Solution:
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../Merge_Sort/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Merge Sort">
+          <a href="../../Backtracking/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Backtracking">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2289,20 +2003,20 @@ class Solution:
                 Previous
               </span>
               <div class="md-ellipsis">
-                Merge Sort
+                Backtracking
               </div>
             </div>
           </a>
         
         
           
-          <a href="../properties_of_comparison_based_sorting_algorithms/" class="md-footer__link md-footer__link--next" aria-label="Next: Comparison Based Sorting">
+          <a href="../Appendix/Number_Theoretic_Notation/" class="md-footer__link md-footer__link--next" aria-label="Next: Number Theoretic Notation">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Comparison Based Sorting
+                Number Theoretic Notation
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2338,12 +2052,12 @@ class Solution:
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
-        <script src="../../assets/javascripts/config.js"></script>
+        <script src="../../../assets/javascripts/config.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

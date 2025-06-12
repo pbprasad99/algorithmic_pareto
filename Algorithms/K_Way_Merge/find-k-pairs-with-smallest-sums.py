@@ -65,23 +65,26 @@ class Solution:
         n = k # rename k to n to avoid confusion with out mental model
         pq = []
         #Init pq 
-        #In each linked list the first elelement is fixed and from the first array, we take second element from the second array.
+        #Each linked list Node is a tuple of two elements.
+        #In each tuple the first element is fixed and from the first array. We take second element from the second array.
         #We will use the index of the first element as tie breaker
-        #store the index of second element to get the next element in the same linked list
-
-        for idx, val in enumerate(nums1) :
-            heappush(pq,( ( nums1[idx] + nums2[0] ,idx_1,  0) 
-            )#  (sum of two elements, index of first element, index of second element )   
+        #Use index of second element to get the next element in the same linked list
+        
+        idx_2 = 0 
+        for idx_1, val in enumerate(nums1) :
+            heappush(pq,( ( nums1[idx_1] + nums2[0] ,idx_1, idx_2) 
+            ))#  (sum of two elements, index of first element, index of second element )   
 
         res = []
         
         # Pick the next smallest tuple k times
         while pq and n :
             n-=1
-            _,idx_1,idx_2 = heappop(pq) # i is the index of element2 in the tuple
+            _,idx_1,idx_2 = heappop(pq) # idx_2 is the index of element2 in the tuple
             res.append((nums1[idx_1],nums2[idx_2])
             )
+            #Put the element next to popped element in the min heap
             if idx_2 < len(nums2)-1 :
-                heappush(pq,( ( nums1[idx] + nums2[i+1] ,idx_1, idx_2 ) )
+                heappush(pq,( ( nums1[idx_1] + nums2[idx_2+1] ,idx_1, idx_2+1) )
                  ) #  (sum of two elements, index of first element, index of second element) 
         return res
