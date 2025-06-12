@@ -1738,15 +1738,6 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#understanding-mathematical-expressions_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Understanding Mathematical Expressions
-    </span>
-  </a>
-  
     <nav class="md-nav" aria-label="Understanding Mathematical Expressions">
       <ul class="md-nav__list">
         
@@ -2706,15 +2697,6 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#understanding-mathematical-expressions_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Understanding Mathematical Expressions
-    </span>
-  </a>
-  
     <nav class="md-nav" aria-label="Understanding Mathematical Expressions">
       <ul class="md-nav__list">
         
@@ -2758,6 +2740,9 @@
 
 
 <h1 id="number-theoretic-notation">Number Theoretic Notation<a class="headerlink" href="#number-theoretic-notation" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Refresh Page if math notation is not rendered</p>
+</div>
 <div class="admonition question">
 <p class="admonition-title"><a href="https://www.math.uh.edu/~minru/spring11/fundamental-theorem.pdf" target="_blank">From here</a></p>
 <div class="highlight"><pre><span></span><code>Lemma. If m | pq and (m,p) = 1, then m | q.
@@ -2799,90 +2784,121 @@
 <p>Understanding when one integer divides another forms a cornerstone of number theory.</p>
 <h3 id="divisibility-notation">Divisibility Notation<a class="headerlink" href="#divisibility-notation" title="Permanent link">&para;</a></h3>
 <p>The expression \(a \mid b\) means "a divides b" or "a is a divisor of b." This indicates that \(b = ka\) for some integer \(k\).</p>
-<p><strong>Examples</strong>:
-- \(3 \mid 12\) since \(12 = 4 \times 3\)
-- \(5 \mid 35\) since \(35 = 7 \times 5\)</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>\(3 \mid 12\) since \(12 = 4 \times 3\)</li>
+<li>\(5 \mid 35\) since \(35 = 7 \times 5\)</li>
+</ul>
 <p>The negation \(a \nmid b\) means "a does not divide b."</p>
 <h3 id="greatest-common-divisor-gcd">Greatest Common Divisor (GCD)<a class="headerlink" href="#greatest-common-divisor-gcd" title="Permanent link">&para;</a></h3>
 <p>The greatest common divisor has several notational conventions. The most unambiguous is \(\gcd(a,b)\), though traditional mathematics sometimes uses \((a,b)\).</p>
-<p><strong>Key Properties</strong>:
-- \(\gcd(a,b) = \gcd(b, a \bmod b)\) (Euclidean algorithm)
-- \(\gcd(a,b) \cdot \text{lcm}(a,b) = ab\)</p>
-<p><strong>Examples</strong>:
-- \(\gcd(12, 18) = 6\)
-- \(\gcd(17, 19) = 1\) (relatively prime)</p>
+<p><strong>Key Properties</strong>:</p>
+<ul>
+<li>\(\gcd(a,b) = \gcd(b, a \bmod b)\) (Euclidean algorithm)</li>
+<li>\(\gcd(a,b) \cdot \text{lcm}(a,b) = ab\)</li>
+</ul>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>\(\gcd(12, 18) = 6\)</li>
+<li>\(\gcd(17, 19) = 1\) (relatively prime)</li>
+</ul>
 <h3 id="least-common-multiple-lcm">Least Common Multiple (LCM)<a class="headerlink" href="#least-common-multiple-lcm" title="Permanent link">&para;</a></h3>
 <p>The least common multiple uses \(\text{lcm}(a,b)\) or traditional bracket notation \([a,b]\).</p>
-<p><strong>Examples</strong>:
-- \(\text{lcm}(12, 18) = 36\)
-- \(\text{lcm}(4, 6) = 12\)</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>\(\text{lcm}(12, 18) = 36\)</li>
+<li>\(\text{lcm}(4, 6) = 12\)</li>
+</ul>
 <h2 id="prime-numbers-and-factorization">Prime Numbers and Factorization<a class="headerlink" href="#prime-numbers-and-factorization" title="Permanent link">&para;</a></h2>
 <p>Prime numbers serve as the building blocks of all integers through unique factorization.</p>
 <h3 id="prime-notation-and-factorization">Prime Notation and Factorization<a class="headerlink" href="#prime-notation-and-factorization" title="Permanent link">&para;</a></h3>
 <p>Individual primes are typically denoted by lowercase \(p\), with subscripts for distinct primes: \(p_1, p_2, \ldots, p_k\).</p>
-<p><strong>Fundamental Theorem of Arithmetic</strong>: Every integer \(n &gt; 1\) has a unique prime factorization:
-\[n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}\]</p>
+<p><strong>Fundamental Theorem of Arithmetic</strong>: Every integer \(n &gt; 1\) has a unique prime factorization:</p>
+<p>\[n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}\]</p>
 <p>where \(p_1 &lt; p_2 &lt; \cdots &lt; p_k\) are distinct primes and \(e_i \geq 1\).</p>
-<p><strong>Examples</strong>:
-- \(12 = 2^2 \cdot 3^1\)
-- \(100 = 2^2 \cdot 5^2\)</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>\(12 = 2^2 \cdot 3^1\)</li>
+<li>\(100 = 2^2 \cdot 5^2\)</li>
+</ul>
 <h3 id="prime-related-functions">Prime-Related Functions<a class="headerlink" href="#prime-related-functions" title="Permanent link">&para;</a></h3>
-<p><strong>Prime counting function</strong>: \(\pi(x)\) counts primes up to \(x\)
-- \(\pi(10) = 4\) (primes: 2, 3, 5, 7)</p>
-<p><strong>Number of prime factors</strong>: 
-- \(\Omega(n)\) counts prime factors with multiplicity
-- \(\omega(n)\) counts distinct prime factors</p>
-<p><strong>Examples</strong>:
-- \(\Omega(12) = 3\) since \(12 = 2^2 \cdot 3\)
-- \(\omega(12) = 2\) since 12 has two distinct prime factors</p>
+<p><strong>Prime counting function</strong>: \(\pi(x)\) counts primes up to \(x\)</p>
+<ul>
+<li>\(\pi(10) = 4\) (primes: 2, 3, 5, 7)</li>
+</ul>
+<p><strong>Number of prime factors</strong>:</p>
+<ul>
+<li>\(\Omega(n)\) counts prime factors with multiplicity</li>
+<li>\(\omega(n)\) counts distinct prime factors</li>
+</ul>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>\(\Omega(12) = 3\) since \(12 = 2^2 \cdot 3\)</li>
+<li>\(\omega(12) = 2\) since 12 has two distinct prime factors</li>
+</ul>
 <h2 id="congruences-and-modular-arithmetic">Congruences and Modular Arithmetic<a class="headerlink" href="#congruences-and-modular-arithmetic" title="Permanent link">&para;</a></h2>
 <p>Congruences provide a powerful framework for studying integer relationships.</p>
 <h3 id="congruence-notation">Congruence Notation<a class="headerlink" href="#congruence-notation" title="Permanent link">&para;</a></h3>
 <p>The fundamental congruence relation \(a \equiv b \pmod{n}\) means \(n \mid (a-b)\).</p>
 <p><strong>Standard form</strong>: \(a \equiv b \pmod{n}\) with parentheses around the modulus.</p>
-<p><strong>Examples</strong>:
-- \(13 \equiv 1 \pmod{12}\) since \(12 \mid (13-1)\)
-- \(25 \equiv 4 \pmod{7}\) since \(7 \mid (25-4)\)</p>
-<p><strong>Key properties</strong>:
-- <strong>Reflexive</strong>: \(a \equiv a \pmod{n}\)
-- <strong>Symmetric</strong>: If \(a \equiv b \pmod{n}\), then \(b \equiv a \pmod{n}\)
-- <strong>Transitive</strong>: If \(a \equiv b \pmod{n}\) and \(b \equiv c \pmod{n}\), then \(a \equiv c \pmod{n}\)</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>\(13 \equiv 1 \pmod{12}\) since \(12 \mid (13-1)\)</li>
+<li>\(25 \equiv 4 \pmod{7}\) since \(7 \mid (25-4)\)</li>
+</ul>
+<p><strong>Key properties</strong>:</p>
+<ul>
+<li><strong>Reflexive</strong>: \(a \equiv a \pmod{n}\)</li>
+<li><strong>Symmetric</strong>: If \(a \equiv b \pmod{n}\), then \(b \equiv a \pmod{n}\)</li>
+<li><strong>Transitive</strong>: If \(a \equiv b \pmod{n}\) and \(b \equiv c \pmod{n}\), then \(a \equiv c \pmod{n}\)</li>
+</ul>
 <h3 id="modular-arithmetic-operations">Modular Arithmetic Operations<a class="headerlink" href="#modular-arithmetic-operations" title="Permanent link">&para;</a></h3>
-<p>Operations preserve congruences:
-- \((a + b) \bmod n\)
-- \((a \cdot b) \bmod n\)
-- \(a^k \bmod n\)</p>
+<p>Operations preserve congruences:</p>
+<ul>
+<li>\((a + b) \bmod n\)</li>
+<li>\((a \cdot b) \bmod n\)</li>
+<li>\(a^k \bmod n\)</li>
+</ul>
 <p><strong>Multiplicative inverse</strong>: \(a^{-1} \pmod{n}\) exists when \(\gcd(a,n) = 1\).</p>
 <p><strong>Example</strong>: \(3^{-1} \equiv 4 \pmod{11}\) since \(3 \cdot 4 \equiv 1 \pmod{11}\).</p>
 <h2 id="eulers-totient-function">Euler's Totient Function<a class="headerlink" href="#eulers-totient-function" title="Permanent link">&para;</a></h2>
 <p>Euler's totient function counts integers relatively prime to a given number.</p>
 <h3 id="definition-and-notation">Definition and Notation<a class="headerlink" href="#definition-and-notation" title="Permanent link">&para;</a></h3>
 <p>\(\phi(n)\) (or \(\varphi(n)\)) equals the number of positive integers less than or equal to \(n\) that are relatively prime to \(n\).</p>
-<p><strong>Formula for prime powers</strong>: If \(p\) is prime, then:
-- \(\phi(p) = p - 1\)
-- \(\phi(p^k) = p^k - p^{k-1} = p^{k-1}(p-1)\)</p>
-<p><strong>General formula</strong>: For \(n\) with prime factorization \(n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}\):
-\[\phi(n) = n \prod_{i=1}^{k} \left(1 - \frac{1}{p_i}\right)\]</p>
-<p><strong>Examples</strong>:
-- \(\phi(9) = 6\) (numbers 1, 2, 4, 5, 7, 8 are relatively prime to 9)
-- \(\phi(12) = 4\) (numbers 1, 5, 7, 11 are relatively prime to 12)</p>
+<p><strong>Formula for prime powers</strong>: If \(p\) is prime, then:</p>
+<ul>
+<li>\(\phi(p) = p - 1\)</li>
+<li>\(\phi(p^k) = p^k - p^{k-1} = p^{k-1}(p-1)\)</li>
+</ul>
+<p><strong>General formula</strong>: For \(n\) with prime factorization \(n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}\):</p>
+<p>\[\phi(n) = n \prod_{i=1}^{k} \left(1 - \frac{1}{p_i}\right)\]</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>\(\phi(9) = 6\) (numbers 1, 2, 4, 5, 7, 8 are relatively prime to 9)</li>
+<li>\(\phi(12) = 4\) (numbers 1, 5, 7, 11 are relatively prime to 12)</li>
+</ul>
 <h3 id="eulers-theorem">Euler's Theorem<a class="headerlink" href="#eulers-theorem" title="Permanent link">&para;</a></h3>
 <p>For \(\gcd(a,n) = 1\): \(a^{\phi(n)} \equiv 1 \pmod{n}\)</p>
-<p><strong>Fermat's Little Theorem</strong> (special case): For prime \(p\) and \(\gcd(a,p) = 1\): \(a^{p-1} \equiv 1 \pmod{p}\)</p>
+<p><strong>Fermat's Little Theorem</strong> (special case): </p>
+<p>For prime \(p\) and \(\gcd(a,p) = 1\): \(a^{p-1} \equiv 1 \pmod{p}\)</p>
 <h2 id="floor-and-ceiling-functions">Floor and Ceiling Functions<a class="headerlink" href="#floor-and-ceiling-functions" title="Permanent link">&para;</a></h2>
 <p>These functions convert real numbers to integers with specific rounding behavior.</p>
 <h3 id="floor-function">Floor Function<a class="headerlink" href="#floor-function" title="Permanent link">&para;</a></h3>
 <p>\(\lfloor x \rfloor\) gives the greatest integer less than or equal to \(x\).</p>
-<p><strong>Examples</strong>:
-- \(\lfloor 3.7 \rfloor = 3\)
-- \(\lfloor -2.3 \rfloor = -3\)
-- \(\lfloor 5 \rfloor = 5\)</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>\(\lfloor 3.7 \rfloor = 3\)</li>
+<li>\(\lfloor -2.3 \rfloor = -3\)</li>
+<li>\(\lfloor 5 \rfloor = 5\)</li>
+</ul>
 <h3 id="ceiling-function">Ceiling Function<a class="headerlink" href="#ceiling-function" title="Permanent link">&para;</a></h3>
 <p>\(\lceil x \rceil\) gives the smallest integer greater than or equal to \(x\).</p>
-<p><strong>Examples</strong>:
-- \(\lceil 3.2 \rceil = 4\)
-- \(\lceil -2.3 \rceil = -2\)
-- \(\lceil 5 \rceil = 5\)</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>\(\lceil 3.2 \rceil = 4\)</li>
+<li>\(\lceil -2.3 \rceil = -2\)</li>
+<li>\(\lceil 5 \rceil = 5\)</li>
+</ul>
 <h3 id="applications-in-number-theory">Applications in Number Theory<a class="headerlink" href="#applications-in-number-theory" title="Permanent link">&para;</a></h3>
 <p><strong>Counting divisors</strong>: The number of multiples of \(d\) up to \(n\) is \(\lfloor n/d \rfloor\).</p>
 <p><strong>Division algorithm</strong>: For integers \(a\) and \(b &gt; 0\): \(a = bq + r\) where \(q = \lfloor a/b \rfloor\) and \(0 \leq r &lt; b\).</p>
@@ -2891,24 +2907,30 @@
 <h3 id="summation-over-divisors">Summation Over Divisors<a class="headerlink" href="#summation-over-divisors" title="Permanent link">&para;</a></h3>
 <p>A fundamental pattern in number theory involves summing over all divisors of an integer.</p>
 <p><strong>Notation</strong>: \(\sum_{d \mid n} f(d)\) means sum \(f(d)\) over all positive divisors \(d\) of \(n\).</p>
-<p><strong>Examples</strong>:
-- \(\sum_{d \mid n} 1 = d(n)\) (number of divisors)
-- \(\sum_{d \mid n} d = \sigma(n)\) (sum of divisors)
-- \(\sum_{d \mid n} \phi(d) = n\) (fundamental identity)</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>\(\sum_{d \mid n} 1 = d(n)\) (number of divisors)</li>
+<li>\(\sum_{d \mid n} d = \sigma(n)\) (sum of divisors)</li>
+<li>\(\sum_{d \mid n} \phi(d) = n\) (fundamental identity)</li>
+</ul>
 <h3 id="summation-over-primes">Summation Over Primes<a class="headerlink" href="#summation-over-primes" title="Permanent link">&para;</a></h3>
-<p><strong>Examples</strong>:
-- \(\sum_{p \leq x} \frac{1}{p}\) (sum of reciprocals of primes up to \(x\))
-- \(\sum_{\substack{p \text{ prime} \ p \equiv 1 \pmod{4}}} \frac{1}{p^s}\) (conditional summation)</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li>\(\sum_{p \leq x} \frac{1}{p}\) (sum of reciprocals of primes up to \(x\))</li>
+<li>\(\sum_{\substack{p \text{ prime} \ p \equiv 1 \pmod{4}}} \frac{1}{p^s}\) (conditional summation)</li>
+</ul>
 <h3 id="product-notation">Product Notation<a class="headerlink" href="#product-notation" title="Permanent link">&para;</a></h3>
-<p><strong>Euler product formula</strong>: 
-\[\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_{p \text{ prime}} \frac{1}{1-p^{-s}}\]</p>
-<p><strong>Totient function product</strong>:
-\[\phi(n) = n \prod_{\substack{p \text{ prime} \ p \mid n}} \left(1 - \frac{1}{p}\right)\]</p>
+<p><strong>Euler product formula</strong>: </p>
+<p>\[\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_{p \text{ prime}} \frac{1}{1-p^{-s}}\]</p>
+<p><strong>Totient function product</strong>:</p>
+<p>\[\phi(n) = n \prod_{\substack{p \text{ prime} \ p \mid n}} \left(1 - \frac{1}{p}\right)\]</p>
 <h2 id="asymptotic-notation">Asymptotic Notation<a class="headerlink" href="#asymptotic-notation" title="Permanent link">&para;</a></h2>
 <p>Asymptotic analysis describes the growth behavior of functions as their arguments approach infinity.</p>
 <h3 id="big-o-family-bachmann-landau-notation">Big O Family (Bachmann-Landau Notation)<a class="headerlink" href="#big-o-family-bachmann-landau-notation" title="Permanent link">&para;</a></h3>
-<p><strong>Big O</strong>: \(f(n) = O(g(n))\) means \(f\) grows at most as fast as \(g\).
-- Formally: \(\exists c &gt; 0, n_0\) such that \(|f(n)| \leq c|g(n)|\) for all \(n \geq n_0\)</p>
+<p><strong>Big O</strong>: \(f(n) = O(g(n))\) means \(f\) grows at most as fast as \(g\).</p>
+<ul>
+<li>Formally: \(\exists\ c &gt; 0, n_0\) such that \(|f(n)| \leq c|g(n)|\) for all \(n \geq n_0\)</li>
+</ul>
 <p><strong>Big Omega</strong>: \(f(n) = \Omega(g(n))\) means \(f\) grows at least as fast as \(g\).</p>
 <p><strong>Big Theta</strong>: \(f(n) = \Theta(g(n))\) means \(f\) and \(g\) have the same growth rate.</p>
 <p><strong>Little o</strong>: \(f(n) = o(g(n))\) means \(f\) grows strictly slower than \(g\).</p>
@@ -2932,28 +2954,31 @@
 <p>For \(n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}\):
 \[\left(\frac{a}{n}\right) = \prod_{i=1}^{k} \left(\frac{a}{p_i}\right)^{e_i}\]</p>
 <h3 id="quadratic-reciprocity">Quadratic Reciprocity<a class="headerlink" href="#quadratic-reciprocity" title="Permanent link">&para;</a></h3>
-<p>For distinct odd primes \(p\) and \(q\):
-\[\left(\frac{p}{q}\right)\left(\frac{q}{p}\right) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}}\]</p>
+<p>For distinct odd primes \(p\) and \(q\):</p>
+<p>\[\left(\frac{p}{q}\right)\left(\frac{q}{p}\right) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}}\]</p>
 <h3 id="arithmetic-functions">Arithmetic Functions<a class="headerlink" href="#arithmetic-functions" title="Permanent link">&para;</a></h3>
-<p><strong>Möbius function</strong>: \(\mu(n)\) equals:
-- \(1\) if \(n\) is a square-free positive integer with even number of prime factors
-- \(-1\) if \(n\) is a square-free positive integer with odd number of prime factors<br />
-- \(0\) if \(n\) has a squared prime factor</p>
+<p><strong>Möbius function</strong>: \(\mu(n)\) equals:</p>
+<ul>
+<li>\(1\) if \(n\) is a square-free positive integer with even number of prime factors</li>
+<li>\(-1\) if \(n\) is a square-free positive integer with odd number of prime factors  </li>
+<li>\(0\) if \(n\) has a squared prime factor</li>
+</ul>
 <p><strong>Von Mangoldt function</strong>: \(\Lambda(n)\) equals \(\ln p\) if \(n = p^k\) for prime \(p\), and \(0\) otherwise.</p>
 <p><strong>Dirichlet characters</strong>: \(\chi(n)\) are completely multiplicative functions modulo some integer.</p>
 <h2 id="understanding-mathematical-expressions">Understanding Mathematical Expressions<a class="headerlink" href="#understanding-mathematical-expressions" title="Permanent link">&para;</a></h2>
-<h2 id="understanding-mathematical-expressions_1">Understanding Mathematical Expressions<a class="headerlink" href="#understanding-mathematical-expressions_1" title="Permanent link">&para;</a></h2>
 <p>When reading number theory texts, you'll encounter mathematical expressions that combine multiple notations. Here are some common patterns:</p>
 <h3 id="complex-expressions">Complex Expressions<a class="headerlink" href="#complex-expressions" title="Permanent link">&para;</a></h3>
 <p><strong>Multiplicative functions</strong>: An expression like \(\sum_{d \mid n} \mu(d) f(n/d)\) means "sum over all divisors \(d\) of \(n\), the product of the Möbius function \(\mu(d)\) and \(f(n/d)\)."</p>
 <p><strong>Conditional sums</strong>: \(\sum_{\substack{p \leq x \ p \equiv 1 \pmod{4}}} \frac{1}{p}\) means "sum \(\frac{1}{p}\) over all primes \(p\) up to \(x\) that are congruent to 1 modulo 4."</p>
 <p><strong>Product formulas</strong>: \(\prod_{p \mid n} \left(1 + \frac{1}{p}\right)\) means "take the product over all primes \(p\) that divide \(n\) of the expression \(\left(1 + \frac{1}{p}\right)\)."</p>
 <h3 id="reading-order-and-precedence">Reading Order and Precedence<a class="headerlink" href="#reading-order-and-precedence" title="Permanent link">&para;</a></h3>
-<p>Mathematical expressions follow standard precedence rules:
-1. Exponents and function applications (like \(\phi(n)\))
-2. Multiplication and division
-3. Addition and subtraction
-4. Relations (like \(\equiv\), \(\mid\), \(&lt;\))</p>
+<p>Mathematical expressions follow standard precedence rules:</p>
+<ol>
+<li>Exponents and function applications (like \(\phi(n)\))</li>
+<li>Multiplication and division</li>
+<li>Addition and subtraction</li>
+<li>Relations (like \(\equiv\), \(\mid\), \(&lt;\))</li>
+</ol>
 <p><strong>Example</strong>: \(a^{\phi(n)} \equiv 1 \pmod{n}\) reads as "(\(a\) raised to the power \(\phi(n)\)) is congruent to 1 modulo \(n\)."</p>
 <p>This comprehensive guide provides the foundational notation needed for understanding number theory concepts in academic literature and mathematical texts.</p>
 
@@ -3049,12 +3074,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
-      
-        <script src="../../../../assets/javascripts/config.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

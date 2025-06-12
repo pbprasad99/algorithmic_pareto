@@ -2725,6 +2725,9 @@
 <div class="admonition warning">
 <p class="admonition-title">AI Generated Content</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Refresh Page if math notation is not rendered</p>
+</div>
 <p>A comprehensive reference for mathematical notation used in set theory, from basic concepts to advanced topics.</p>
 <h2 id="basic-set-notation">Basic Set Notation<a class="headerlink" href="#basic-set-notation" title="Permanent link">&para;</a></h2>
 <p>Set theory provides the foundation for modern mathematics through its system of notation for collections and relationships.</p>
@@ -2751,8 +2754,10 @@
 <h2 id="set-relationships">Set Relationships<a class="headerlink" href="#set-relationships" title="Permanent link">&para;</a></h2>
 <p>Understanding how sets relate to each other is fundamental to set theory.</p>
 <h3 id="subset-relations">Subset Relations<a class="headerlink" href="#subset-relations" title="Permanent link">&para;</a></h3>
-<p><strong>Subset</strong>: \(A \subseteq B\) means "\(A\) is a subset of \(B\)" or "every element of \(A\) is also in \(B\)."
-- Formally: \(\forall x (x \in A \rightarrow x \in B)\)</p>
+<p><strong>Subset</strong>: \(A \subseteq B\) means "\(A\) is a subset of \(B\)" or "every element of \(A\) is also in \(B\)."</p>
+<ul>
+<li>Formally: \(\forall x (x \in A \rightarrow x \in B)\)</li>
+</ul>
 <p><strong>Proper subset</strong>: \(A \subsetneq B\) or \(A \subset B\) means "\(A\) is a proper subset of \(B\)" (\(A \subseteq B\) and \(A \neq B\)).</p>
 <p><strong>Superset</strong>: \(B \supseteq A\) means "\(B\) is a superset of \(A\)" (equivalent to \(A \subseteq B\)).</p>
 <p><strong>Proper superset</strong>: \(B \supsetneq A\) or \(B \supset A\) means "\(B\) is a proper superset of \(A\)."</p>
@@ -2761,20 +2766,30 @@
 - \(\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}\)
 - \(\emptyset \subseteq A\) for any set \(A\)</p>
 <h3 id="set-equality">Set Equality<a class="headerlink" href="#set-equality" title="Permanent link">&para;</a></h3>
-<p><strong>Set equality</strong>: \(A = B\) means sets \(A\) and \(B\) have exactly the same elements.
-- Equivalent to: \(A \subseteq B\) and \(B \subseteq A\)</p>
+<p><strong>Set equality</strong>: \(A = B\) means sets \(A\) and \(B\) have exactly the same elements.</p>
+<ul>
+<li>Equivalent to: \(A \subseteq B\) and \(B \subseteq A\)</li>
+</ul>
 <p><strong>Set inequality</strong>: \(A \neq B\) means sets \(A\) and \(B\) do not have the same elements.</p>
 <h2 id="set-operations">Set Operations<a class="headerlink" href="#set-operations" title="Permanent link">&para;</a></h2>
 <p>Set operations combine or modify sets to create new sets.</p>
 <h3 id="basic-operations">Basic Operations<a class="headerlink" href="#basic-operations" title="Permanent link">&para;</a></h3>
-<p><strong>Union</strong>: \(A \cup B\) is the set of elements in \(A\) or \(B\) (or both).
-- \(A \cup B = {x : x \in A \text{ or } x \in B}\)</p>
-<p><strong>Intersection</strong>: \(A \cap B\) is the set of elements in both \(A\) and \(B\).
-- \(A \cap B = {x : x \in A \text{ and } x \in B}\)</p>
-<p><strong>Difference</strong>: \(A \setminus B\) or \(A - B\) is the set of elements in \(A\) but not in \(B\).
-- \(A \setminus B = {x : x \in A \text{ and } x \notin B}\)</p>
-<p><strong>Complement</strong>: \(A^c\) or \(\overline{A}\) or \(A'\) is the set of elements not in \(A\) (relative to some universal set).
-- \(A^c = {x \in U : x \notin A}\)</p>
+<p><strong>Union</strong>: \(A \cup B\) is the set of elements in \(A\) or \(B\) (or both).</p>
+<ul>
+<li>\(A \cup B = {x : x \in A \text{ or } x \in B}\)</li>
+</ul>
+<p><strong>Intersection</strong>: \(A \cap B\) is the set of elements in both \(A\) and \(B\).</p>
+<ul>
+<li>\(A \cap B = {x : x \in A \text{ and } x \in B}\)</li>
+</ul>
+<p><strong>Difference</strong>: \(A \setminus B\) or \(A - B\) is the set of elements in \(A\) but not in \(B\).</p>
+<ul>
+<li>\(A \setminus B = {x : x \in A \text{ and } x \notin B}\)</li>
+</ul>
+<p><strong>Complement</strong>: \(A^c\) or \(\overline{A}\) or \(A'\) is the set of elements not in \(A\) (relative to some universal set).</p>
+<ul>
+<li>\(A^c = {x \in U : x \notin A}\)</li>
+</ul>
 <p><strong>Examples</strong>:
 - \({1, 2} \cup {2, 3} = {1, 2, 3}\)
 - \({1, 2} \cap {2, 3} = {2}\)
@@ -2783,53 +2798,71 @@
 <p><strong>Disjoint sets</strong>: \(A\) and \(B\) are disjoint if \(A \cap B = \emptyset\).</p>
 <p><strong>Pairwise disjoint</strong>: A collection of sets is pairwise disjoint if every pair of distinct sets in the collection is disjoint.</p>
 <h3 id="extended-operations">Extended Operations<a class="headerlink" href="#extended-operations" title="Permanent link">&para;</a></h3>
-<p><strong>Symmetric difference</strong>: \(A \triangle B\) or \(A \oplus B\) contains elements in exactly one of \(A\) or \(B\).
-- \(A \triangle B = (A \setminus B) \cup (B \setminus A) = (A \cup B) \setminus (A \cap B)\)</p>
+<p><strong>Symmetric difference</strong>: \(A \triangle B\) or \(A \oplus B\) contains elements in exactly one of \(A\) or \(B\).</p>
+<ul>
+<li>\(A \triangle B = (A \setminus B) \cup (B \setminus A) = (A \cup B) \setminus (A \cap B)\)</li>
+</ul>
 <h2 id="generalized-operations">Generalized Operations<a class="headerlink" href="#generalized-operations" title="Permanent link">&para;</a></h2>
 <p>Set operations can be extended to collections of multiple sets.</p>
 <h3 id="indexed-families">Indexed Families<a class="headerlink" href="#indexed-families" title="Permanent link">&para;</a></h3>
-<p><strong>Indexed union</strong>: \(\bigcup_{i \in I} A_i\) is the union of all sets \(A_i\) where \(i\) ranges over index set \(I\).
-- \(\bigcup_{i \in I} A_i = {x : \exists i \in I, x \in A_i}\)</p>
-<p><strong>Indexed intersection</strong>: \(\bigcap_{i \in I} A_i\) is the intersection of all sets \(A_i\) where \(i\) ranges over index set \(I\).
-- \(\bigcap_{i \in I} A_i = {x : \forall i \in I, x \in A_i}\)</p>
-<p><strong>Common notations</strong>:
-- \(\bigcup_{i=1}^{n} A_i = A_1 \cup A_2 \cup \cdots \cup A_n\)
-- \(\bigcap_{i=1}^{\infty} A_i\) (intersection of countably many sets)
-- \(\bigcup_{x \in X} A_x\) (union indexed by elements of set \(X\))</p>
+<p><strong>Indexed union</strong>: \(\bigcup_{i \in I} A_i\) is the union of all sets \(A_i\) where \(i\) ranges over index set \(I\).</p>
+<ul>
+<li>\(\bigcup_{i \in I} A_i = {x : \exists i \in I, x \in A_i}\)</li>
+</ul>
+<p><strong>Indexed intersection</strong>: \(\bigcap_{i \in I} A_i\) is the intersection of all sets \(A_i\) where \(i\) ranges over index set \(I\).</p>
+<ul>
+<li>\(\bigcap_{i \in I} A_i = {x : \forall i \in I, x \in A_i}\)</li>
+</ul>
+<p><strong>Common notations</strong>:</p>
+<ul>
+<li>\(\bigcup_{i=1}^{n} A_i = A_1 \cup A_2 \cup \cdots \cup A_n\)</li>
+<li>\(\bigcap_{i=1}^{\infty} A_i\) (intersection of countably many sets)</li>
+<li>\(\bigcup_{x \in X} A_x\) (union indexed by elements of set \(X\))</li>
+</ul>
 <h3 id="partition">Partition<a class="headerlink" href="#partition" title="Permanent link">&para;</a></h3>
 <p><strong>Partition</strong>: A partition of set \(A\) is a collection of non-empty, pairwise disjoint subsets whose union is \(A\).</p>
-<p>If \({A_i}<em I="I" _in="\in" i="i">{i \in I}\) is a partition of \(A\), then:
-- \(A_i \neq \emptyset\) for all \(i \in I\)
-- \(A_i \cap A_j = \emptyset\) for \(i \neq j\)
-- \(\bigcup</em> A_i = A\)</p>
+<p>If \(\{A_i\}_{i \in I}\) is a partition of \(A\), then:</p>
+<ul>
+<li>\(A_i \neq \emptyset\) for all \(i \in I\)</li>
+<li>\(A_i \cap A_j = \emptyset\) for \(i \neq j\)</li>
+<li>\(\bigcup_{i \in I} A_i = A\)</li>
+</ul>
 <h2 id="power-sets-and-cardinality">Power Sets and Cardinality<a class="headerlink" href="#power-sets-and-cardinality" title="Permanent link">&para;</a></h2>
 <p>These concepts deal with the "size" and structure of sets.</p>
 <h3 id="power-set">Power Set<a class="headerlink" href="#power-set" title="Permanent link">&para;</a></h3>
-<p><strong>Power set</strong>: \(\mathcal{P}(A)\) or \(2^A\) is the set of all subsets of \(A\).
-- \(\mathcal{P}(A) = {X : X \subseteq A}\)</p>
+<p><strong>Power set</strong>: \(\mathcal{P}(A)\) or \(2^A\) is the set of all subsets of \(A\).</p>
+<ul>
+<li>\(\mathcal{P}(A) = {X : X \subseteq A}\)</li>
+</ul>
 <p><strong>Examples</strong>:
 - \(\mathcal{P}({1, 2}) = {\emptyset, {1}, {2}, {1, 2}}\)
 - \(\mathcal{P}(\emptyset) = {\emptyset}\)</p>
 <h3 id="cardinality">Cardinality<a class="headerlink" href="#cardinality" title="Permanent link">&para;</a></h3>
 <p><strong>Cardinality</strong>: \(|A|\) or \(\#A\) or \(\text{card}(A)\) represents the number of elements in set \(A\).</p>
 <p><strong>Finite sets</strong>: \(|A| = n\) for some natural number \(n\).</p>
-<p><strong>Infinite cardinalities</strong>:
-- \(|\mathbb{N}| = \aleph_0\) (aleph-null, countable infinity)
-- \(|\mathbb{R}| = 2^{\aleph_0} = \mathfrak{c}\) (continuum, uncountable)</p>
-<p><strong>Cardinality relationships</strong>:
-- \(|A| = |B|\) means \(A\) and \(B\) have the same cardinality
-- \(|A| \leq |B|\) means there exists an injection from \(A\) to \(B\)
-- \(|A| &lt; |B|\) means \(|A| \leq |B|\) and \(|A| \neq |B|\)</p>
+<p><strong>Infinite cardinalities</strong>:</p>
+<ul>
+<li>\(|\mathbb{N}| = \aleph_0\) (aleph-null, countable infinity)</li>
+<li>\(|\mathbb{R}| = 2^{\aleph_0} = \mathfrak{c}\) (continuum, uncountable)</li>
+</ul>
+<p><strong>Cardinality relationships</strong>:</p>
+<ul>
+<li>\(|A| = |B|\) means \(A\) and \(B\) have the same cardinality</li>
+<li>\(|A| \leq |B|\) means there exists an injection from \(A\) to \(B\)</li>
+<li>\(|A| &lt; |B|\) means \(|A| \leq |B|\) and \(|A| \neq |B|\)</li>
+</ul>
 <h2 id="relations-and-functions">Relations and Functions<a class="headerlink" href="#relations-and-functions" title="Permanent link">&para;</a></h2>
 <p>Relations and functions are special types of sets that describe connections between elements.</p>
 <h3 id="relations">Relations<a class="headerlink" href="#relations" title="Permanent link">&para;</a></h3>
 <p><strong>Relation</strong>: A relation \(R\) from set \(A\) to set \(B\) is a subset of the Cartesian product \(A \times B\).</p>
 <p><strong>Notation</strong>: \(aRb\) or \((a,b) \in R\) means "\(a\) is related to \(b\) by relation \(R\)."</p>
-<p><strong>Types of relations on a set \(A\)</strong>:
-- <strong>Reflexive</strong>: \(\forall a \in A, aRa\)
-- <strong>Symmetric</strong>: \(\forall a,b \in A, aRb \rightarrow bRa\)
-- <strong>Transitive</strong>: \(\forall a,b,c \in A, (aRb \land bRc) \rightarrow aRc\)
-- <strong>Antisymmetric</strong>: \(\forall a,b \in A, (aRb \land bRa) \rightarrow a = b\)</p>
+<p><strong>Types of relations on a set \(A\)</strong>:</p>
+<ul>
+<li><strong>Reflexive</strong>: \(\forall a \in A, aRa\)</li>
+<li><strong>Symmetric</strong>: \(\forall a,b \in A, aRb \rightarrow bRa\)</li>
+<li><strong>Transitive</strong>: \(\forall a,b,c \in A, (aRb \land bRc) \rightarrow aRc\)</li>
+<li><strong>Antisymmetric</strong>: \(\forall a,b \in A, (aRb \land bRa) \rightarrow a = b\)</li>
+</ul>
 <p><strong>Equivalence relation</strong>: A relation that is reflexive, symmetric, and transitive.</p>
 <p><strong>Partial order</strong>: A relation that is reflexive, antisymmetric, and transitive.</p>
 <h3 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h3>
@@ -2849,18 +2882,22 @@
 <p>These constructions create new sets from existing ones.</p>
 <h3 id="cartesian-product">Cartesian Product<a class="headerlink" href="#cartesian-product" title="Permanent link">&para;</a></h3>
 <p><strong>Cartesian product</strong>: \(A \times B = {(a,b) : a \in A \text{ and } b \in B}\) is the set of all ordered pairs.</p>
-<p><strong>Higher-order products</strong>:
-- \(A \times B \times C = {(a,b,c) : a \in A, b \in B, c \in C}\)
-- \(A^n = A \times A \times \cdots \times A\) (\(n\) times)</p>
+<p><strong>Higher-order products</strong>:</p>
+<ul>
+<li>\(A \times B \times C = {(a,b,c) : a \in A, b \in B, c \in C}\)</li>
+<li>\(A^n = A \times A \times \cdots \times A\) (\(n\) times)</li>
+</ul>
 <p><strong>Examples</strong>:
 - \({1,2} \times {a,b} = {(1,a), (1,b), (2,a), (2,b)}\)
 - \(\mathbb{R}^2 = \mathbb{R} \times \mathbb{R}\) (the plane)</p>
 <h3 id="tuples-and-sequences">Tuples and Sequences<a class="headerlink" href="#tuples-and-sequences" title="Permanent link">&para;</a></h3>
 <p><strong>Ordered pair</strong>: \((a,b)\) where order matters (\((a,b) \neq (b,a)\) unless \(a = b\)).</p>
 <p><strong>n-tuple</strong>: \((a_1, a_2, \ldots, a_n)\) is an ordered collection of \(n\) elements.</p>
-<p><strong>Sequence</strong>: An ordered list, often infinite:
-- Finite sequence: \((a_1, a_2, \ldots, a_n)\)
-- Infinite sequence: \((a_1, a_2, a_3, \ldots)\) or \((a_n)_{n=1}^{\infty}\)</p>
+<p><strong>Sequence</strong>: An ordered list, often infinite:</p>
+<ul>
+<li>Finite sequence: \((a_1, a_2, \ldots, a_n)\)</li>
+<li>Infinite sequence: \((a_1, a_2, a_3, \ldots)\) or \((a_n)_{n=1}^{\infty}\)</li>
+</ul>
 <h2 id="advanced-set-theory-concepts">Advanced Set Theory Concepts<a class="headerlink" href="#advanced-set-theory-concepts" title="Permanent link">&para;</a></h2>
 <p>These concepts appear in more sophisticated mathematical contexts.</p>
 <h3 id="topology-and-closure">Topology and Closure<a class="headerlink" href="#topology-and-closure" title="Permanent link">&para;</a></h3>
@@ -2995,12 +3032,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
-      
-        <script src="../../../../assets/javascripts/config.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
