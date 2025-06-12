@@ -53,6 +53,8 @@ watch:
 extra_css:
 - assets/stylesheets/extra.css
 markdown_extensions:
+- pymdownx.arithmatex:
+    generic: true
 - pymdownx.highlight
 - pymdownx.superfences
 - pymdownx.details
@@ -88,9 +90,12 @@ plugins:
 # - git-revision-date-localized:
 #     enable_creation_date: true
 extra_javascript:
+extra_javascript:
+  - assets/javascripts/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - https://unpkg.com/mermaid/dist/mermaid.min.js
   - https://d3js.org/d3.v7.min.js
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - https://cdn.jsdelivr.net/npm/vega@5
   - https://cdn.jsdelivr.net/npm/vega-lite@5
   - https://cdn.jsdelivr.net/npm/vega-embed@6
