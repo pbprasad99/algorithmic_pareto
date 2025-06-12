@@ -1,4 +1,4 @@
-# Set Theory Mathematical Notation Guide
+# Set Theoretic Notation
 
 !!! warning "AI Generated Content" 
 
