@@ -46,7 +46,7 @@ The same thing for linked lists.
     ```
     """
     Solution for https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/
-    
+
     This can be solved using k-way merge. Instead of putting the next smaller value in a resultant merged array, 
     simply put it in a max heap of size k.
     
@@ -105,4 +105,10 @@ The same thing for linked lists.
             # Retun top of max heap
             return -heappop(max_hp) 
     ```
-    
+
+??? example "[Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/)(target="_blank")"
+    ```python
+    --8<--
+    docs/Algorithms/K_Way_Merge/find-k-pairs-with-smallest-sums.py
+    --8<--
+    ```
