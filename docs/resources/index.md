@@ -93,7 +93,8 @@ A curated collection of learning materials, documentation, and references.
 
 ### AI Engineering
 - [Amit Chaudhary's Blog](https://amitness.com/){target="_blank"}
-- [Coding The Smart Way](https://codingthesmartway.com/){}
+- [Coding The Smart Way](https://codingthesmartway.com/){target="_blank"}
+- [Rik AI](https://rik.ai/projects){target="_blank"}
 
 ### Java
  - [Marco Behler's Blog](https://www.marcobehler.com/){target="_blank"}

@@ -106,7 +106,7 @@ The same thing for linked lists.
             return -heappop(max_hp) 
     ```
 
-??? example "[Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/)(target="_blank")"
+??? example "[Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/){target="_blank"}"
     ```python
     --8<--
     docs/Algorithms/K_Way_Merge/find-k-pairs-with-smallest-sums.py

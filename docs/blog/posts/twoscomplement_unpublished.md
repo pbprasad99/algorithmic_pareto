@@ -110,7 +110,7 @@ In 2's complement overflow is not possible when adding numbers with opposite sig
 
 * If both numbers are positive and you get a negative result.
 
-* If both numbers ar negative and you get a positive result.
+* If both numbers are negative and you get a positive result.
 
 [Ref 1]
 
@@ -125,3 +125,5 @@ It is also Bijective, which is to say that it can uniquely represent negative in
 
 1. https://web.archive.org/web/20131031093811/http://www.cs.uwm.edu/~cs151/Bacon/Lecture/HTML/ch03s09.html
 2. https://www.cs.cornell.edu/~tomf/notes/cps104/twoscomp.html
+3. https://wiki.sei.cmu.edu/confluence/display/c/INT32-C.+Ensure+that+operations+on+signed+integers+do+not+result+in+overflow
+
