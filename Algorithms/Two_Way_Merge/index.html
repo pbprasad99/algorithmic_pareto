@@ -2065,6 +2065,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practice
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2294,6 +2303,87 @@
 <p>We have a write pointer p3 and we have two read pointers, p1 and p2.
 In each iteration of the while loop, we pick the smaller read pointer to write to the write location and move both pointers (write pointer and one of the read pointers) ahead.</p>
 <p>If either p1 or p2 have still not reached the end of their read containers, we just write the rest of that read container at the write pointer.</p>
+<h2 id="practice">Practice<a class="headerlink" href="#practice" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary><a href="https://leetcode.com/problems/merge-sorted-array/" target="_blank">Merge sorted arrays backwards</a></summary>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Solution for https://leetcode.com/problems/merge-sorted-array/</span>
+
+<span class="sd">A slightly different variation of the two-way merge problem. </span>
+<span class="sd">The challenge here is to merge one array into another array </span>
+<span class="sd">backwards into extra space allocated at the end of one of the arrays.</span>
+
+<span class="sd">To accomplish this at each step we pick the greatest among the the two choices and put it at the end of the target array.</span>
+
+<span class="sd">p3  -&gt; write pointer</span>
+<span class="sd">p1, p2 -&gt; read pointers</span>
+<span class="sd">nums1 -&gt; target array</span>
+
+
+
+<span class="sd">p3 will never overwrite p1 because :</span>
+
+<span class="sd">Initially p3 - p1 = n,</span>
+<span class="sd">If p2 is decremented, the gap p3 - p1 reduces by 1, because p3 is incremented and p1 remains the same.</span>
+<span class="sd">If p1 is decremented, the gap p3 - p1 remains the same </span>
+<span class="sd">0&lt;= p3-p1 &lt;= n # The gap can at most become zero.</span>
+<span class="sd">When,</span>
+<span class="sd">p3 -p1 = 0 &lt;-&gt; p2  = -1</span>
+<span class="sd">Which means all of nums2 has been written into nums1, the while loop will not execute.</span>
+<span class="sd">Therefore p3 will never overwrite p1.</span>
+
+
+<span class="sd">Dry Run these to see how it works out :</span>
+
+<span class="sd">nums1 :[2,3,0]</span>
+<span class="sd">nums2 :[4]</span>
+
+<span class="sd">nums1 :[2,3,0]</span>
+<span class="sd">nums2 : [-1]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums1</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">nums2</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Do not return anything, modify nums1 in-place instead.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span> <span class="o">=</span> <span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span> 
+        <span class="k">while</span> <span class="n">p2</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">p1</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">nums1</span><span class="p">[</span><span class="n">p1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nums2</span><span class="p">[</span><span class="n">p2</span><span class="p">]</span> <span class="p">:</span> 
+                <span class="n">nums1</span><span class="p">[</span><span class="n">p3</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums1</span><span class="p">[</span><span class="n">p1</span><span class="p">]</span>
+                <span class="n">p1</span><span class="o">-=</span><span class="mi">1</span>
+                <span class="n">p3</span><span class="o">-=</span><span class="mi">1</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="n">nums1</span><span class="p">[</span><span class="n">p3</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums2</span><span class="p">[</span><span class="n">p2</span><span class="p">]</span>
+                <span class="n">p2</span><span class="o">-=</span><span class="mi">1</span>
+                <span class="n">p3</span><span class="o">-=</span><span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">nums1</span>
+</code></pre></div>
+</details>
+<details class="example">
+<summary><a href="https://leetcode.com/problems/merge-sorted-array/" target="_blank">Merge Strings Alternately</a></summary>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A simpler version of the two way merge problem.</span>
+<span class="sd">All you have to do is pick the next element alternately among the two choices.</span>
+<span class="sd">The EFFECT can be achieved by simply picking a letter from each array one after the other.</span>
+<span class="sd">Wrap this up in s while loop runs until either one of the arrays have not finished being read. </span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mergeAlternately</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">word2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">p1</span><span class="p">,</span><span class="n">p2</span> <span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
+
+        <span class="k">while</span> <span class="n">p1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">word1</span><span class="p">)</span> <span class="ow">or</span> <span class="n">p2</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">word2</span><span class="p">)</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">p1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">word1</span><span class="p">)</span> <span class="p">:</span> 
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word1</span><span class="p">[</span><span class="n">p1</span><span class="p">])</span> 
+                <span class="n">p1</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="n">p2</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">word2</span><span class="p">)</span> <span class="p">:</span> 
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word2</span><span class="p">[</span><span class="n">p2</span><span class="p">])</span>
+                <span class="n">p2</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</code></pre></div>
+</details>
 
 
 
