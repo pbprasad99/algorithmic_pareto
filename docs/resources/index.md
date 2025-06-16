@@ -12,7 +12,7 @@ A curated collection of learning materials, documentation, and references.
 
 ### SQL
 - [Mode SQL Tutorial](https://mode.com/sql-tutorial/sql-in-mode){target="_blank"}
-- [JDBC - a short guide](https://www.marcobehler.com/guides/jdbc){target="_blank"}
+- [SQL Bolt](https://sqlbolt.com/){target="_blank"}
 
 ### Spark
 - [Spark Playground](https://www.sparkplayground.com/){target="_blank"}
@@ -34,6 +34,14 @@ A curated collection of learning materials, documentation, and references.
 - [AWS & Azure AD Security Integration](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/aws/aws-azure-ad-security){target="_blank"}
 - [Big Data Architecture Style](https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data){target="_blank"}
 
+### Snowflake
+
+- [Snowflake Documentation](https://docs.snowflake.com/en/sql-reference/data-types-numeric){target="_blank"}
+
+### Trino 
+
+- [Trino Documentation](https://trino.io/docs/current/language/types.html#floating-point){target="_blank"}
+
 ### DevOps
 - [Terraform Language Documentation](https://developer.hashicorp.com/terraform/language){target="_blank"}
 - [Helm Documentation](https://helm.sh/docs/intro/using_helm/){target="_blank"}
@@ -42,7 +50,7 @@ A curated collection of learning materials, documentation, and references.
 
 ## Technical Blog Posts & Articles
 
-### SQL Optimization
+### SQL 
 - [Mastering EXPLAIN ANALYZE](https://blog.devgenius.io/mastering-explain-analyze-become-a-db-query-optimization-pro-cf1e52bcb92e){target="_blank"}
 - [N+1 Query Problem](https://planetscale.com/blog/what-is-n-1-query-problem-and-how-to-solve-it){target="_blank"}
 - [GraphQL N+1 Problem](https://dineshpandiyan.com/blog/graphql-n+1/){target="_blank"}
@@ -53,6 +61,7 @@ A curated collection of learning materials, documentation, and references.
 - [TPC-H Benchmarks](https://docs.coiled.io/blog/tpch.html){target="_blank"}
 - [Dask Join Order Optimization](https://github.com/dask/dask-expr/issues/1065){target="_blank"}
 - [Spark MapReduce Internals](https://stackoverflow.com/questions/54501612/does-spark-internally-use-map-reduce){target="_blank"}
+- [JDBC - a short guide](https://www.marcobehler.com/guides/jdbc){target="_blank"}
 
 ### Cloud Computing
 - [AWS App Runner Discussion](https://www.reddit.com/r/aws/comments/1eseqlh/aws_app_runner_is_garbage/){target="_blank"}
@@ -83,6 +92,10 @@ A curated collection of learning materials, documentation, and references.
 ### Networking
 - [Networking Crash Course](https://infracourse.cloud/lectures/2024-01-10-networking-crash-course.pdf){target="_blank"}
 
+## Computer Engineering
+[What Every Computer Scientist should know about Floating Point Arithmetic](https://www.itu.dk/~sestoft/bachelor/IEEE754_article.pdf){target="_blank"}
+
+
 ## Technical Blogs
 
 ### Data Engineering
@@ -101,3 +114,4 @@ A curated collection of learning materials, documentation, and references.
 
 ## Cheat Sheets
 - [PySpark RDD Cheat Sheet](https://stanford.edu/~rezab/dao/notes/L11/spark_cheat_sheet.pdf){target="_blank"}
+- [Trino Cheat Sheet](https://angel-asensio.github.io/trino-cheatsheet/){target="_blank"}

@@ -1,4 +1,5 @@
 nav :
   - Division_Algorithm.md
   - Fundamental_Theorem_Of_Arithmetic
+  - Arithmetic_Series_and_Gauss_Summation
   - Appendix
