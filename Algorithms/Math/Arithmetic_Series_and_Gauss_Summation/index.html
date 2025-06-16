@@ -12,28 +12,28 @@
         <meta name="author" content="pbprasad99">
       
       
-        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Backtracking/">
+        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Math/Arithmetic_Series_and_Gauss_Summation/">
       
       
-        <link rel="prev" href="../Basic_Recursion/">
+        <link rel="prev" href="../Fundamental_Theorem_Of_Arithmetic/claude_ugly_number_analysis/">
       
       
-        <link rel="next" href="../Math/Division_Algorithm/">
+        <link rel="next" href="../Appendix/Number_Theoretic_Notation/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.ico">
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>Backtracking - patibanb.me</title>
+        <title>Arithmetic Series - patibanb.me</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,9 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -63,11 +63,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Backtracking - patibanb.me" >
+        <meta  property="og:title"  content="Arithmetic Series - patibanb.me" >
       
         <meta  property="og:description"  content="Personal Website" >
       
-        <meta  property="og:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Backtracking/README.png" >
+        <meta  property="og:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Math/Arithmetic_Series_and_Gauss_Summation/README.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -75,19 +75,19 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Backtracking/" >
+        <meta  property="og:url"  content="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Math/Arithmetic_Series_and_Gauss_Summation/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Backtracking - patibanb.me" >
+        <meta  name="twitter:title"  content="Arithmetic Series - patibanb.me" >
       
         <meta  name="twitter:description"  content="Personal Website" >
       
-        <meta  name="twitter:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Backtracking/README.png" >
+        <meta  name="twitter:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Math/Arithmetic_Series_and_Gauss_Summation/README.png" >
       
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -96,7 +96,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -115,7 +115,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#backtracking" class="md-skip">
+        <a href="#arithmetic-series" class="md-skip">
           Skip to content
         </a>
       
@@ -129,9 +129,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+    <a href="../../.." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -148,7 +148,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Backtracking
+              Arithmetic Series
             
           </span>
         </div>
@@ -249,7 +249,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -281,7 +281,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../Array_Partitioning/Introduction/" class="md-tabs__link">
+        <a href="../../Array_Partitioning/Introduction/" class="md-tabs__link">
           
   
   
@@ -306,7 +306,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../blog/" class="md-tabs__link">
+        <a href="../../../blog/" class="md-tabs__link">
           
   
   
@@ -328,7 +328,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../resources/" class="md-tabs__link">
+        <a href="../../../resources/" class="md-tabs__link">
           
   
   
@@ -350,7 +350,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../About/" class="md-tabs__link">
+        <a href="../../../About/" class="md-tabs__link">
           
   
   
@@ -386,9 +386,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+    <a href="../../.." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     patibanb.me
@@ -403,7 +403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -475,7 +475,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -559,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Array_Partitioning/Introduction/" class="md-nav__link">
+      <a href="../../Array_Partitioning/Introduction/" class="md-nav__link">
         
   
   
@@ -582,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Array_Partitioning/Hoare/" class="md-nav__link">
+      <a href="../../Array_Partitioning/Hoare/" class="md-nav__link">
         
   
   
@@ -605,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Array_Partitioning/Lomuto/" class="md-nav__link">
+      <a href="../../Array_Partitioning/Lomuto/" class="md-nav__link">
         
   
   
@@ -628,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Array_Partitioning/In-Place_Deduplication/" class="md-nav__link">
+      <a href="../../Array_Partitioning/In-Place_Deduplication/" class="md-nav__link">
         
   
   
@@ -680,7 +680,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Quickselect/" class="md-nav__link ">
+            <a href="../../Quickselect/" class="md-nav__link ">
               
   
   
@@ -739,7 +739,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Quicksort/" class="md-nav__link ">
+            <a href="../../Quicksort/" class="md-nav__link ">
               
   
   
@@ -798,7 +798,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Two_Way_Merge/" class="md-nav__link ">
+            <a href="../../Two_Way_Merge/" class="md-nav__link ">
               
   
   
@@ -857,7 +857,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Merge_Sort/" class="md-nav__link ">
+            <a href="../../Merge_Sort/" class="md-nav__link ">
               
   
   
@@ -916,7 +916,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../K_Way_Merge/" class="md-nav__link ">
+            <a href="../../K_Way_Merge/" class="md-nav__link ">
               
   
   
@@ -954,7 +954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
+      <a href="../../properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
         
   
   
@@ -977,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../External_Sorting/" class="md-nav__link">
+      <a href="../../External_Sorting/" class="md-nav__link">
         
   
   
@@ -1047,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Binary_search/Introduction/" class="md-nav__link">
+      <a href="../../Binary_search/Introduction/" class="md-nav__link">
         
   
   
@@ -1070,7 +1070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Binary_search/Median_of_two_sorted_arrays/" class="md-nav__link">
+      <a href="../../Binary_search/Median_of_two_sorted_arrays/" class="md-nav__link">
         
   
   
@@ -1122,7 +1122,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Basic_Recursion/" class="md-nav__link ">
+            <a href="../../Basic_Recursion/" class="md-nav__link ">
               
   
   
@@ -1157,8 +1157,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1175,15 +1173,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../Backtracking/" class="md-nav__link ">
               
   
   
@@ -1197,7 +1195,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_11">
             <span class="md-nav__icon md-icon"></span>
             Backtracking
@@ -1218,8 +1216,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1238,11 +1238,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" checked>
         
           
           <label class="md-nav__link" for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
@@ -1258,7 +1258,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_12">
             <span class="md-nav__icon md-icon"></span>
             Math
@@ -1272,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Math/Division_Algorithm/" class="md-nav__link">
+      <a href="../Division_Algorithm/" class="md-nav__link">
         
   
   
@@ -1342,7 +1342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Math/Fundamental_Theorem_Of_Arithmetic/Introduction/" class="md-nav__link">
+      <a href="../Fundamental_Theorem_Of_Arithmetic/Introduction/" class="md-nav__link">
         
   
   
@@ -1365,7 +1365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Math/Fundamental_Theorem_Of_Arithmetic/claude_ugly_number_analysis/" class="md-nav__link">
+      <a href="../Fundamental_Theorem_Of_Arithmetic/claude_ugly_number_analysis/" class="md-nav__link">
         
   
   
@@ -1393,6 +1393,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1409,15 +1411,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../Math/Arithmetic_Series_and_Gauss_Summation/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   
@@ -1431,7 +1433,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_12_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_12_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_12_3">
             <span class="md-nav__icon md-icon"></span>
             Arithmetic Series and Gauss Summation
@@ -1502,7 +1504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Math/Appendix/Number_Theoretic_Notation/" class="md-nav__link">
+      <a href="../Appendix/Number_Theoretic_Notation/" class="md-nav__link">
         
   
   
@@ -1525,7 +1527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Math/Appendix/Set_Theoretic_Notation/" class="md-nav__link">
+      <a href="../Appendix/Set_Theoretic_Notation/" class="md-nav__link">
         
   
   
@@ -1598,7 +1600,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../blog/" class="md-nav__link ">
+            <a href="../../../blog/" class="md-nav__link ">
               
   
   
@@ -1680,7 +1682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2025/" class="md-nav__link">
+      <a href="../../../blog/archive/2025/" class="md-nav__link">
         
   
   
@@ -1770,7 +1772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/aws/" class="md-nav__link">
+      <a href="../../../blog/category/aws/" class="md-nav__link">
         
   
   
@@ -1795,7 +1797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/basics/" class="md-nav__link">
+      <a href="../../../blog/category/basics/" class="md-nav__link">
         
   
   
@@ -1820,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/c/" class="md-nav__link">
+      <a href="../../../blog/category/c/" class="md-nav__link">
         
   
   
@@ -1845,7 +1847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/etl/" class="md-nav__link">
+      <a href="../../../blog/category/etl/" class="md-nav__link">
         
   
   
@@ -1870,7 +1872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/encodings/" class="md-nav__link">
+      <a href="../../../blog/category/encodings/" class="md-nav__link">
         
   
   
@@ -1895,7 +1897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/iam/" class="md-nav__link">
+      <a href="../../../blog/category/iam/" class="md-nav__link">
         
   
   
@@ -1920,7 +1922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/serverless/" class="md-nav__link">
+      <a href="../../../blog/category/serverless/" class="md-nav__link">
         
   
   
@@ -1979,7 +1981,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../resources/" class="md-nav__link ">
+            <a href="../../../resources/" class="md-nav__link ">
               
   
   
@@ -2037,7 +2039,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../About/" class="md-nav__link ">
+            <a href="../../../About/" class="md-nav__link ">
               
   
   
@@ -2094,51 +2096,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#problem-generate-n-bit-binary-numbers" class="md-nav__link">
+  <a href="#gauss-summation" class="md-nav__link">
     <span class="md-ellipsis">
-      Problem: Generate N-bit Binary Numbers
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Problem: Generate N-bit Binary Numbers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Examples:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#constraints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Constraints:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementation-approaches" class="md-nav__link">
-    <span class="md-ellipsis">
-      Implementation Approaches
+      Gauss' Summation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#comparison-of-approaches" class="md-nav__link">
+  <a href="#generalizing-to-any-arithmetic-series" class="md-nav__link">
     <span class="md-ellipsis">
-      Comparison of Approaches
+      Generalizing to Any Arithmetic Series
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practice
     </span>
   </a>
   
@@ -2160,339 +2147,113 @@
 
 
 
-<h1 id="backtracking">Backtracking<a class="headerlink" href="#backtracking" title="Permanent link">&para;</a></h1>
-<p>Backtracking seems confusing and difficult to learn, because there are so many different ways of doing the same thing.</p>
-<p>Here, we solve the same problem in many different ways only to see the possibilities.</p>
-<p>There is no stasifying and clear definition of backtracking I have found yet. I like to define it as an exhaustive search technique where you make a choice, explore that choice and then undo the choice (backtrack) to make another choice. </p>
-<p><strong><em>This act of making a choice and undoing it is what I think backtracking is.</em></strong></p>
-<p>It looks very much like a depth first tree traversal with state management.</p>
-<h2 id="problem-generate-n-bit-binary-numbers">Problem: Generate N-bit Binary Numbers<a class="headerlink" href="#problem-generate-n-bit-binary-numbers" title="Permanent link">&para;</a></h2>
-<p>Given an integer n, generate all possible binary numbers of length n and return them as a list of strings.</p>
-<h3 id="examples">Examples:<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>Input: n = 2
-Output: [&quot;00&quot;, &quot;01&quot;, &quot;10&quot;, &quot;11&quot;]
+<h1 id="arithmetic-series">Arithmetic Series<a class="headerlink" href="#arithmetic-series" title="Permanent link">&para;</a></h1>
+<p>An arithmetic series is one in which the difference between any two consecutive terms is constant.</p>
+<h2 id="gauss-summation">Gauss' Summation<a class="headerlink" href="#gauss-summation" title="Permanent link">&para;</a></h2>
+<p>As the story goes, when Gauss was a schoolboy his teacher gave the class a task of adding the numbers 1..100 and that is when Gauss came up with this insight :</p>
+<div class="highlight"><pre><span></span><code>#terms for 3 and 4 are ommitted, but you get the picture..
 
-Input: n = 3
-Output: [&quot;000&quot;, &quot;001&quot;, &quot;010&quot;, &quot;011&quot;, &quot;100&quot;, &quot;101&quot;, &quot;110&quot;, &quot;111&quot;]
+1 2 3 4 5 6 7 8 9 10
+|_|_____|_|_____|__| 
+  |   1+10=11   |
+  |_____|_|_____|
+      2+9=11
+        |_|
+      5+6=11
 </code></pre></div>
-<h3 id="constraints">Constraints:<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<p>There are 10//2 11s in this sum. So the sum for first 10 numbers is <code>10//2 * (10+1)</code>.</p>
+<p>For odd numbers we can compe with the same formula through a different route.Reverse the series and add each individual term of reverserse serioes to the original series :</p>
+<p><div class="highlight"><pre><span></span><code>1   2  3  4  5  6  7  8  9  10  11
+11 10  9  8  7  6  5  4  3  2   1
+----------------------------------
+12 12  12 12 12 12 12 12 12 12 12
+</code></pre></div>
+We are multiplying n+1,  n times.  And since we multiplied the entire series sum by two by adding it to itsself, we finally divide by two. </p>
+<p>Therefore for 11 the series sum is <code>( (11+1)*11 ) // 2</code>.</p>
+<p>So, utlimately the formula is the same for both even and odd number of terms.</p>
+<p>More formally, this is the formula for the sum of the first <span class="arithmatex">\( n \)</span> natural numbers:</p>
+<div class="arithmatex">\[
+S = 1 + 2 + 3 + \cdots + n = \frac{n(n+1)}{2}
+\]</div>
+<h2 id="generalizing-to-any-arithmetic-series">Generalizing to Any Arithmetic Series<a class="headerlink" href="#generalizing-to-any-arithmetic-series" title="Permanent link">&para;</a></h2>
+<p>The formula for the sum of an arithmetic series can be applied to any sequence where the difference between consecutive terms is constant.</p>
+<p>Given an arithmetic series:</p>
+<div class="arithmatex">\[
+a_1,\, a_2,\, a_3,\, \ldots,\, a_n
+\]</div>
+<p>where:</p>
 <ul>
-<li>1 ≤ n ≤ 16</li>
-<li>The result list should be in lexicographically sorted order</li>
-<li>Each binary number in the output should be exactly n digits long (pad with leading zeros if necessary)</li>
+<li><span class="arithmatex">\( a_1 \)</span> is the first term,</li>
+<li><span class="arithmatex">\( d \)</span> is the common difference,</li>
+<li><span class="arithmatex">\( n \)</span> is the number of terms,</li>
 </ul>
-<h2 id="implementation-approaches">Implementation Approaches<a class="headerlink" href="#implementation-approaches" title="Permanent link">&para;</a></h2>
-<div class="admonition approach">
-<p class="admonition-title">Approach 0: Pure Recursion</p>
-<p>Uses recursive decomposition without backtracking. Each recursive call returns its own result list.
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Recursive Decomposition- There is no need to maintain a path in this implementation. Therefore, no backtracking is required.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">:</span> 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Eg : For n = 3 , We have 3 spots each of which can be filled with 0 or 1.</span>
-
-<span class="sd">    -    -   -</span>
-<span class="sd">    1/0</span>
-<span class="sd">         1/0  </span>
-<span class="sd">             1/0</span>
-
-<span class="sd">    1 1 1</span>
-<span class="sd">    1 1 0</span>
-<span class="sd">    1 0 1</span>
-<span class="sd">    1 0 0</span>
-<span class="sd">    0 1 1</span>
-<span class="sd">    0 1 0</span>
-<span class="sd">    0 0 1</span>
-<span class="sd">    0 0 0 </span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span> 
-        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
-    <span class="c1"># Recursively generate the binary numbers for n-1 bits</span>
-    <span class="c1"># generate(n-1) returns a list of binary numbers of length n-1</span>
-    <span class="c1"># We will take each of these binary numbers and prepend &#39;1&#39; and &#39;0&#39; to each of them</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;1&quot;</span> <span class="o">+</span> <span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span>  <span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">]</span> 
-    <span class="n">r</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span>  <span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">]</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> , l = </span><span class="si">{</span><span class="n">l</span><span class="si">}</span><span class="s2"> , r = </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="c1">#Concatenate the two lists</span>
-    <span class="k">return</span> <span class="n">l</span> <span class="o">+</span> <span class="n">r</span>  
-
-<span class="nb">print</span><span class="p">(</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-</code></pre></div></p>
-<p>This approach:
-- Uses pure recursive decomposition
-- Each call builds its own result independently
-- No need for global state or backtracking
-- More intuitive but less memory efficient
-- Time: O(2^n), Space: O(2^n) due to string copies</p>
-</div>
-<div class="admonition approach">
-<p class="admonition-title">Approach 1: Pre-allocated Array</p>
-<p>Uses a fixed-size array with direct index assignments. Most memory efficient for known size problems.
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Backtracking Implementation Using Pre-allocated Array Strategy</span>
-<span class="sd">Key Features:</span>
-<span class="sd">- Uses fixed-size array instead of growing/shrinking structure</span>
-<span class="sd">- No push/pop operations needed</span>
-<span class="sd">- Memory efficient as array size is known upfront</span>
-<span class="sd">- Implicit undoing of choices through overwriting</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">:</span> 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Implementation Notes:</span>
-<span class="sd">    1. Pre-allocated array of size &#39;n&#39; with None values</span>
-<span class="sd">    2. Each position directly overwritten with 0 or 1</span>
-<span class="sd">    3. No need for explicit undo operations</span>
-<span class="sd">    4. More efficient than stack-based approaches for known size problems</span>
-
-<span class="sd">    Memory Layout (n=3):</span>
-<span class="sd">    Initial: [None, None, None]</span>
-<span class="sd">    During:  [&#39;0&#39;/&#39;1&#39;, &#39;0&#39;/&#39;1&#39;, &#39;0&#39;/&#39;1&#39;]</span>
-
-<span class="sd">    Time Complexity: O(2^n) - must generate all binary numbers</span>
-<span class="sd">    Space Complexity: O(n) - fixed size array, no additional growth</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="c1"># Pre-allocate array of size n - more efficient than growing/shrinking a list</span>
-    <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="c1">#choose  0 or 1 at idx</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="p">:</span> 
-        <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">):</span> 
-            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">[:]))</span>
-            <span class="k">return</span> 
-        <span class="c1"># Direct assignment to index - no push/pop needed</span>
-        <span class="n">path</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
-        <span class="n">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="c1"># No explicit undo needed - next assignment overwrites</span>
-
-        <span class="n">path</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
-        <span class="n">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="c1"># No explicit undo needed at end - array will be reused</span>
-
-    <span class="n">backtrack</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">res</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">generate</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-</code></pre></div></p>
-</div>
-<div class="admonition approach">
-<p class="admonition-title">Approach 2: Stack-based with Dual Recursion</p>
-<p>Uses explicit push/pop operations with two separate recursive calls for '0' and '1'.
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Generate n-bit binary numbers using backtracking.</span>
-<span class="sd">Implementation Strategy: Stack-based Backtracking </span>
-<span class="sd">- Uses list as stack for building binary numbers</span>
-<span class="sd">- For each position, we make TWO recursive calls because:</span>
-<span class="sd">  1. First recursive call explores path after choosing &#39;0&#39;</span>
-<span class="sd">  2. Second recursive call explores path after choosing &#39;1&#39;</span>
-<span class="sd">- This creates a binary tree where each node represents a digit position</span>
-<span class="sd">  and has exactly two children (one for &#39;0&#39; and one for &#39;1&#39;)</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">:</span> 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Decision Tree Shows Two Branches at Each Level:</span>
-<span class="sd">    Root</span>
-<span class="sd">    ├── 0 (First recursive call)</span>
-<span class="sd">    │   ├── 00</span>
-<span class="sd">    │   └── 01</span>
-<span class="sd">    └── 1 (Second recursive call)</span>
-<span class="sd">        ├── 10</span>
-<span class="sd">        └── 11</span>
-
-<span class="sd">    Two Recursive Calls Pattern:</span>
-<span class="sd">    1. First Call (with &#39;0&#39;): Explores all possibilities starting with &#39;0&#39;</span>
-<span class="sd">    2. Second Call (with &#39;1&#39;): Explores all possibilities starting with &#39;1&#39;</span>
-
-<span class="sd">    This ensures we generate ALL possible combinations systematically</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#We will treat this as a stack in this implementation</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="c1">#choose  0 or 1 at idx</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="p">:</span> 
-        <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span> 
-            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">[:]))</span>
-            <span class="k">return</span> 
-
-        <span class="c1"># First Recursive Branch: Try &#39;0&#39; at current position</span>
-        <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
-        <span class="n">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Explore all possibilities after choosing &#39;0&#39;</span>
-        <span class="n">path</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>        <span class="c1"># Backtrack by removing &#39;0&#39;</span>
-
-        <span class="c1"># Second Recursive Branch: Try &#39;1&#39; at current position</span>
-        <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
-        <span class="n">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Explore all possibilities after choosing &#39;1&#39;</span>
-        <span class="n">path</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>        <span class="c1"># Backtrack by removing &#39;1&#39;</span>
-
-    <span class="n">backtrack</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">res</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-</code></pre></div></p>
-</div>
-<div class="admonition approach">
-<p class="admonition-title">Approach 3: For-loop Choices</p>
-<p>Uses iteration over choices, making it more extensible for problems with multiple choices.
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Generate n-bit binary numbers using backtracking with for-loop iteration.</span>
-<span class="sd">Implementation Strategy: For-loop Based Choice Selection</span>
-<span class="sd">- Uses pre-allocated array like version 2</span>
-<span class="sd">- Iterates over choices using for-loop instead of explicit recursive calls</span>
-<span class="sd">- More generalizable pattern that can handle multiple choices beyond just binary</span>
-<span class="sd">- Common pattern in backtracking problems where we iterate over available choices</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">:</span> 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Key Differences from Other Versions:</span>
-<span class="sd">    1. Uses for-loop to iterate over choices [&#39;0&#39;,&#39;1&#39;]</span>
-<span class="sd">    2. Single recursive call instead of multiple explicit ones</span>
-<span class="sd">    3. More extensible - easy to add more choices if needed</span>
-<span class="sd">    4. Common pattern seen in other backtracking problems like:</span>
-<span class="sd">       - Generating permutations (choices are remaining numbers)</span>
-<span class="sd">       - N-Queens (choices are valid positions)</span>
-<span class="sd">       - Sudoku (choices are valid digits)</span>
-
-<span class="sd">    Memory Layout:</span>
-<span class="sd">    - Pre-allocated array: [None] * n</span>
-<span class="sd">    - Choices handled by for-loop: for choice in [&#39;0&#39;,&#39;1&#39;]</span>
-<span class="sd">    - Implicit undo through overwriting</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="c1">#choose  0 or 1 at idx</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="p">:</span> 
-        <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">):</span> 
-            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">[:]))</span>
-            <span class="k">return</span> 
-        <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">]</span> <span class="p">:</span> 
-            <span class="n">path</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">choice</span>
-            <span class="n">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-            <span class="c1">#Here we dont care if path[idx] overwritten,</span>
-            <span class="c1">#Undo of choice is implicit</span>
-
-    <span class="n">backtrack</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">res</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-</code></pre></div></p>
-</div>
-<div class="admonition approach">
-<p class="admonition-title">Approach 4: Dynamic Stack with For-loop</p>
-<p>Combines dynamic stack operations with for-loop choice iteration for clearer state management.
-<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Backtracking with Dynamic Stack &amp; For-loop Choices</span>
-<span class="sd">Key Features:</span>
-<span class="sd">- Combines dynamic stack operations (like version 3) with for-loop choice iteration (like version 4)</span>
-<span class="sd">- Explicit undo operations through pop() (unlike version 2 &amp; 4&#39;s implicit overwrites)</span>
-<span class="sd">- More verbose but clearer state management</span>
-<span class="sd">- Shows complete choice-explore-undo cycle explicitly</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">:</span> 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Implementation Characteristics:</span>
-<span class="sd">    1. Dynamic Growth: path grows/shrinks as we make/undo choices</span>
-<span class="sd">    2. Explicit State Management:</span>
-<span class="sd">       - Choice: path.append(choice)</span>
-<span class="sd">       - Explore: backtrack(idx+1)</span>
-<span class="sd">       - Undo: path.pop()</span>
-<span class="sd">    3. Uses for-loop for choices (more flexible than dual recursion)</span>
-<span class="sd">    4. Memory Usage: O(n) but with dynamic resizing overhead</span>
-
-<span class="sd">    Choice-Explore-Undo Pattern:</span>
-<span class="sd">    For each position:</span>
-<span class="sd">        For each choice (0,1):</span>
-<span class="sd">            1. Make choice (append)</span>
-<span class="sd">            2. Explore further (recurse)</span>
-<span class="sd">            3. Undo choice (pop)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># We will treat this like a stack in this implementation</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="c1">#choose  0 or 1 at idx</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="p">:</span> 
-        <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span> 
-            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">[:]))</span>
-            <span class="k">return</span> 
-        <span class="k">for</span> <span class="n">choice</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">]</span> <span class="p">:</span> 
-            <span class="c1"># State Change: Add choice to current path</span>
-            <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span>
-            <span class="c1"># Explore: Recurse with this choice in place</span>
-            <span class="n">backtrack</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-            <span class="c1"># State Restoration: Remove choice before next iteration</span>
-            <span class="n">path</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>  <span class="c1"># Explicit undo - different from array overwrite versions</span>
-
-    <span class="n">backtrack</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">res</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">generate</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-</code></pre></div></p>
-</div>
-<h2 id="comparison-of-approaches">Comparison of Approaches<a class="headerlink" href="#comparison-of-approaches" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Approach</th>
-<th>Memory Usage</th>
-<th>State Management</th>
-<th>Extensibility</th>
-<th>Code Clarity</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Pure Recursion</td>
-<td>O(2^n)</td>
-<td>None (functional)</td>
-<td>Limited</td>
-<td>Excellent</td>
-</tr>
-<tr>
-<td>Pre-allocated Array</td>
-<td>Most efficient (O(n) fixed)</td>
-<td>Implicit (overwrites)</td>
-<td>Limited</td>
-<td>Good</td>
-</tr>
-<tr>
-<td>Stack with Dual Recursion</td>
-<td>O(n) with resizing</td>
-<td>Explicit (push/pop)</td>
-<td>Limited</td>
-<td>Very Good</td>
-</tr>
-<tr>
-<td>For-loop Choices</td>
-<td>O(n) fixed</td>
-<td>Implicit (overwrites)</td>
-<td>Excellent</td>
-<td>Good</td>
-</tr>
-<tr>
-<td>Dynamic Stack with For-loop</td>
-<td>O(n) with resizing</td>
-<td>Most explicit</td>
-<td>Excellent</td>
-<td>Excellent</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition success">
-<p class="admonition-title">Key Takeaways</p>
+<p>the sum <span class="arithmatex">\( S \)</span> of the series is:</p>
+<div class="arithmatex">\[
+S = \frac{n}{2} \times (a_1 + a_n)
+\]</div>
+<p>where <span class="arithmatex">\( a_n \)</span> is the last term.</p>
+<p>Alternatively, since <span class="arithmatex">\( a_n = a_1 + (n-1)d \)</span>, the formula can also be written as:</p>
+<div class="arithmatex">\[
+S = \frac{n}{2} \times [2a_1 + (n-1)d]
+\]</div>
+<p><strong>Example:</strong></p>
+<p>For the series <span class="arithmatex">\( 2,\, 4,\, 6,\, 8 \)</span> :</p>
+<ul>
+<li><span class="arithmatex">\( a_1 = 2 \)</span></li>
+<li><span class="arithmatex">\( d = 2 \)</span></li>
+<li><span class="arithmatex">\( n = 4 \)</span></li>
+<li><span class="arithmatex">\( a_n = 8 \)</span></li>
+</ul>
+<p>Applying the formula:</p>
+<div class="arithmatex">\[
+S = \frac{4}{2} \times (2 + 8) = 2 \times 10 = 20
+\]</div>
+<p>This formula works for any arithmetic series, not just the sum of the first <span class="arithmatex">\( n \)</span> natural numbers.</p>
+<h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Pure Recursion</strong>: Intuitive but least memory efficient. No bactracking involved.</li>
-<li><strong>Pre-allocated Array</strong>: Best for memory efficiency when size is known</li>
-<li><strong>Stack with Dual Recursion</strong>: Most intuitive for binary choices</li>
-<li><strong>For-loop Choices</strong>: Most extensible for varying number of choices</li>
-<li><strong>Dynamic Stack with For-loop</strong>: Best balance of clarity and flexibility</li>
+<li><a href="https://mathbitsnotebook.com/Algebra2/Sequences/SSGauss.html">https://mathbitsnotebook.com/Algebra2/Sequences/SSGauss.html</a> </li>
 </ol>
-</div>
+<h2 id="practice">Practice<a class="headerlink" href="#practice" title="Permanent link">&para;</a></h2>
+<details class="example">
+<summary><a href="https://leetcode.com/problems/arranging-coins/description/" target="_blank">Arranging Coins</a></summary>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">https://mathbitsnotebook.com/Algebra2/Sequences/SSGauss.html</span>
+
+<span class="sd">#Gauss summation</span>
+<span class="sd">1 + 2 + 3 + 4</span>
+<span class="sd">5 + 5  = (x+1)*x//2 = 4(5) //2 # x = 3</span>
+<span class="sd">1+ 2 + 3 + 4 + 5</span>
+<span class="sd">6 + 6 +3   = (6*5)//2 = 15 # x = 5        </span>
+
+<span class="sd">Find x which is closest to n using bisect left</span>
+<span class="sd">   Question : for this x is gauss summation less than n. </span>
+
+<span class="sd">lo could be equal to n -&gt; return lo</span>
+<span class="sd">else return lo -1</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_less</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Is gauss sum less than n </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">//</span><span class="mi">2</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="n">n</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">arrangeCoins</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">lo</span><span class="p">,</span><span class="n">hi</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+        <span class="k">while</span> <span class="n">lo</span> <span class="o">&lt;</span> <span class="n">hi</span> <span class="p">:</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo</span><span class="o">+</span><span class="n">hi</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+            <span class="c1">#print(lo,hi,mid)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_less</span><span class="p">(</span><span class="n">mid</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="p">:</span>
+                <span class="n">lo</span> <span class="o">=</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span>
+            <span class="k">else</span> <span class="p">:</span>  
+                <span class="n">hi</span> <span class="o">=</span> <span class="n">mid</span> 
+        <span class="k">if</span> <span class="n">lo</span><span class="o">*</span><span class="p">(</span><span class="n">lo</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span> <span class="o">==</span> <span class="n">n</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="n">lo</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="n">lo</span><span class="o">-</span><span class="mi">1</span> 
+</code></pre></div>
+</details>
 
 
 
@@ -2527,7 +2288,7 @@ Output: [&quot;000&quot;, &quot;001&quot;, &quot;010&quot;, &quot;011&quot;, &qu
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../Basic_Recursion/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Basic Recursion">
+          <a href="../Fundamental_Theorem_Of_Arithmetic/claude_ugly_number_analysis/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Ugly Number Problem">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2537,20 +2298,20 @@ Output: [&quot;000&quot;, &quot;001&quot;, &quot;010&quot;, &quot;011&quot;, &qu
                 Previous
               </span>
               <div class="md-ellipsis">
-                Basic Recursion
+                The Ugly Number Problem
               </div>
             </div>
           </a>
         
         
           
-          <a href="../Math/Division_Algorithm/" class="md-footer__link md-footer__link--next" aria-label="Next: The Division Algorithm">
+          <a href="../Appendix/Number_Theoretic_Notation/" class="md-footer__link md-footer__link--next" aria-label="Next: Number Theoretic Notation">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                The Division Algorithm
+                Number Theoretic Notation
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2586,10 +2347,10 @@ Output: [&quot;000&quot;, &quot;001&quot;, &quot;010&quot;, &quot;011&quot;, &qu
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
