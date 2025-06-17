@@ -7,6 +7,8 @@ nav :
  - K_Way_Merge
  - "Comparison Based Sorting" : properties_of_comparison_based_sorting_algorithms.md
  - External_Sorting.md
+ - Array_Linearization
+ - Misc_Array_Problems
  - Binary_search
  - Basic_Recursion
  - Backtracking
