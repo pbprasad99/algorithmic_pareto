@@ -4,11 +4,11 @@ Backtracking seems confusing and difficult to learn, because there are so many d
 
 Here, we solve the same problem in many different ways only to see the possibilities.
 
-There is no stasifying and clear definition of backtracking I have found yet. I like to define it as an exhaustive search technique where you make a choice, explore that choice and then undo the choice (backtrack) to make another choice. 
+There is no staisfying and clear definition of backtracking I have found yet. I like to define it as an exhaustive search technique where you make a choice, explore that choice and then undo the choice (backtrack) to make another choice. 
 
-***This act of making a choice and undoing it is what I think backtracking is.***
+***This act of making a choice and undoing it is backtracking.***
 
-It looks very much like a depth first tree traversal with state management.
+It looks very much like a depth first tree traversal (or graph) traversal with state management.
 
 ## Problem: Generate N-bit Binary Numbers
 
