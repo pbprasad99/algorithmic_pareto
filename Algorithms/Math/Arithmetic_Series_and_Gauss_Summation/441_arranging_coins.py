@@ -1,5 +1,7 @@
 """
-https://mathbitsnotebook.com/Algebra2/Sequences/SSGauss.html
+Solution for : https://leetcode.com/problems/arranging-coins/description/
+
+Ref : https://mathbitsnotebook.com/Algebra2/Sequences/SSGauss.html
 
 #Gauss summation
 1 + 2 + 3 + 4
