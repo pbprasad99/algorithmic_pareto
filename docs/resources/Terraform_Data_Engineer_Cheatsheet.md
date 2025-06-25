@@ -22,6 +22,7 @@ And more..
 - **Workspaces**: Isolate environments (e.g., `dev`, `staging`, `prod`) within a single configuration directory using multiple state files. **Note**: This project uses folder-based isolation (separate directories for each environment) instead of workspaces for better clarity and flexibility.
 
 ## 2. Key Terraform Components and State Management
+
 - **State Management**: 
 
   - The `terraform.tfstate` file records the current state of your infrastructure, mapping Terraform configurations to real-world resources, including dynamically generated attributes (e.g., S3 bucket ARNs, RDS endpoints).
@@ -32,6 +33,7 @@ And more..
   - **State Drift**: Occurs when manual changes bypass Terraform. Use `terraform refresh` to update state or `terraform import` to bring resources under management.
 
 - **outputs.tf**: 
+
   - Defines output values exposed after `terraform apply`, such as resource IDs, endpoints, or computed values (e.g., S3 bucket ARN, RDS endpoint).
   - **How It Works**: Outputs reference attributes stored in the state file, which captures dynamically generated values during resource creation. `outputs.tf` itself does not store values but declares what to extract from the state.
   - **Example**:
