@@ -3775,7 +3775,9 @@
 <li>
 <p><strong>outputs.tf</strong>: </p>
 </li>
-<li>Defines output values exposed after <code>terraform apply</code>, such as resource IDs, endpoints, or computed values (e.g., S3 bucket ARN, RDS endpoint).</li>
+<li>
+<p>Defines output values exposed after <code>terraform apply</code>, such as resource IDs, endpoints, or computed values (e.g., S3 bucket ARN, RDS endpoint).</p>
+</li>
 <li><strong>How It Works</strong>: Outputs reference attributes stored in the state file, which captures dynamically generated values during resource creation. <code>outputs.tf</code> itself does not store values but declares what to extract from the state.</li>
 <li><strong>Example</strong>:
     <div class="highlight"><pre><span></span><code><span class="kr">output</span><span class="w"> </span><span class="nv">&quot;s3_bucket_arn&quot;</span><span class="w"> </span><span class="p">{</span>
