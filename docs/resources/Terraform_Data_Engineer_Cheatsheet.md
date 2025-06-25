@@ -1,8 +1,8 @@
 # Terraform Cheatsheet
 
-!!! warning AI Assisted (Grok 3)
+!!! warning "AI Assisted (Grok 3)"
 
-A cheatsheet which is actually useful to setup production grade IaC project using Terraform and Gitlab covring :
+A cheatsheet which is actually useful to setup production grade IaC project using Terraform and Gitlab covwring :
 
    - **Multi-Environment setup**
    - **CI/CD**
@@ -790,6 +790,7 @@ backup_state_prod:
 Plan artifacts (`tfplan`, `tfplan.json`, `tfplan.txt`), apply logs (`apply.log`), and output files (`outputs.json`) are generated during the `plan` and `apply` stages and stored in GitLab for review, auditing, and automation.
 
 #### Steps to Review
+
 1. **Access Artifacts**: In GitLab, navigate to the pipeline or merge request, go to the `plan_dev`, `plan_staging`, `plan_prod`, `apply_dev`, `apply_staging`, or `apply_prod` job, and download the artifacts.
 2. **Review Plan Artifacts**:
    - Open `tfplan.txt` for a human-readable summary of proposed changes.
@@ -807,6 +808,7 @@ Plan artifacts (`tfplan`, `tfplan.json`, `tfplan.txt`), apply logs (`apply.log`)
 6. **Apply Changes**: After approving plan artifacts, trigger the corresponding `apply` job, which uses the `tfplan` artifact, generates `apply.log`, and captures `outputs.json`.
 
 #### Example Workflow
+
 - A developer pushes a change to the `main` branch, triggering `plan_dev`.
 - The team downloads `environments/dev/tfplan.txt` to review changes (e.g., new S3 bucket).
 - They check `tfplan.json` with `jq` to verify compliance (e.g., correct instance types).
@@ -814,6 +816,7 @@ Plan artifacts (`tfplan`, `tfplan.json`, `tfplan.txt`), apply logs (`apply.log`)
 - The team reviews `outputs.json` to confirm resource endpoints (e.g., `data_lake_arn`).
 
 ## 11. Best Practices (General)
+
 - **Modularize**: Break infrastructure into reusable modules (e.g., S3, RDS, Databricks, Glue).
 - **Version Control**: Store Terraform code in Git, with separate branches for environments.
 - **State Security**: Use remote backends with encryption and locking (e.g., S3 + DynamoDB).
@@ -823,18 +826,23 @@ Plan artifacts (`tfplan`, `tfplan.json`, `tfplan.txt`), apply logs (`apply.log`)
 - **Testing**: Use `terraform plan` to validate changes; consider tools like `terratest`.
 - **CI/CD Integration**: Integrate with GitLab CI/CD for automated deployments.
 - **Environment Isolation**: Use separate folders or state files for `dev`, `staging`, `prod` instead of workspaces for better clarity and flexibility.
+
 - **RDS-Specific Best Practices**:
+
   - Use `multi_az` for production to ensure high availability.
   - Store `db_password` in AWS Secrets Manager and reference it via `data` sources.
   - Enable automated backups with appropriate retention periods.
   - Use parameter groups to tune database performance per environment.
+
 - **Glue-Specific Best Practices**:
+
   - Store PySpark scripts in S3 and reference them in `script_location`.
   - Use environment-specific worker types and counts to optimize cost and performance.
   - Enable CloudWatch metrics and logs for job monitoring.
   - Use IAM roles with specific permissions for S3, CloudWatch, and other services.
 
 ## 12. Best Practices for CI/CD Pipelines with IaC
+
 - **Separate Environments**: Use distinct jobs for each environment (`dev`, `staging`, `prod`) to prevent cross-contamination. This project uses separate folders (`environments/<env>`) instead of Terraform workspaces for clear isolation and environment-specific configurations.
 - **Manual Approvals**: Require manual triggers for `apply` jobs, especially for production, to avoid unintended changes.
 - **State Management**: Use remote backends with locking (e.g., S3 with DynamoDB) to prevent concurrent state modifications.
@@ -855,11 +863,14 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 - **Testing**: Integrate testing tools like `terratest` or `checkov` for unit, integration, and compliance testing of Terraform modules and plans.
 - **Pipeline Triggers**: Run pipelines on merge requests and main branch pushes to catch issues early.
 - **Version Pinning**: Pin Terraform and provider versions in the pipeline to avoid breaking changes.
+
 - **Rollback Strategy**:
+
   - **State Backups**: Regularly back up `terraform.tfstate` to a separate S3 bucket after `apply` to enable recovery from failures or unintended changes. Use versioning on the backup bucket for additional protection.
   - **Terraform Destroy**: Document procedures for `terraform destroy` to remove all managed resources in an environment, including prerequisites (e.g., emptying S3 buckets) and post-cleanup steps (e.g., removing state files).
   - **Manual Rollback**: Maintain documentation for manual rollback of specific resources (e.g., reverting RDS instance types, deleting Glue jobs) when `destroy` is too destructive, including steps to restore from backups or previous state files.
   - **Implementation**: Automate state backups in the CI/CD pipeline post-`apply`. Include rollback instructions in `README.md` or a dedicated `ROLLBACK.md`.
+
 - **Monitoring and Logging**: Enable verbose logging (`TF_LOG=DEBUG`) for debugging and monitor pipeline logs in GitLab.
 - **Code Reviews**: Require peer reviews for merge requests to ensure quality and catch potential issues.
 - **Documentation**: Include pipeline setup, artifact review, log retention, rollback procedures, output management, and data source usage instructions in `README.md`.
@@ -895,6 +906,7 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
   - Remove state file from S3: `aws s3 rm s3://my-terraform-state/data-infra/dev/terraform.tfstate`.
   - Update lock table (e.g., DynamoDB) if necessary.
 - **Documentation**:
+
   - Create a `ROLLBACK.md` with steps:
     ```markdown
     # Terraform Destroy Rollback
@@ -909,6 +921,7 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
   - Requires careful validation to avoid data loss.
 
 #### Manual Rollback
+
 - **Why**: For targeted rollbacks when `destroy` is too aggressive (e.g., reverting an RDS instance type change).
 - **How**:
   - Modify Terraform code to revert changes (e.g., set `instance_class` back to original value).
@@ -927,9 +940,11 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
     ```markdown
     ## Manual Rollback
     # RDS Example
+
     1. Restore state: `aws s3 cp s3://my-terraform-state-backup/...`.
     2. Update `instance_class` in `modules/rds/main.tf`.
     3. Run `terraform plan` and `terraform apply`.
+
     ## S3 Bucket
     1. Delete objects: `aws s3 rm s3://<bucket> --recursive`.
     2. Update Terraform to remove or bucket or adjust policies.
@@ -940,24 +955,32 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
   - Log all rollback actions for audit purposes.
 
 ## 13. Common Gotchas
+
 - **State Drift**: Use `terraform refresh` to sync state with actual infrastructure.
 - **Provider Versions**: Pin versions to avoid breaking changes.
 - **Resource Dependencies**: Use `depends_on` or implicit dependencies (e.g., referencing outputs).
 - **Sensitive Data**: Store secrets in AWS Secrets Manager or HashiCorp Vault, not `.tfvars`.
 - **Rate Limits**: Handle cloud provider API limits with `terraform plan` retries or delays.
 - **RDS-Specific Gotchas**:
+
   - Changing `allocated_storage` or `instance_class` may cause downtime.
   - Ensure `subnet_ids` are in the same VPC as `security_group_ids`.
   - Avoid `skip_final_snapshot` in production to prevent data loss.
+
 - **Glue-Specific Gotchas**:
+
   - Ensure the Glue IAM role has permissions for S3 bucket script and temp directories.
   - Verify `glue_version` compatibility with PySpark script dependencies.
   - Monitor job execution time to avoid unexpected costs in production.
+
 - **CI/CD-Specific Gotchas**:
+
   - Ensure CI/CD runners have correct permissions for each environment.
   - Avoid caching sensitive state files or logs in CI/CD pipelines.
   - Test pipeline changes in a non-production branch first.
+
   - **Output-Specific Gotchas**:
+
     - Avoid outputting sensitive data (e.g., database passwords) in `outputs.tf`.
     - Outputs are only updated after `terraform apply` or `terraform refresh` if state changes.
     - Missing outputs in `outputs.tf` can’t be retrieved without redefining them.
@@ -968,6 +991,7 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
     - Ensure provider versions support required data source attributes.
 
 ## 14. Advanced Features
+
 - **Dynamic Blocks**: Generate repetitive resource configurations.
   ```hcl
   resource "aws_s3_bucket" "bucket" {
@@ -984,6 +1008,7 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
     }
   }
   ```
+
 - **Count and For_Each**: Create multiple resources dynamically.
   ```hcl
   resource "aws_s3_bucket" "buckets" {
@@ -991,7 +1016,9 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
     bucket   = "${each.key}-${var.environment}"
   }
   ```
+
 - **Data Sources**:
+
   - **Definition**: Query existing resources or external data without managing them to retrieve attributes (e.g., VPC IDs, AMI IDs, database names).
   - **Syntax**:
     ```hcl
@@ -1005,12 +1032,16 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
       default = true
     }
     ```
+
   - **Use Cases**:
+
     - Reference existing infrastructure (e.g., VPCs, IAM roles).
     - Fetch dynamic values (e.g., latest AMI ID, availability zones).
     - Integrate with other Terraform state files (e.g., `terraform_remote_state`).
     - Query external APIs or scripts (e.g., `external` provider).
+
   - **Examples**:
+
     - **AWS**: Fetch subnets for an RDS instance:
       ```hcl
       data "aws_vpc" "default" {
@@ -1030,6 +1061,7 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
         subnet_ids = data.aws_subnets.default_subnets.ids
       }
       ```
+
     - **Remote State**: Access another project’s outputs:
       ```hcl
       # Fetch outputs from another Terraform configuration
@@ -1274,17 +1306,17 @@ Folder-based isolation involves organizing Terraform configurations into separat
 #### Terraform Workspaces
 Terraform workspaces allow multiple environments to share the same configuration files within a single directory, using different state files for each workspace (e.g., `default`, `dev`, `staging`, `prod`). Workspaces are managed with commands like `terraform workspace new <env>` and `terraform workspace select <env>`, and variables are typically controlled via CLI flags or conditional logic.
 
-## Advantages of Folder-Based Isolation
+#### Advantages of Folder-Based Isolation
 
 The folder-based isolation approach, as demonstrated in the cheatsheet's `environments/` structure, offers several advantages over workspaces, particularly for data infrastructure projects involving complex resources like S3 buckets, RDS databases, Snowflake, Databricks, and Glue jobs.
 
-#### 1. **Clear Separation of Configurations**
+##### 1. **Clear Separation of Configurations**
 - **Advantage**: Each environment has its own dedicated directory with independent configuration files, making it easier to customize resources, variables, and outputs without relying on conditional logic.
 - **Example**: In the cheatsheet, `environments/dev/main.tf` might define a smaller RDS instance (`db.t3.micro`) compared to `environments/prod/main.tf` (`db.m5.large`). This is explicit and avoids complex `if` statements or workspace-specific variables.
 - **Workspace Challenge**: With workspaces, all environments share the same `main.tf`, requiring conditional logic (e.g., `count = terraform.workspace == "prod" ? 1 : 0`) or variable overrides, which can lead to errors or reduced readability.
 - **Impact**: Folder-based isolation improves maintainability and reduces the risk of misconfiguration, especially for data engineers managing diverse infrastructure across environments.
 
-#### 2. **Independent State Files and Backends**
+##### 2. **Independent State Files and Backends**
 - **Advantage**: Each environment has its own state file and backend configuration, stored in separate paths (e.g., `s3://my-terraform-state/data-infra/dev/terraform.tfstate` vs. `s3://my-terraform-state/data-infra/prod/terraform.tfstate`), ensuring complete isolation.
 - **Example**: The cheatsheet's `environments/dev/backend.tf` specifies:
   ```hcl
@@ -1301,7 +1333,7 @@ The folder-based isolation approach, as demonstrated in the cheatsheet's `enviro
 - **Workspace Challenge**: Workspaces store state files in the same backend with a workspace prefix (e.g., `env:/dev/terraform.tfstate`), which can lead to accidental state overwrites if the wrong workspace is selected. Additionally, all workspaces share the same backend configuration, limiting flexibility.
 - **Impact**: Folder-based isolation enhances security and auditability by ensuring state files are distinctly managed, critical for compliance in data infrastructure projects.
 
-#### 3. **Simplified CI/CD Pipelines**
+##### 3. **Simplified CI/CD Pipelines**
 - **Advantage**: Folder-based isolation aligns naturally with CI/CD pipelines, as each environment's directory can be targeted independently, reducing complexity in pipeline scripts.
 - **Example**: The cheatsheet's `.gitlab-ci.yml` defines separate jobs (`plan_dev`, `apply_dev`, `plan_staging`, etc.) that operate on specific directories (e.g., `cd environments/dev`). This avoids the need to switch workspaces in the pipeline, simplifying configuration and reducing errors.
   ```yaml
@@ -1315,31 +1347,31 @@ The folder-based isolation approach, as demonstrated in the cheatsheet's `enviro
 - **Workspace Challenge**: With workspaces, pipelines must run `terraform workspace select <env>` before each job, increasing the risk of selecting the wrong workspace or encountering state conflicts. This adds complexity to pipeline scripts and requires careful error handling.
 - **Impact**: Folder-based isolation streamlines GitLab CI/CD pipelines, improving reliability and auditability for automated deployments of data infrastructure.
 
-#### 4. **Enhanced Team Collaboration**
+##### 4. **Enhanced Team Collaboration**
 - **Advantage**: Separate directories make it easier for teams to work on different environments simultaneously without conflicts, as each environment's configuration and state are isolated.
 - **Example**: In the cheatsheet, a developer can modify `environments/dev/main.tf` to test a new Glue job while another team member updates `environments/prod/main.tf` to adjust RDS settings, without risking state or configuration clashes.
 - **Workspace Challenge**: Workspaces share a single directory, so concurrent changes to `main.tf` or state files can lead to conflicts, especially in large teams. Developers must carefully coordinate workspace selection to avoid overwriting each other's changes.
 - **Impact**: Folder-based isolation supports parallel development, critical for data engineering teams managing complex, multi-environment setups.
 
-#### 5. **Better Auditability and Traceability**
+##### 5. **Better Auditability and Traceability**
 - **Advantage**: Folder-based isolation provides clear, environment-specific configuration files and state files, making it easier to audit changes and track infrastructure history.
 - **Example**: The cheatsheet's structure allows auditors to review `environments/prod/terraform.tfvars` and `apply.log` (stored as artifacts) to verify production settings and changes. State backups in `s3://my-terraform-state/backups/prod/` provide a clear history for rollback or compliance.
 - **Workspace Challenge**: Workspaces mix configurations in a single `main.tf`, requiring auditors to parse conditional logic or variable overrides to understand environment-specific settings. State files are less distinctly separated, complicating audit trails.
 - **Impact**: Folder-based isolation simplifies compliance with regulatory requirements (e.g., GDPR, HIPAA) by providing transparent, environment-specific records.
 
-#### 6. **Flexibility for Environment-Specific Customization**
+##### 6. **Flexibility for Environment-Specific Customization**
 - **Advantage**: Each environment can have unique configurations, providers, or even Terraform versions without affecting others, offering maximum flexibility.
 - **Example**: In the cheatsheet, `environments/staging/` might use a different AWS region or provider version than `environments/prod/`, defined in their respective `main.tf` and `backend.tf`. This is straightforward with separate directories.
 - **Workspace Challenge**: Workspaces share the same provider configuration and Terraform version, limiting customization unless complex workarounds (e.g., provider aliases) are used.
 - **Impact**: Folder-based isolation supports diverse data infrastructure requirements, such as regional differences or provider-specific settings for Snowflake or Databricks.
 
-#### 7. **Reduced Risk of Human Error**
+##### 7. **Reduced Risk of Human Error**
 - **Advantage**: Operating within a specific directory (e.g., `environments/dev/`) eliminates the need to select a workspace, reducing the chance of applying changes to the wrong environment.
 - **Example**: Running `terraform apply` in `environments/dev/` affects only the `dev` environment, with no risk of accidentally targeting `prod`. The cheatsheet's pipeline reinforces this by scoping jobs to directories.
 - **Workspace Challenge**: Forgetting to run `terraform workspace select prod` before `terraform apply` can result in catastrophic changes to the wrong environment, a common error in high-pressure scenarios.
 - **Impact**: Folder-based isolation enhances safety, particularly for production data infrastructure where errors can lead to data loss or downtime.
 
-## When to Use Workspaces
+#### When to Use Workspaces
 While folder-based isolation is generally preferred, workspaces may be suitable for:
 - **Simple Projects**: Small projects with minimal configuration differences between environments (e.g., a single S3 bucket with different names).
 - **Temporary Environments**: Spinning up ephemeral environments (e.g., feature branches) where maintaining separate directories is overkill.
@@ -1347,7 +1379,7 @@ While folder-based isolation is generally preferred, workspaces may be suitable 
 
 However, for data infrastructure projects with complex resources, multiple team members, and strict compliance requirements, folder-based isolation (as in the cheatsheet) is superior.
 
-## Recommendations
+#### Recommendations
 - **Adopt Folder-Based Isolation**: Use the cheatsheet's `environments/` structure to organize `dev`, `staging`, and `prod` configurations in separate directories.
 - **Document in `README.md`**: Include setup instructions for navigating environment directories and running Terraform commands, as shown in the cheatsheet:
   ```markdown
