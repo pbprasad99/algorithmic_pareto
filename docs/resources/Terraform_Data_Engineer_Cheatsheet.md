@@ -2,7 +2,7 @@
 
 !!! warning "AI Assisted (Grok 3)"
 
-A cheatsheet which is actually useful to setup production grade IaC project using Terraform and Gitlab covwring :
+A cheatsheet which is actually useful to setup production grade IaC project using Terraform and Gitlab covering :
 
    - **Multi-Environment setup**
    - **CI/CD**
