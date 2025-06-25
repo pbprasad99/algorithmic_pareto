@@ -1,5 +1,7 @@
 # Python Cheatsheet
 
+!!! warning "WIP" 
+
 Python utility functions to keep in your L1 cache for coding interviews.
 
 ## Strings
