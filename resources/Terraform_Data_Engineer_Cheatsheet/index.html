@@ -3759,14 +3759,22 @@
 </ul>
 <h2 id="2-key-terraform-components-and-state-management">2. Key Terraform Components and State Management<a class="headerlink" href="#2-key-terraform-components-and-state-management" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>State Management</strong>: </li>
-<li>The <code>terraform.tfstate</code> file records the current state of your infrastructure, mapping Terraform configurations to real-world resources, including dynamically generated attributes (e.g., S3 bucket ARNs, RDS endpoints).</li>
+<li>
+<p><strong>State Management</strong>: </p>
+</li>
+<li>
+<p>The <code>terraform.tfstate</code> file records the current state of your infrastructure, mapping Terraform configurations to real-world resources, including dynamically generated attributes (e.g., S3 bucket ARNs, RDS endpoints).</p>
+</li>
 <li><strong>Local State</strong>: Stored locally by default; suitable for solo or small projects but risky for teams due to potential conflicts or loss.</li>
 <li><strong>Remote State</strong>: Store state in a remote backend (e.g., S3, GCS, Azure Blob) with locking (e.g., DynamoDB) to prevent concurrent modifications and enable team collaboration.</li>
 <li><strong>Environment Isolation</strong>: This project uses separate directories (<code>environments/dev</code>, <code>environments/staging</code>, <code>environments/prod</code>) with distinct state files (e.g., <code>data-infra/dev/terraform.tfstate</code>) instead of Terraform workspaces, providing clear separation and environment-specific configurations.</li>
 <li><strong>Best Practices</strong>: Use remote backends for production, encrypt state files, restrict access via IAM, and regularly back up state files.</li>
-<li><strong>State Drift</strong>: Occurs when manual changes bypass Terraform. Use <code>terraform refresh</code> to update state or <code>terraform import</code> to bring resources under management.</li>
-<li><strong>outputs.tf</strong>: </li>
+<li>
+<p><strong>State Drift</strong>: Occurs when manual changes bypass Terraform. Use <code>terraform refresh</code> to update state or <code>terraform import</code> to bring resources under management.</p>
+</li>
+<li>
+<p><strong>outputs.tf</strong>: </p>
+</li>
 <li>Defines output values exposed after <code>terraform apply</code>, such as resource IDs, endpoints, or computed values (e.g., S3 bucket ARN, RDS endpoint).</li>
 <li><strong>How It Works</strong>: Outputs reference attributes stored in the state file, which captures dynamically generated values during resource creation. <code>outputs.tf</code> itself does not store values but declares what to extract from the state.</li>
 <li><strong>Example</strong>:
@@ -3780,8 +3788,12 @@
 </li>
 <li><strong>Updating Outputs</strong>: Edit <code>outputs.tf</code> in the repository to add, modify, or remove outputs. Commit changes to Git, and they take effect on the next <code>terraform apply</code> or <code>terraform output</code>.</li>
 <li><strong>Usage</strong>: Outputs are displayed in the CLI (<code>terraform output</code>), exported to JSON (<code>terraform output -json</code>), used in CI/CD pipelines, or referenced by other modules via remote state.</li>
-<li><strong>Best Practices</strong>: Use descriptive names and descriptions, avoid sensitive data in outputs, and capture outputs in pipelines for automation.</li>
-<li><strong>variables.tf</strong>: Declares input variables with types, defaults, and validations to parameterize configurations.</li>
+<li>
+<p><strong>Best Practices</strong>: Use descriptive names and descriptions, avoid sensitive data in outputs, and capture outputs in pipelines for automation.</p>
+</li>
+<li>
+<p><strong>variables.tf</strong>: Declares input variables with types, defaults, and validations to parameterize configurations.</p>
+</li>
 <li><strong>terraform.tfvars</strong>: Provides default variable values, overridden by environment-specific <code>.tfvars</code> files or CLI flags.</li>
 <li><strong>backend.tf</strong>: Configures the remote state backend, specifying where and how state is stored and locked.</li>
 </ul>
@@ -4243,23 +4255,43 @@ terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span cla
 <h2 id="10-gitlab-cicd-pipeline-for-terraform">10. GitLab CI/CD Pipeline for Terraform<a class="headerlink" href="#10-gitlab-cicd-pipeline-for-terraform" title="Permanent link">&para;</a></h2>
 <p>A GitLab CI/CD pipeline automates validation, planning, and deployment of Terraform configurations across environments, with artifacts stored for review, auditing, and output capture. This project uses folder-based environment isolation (folders like <code>environments/dev</code>, <code>environments/staging</code>, etc.) instead of Terraform workspaces for clarity and flexibility.</p>
 <h3 id="terraform-artifacts">Terraform Artifacts<a class="headerlink" href="#terraform-artifacts" title="Permanent link">&para;</a></h3>
-<p>Terraform artifacts are files generated during pipeline jobs (e.g., <code>terraform plan</code>, <code>terraform apply</code>, or <code>terraform output</code>) saved in GitLab for review, auditing, or downstream use. They include:
-- <strong>Plan Artifacts</strong>:
-  - <code>tfplan</code>: Binary plan file from <code>terraform plan -out=tfplan</code>, used by <code>terraform apply</code>.
-  - <code>tfplan.json</code>: JSON representation (<code>terraform show -json tfplan</code>) for programmatic analysis.
-  - <code>tfplan.txt</code>: Human-readable text (<code>terraform show tfplan</code>) for manual review.
-- <strong>Apply Artifacts</strong>:
-  - <code>apply.log</code>: Log file capturing <code>terraform apply</code> output, detailing infrastructure changes.
-- <strong>Output Artifacts</strong>:
-  - <code>outputs.json</code>: JSON file capturing <code>terraform output -json</code>, containing dynamically generated values (e.g., S3 bucket ARNs, RDS endpoints).
-- <strong>Purpose</strong>:
-  - <strong>Review</strong>: Plan artifacts for verifying changes before applying.
-  - <strong>Audit</strong>: Apply logs and outputs for compliance and debugging.
-  - <strong>Consistency</strong>: Binary <code>tfplan</code> ensures <code>apply</code> matches the reviewed plan.
-  - <strong>Automation</strong>: Outputs enable integration with other systems or modules.
-- <strong>Retention</strong>:
-  - GitLab artifacts can be stored for a specified period (e.g., <code>1 year</code> or <code>forever</code>, subject to GitLab plan).
-  - For long-term audit, upload artifacts to S3 with custom retention policies.</p>
+<p>Terraform artifacts are files generated during pipeline jobs (e.g., <code>terraform plan</code>, <code>terraform apply</code>, or <code>terraform output</code>) saved in GitLab for review, auditing, or downstream use. They include:</p>
+<ul>
+<li>
+<p><strong>Plan Artifacts</strong>:</p>
+</li>
+<li>
+<p><code>tfplan</code>: Binary plan file from <code>terraform plan -out=tfplan</code>, used by <code>terraform apply</code>.</p>
+</li>
+<li><code>tfplan.json</code>: JSON representation (<code>terraform show -json tfplan</code>) for programmatic analysis.</li>
+<li>
+<p><code>tfplan.txt</code>: Human-readable text (<code>terraform show tfplan</code>) for manual review.</p>
+</li>
+<li>
+<p><strong>Apply Artifacts</strong>:</p>
+</li>
+<li>
+<p><code>apply.log</code>: Log file capturing <code>terraform apply</code> output, detailing infrastructure changes.</p>
+</li>
+<li>
+<p><strong>Output Artifacts</strong>:</p>
+</li>
+<li>
+<p><code>outputs.json</code>: JSON file capturing <code>terraform output -json</code>, containing dynamically generated values (e.g., S3 bucket ARNs, RDS endpoints).</p>
+</li>
+<li>
+<p><strong>Purpose</strong>:</p>
+</li>
+<li>
+<p><strong>Review</strong>: Plan artifacts for verifying changes before applying.</p>
+</li>
+<li><strong>Audit</strong>: Apply logs and outputs for compliance and debugging.</li>
+<li><strong>Consistency</strong>: Binary <code>tfplan</code> ensures <code>apply</code> matches the reviewed plan.</li>
+<li><strong>Automation</strong>: Outputs enable integration with other systems or modules.</li>
+<li><strong>Retention</strong>:</li>
+<li>GitLab artifacts can be stored for a specified period (e.g., <code>1 year</code> or <code>forever</code>, subject to GitLab plan).</li>
+<li>For long-term audit, upload artifacts to S3 with custom retention policies.</li>
+</ul>
 <h3 id="capturing-terraform-outputs">Capturing Terraform Outputs<a class="headerlink" href="#capturing-terraform-outputs" title="Permanent link">&para;</a></h3>
 <p>Outputs defined in <code>outputs.tf</code> are captured in the pipeline to expose dynamically generated values for review, automation, or integration with other systems.</p>
 <h4 id="steps-to-capture-outputs">Steps to Capture Outputs<a class="headerlink" href="#steps-to-capture-outputs" title="Permanent link">&para;</a></h4>
@@ -4498,21 +4530,49 @@ terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span cla
 <p>Plan artifacts (<code>tfplan</code>, <code>tfplan.json</code>, <code>tfplan.txt</code>), apply logs (<code>apply.log</code>), and output files (<code>outputs.json</code>) are generated during the <code>plan</code> and <code>apply</code> stages and stored in GitLab for review, auditing, and automation.</p>
 <h4 id="steps-to-review">Steps to Review<a class="headerlink" href="#steps-to-review" title="Permanent link">&para;</a></h4>
 <ol>
-<li><strong>Access Artifacts</strong>: In GitLab, navigate to the pipeline or merge request, go to the <code>plan_dev</code>, <code>plan_staging</code>, <code>plan_prod</code>, <code>apply_dev</code>, <code>apply_staging</code>, or <code>apply_prod</code> job, and download the artifacts.</li>
-<li><strong>Review Plan Artifacts</strong>:</li>
-<li>Open <code>tfplan.txt</code> for a human-readable summary of proposed changes.</li>
-<li>Use <code>tfplan.json</code> for programmatic analysis with tools like <code>jq</code> (e.g., <code>jq '.resource_changes[] | {address: .address, change: .change.actions}' tfplan.json</code>).</li>
-<li><strong>Review Apply Logs</strong>:</li>
-<li>Open <code>apply.log</code> to review the changes applied, including resources created, updated, or deleted.</li>
-<li>For long-term audit, retrieve logs from S3: <code>aws s3 cp s3://my-audit-logs/terraform-apply/&lt;env&gt;/&lt;timestamp&gt;.log .</code></li>
-<li><strong>Review Output Artifacts</strong>:</li>
-<li>Open <code>outputs.json</code> to inspect dynamically generated values (e.g., S3 bucket ARNs, RDS endpoints).</li>
+<li>
+<p><strong>Access Artifacts</strong>: In GitLab, navigate to the pipeline or merge request, go to the <code>plan_dev</code>, <code>plan_staging</code>, <code>plan_prod</code>, <code>apply_dev</code>, <code>apply_staging</code>, or <code>apply_prod</code> job, and download the artifacts.</p>
+</li>
+<li>
+<p><strong>Review Plan Artifacts</strong>:</p>
+</li>
+<li>
+<p>Open <code>tfplan.txt</code> for a human-readable summary of proposed changes.</p>
+</li>
+<li>
+<p>Use <code>tfplan.json</code> for programmatic analysis with tools like <code>jq</code> (e.g., <code>jq '.resource_changes[] | {address: .address, change: .change.actions}' tfplan.json</code>).</p>
+</li>
+<li>
+<p><strong>Review Apply Logs</strong>:</p>
+</li>
+<li>
+<p>Open <code>apply.log</code> to review the changes applied, including resources created, updated, or deleted.</p>
+</li>
+<li>
+<p>For long-term audit, retrieve logs from S3: <code>aws s3 cp s3://my-audit-logs/terraform-apply/&lt;env&gt;/&lt;timestamp&gt;.log .</code></p>
+</li>
+<li>
+<p><strong>Review Output Artifacts</strong>:</p>
+</li>
+<li>
+<p>Open <code>outputs.json</code> to inspect dynamically generated values (e.g., S3 bucket ARNs, RDS endpoints).</p>
+</li>
 <li>Parse with <code>jq</code> (e.g., <code>jq '.data_lake_arn.value' outputs.json</code>).</li>
-<li>For audit or integration, retrieve from S3: <code>aws s3 cp s3://my-audit-logs/terraform-outputs/&lt;env&gt;/&lt;timestamp&gt;.json .</code></li>
-<li><strong>Team Review</strong>:</li>
-<li>Share artifact links in merge request comments or integrate with notification tools (e.g., Slack) to alert reviewers.</li>
-<li>Require approval from team members before triggering <code>apply</code> jobs.</li>
-<li><strong>Apply Changes</strong>: After approving plan artifacts, trigger the corresponding <code>apply</code> job, which uses the <code>tfplan</code> artifact, generates <code>apply.log</code>, and captures <code>outputs.json</code>.</li>
+<li>
+<p>For audit or integration, retrieve from S3: <code>aws s3 cp s3://my-audit-logs/terraform-outputs/&lt;env&gt;/&lt;timestamp&gt;.json .</code></p>
+</li>
+<li>
+<p><strong>Team Review</strong>:</p>
+</li>
+<li>
+<p>Share artifact links in merge request comments or integrate with notification tools (e.g., Slack) to alert reviewers.</p>
+</li>
+<li>
+<p>Require approval from team members before triggering <code>apply</code> jobs.</p>
+</li>
+<li>
+<p><strong>Apply Changes</strong>: After approving plan artifacts, trigger the corresponding <code>apply</code> job, which uses the <code>tfplan</code> artifact, generates <code>apply.log</code>, and captures <code>outputs.json</code>.</p>
+</li>
 </ol>
 <h4 id="example-workflow_1">Example Workflow<a class="headerlink" href="#example-workflow_1" title="Permanent link">&para;</a></h4>
 <ul>
@@ -4565,15 +4625,25 @@ terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span cla
 <li><strong>Linting and Validation</strong>: Run <code>terraform validate</code> and tools like <code>tflint</code> in the pipeline to catch errors early.</li>
 <li><strong>Plan Artifacts</strong>: Store <code>terraform plan</code> outputs to (<code>tfplan</code>, <code>tfplan.json</code>, <code>tfplan.txt</code>) for review before applying, with JSON for automation and text for human-readable review.</li>
 <li><strong>Apply Log Retention</strong>: Store <code>terraform apply</code> logs (<code>apply.log</code>) as GitLab artifacts (e.g., for 1 year) or upload to S3 (e.g., my-audit-logs) for long-term audit retention, with encryption and access controls to meet compliance requirements.</li>
-<li><strong>Output Management</strong>: Capture <code>terraform output -json</code> as <code>outputs.json</code> artifacts for review, audit, or integration with other systems.
-Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-term retention.</li>
-<li><strong>Data Source Management</strong>:</li>
-<li>Minimize data source queries to reduce API calls and improve pipeline performance.</li>
+<li>
+<p><strong>Output Management</strong>: Capture <code>terraform output -json</code> as <code>outputs.json</code> artifacts for review, audit, or integration with other systems.
+Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-term retention.</p>
+</li>
+<li>
+<p><strong>Data Source Management</strong>:</p>
+</li>
+<li>
+<p>Minimize data source queries to reduce API calls and improve pipeline performance.</p>
+</li>
 <li>Use precise filters (e.g., tags, IDs) to avoid ambiguous results.</li>
 <li>Handle missing resources with <code>count</code> or <code>try</code> to prevent pipeline failures.</li>
 <li>Validate data source resolution in the <code>plan</code> stage to catch errors early.</li>
-<li>Document data source dependencies in <code>README.md</code> or comments in <code>.tf</code> files.</li>
-<li><strong>Secure Artifacts</strong>: Restrict access to artifacts to authorized users to protect sensitive data in plan, apply, log, and output files.</li>
+<li>
+<p>Document data source dependencies in <code>README.md</code> or comments in <code>.tf</code> files.</p>
+</li>
+<li>
+<p><strong>Secure Artifacts</strong>: Restrict access to artifacts to authorized users to protect sensitive data in plan, apply, log, and output files.</p>
+</li>
 <li><strong>Role-Based Access</strong>: Use least-privilege IAM roles for CI/CD runners, scoped to specific environments.</li>
 <li><strong>Testing</strong>: Integrate testing tools like <code>terratest</code> or <code>checkov</code> for unit, integration, and compliance testing of Terraform modules and plans.</li>
 <li><strong>Pipeline Triggers</strong>: Run pipelines on merge requests and main branch pushes to catch issues early.</li>
@@ -4601,17 +4671,31 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <h4 id="state-backups">State Backups<a class="headerlink" href="#state-backups" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Why</strong>: The <code>terraform.tfstate</code> file tracks resource mappings, critical for recovery after failed <code>apply</code> or unintended changes.</li>
-<li><strong>How</strong>:</li>
-<li>Configure the pipeline to copy <code>terraform.tfstate</code> to a backup S3 bucket post-<code>apply</code> (see <code>backup_state_*</code> jobs).</li>
+<li>
+<p><strong>How</strong>:</p>
+</li>
+<li>
+<p>Configure the pipeline to copy <code>terraform.tfstate</code> to a backup S3 bucket post-<code>apply</code> (see <code>backup_state_*</code> jobs).</p>
+</li>
 <li>Enable versioning on the backup bucket (<code>my-terraform-state-backup</code>) to retain historical states.</li>
-<li>Example: <code>aws s3 cp s3://my-terraform-state/data-infra/dev/terraform.tfstate s3://my-terraform-state-backup/data-infra/dev/$(date +%Y-%m-%d_%H-%M-%S).tfstate</code></li>
-<li><strong>Restore Process</strong>:</li>
+<li>
+<p>Example: <code>aws s3 cp s3://my-terraform-state/data-infra/dev/terraform.tfstate s3://my-terraform-state-backup/data-infra/dev/$(date +%Y-%m-%d_%H-%M-%S).tfstate</code></p>
+</li>
+<li>
+<p><strong>Restore Process</strong>:</p>
+</li>
 <li>Identify the backup state file (e.g., via S3 console or <code>aws s3 ls</code>).</li>
 <li>Copy to the active state location: <code>aws s3 cp s3://my-terraform-state-backup/data-infra/dev/&lt;timestamp&gt;.tfstate s3://my-terraform-state/data-infra/dev/terraform.tfstate</code>.</li>
 <li>Run <code>terraform plan</code> to verify alignment with infrastructure.</li>
-<li>Apply changes if needed: <code>terraform apply</code>.</li>
-<li><strong>Best Practices</strong>:</li>
-<li>Encrypt backups with S3 server-side encryption.</li>
+<li>
+<p>Apply changes if needed: <code>terraform apply</code>.</p>
+</li>
+<li>
+<p><strong>Best Practices</strong>:</p>
+</li>
+<li>
+<p>Encrypt backups with S3 server-side encryption.</p>
+</li>
 <li>Restrict access via IAM policies.</li>
 <li>Schedule regular backup jobs or trigger post-<code>apply</code>.</li>
 <li>Test restoration periodically to ensure reliability.</li>
@@ -4619,16 +4703,34 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <h4 id="terraform-destroy">Terraform Destroy<a class="headerlink" href="#terraform-destroy" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Why</strong>: <code>terraform destroy</code> removes all Terraform-managed resources in an environment, useful for complete rollback.</li>
-<li><strong>How</strong>:</li>
-<li>Run <code>terraform destroy</code> in the environment directory (e.g., <code>environments/dev</code>).</li>
-<li>Example: <code>cd environments/dev; terraform init; terraform destroy -var-file=terraform.tfvars</code>.</li>
-<li><strong>Prerequisites</strong>:</li>
-<li>Empty S3 buckets (delete objects or disable versioning).</li>
+<li>
+<p><strong>How</strong>:</p>
+</li>
+<li>
+<p>Run <code>terraform destroy</code> in the environment directory (e.g., <code>environments/dev</code>).</p>
+</li>
+<li>
+<p>Example: <code>cd environments/dev; terraform init; terraform destroy -var-file=terraform.tfvars</code>.</p>
+</li>
+<li>
+<p><strong>Prerequisites</strong>:</p>
+</li>
+<li>
+<p>Empty S3 buckets (delete objects or disable versioning).</p>
+</li>
 <li>Remove dependent resources not managed by Terraform (e.g., manually created RDS snapshots).</li>
-<li>Verify state file integrity before execution.</li>
-<li><strong>Post-Cleanup</strong>:</li>
-<li>Remove state file from S3: <code>aws s3 rm s3://my-terraform-state/data-infra/dev/terraform.tfstate</code>.</li>
-<li>Update lock table (e.g., DynamoDB) if necessary.</li>
+<li>
+<p>Verify state file integrity before execution.</p>
+</li>
+<li>
+<p><strong>Post-Cleanup</strong>:</p>
+</li>
+<li>
+<p>Remove state file from S3: <code>aws s3 rm s3://my-terraform-state/data-infra/dev/terraform.tfstate</code>.</p>
+</li>
+<li>
+<p>Update lock table (e.g., DynamoDB) if necessary.</p>
+</li>
 <li>
 <p><strong>Documentation</strong>:</p>
 </li>
@@ -4642,8 +4744,12 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <span class="k">5.</span> Remove state: <span class="sb">`aws s3 rm s3://my-terraform-state/data-infra/&lt;env&gt;/terraform.tfstate`</span>.
 </code></pre></div></p>
 </li>
-<li><strong>Risks</strong>:</li>
-<li>Destructive; unsuitable for partial rollbacks.</li>
+<li>
+<p><strong>Risks</strong>:</p>
+</li>
+<li>
+<p>Destructive; unsuitable for partial rollbacks.</p>
+</li>
 <li>Requires careful validation to avoid data loss.</li>
 </ul>
 <h4 id="manual-rollback">Manual Rollback<a class="headerlink" href="#manual-rollback" title="Permanent link">&para;</a></h4>
@@ -4652,21 +4758,32 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <li><strong>How</strong>:</li>
 <li>Modify Terraform code to revert changes (e.g., set <code>instance_class</code> back to original value).</li>
 <li>Use a previous state backup to restore resource mappings.</li>
-<li>Example (RDS rollback):<ol>
+<li>
+<p>Example (RDS rollback):</p>
+<ol>
 <li>Restore state: <code>aws s3 cp s3://my-terraform-state-backup/data-infra/dev/&lt;timestamp&gt;.tfstate s3://my-terraform-state/data-infra/dev/terraform.tfstate</code>.</li>
 <li>Update <code>main.tf</code> or variables (e.g., <code>instance_class = "db.t3.micro"</code>).</li>
 <li>Run <code>terraform plan</code> and <code>terraform apply</code>.</li>
 </ol>
 </li>
-<li><strong>Specific Cases</strong>:</li>
-<li><strong>S3</strong>: Delete objects or restore from versioning.</li>
+<li>
+<p><strong>Specific Cases</strong>:</p>
+</li>
+<li>
+<p><strong>S3</strong>: Delete objects or restore from versioning.</p>
+</li>
 <li><strong>RDS</strong>: Revert instance type, restore from snapshot, or adjust parameters.</li>
-<li><strong>Glue</strong>: Delete jobs or revert configurations via Terraform.<ul>
+<li>
+<p><strong>Glue</strong>: Delete jobs or revert configurations via Terraform.</p>
+<ul>
 <li><strong>Snowflake</strong>: Drop schemas/tables or restore from time travel.</li>
 </ul>
 </li>
-<li><strong>Documentation</strong>:</li>
-<li>In <code>ROLLBACK.md</code>, detail resource-specific rollback steps:
+<li>
+<p><strong>Documentation</strong>:</p>
+</li>
+<li>
+<p>In <code>ROLLBACK.md</code>, detail resource-specific rollback steps:
     <div class="highlight"><pre><span></span><code><span class="gu">## Manual Rollback</span>
 <span class="gh"># RDS Example</span>
 
@@ -4675,11 +4792,17 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <span class="k">3.</span> Run <span class="sb">`terraform plan`</span> and <span class="sb">`terraform apply`</span>.
 
 <span class="gu">## S3 Bucket</span>
+
 <span class="k">1.</span> Delete objects: <span class="sb">`aws s3 rm s3://&lt;bucket&gt; --recursive`</span>.
 <span class="k">2.</span> Update Terraform to remove or bucket or adjust policies.
-</code></pre></div></li>
-<li><strong>Best Practices</strong>:</li>
-<li>Test rollbacks in <code>dev</code> before applying to production.</li>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Best Practices</strong>:</p>
+</li>
+<li>
+<p>Test rollbacks in <code>dev</code> before applying to production.</p>
+</li>
 <li>Maintain backups (e.g., RDS snapshots) before applying changes.</li>
 <li>Log all rollback actions for audit purposes.</li>
 </ul>
@@ -4689,7 +4812,9 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <li><strong>Provider Versions</strong>: Pin versions to avoid breaking changes.</li>
 <li><strong>Resource Dependencies</strong>: Use <code>depends_on</code> or implicit dependencies (e.g., referencing outputs).</li>
 <li><strong>Sensitive Data</strong>: Store secrets in AWS Secrets Manager or HashiCorp Vault, not <code>.tfvars</code>.</li>
-<li><strong>Rate Limits</strong>: Handle cloud provider API limits with <code>terraform plan</code> retries or delays.</li>
+<li>
+<p><strong>Rate Limits</strong>: Handle cloud provider API limits with <code>terraform plan</code> retries or delays.</p>
+</li>
 <li>
 <p><strong>RDS-Specific Gotchas</strong>:</p>
 </li>
@@ -4840,7 +4965,11 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <span class="w">  </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${var.environment}-${data.external.config.result.bucket_suffix}&quot;</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li><strong>Best Practices</strong>:</li>
+</ul>
+</li>
+<li>
+<p><strong>Best Practices</strong>:</p>
+<ul>
 <li>Minimize queries to reduce API calls and improve performance.</li>
 <li>Use specific filters (e.g., <code>tags</code>, <code>id</code>) to avoid ambiguity.</li>
 <li>Handle missing resources with <code>count</code> or <code>try</code>:
@@ -4852,13 +4981,21 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <li>Avoid sensitive data in data source outputs.</li>
 <li>Pin provider versions to ensure data source compatibility.</li>
 <li>Document usage with comments in <code>.tf</code> files.</li>
-<li><strong>Gotchas</strong>:</li>
+</ul>
+</li>
+<li>
+<p><strong>Gotchas</strong>:</p>
+<ul>
 <li>Missing resources cause errors unless handled.</li>
 <li>Ambiguous results (e.g., no filters) cause failures.</li>
 <li>Rate limits may slow pipelines with many data sources.</li>
 <li>Ensure state file access for <code>terraform_remote_state</code>.</li>
-<li><strong>examples:</strong></li>
-<li><strong>Snowflake</strong>: <code>data.snowflake_role</code> to fetch an existing role.</li>
+<li>
+<p><strong>examples:</strong></p>
+</li>
+<li>
+<p><strong>Snowflake</strong>: <code>data.snowflake_role</code> to fetch an existing role.</p>
+</li>
 <li><strong>Databricks</strong>: <code>data.databricks_spark_version</code> to get the latest Spark version.</li>
 <li><strong>Glue Crawler</strong>: <code>data.aws_glue_catalog_database</code> to reference an existing database.</li>
 <li><strong>RDS</strong>: <code>data.aws_vpc</code> and <code>data.aws_subnets</code> to fetch VPC and subnets.</li>
@@ -4898,9 +5035,15 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <h2 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">&para;</a></h2>
 <h3 id="a-more-detailed-look-at-data-sources">A More Detailed Look at Data Sources<a class="headerlink" href="#a-more-detailed-look-at-data-sources" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Definition</strong>: Data sources in Terraform allow you to fetch information about <strong>existing resources</strong> or <strong>external data</strong> that are not managed by your current Terraform configuration. They provide a way to query cloud providers, APIs, or other systems to retrieve attributes like IDs, ARNs, or configurations without creating or modifying resources.</li>
-<li><strong>Purpose</strong>:</li>
-<li>Reference resources created outside Terraform (e.g., an existing VPC or IAM role).</li>
+<li>
+<p><strong>Definition</strong>: Data sources in Terraform allow you to fetch information about <strong>existing resources</strong> or <strong>external data</strong> that are not managed by your current Terraform configuration. They provide a way to query cloud providers, APIs, or other systems to retrieve attributes like IDs, ARNs, or configurations without creating or modifying resources.</p>
+</li>
+<li>
+<p><strong>Purpose</strong>:</p>
+</li>
+<li>
+<p>Reference resources created outside Terraform (e.g., an existing VPC or IAM role).</p>
+</li>
 <li>Access computed values (e.g., the latest AMI ID, availability zones).</li>
 <li>Integrate with other Terraform configurations via remote state.</li>
 <li>Avoid hardcoding values by dynamically retrieving them.</li>
@@ -4915,17 +5058,21 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <div class="highlight"><pre><span></span><code><span class="err">data</span><span class="w"> </span><span class="s2">&quot;&lt;PROVIDER&gt;_&lt;TYPE&gt;&quot; &quot;&lt;NAME&gt;&quot;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="p">[</span><span class="err">CONFIGURATION</span><span class="p">]</span>
 <span class="p">}</span>
-</code></pre></div>
-- <strong>PROVIDER</strong>: The provider (e.g., <code>aws</code>, <code>snowflake</code>, <code>databricks</code>).
-- <strong>TYPE</strong>: The resource type to query (e.g., <code>aws_vpc</code>, <code>snowflake_database</code>).
-- <strong>NAME</strong>: A local name for referencing the data source in your configuration.
-- <strong>CONFIGURATION</strong>: Filters or parameters to identify the resource (e.g., <code>id</code>, <code>name</code>, <code>tags</code>).</p>
+</code></pre></div></p>
+<ul>
+<li><strong>PROVIDER</strong>: The provider (e.g., <code>aws</code>, <code>snowflake</code>, <code>databricks</code>).</li>
+<li><strong>TYPE</strong>: The resource type to query (e.g., <code>aws_vpc</code>, <code>snowflake_database</code>).</li>
+<li><strong>NAME</strong>: A local name for referencing the data source in your configuration.</li>
+<li><strong>CONFIGURATION</strong>: Filters or parameters to identify the resource (e.g., <code>id</code>, <code>name</code>, <code>tags</code>).</li>
+</ul>
 <p>Example:
 <div class="highlight"><pre><span></span><code><span class="kr">data</span><span class="w"> </span><span class="nc">&quot;aws_vpc&quot;</span><span class="w"> </span><span class="nv">&quot;default&quot;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
 <span class="p">}</span>
-</code></pre></div>
-- This queries AWS for the default VPC and makes its attributes (e.g., <code>id</code>, <code>cidr_block</code>) available as <code>data.aws_vpc.default.&lt;attribute&gt;</code>.</p>
+</code></pre></div></p>
+<ul>
+<li>This queries AWS for the default VPC and makes its attributes (e.g., <code>id</code>, <code>cidr_block</code>) available as <code>data.aws_vpc.default.&lt;attribute&gt;</code>.</li>
+</ul>
 <h4 id="key-characteristics">Key Characteristics<a class="headerlink" href="#key-characteristics" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Read-Only</strong>: Data sources only fetch data; they cannot create, update, or delete resources.</li>
@@ -4953,7 +5100,7 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <li>Example: Retrieve a configuration value from an external API.</li>
 </ol>
 <h4 id="example-fetching-an-existing-vpc">Example: Fetching an Existing VPC<a class="headerlink" href="#example-fetching-an-existing-vpc" title="Permanent link">&para;</a></h4>
-<p><div class="highlight"><pre><span></span><code><span class="c1"># Fetch the default VPC</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Fetch the default VPC</span>
 <span class="kr">data</span><span class="w"> </span><span class="nc">&quot;aws_vpc&quot;</span><span class="w"> </span><span class="nv">&quot;default&quot;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
 <span class="p">}</span>
@@ -4975,7 +5122,9 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <span class="w">  </span><span class="na">security_group_ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nv">aws_security_group.rds_sg.id</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-- Here, <code>data.aws_vpc.default</code> retrieves the default VPC’s ID, and <code>data.aws_subnets.default_subnets</code> fetches its subnets, which are then used in the RDS module.</p>
+<ul>
+<li>Here, <code>data.aws_vpc.default</code> retrieves the default VPC’s ID, and <code>data.aws_subnets.default_subnets</code> fetches its subnets, which are then used in the RDS module.</li>
+</ul>
 <h4 id="example-remote-state-data-source">Example: Remote State Data Source<a class="headerlink" href="#example-remote-state-data-source" title="Permanent link">&para;</a></h4>
 <p><div class="highlight"><pre><span></span><code><span class="c1"># Fetch outputs from another Terraform configuration</span>
 <span class="kr">data</span><span class="w"> </span><span class="nc">&quot;terraform_remote_state&quot;</span><span class="w"> </span><span class="nv">&quot;network&quot;</span><span class="w"> </span><span class="p">{</span>
@@ -4997,7 +5146,7 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 </code></pre></div>
 - This retrieves the <code>vpc_id</code> output from a separate Terraform configuration’s state file.</p>
 <h4 id="example-external-data-source">Example: External Data Source<a class="headerlink" href="#example-external-data-source" title="Permanent link">&para;</a></h4>
-<p><div class="highlight"><pre><span></span><code><span class="c1"># Use the external provider to run a script</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Use the external provider to run a script</span>
 <span class="kr">data</span><span class="w"> </span><span class="nc">&quot;external&quot;</span><span class="w"> </span><span class="nv">&quot;config&quot;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="na">program</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bash&quot;, &quot;${path.module}/get_config.sh&quot;</span><span class="p">]</span>
 <span class="p">}</span>
@@ -5007,7 +5156,9 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <span class="w">  </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${var.environment}-${data.external.config.result.bucket_suffix}&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-- The <code>get_config.sh</code> script returns JSON (e.g., <code>{"bucket_suffix": "data-lake"}</code>), which is used to name the bucket.</p>
+<ul>
+<li>The <code>get_config.sh</code> script returns JSON (e.g., <code>{"bucket_suffix": "data-lake"}</code>), which is used to name the bucket.</li>
+</ul>
 <h4 id="integration-with-cicd-setup">Integration with CI/CD  Setup<a class="headerlink" href="#integration-with-cicd-setup" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Folder-Based Structure</strong>: The project uses separate directories (<code>environments/dev</code>, <code>environments/staging</code>, <code>environments/prod</code>) for environment isolation. Data sources can be defined in each environment’s <code>main.tf</code> to fetch environment-specific resources (e.g., a <code>prod</code> VPC).</li>
@@ -5114,10 +5265,12 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <li><strong>Impact</strong>: Folder-based isolation enhances safety, particularly for production data infrastructure where errors can lead to data loss or downtime.</li>
 </ul>
 <h4 id="when-to-use-workspaces">When to Use Workspaces<a class="headerlink" href="#when-to-use-workspaces" title="Permanent link">&para;</a></h4>
-<p>While folder-based isolation is generally preferred, workspaces may be suitable for:
-- <strong>Simple Projects</strong>: Small projects with minimal configuration differences between environments (e.g., a single S3 bucket with different names).
-- <strong>Temporary Environments</strong>: Spinning up ephemeral environments (e.g., feature branches) where maintaining separate directories is overkill.
-- <strong>Legacy Projects</strong>: Existing setups already using workspaces, where migration to folders is not cost-effective.</p>
+<p>While folder-based isolation is generally preferred, workspaces may be suitable for:</p>
+<ul>
+<li><strong>Simple Projects</strong>: Small projects with minimal configuration differences between environments (e.g., a single S3 bucket with different names).</li>
+<li><strong>Temporary Environments</strong>: Spinning up ephemeral environments (e.g., feature branches) where maintaining separate directories is overkill.</li>
+<li><strong>Legacy Projects</strong>: Existing setups already using workspaces, where migration to folders is not cost-effective.</li>
+</ul>
 <p>However, for data infrastructure projects with complex resources, multiple team members, and strict compliance requirements, folder-based isolation (as in the cheatsheet) is superior.</p>
 <h4 id="recommendations">Recommendations<a class="headerlink" href="#recommendations" title="Permanent link">&para;</a></h4>
 <ul>
@@ -5131,7 +5284,6 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 <li><strong>Leverage CI/CD</strong>: Configure pipelines (e.g., <code>.gitlab-ci.yml</code>) to target specific directories, as in the cheatsheet, to enforce environment isolation.</li>
 <li><strong>Secure State Files</strong>: Use distinct backend paths and versioning (e.g., <code>s3://my-terraform-state/data-infra/&lt;env&gt;/terraform.tfstate</code>) to protect state files, as shown in the cheatsheet's <code>backend.tf</code>.</li>
 </ul>
-<p>By using folder-based isolation, data engineers can achieve greater clarity, safety, and scalability in managing Terraform-based data infrastructure across multiple environments.</p>
 
 
 
