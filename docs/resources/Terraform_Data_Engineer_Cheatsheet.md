@@ -1,12 +1,12 @@
 # Terraform Cheatsheet
 
-!!! warning "AI Assisted (Grok 3)"
+!!! note "AI Assisted (Grok 3)"
 
 A cheatsheet which is actually useful to setup production grade IaC project using Terraform and Gitlab covering :
 
    - **Multi-Environment setup**
    - **CI/CD**
-   - **State Managment**
+   - **State Management**
    - **Rollbacks**
    - **Capturing and Logging Outputs**
 
@@ -22,32 +22,29 @@ And more..
 - **Workspaces**: Isolate environments (e.g., `dev`, `staging`, `prod`) within a single configuration directory using multiple state files. **Note**: This project uses folder-based isolation (separate directories for each environment) instead of workspaces for better clarity and flexibility.
 
 ## 2. Key Terraform Components and State Management
-
 - **State Management**: 
-
-  - The `terraform.tfstate` file records the current state of your infrastructure, mapping Terraform configurations to real-world resources, including dynamically generated attributes (e.g., S3 bucket ARNs, RDS endpoints).
-  - **Local State**: Stored locally by default; suitable for solo or small projects but risky for teams due to potential conflicts or loss.
-  - **Remote State**: Store state in a remote backend (e.g., S3, GCS, Azure Blob) with locking (e.g., DynamoDB) to prevent concurrent modifications and enable team collaboration.
-  - **Environment Isolation**: This project uses separate directories (`environments/dev`, `environments/staging`, `environments/prod`) with distinct state files (e.g., `data-infra/dev/terraform.tfstate`) instead of Terraform workspaces, providing clear separation and environment-specific configurations.
-  - **Best Practices**: Use remote backends for production, encrypt state files, restrict access via IAM, and regularly back up state files.
-  - **State Drift**: Occurs when manual changes bypass Terraform. Use `terraform refresh` to update state or `terraform import` to bring resources under management.
-
+    - The `terraform.tfstate` file records the current state of your infrastructure, mapping Terraform configurations to real-world resources, including dynamically generated attributes (e.g., S3 bucket ARNs, RDS endpoints).
+     - **Local State**: Stored locally by default; suitable for solo or small projects but risky for teams due to potential conflicts or loss.
+     - **Remote State**: Store state in a remote backend (e.g., S3, GCS, Azure Blob) with locking (e.g., DynamoDB) to prevent concurrent modifications and enable team collaboration.
+     - **Environment Isolation**: This project uses separate directories (`environments/dev`, `environments/staging`, `environments/prod`) with distinct state files (e.g., `data-infra/dev/terraform.tfstate`) instead of Terraform workspaces, providing clear separation and environment-specific configurations.
+     - **Best Practices**: Use remote backends for production, encrypt state files, restrict access via IAM, and regularly back up state files.
+     - **State Drift**: Occurs when manual changes bypass Terraform. Use `terraform refresh` to update state or `terraform import` to bring resources under management.
 - **outputs.tf**: 
 
-  - Defines output values exposed after `terraform apply`, such as resource IDs, endpoints, or computed values (e.g., S3 bucket ARN, RDS endpoint).
-  - **How It Works**: Outputs reference attributes stored in the state file, which captures dynamically generated values during resource creation. `outputs.tf` itself does not store values but declares what to extract from the state.
-  - **Example**:
-    ```hcl
-    output "s3_bucket_arn" {
-      value       = aws_s3_bucket.bucket.arn
-      description = "ARN of the S3 bucket"
-    }
-    ```
-    - After `terraform apply`, the state file stores the bucket’s ARN, and the output retrieves it.
-  - **Updating Outputs**: Edit `outputs.tf` in the repository to add, modify, or remove outputs. Commit changes to Git, and they take effect on the next `terraform apply` or `terraform output`.
-  - **Usage**: Outputs are displayed in the CLI (`terraform output`), exported to JSON (`terraform output -json`), used in CI/CD pipelines, or referenced by other modules via remote state.
-  - **Best Practices**: Use descriptive names and descriptions, avoid sensitive data in outputs, and capture outputs in pipelines for automation.
-
+     - Defines output values exposed after `terraform apply`, such as resource IDs, endpoints, or computed values (e.g., S3 bucket ARN, RDS endpoint).
+     - **How It Works**: Outputs reference attributes stored in the state file, which captures dynamically generated values during resource creation. `outputs.tf` itself does not store values but declares what to extract from the state.
+     - **Example**:
+       ```hcl
+       output "s3_bucket_arn" {
+         value       = aws_s3_bucket.bucket.arn
+         description = "ARN of the S3 bucket"
+       }
+       ```
+       - After `terraform apply`, the state file stores the bucket’s ARN, and the output retrieves it.
+     - **Updating Outputs**: Edit `outputs.tf` in the repository to add, modify, or remove outputs. Commit changes to Git, and they take effect on the next `terraform apply` or `terraform output`.
+     - **Usage**: Outputs are displayed in the CLI (`terraform output`), exported to JSON (`terraform output -json`), used in CI/CD pipelines, or referenced by other modules via remote state.
+     - **Best Practices**: Use descriptive names and descriptions, avoid sensitive data in outputs, and capture outputs in pipelines for automation.
+   
 - **variables.tf**: Declares input variables with types, defaults, and validations to parameterize configurations.
 - **terraform.tfvars**: Provides default variable values, overridden by environment-specific `.tfvars` files or CLI flags.
 - **backend.tf**: Configures the remote state backend, specifying where and how state is stored and locked.
@@ -556,27 +553,27 @@ Terraform artifacts are files generated during pipeline jobs (e.g., `terraform p
 
 - **Plan Artifacts**:
 
-  - `tfplan`: Binary plan file from `terraform plan -out=tfplan`, used by `terraform apply`.
-  - `tfplan.json`: JSON representation (`terraform show -json tfplan`) for programmatic analysis.
-  - `tfplan.txt`: Human-readable text (`terraform show tfplan`) for manual review.
-
+      - `tfplan`: Binary plan file from `terraform plan -out=tfplan`, used by `terraform apply`.
+      - `tfplan.json`: JSON representation (`terraform show -json tfplan`) for programmatic analysis.
+      - `tfplan.txt`: Human-readable text (`terraform show tfplan`) for manual review.
+    
 - **Apply Artifacts**:
 
-  - `apply.log`: Log file capturing `terraform apply` output, detailing infrastructure changes.
-
+      - `apply.log`: Log file capturing `terraform apply` output, detailing infrastructure changes.
+    
 - **Output Artifacts**:
 
-  - `outputs.json`: JSON file capturing `terraform output -json`, containing dynamically generated values (e.g., S3 bucket ARNs, RDS endpoints).
+      - `outputs.json`: JSON file capturing `terraform output -json`, containing dynamically generated values (e.g., S3 bucket ARNs, RDS endpoints).
 
 - **Purpose**:
 
-  - **Review**: Plan artifacts for verifying changes before applying.
-  - **Audit**: Apply logs and outputs for compliance and debugging.
-  - **Consistency**: Binary `tfplan` ensures `apply` matches the reviewed plan.
-  - **Automation**: Outputs enable integration with other systems or modules.
+      - **Review**: Plan artifacts for verifying changes before applying.
+      - **Audit**: Apply logs and outputs for compliance and debugging.
+      - **Consistency**: Binary `tfplan` ensures `apply` matches the reviewed plan.
+      - **Automation**: Outputs enable integration with other systems or modules.
 - **Retention**:
-  - GitLab artifacts can be stored for a specified period (e.g., `1 year` or `forever`, subject to GitLab plan).
-  - For long-term audit, upload artifacts to S3 with custom retention policies.
+      - GitLab artifacts can be stored for a specified period (e.g., `1 year` or `forever`, subject to GitLab plan).
+      - For long-term audit, upload artifacts to S3 with custom retention policies.
 
 ### Capturing Terraform Outputs
 Outputs defined in `outputs.tf` are captured in the pipeline to expose dynamically generated values for review, automation, or integration with other systems.
@@ -826,24 +823,24 @@ Plan artifacts (`tfplan`, `tfplan.json`, `tfplan.txt`), apply logs (`apply.log`)
 
 2. **Review Plan Artifacts**:
 
-   - Open `tfplan.txt` for a human-readable summary of proposed changes.
-   - Use `tfplan.json` for programmatic analysis with tools like `jq` (e.g., `jq '.resource_changes[] | {address: .address, change: .change.actions}' tfplan.json`).
+    - Open `tfplan.txt` for a human-readable summary of proposed changes.
+    - Use `tfplan.json` for programmatic analysis with tools like `jq` (e.g., `jq '.resource_changes[] | {address: .address, change: .change.actions}' tfplan.json`).
 
 3. **Review Apply Logs**:
 
-   - Open `apply.log` to review the changes applied, including resources created, updated, or deleted.
-   - For long-term audit, retrieve logs from S3: `aws s3 cp s3://my-audit-logs/terraform-apply/<env>/<timestamp>.log .`
+    - Open `apply.log` to review the changes applied, including resources created, updated, or deleted.
+    - For long-term audit, retrieve logs from S3: `aws s3 cp s3://my-audit-logs/terraform-apply/<env>/<timestamp>.log .`
 
 4. **Review Output Artifacts**:
 
-   - Open `outputs.json` to inspect dynamically generated values (e.g., S3 bucket ARNs, RDS endpoints).
-   - Parse with `jq` (e.g., `jq '.data_lake_arn.value' outputs.json`).
-   - For audit or integration, retrieve from S3: `aws s3 cp s3://my-audit-logs/terraform-outputs/<env>/<timestamp>.json .`
+    - Open `outputs.json` to inspect dynamically generated values (e.g., S3 bucket ARNs, RDS endpoints).
+    - Parse with `jq` (e.g., `jq '.data_lake_arn.value' outputs.json`).
+    - For audit or integration, retrieve from S3: `aws s3 cp s3://my-audit-logs/terraform-outputs/<env>/<timestamp>.json .`
 
 5. **Team Review**:
 
-   - Share artifact links in merge request comments or integrate with notification tools (e.g., Slack) to alert reviewers.
-   - Require approval from team members before triggering `apply` jobs.
+    - Share artifact links in merge request comments or integrate with notification tools (e.g., Slack) to alert reviewers.
+    - Require approval from team members before triggering `apply` jobs.
 
 6. **Apply Changes**: After approving plan artifacts, trigger the corresponding `apply` job, which uses the `tfplan` artifact, generates `apply.log`, and captures `outputs.json`.
 
@@ -869,18 +866,18 @@ Plan artifacts (`tfplan`, `tfplan.json`, `tfplan.txt`), apply logs (`apply.log`)
 
 - **RDS-Specific Best Practices**:
 
-  - Use `multi_az` for production to ensure high availability.
-  - Store `db_password` in AWS Secrets Manager and reference it via `data` sources.
-  - Enable automated backups with appropriate retention periods.
-  - Use parameter groups to tune database performance per environment.
+    - Use `multi_az` for production to ensure high availability.
+    - Store `db_password` in AWS Secrets Manager and reference it via `data` sources.
+    - Enable automated backups with appropriate retention periods.
+    - Use parameter groups to tune database performance per environment.
 
 - **Glue-Specific Best Practices**:
 
-  - Store PySpark scripts in S3 and reference them in `script_location`.
-  - Use environment-specific worker types and counts to optimize cost and performance.
-  - Enable CloudWatch metrics and logs for job monitoring.
-  - Use IAM roles with specific permissions for S3, CloudWatch, and other services.
-
+    - Store PySpark scripts in S3 and reference them in `script_location`.
+    - Use environment-specific worker types and counts to optimize cost and performance.
+    - Enable CloudWatch metrics and logs for job monitoring.
+    - Use IAM roles with specific permissions for S3, CloudWatch, and other services.
+  
 ## 12. Best Practices for CI/CD Pipelines with IaC
 
 - **Separate Environments**: Use distinct jobs for each environment (`dev`, `staging`, `prod`) to prevent cross-contamination. This project uses separate folders (`environments/<env>`) instead of Terraform workspaces for clear isolation and environment-specific configurations.
@@ -895,11 +892,11 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 
 - **Data Source Management**:
 
-  - Minimize data source queries to reduce API calls and improve pipeline performance.
-  - Use precise filters (e.g., tags, IDs) to avoid ambiguous results.
-  - Handle missing resources with `count` or `try` to prevent pipeline failures.
-  - Validate data source resolution in the `plan` stage to catch errors early.
-  - Document data source dependencies in `README.md` or comments in `.tf` files.
+    - Minimize data source queries to reduce API calls and improve pipeline performance.
+    - Use precise filters (e.g., tags, IDs) to avoid ambiguous results.
+    - Handle missing resources with `count` or `try` to prevent pipeline failures.
+    - Validate data source resolution in the `plan` stage to catch errors early.
+    - Document data source dependencies in `README.md` or comments in `.tf` files.
 
 - **Secure Artifacts**: Restrict access to artifacts to authorized users to protect sensitive data in plan, apply, log, and output files.
 - **Role-Based Access**: Use least-privilege IAM roles for CI/CD runners, scoped to specific environments.
@@ -909,11 +906,11 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 
 - **Rollback Strategy**:
 
-  - **State Backups**: Regularly back up `terraform.tfstate` to a separate S3 bucket after `apply` to enable recovery from failures or unintended changes. Use versioning on the backup bucket for additional protection.
-  - **Terraform Destroy**: Document procedures for `terraform destroy` to remove all managed resources in an environment, including prerequisites (e.g., emptying S3 buckets) and post-cleanup steps (e.g., removing state files).
-  - **Manual Rollback**: Maintain documentation for manual rollback of specific resources (e.g., reverting RDS instance types, deleting Glue jobs) when `destroy` is too destructive, including steps to restore from backups or previous state files.
-  - **Implementation**: Automate state backups in the CI/CD pipeline post-`apply`. Include rollback instructions in `README.md` or a dedicated `ROLLBACK.md`.
-
+    - **State Backups**: Regularly back up `terraform.tfstate` to a separate S3 bucket after `apply` to enable recovery from failures or unintended changes. Use versioning on the backup bucket for additional protection.
+    - **Terraform Destroy**: Document procedures for `terraform destroy` to remove all managed resources in an environment, including prerequisites (e.g., emptying S3 buckets) and post-cleanup steps (e.g., removing state files).
+    - **Manual Rollback**: Maintain documentation for manual rollback of specific resources (e.g., reverting RDS instance types, deleting Glue jobs) when `destroy` is too destructive, including steps to restore from backups or previous state files.
+    - **Implementation**: Automate state backups in the CI/CD pipeline post-`apply`. Include rollback instructions in `README.md` or a dedicated `ROLLBACK.md`.
+  
 - **Monitoring and Logging**: Enable verbose logging (`TF_LOG=DEBUG`) for debugging and monitor pipeline logs in GitLab.
 - **Code Reviews**: Require peer reviews for merge requests to ensure quality and catch potential issues.
 - **Documentation**: Include pipeline setup, artifact review, log retention, rollback procedures, output management, and data source usage instructions in `README.md`.
@@ -925,76 +922,76 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 - **Why**: The `terraform.tfstate` file tracks resource mappings, critical for recovery after failed `apply` or unintended changes.
 - **How**:
 
-  - Configure the pipeline to copy `terraform.tfstate` to a backup S3 bucket post-`apply` (see `backup_state_*` jobs).
-  - Enable versioning on the backup bucket (`my-terraform-state-backup`) to retain historical states.
-  - Example: `aws s3 cp s3://my-terraform-state/data-infra/dev/terraform.tfstate s3://my-terraform-state-backup/data-infra/dev/$(date +%Y-%m-%d_%H-%M-%S).tfstate`
+    - Configure the pipeline to copy `terraform.tfstate` to a backup S3 bucket post-`apply` (see `backup_state_*` jobs).
+    - Enable versioning on the backup bucket (`my-terraform-state-backup`) to retain historical states.
+    - Example: `aws s3 cp s3://my-terraform-state/data-infra/dev/terraform.tfstate s3://my-terraform-state-backup/data-infra/dev/$(date +%Y-%m-%d_%H-%M-%S).tfstate`
 
 - **Restore Process**:
-  1. Identify the backup state file (e.g., via S3 console or `aws s3 ls`).
-  2. Copy to the active state location: `aws s3 cp s3://my-terraform-state-backup/data-infra/dev/<timestamp>.tfstate s3://my-terraform-state/data-infra/dev/terraform.tfstate`.
-  3. Run `terraform plan` to verify alignment with infrastructure.
-  4. Apply changes if needed: `terraform apply`.
+     1. Identify the backup state file (e.g., via S3 console or `aws s3 ls`).
+     2. Copy to the active state location: `aws s3 cp s3://my-terraform-state-backup/data-infra/dev/<timestamp>.tfstate s3://my-terraform-state/data-infra/dev/terraform.tfstate`.
+     3. Run `terraform plan` to verify alignment with infrastructure.
+     4. Apply changes if needed: `terraform apply`.
 
 - **Best Practices**:
 
-  - Encrypt backups with S3 server-side encryption.
-  - Restrict access via IAM policies.
-  - Schedule regular backup jobs or trigger post-`apply`.
-  - Test restoration periodically to ensure reliability.
+    - Encrypt backups with S3 server-side encryption.
+    - Restrict access via IAM policies.
+    - Schedule regular backup jobs or trigger post-`apply`.
+    - Test restoration periodically to ensure reliability.
 
 #### Terraform Destroy
 
 - **Why**: `terraform destroy` removes all Terraform-managed resources in an environment, useful for complete rollback.
 - **How**:
-
-  - Run `terraform destroy` in the environment directory (e.g., `environments/dev`).
-  - Example: `cd environments/dev; terraform init; terraform destroy -var-file=terraform.tfvars`.
-
+  
+    - Run `terraform destroy` in the environment directory (e.g., `environments/dev`).
+    - Example: `cd environments/dev; terraform init; terraform destroy -var-file=terraform.tfvars`.
+  
 - **Prerequisites**:
 
-  - Empty S3 buckets (delete objects or disable versioning).
-  - Remove dependent resources not managed by Terraform (e.g., manually created RDS snapshots).
-  - Verify state file integrity before execution.
+    - Empty S3 buckets (delete objects or disable versioning).
+    - Remove dependent resources not managed by Terraform (e.g., manually created RDS snapshots).
+    - Verify state file integrity before execution.
 
 - **Post-Cleanup**:
 
-  - Remove state file from S3: `aws s3 rm s3://my-terraform-state/data-infra/dev/terraform.tfstate`.
-  - Update lock table (e.g., DynamoDB) if necessary.
+    - Remove state file from S3: `aws s3 rm s3://my-terraform-state/data-infra/dev/terraform.tfstate`.
+    - Update lock table (e.g., DynamoDB) if necessary.
 
 - **Documentation**:
 
-  - Create a `ROLLBACK.md` with steps:
-    ```markdown
-    # Terraform Destroy Rollback
-    1. Navigate to the environment: `cd environments/<env>`.
-    2. Initialize: `terraform init -backend-config=backend.tf`.
-    3. Empty S3 buckets: `aws s3 rm s3://<bucket> --recursive`.
-    4. Run destroy: `terraform destroy -var-file=terraform.tfvars`.
-    5. Remove state: `aws s3 rm s3://my-terraform-state/data-infra/<env>/terraform.tfstate`.
-    ```
+    - Create a `ROLLBACK.md` with steps:
+      ```markdown
+      # Terraform Destroy Rollback
+      1. Navigate to the environment: `cd environments/<env>`.
+      2. Initialize: `terraform init -backend-config=backend.tf`.
+      3. Empty S3 buckets: `aws s3 rm s3://<bucket> --recursive`.
+      4. Run destroy: `terraform destroy -var-file=terraform.tfvars`.
+      5. Remove state: `aws s3 rm s3://my-terraform-state/data-infra/<env>/terraform.tfstate`.
+      ```
 - **Risks**:
 
-  - Destructive; unsuitable for partial rollbacks.
-  - Requires careful validation to avoid data loss.
+    - Destructive; unsuitable for partial rollbacks.
+    - Requires careful validation to avoid data loss.
 
 #### Manual Rollback
 
 - **Why**: For targeted rollbacks when `destroy` is too aggressive (e.g., reverting an RDS instance type change).
 - **How**:
-  - Modify Terraform code to revert changes (e.g., set `instance_class` back to original value).
-  - Use a previous state backup to restore resource mappings.
-  - Example (RDS rollback):
-
-    1. Restore state: `aws s3 cp s3://my-terraform-state-backup/data-infra/dev/<timestamp>.tfstate s3://my-terraform-state/data-infra/dev/terraform.tfstate`.
-    2. Update `main.tf` or variables (e.g., `instance_class = "db.t3.micro"`).
-    3. Run `terraform plan` and `terraform apply`.
-
+    - Modify Terraform code to revert changes (e.g., set `instance_class` back to original value).
+    - Use a previous state backup to restore resource mappings.
+    - Example (RDS rollback):
+  
+      1. Restore state: `aws s3 cp s3://my-terraform-state-backup/data-infra/dev/<timestamp>.tfstate s3://my-terraform-state/data-infra/dev/terraform.tfstate`.
+      2. Update `main.tf` or variables (e.g., `instance_class = "db.t3.micro"`).
+      3. Run `terraform plan` and `terraform apply`.
+  
 - **Specific Cases**:
 
-  - **S3**: Delete objects or restore from versioning.
-  - **RDS**: Revert instance type, restore from snapshot, or adjust parameters.
-  - **Glue**: Delete jobs or revert configurations via Terraform.
-    - **Snowflake**: Drop schemas/tables or restore from time travel.
+    - **S3**: Delete objects or restore from versioning.
+    - **RDS**: Revert instance type, restore from snapshot, or adjust parameters.
+    - **Glue**: Delete jobs or revert configurations via Terraform.
+      - **Snowflake**: Drop schemas/tables or restore from time travel.
 
 - **Documentation**:
 
@@ -1014,9 +1011,9 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
     ```
 - **Best Practices**:
 
-  - Test rollbacks in `dev` before applying to production.
-  - Maintain backups (e.g., RDS snapshots) before applying changes.
-  - Log all rollback actions for audit purposes.
+    - Test rollbacks in `dev` before applying to production.
+    - Maintain backups (e.g., RDS snapshots) before applying changes.
+    - Log all rollback actions for audit purposes.
 
 ## 13. Common Gotchas
 
@@ -1028,32 +1025,34 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 
 - **RDS-Specific Gotchas**:
 
-  - Changing `allocated_storage` or `instance_class` may cause downtime.
-  - Ensure `subnet_ids` are in the same VPC as `security_group_ids`.
-  - Avoid `skip_final_snapshot` in production to prevent data loss.
+    - Changing `allocated_storage` or `instance_class` may cause downtime.
+    - Ensure `subnet_ids` are in the same VPC as `security_group_ids`.
+    - Avoid `skip_final_snapshot` in production to prevent data loss.
 
 - **Glue-Specific Gotchas**:
 
-  - Ensure the Glue IAM role has permissions for S3 bucket script and temp directories.
-  - Verify `glue_version` compatibility with PySpark script dependencies.
-  - Monitor job execution time to avoid unexpected costs in production.
+    - Ensure the Glue IAM role has permissions for S3 bucket script and temp directories.
+    - Verify `glue_version` compatibility with PySpark script dependencies.
+    - Monitor job execution time to avoid unexpected costs in production.
 
 - **CI/CD-Specific Gotchas**:
 
-  - Ensure CI/CD runners have correct permissions for each environment.
-  - Avoid caching sensitive state files or logs in CI/CD pipelines.
-  - Test pipeline changes in a non-production branch first.
+    - Ensure CI/CD runners have correct permissions for each environment.
+    - Avoid caching sensitive state files or logs in CI/CD pipelines.
+    - Test pipeline changes in a non-production branch first.
 
   - **Output-Specific Gotchas**:
 
-    - Avoid outputting sensitive data (e.g., database passwords) in `outputs.tf`.
-    - Outputs are only updated after `terraform apply` or `terraform refresh` if state changes.
-    - Missing outputs in `outputs.tf` can’t be retrieved without redefining them.
+       - Avoid outputting sensitive data (e.g., database passwords) in `outputs.tf`.
+       - Outputs are only updated after `terraform apply` or `terraform refresh` if state changes.
+       - Missing outputs in `outputs.tf` can’t be retrieved without redefining them.
+
   - **Data Source-Specific Gotchas**:
-    - Missing resources cause errors unless handled (e.g., with `count` or `try`).
-    - Ambiguous data sources (e.g., no filters) may return multiple results, causing failures.
-    - Excessive API queries from data sources can hit provider rate limits, slowing pipelines.
-    - Ensure provider versions support required data source attributes.
+
+       - Missing resources cause errors unless handled (e.g., with `count` or `try`).
+       - Ambiguous data sources (e.g., no filters) may return multiple results, causing failures.
+       - Excessive API queries from data sources can hit provider rate limits, slowing pipelines.
+       - Ensure provider versions support required data source attributes.
 
 ## 14. Advanced Features
 
@@ -1084,108 +1083,109 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 
 - **Data Sources**:
 
-  - **Definition**: Query existing resources or external data without managing them to retrieve attributes (e.g., VPC IDs, AMI IDs, database names).
-  - **Syntax**:
-    ```hcl
-    data "<PROVIDER>_<TYPE>" "<NAME>" {
-      [CONFIG]
-    }
-    ```
-    Example: Fetch a VPC:
-    ```hcl
-    data "aws_vpc" "default" {
-      default = true
-    }
-    ```
-
-  - **Use Cases**:
-
-    - Reference existing infrastructure (e.g., VPCs, IAM roles).
-    - Fetch dynamic values (e.g., latest AMI ID, availability zones).
-    - Integrate with other Terraform state files (e.g., `terraform_remote_state`).
-    - Query external APIs or scripts (e.g., `external` provider).
-
-  - **Examples**:
-
-    - **AWS**: Fetch subnets for an RDS instance:
+    - **Definition**: Query existing resources or external data without managing them to retrieve attributes (e.g., VPC IDs, AMI IDs, database names).
+    - **Syntax**:
+      ```hcl
+      data "<PROVIDER>_<TYPE>" "<NAME>" {
+        [CONFIG]
+      }
+      ```
+      Example: Fetch a VPC:
       ```hcl
       data "aws_vpc" "default" {
         default = true
       }
-
-      data "aws_subnets" "default_subnets" {
-        filter {
-          name   = "vpc-id"
-          values = [data.aws_vpc.default.id]
-        }
-      }
-
-      resource "aws_db_instance" "rds" {
-        db_subnet_group_name = aws_db_subnet_group.rds.name
-        vpc_security_group_ids = [aws_security_group.rds.id]
-        subnet_ids = data.aws_subnets.default_subnets.ids
-      }
       ```
+  
+    - **Use Cases**:
+  
+         - Reference existing infrastructure (e.g., VPCs, IAM roles).
+         - Fetch dynamic values (e.g., latest AMI ID, availability zones).
+         - Integrate with other Terraform state files (e.g., `terraform_remote_state`).
+         - Query external APIs or scripts (e.g., `external` provider).
+  
+    - **Examples**:
+  
+        - **AWS**: Fetch subnets for an RDS instance:
+          ```hcl
+          data "aws_vpc" "default" {
+            default = true
+          }
+    
+          data "aws_subnets" "default_subnets" {
+            filter {
+              name   = "vpc-id"
+              values = [data.aws_vpc.default.id]
+            }
+          }
+    
+          resource "aws_db_instance" "rds" {
+            db_subnet_group_name = aws_db_subnet_group.rds.name
+            vpc_security_group_ids = [aws_security_group.rds.id]
+            subnet_ids = data.aws_subnets.default_subnets.ids
+          }
+          ```
+    
+        - **Remote State**: Access another project’s outputs:
+          ```hcl
+          # Fetch outputs from another Terraform configuration
+          data "terraform_remote_state" "network" {
+            backend = "s3"
+            config = {
+              bucket = "my-terraform-state"
+              key    = "networking/terraform.tfstate"
+              region = "us-east-1"
+            }
+          }
+          # Use the remote state output in a resource
+          resource "aws_s3_bucket" "bucket" {
+            bucket = "${var.environment}-data-lake"
+            tags = {
+              VPC = data.terraform_remote_state.network.outputs.vpc_id
+            }
+          }
+          ```
+        - **External Data**: Fetch data from a script:
+          ```hcl
+          data "external" "config" {
+            program = ["bash", "${path.module}/get_config.sh"]
+          }
+    
+          resource "aws_s3_bucket" "bucket" {
+            bucket = "${var.environment}-${data.external.config.result.bucket_suffix}"
+          }
+          ```
+  
+    - **Best Practices**:
+  
+        - Minimize queries to reduce API calls and improve performance.
+        - Use specific filters (e.g., `tags`, `id`) to avoid ambiguity.
+        - Handle missing resources with `count` or `try`:
+          ```hcl
+          data "aws_vpc" "existing" {
+            count = var.vpc_id != "" ? 1 : 0
+            id    = var.vpc_id
+          }
+          ```
+        - Avoid sensitive data in data source outputs.
+        - Pin provider versions to ensure data source compatibility.
+        - Document usage with comments in `.tf` files.
+  
+    - **Gotchas**:
+  
+        - Missing resources cause errors unless handled.
+        - Ambiguous results (e.g., no filters) cause failures.
+        - Rate limits may slow pipelines with many data sources.
+        - Ensure state file access for `terraform_remote_state`.
 
-    - **Remote State**: Access another project’s outputs:
-      ```hcl
-      # Fetch outputs from another Terraform configuration
-      data "terraform_remote_state" "network" {
-        backend = "s3"
-        config = {
-          bucket = "my-terraform-state"
-          key    = "networking/terraform.tfstate"
-          region = "us-east-1"
-        }
-      }
-      # Use the remote state output in a resource
-      resource "aws_s3_bucket" "bucket" {
-        bucket = "${var.environment}-data-lake"
-        tags = {
-          VPC = data.terraform_remote_state.network.outputs.vpc_id
-        }
-      }
-      ```
-    - **External Data**: Fetch data from a script:
-      ```hcl
-      data "external" "config" {
-        program = ["bash", "${path.module}/get_config.sh"]
-      }
-
-      resource "aws_s3_bucket" "bucket" {
-        bucket = "${var.environment}-${data.external.config.result.bucket_suffix}"
-      }
-      ```
-
-  - **Best Practices**:
-
-    - Minimize queries to reduce API calls and improve performance.
-    - Use specific filters (e.g., `tags`, `id`) to avoid ambiguity.
-    - Handle missing resources with `count` or `try`:
-      ```hcl
-      data "aws_vpc" "existing" {
-        count = var.vpc_id != "" ? 1 : 0
-        id    = var.vpc_id
-      }
-      ```
-    - Avoid sensitive data in data source outputs.
-    - Pin provider versions to ensure data source compatibility.
-    - Document usage with comments in `.tf` files.
-
-  - **Gotchas**:
-
-    - Missing resources cause errors unless handled.
-    - Ambiguous results (e.g., no filters) cause failures.
-    - Rate limits may slow pipelines with many data sources.
-    - Ensure state file access for `terraform_remote_state`.
-  - **examples:**
-
-     - **Snowflake**: `data.snowflake_role` to fetch an existing role.
-     - **Databricks**: `data.databricks_spark_version` to get the latest Spark version.
-     - **Glue Crawler**: `data.aws_glue_catalog_database` to reference an existing database.
-     - **RDS**: `data.aws_vpc` and `data.aws_subnets` to fetch VPC and subnets.
-     - **Glue Job**: `data.terraform_remote_state` to access the S3 bucket from another configuration.
-
+    - **examples:**
+  
+         - **Snowflake**: `data.snowflake_role` to fetch an existing role.
+         - **Databricks**: `data.databricks_spark_version` to get the latest Spark version.
+         - **Glue Crawler**: `data.aws_glue_catalog_database` to reference an existing database.
+         - **RDS**: `data.aws_vpc` and `data.aws_subnets` to fetch VPC and subnets.
+         - **Glue Job**: `data.terraform_remote_state` to access the S3 bucket from another configuration.
+    
 ## 15. Debugging
 
 - **Verbose Logging**: `export TF_LOG=DEBUG`
@@ -1225,15 +1225,17 @@ Avoid sensitive data in outputs and store in secure storage (e.g., S3) for long-
 
 - **Purpose**:
 
-  - Reference resources created outside Terraform (e.g., an existing VPC or IAM role).
-  - Access computed values (e.g., the latest AMI ID, availability zones).
-  - Integrate with other Terraform configurations via remote state.
-  - Avoid hardcoding values by dynamically retrieving them.
+    - Reference resources created outside Terraform (e.g., an existing VPC or IAM role).
+    - Access computed values (e.g., the latest AMI ID, availability zones).
+    - Integrate with other Terraform configurations via remote state.
+    - Avoid hardcoding values by dynamically retrieving them.
+
 - **How They Work**:
-  - Data sources are defined using the `data` block in Terraform configuration files (e.g., `main.tf`).
-  - They query the provider’s API (e.g., AWS, Snowflake, Databricks) during `terraform plan` or `terraform apply` to fetch data.
-  - The retrieved data is stored in the Terraform **state file** for the duration of the operation but does not manage the underlying resource.
-  - Data source attributes can be referenced in other resources, outputs, or modules, just like managed resources.
+
+     - Data sources are defined using the `data` block in Terraform configuration files (e.g., `main.tf`).
+     - They query the provider’s API (e.g., AWS, Snowflake, Databricks) during `terraform plan` or `terraform apply` to fetch data.
+     - The retrieved data is stored in the Terraform **state file** for the duration of the operation but does not manage the underlying resource.
+     - Data source attributes can be referenced in other resources, outputs, or modules, just like managed resources.
 
 #### Syntax and Structure
 
@@ -1467,7 +1469,7 @@ The folder-based isolation approach, as demonstrated in the cheatsheet's `enviro
 - **Workspace Challenge**: Forgetting to run `terraform workspace select prod` before `terraform apply` can result in catastrophic changes to the wrong environment, a common error in high-pressure scenarios.
 - **Impact**: Folder-based isolation enhances safety, particularly for production data infrastructure where errors can lead to data loss or downtime.
 
-#### When to Use Workspaces
+##### When to Use Workspaces
 
 While folder-based isolation is generally preferred, workspaces may be suitable for:
 
@@ -1477,7 +1479,7 @@ While folder-based isolation is generally preferred, workspaces may be suitable 
 
 However, for data infrastructure projects with complex resources, multiple team members, and strict compliance requirements, folder-based isolation (as in the cheatsheet) is superior.
 
-#### Recommendations
+##### Recommendations
 
 - **Adopt Folder-Based Isolation**: Use the cheatsheet's `environments/` structure to organize `dev`, `staging`, and `prod` configurations in separate directories.
 - **Document in `README.md`**: Include setup instructions for navigating environment directories and running Terraform commands, as shown in the cheatsheet:
