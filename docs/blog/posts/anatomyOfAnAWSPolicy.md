@@ -50,7 +50,7 @@ And if you want to have a generic role which can pretty much do anything with la
 
 ## When does IAM apply?
 
-Whenever you request anything through an AWS API its going to go through IAM. But but, there is a case when it does not apply : When you have an HTTP server running on an AWS EC3 instance and http requests are directly made to the elastic ip address, there is no AWS service in between, so no IAM policy evaluation is done in this case.
+Whenever you request anything through an AWS API its going to go through IAM. But but, there is a case when it does not apply : When you have an HTTP server running on an AWS EC2 instance and http requests are directly made to the elastic ip address, there is no AWS service in between, so no IAM policy evaluation is done in this case.
 
 
 ```json
@@ -151,6 +151,9 @@ This applies in general to any resource. What this means in practice is :
 
 2. If they belong to different accounts: Both, the resource policy AND the policy attached to the principal (i.e. user/role) MUST explicitly Allow the action on the target resource.
 
+## User Groups
+
+A user group is a collection of IAM users. User groups are used to specify permissions to a collection of users. Groups simplify permission management by letting us grant, change, and remove permissions for multiple users at once.
 
 
 
