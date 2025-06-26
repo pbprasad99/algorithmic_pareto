@@ -326,7 +326,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../resources/" class="md-tabs__link">
+        <a href="../../resources/Dimensional_Modeling_Cheatseet/" class="md-tabs__link">
           
   
   
@@ -2190,6 +2190,8 @@
     
       
         
+      
+        
           
         
       
@@ -2239,6 +2241,29 @@
             Resources
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/Dimensional_Modeling_Cheatseet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dimensional Data Modeling Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
             
@@ -2468,6 +2493,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#user-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       References
@@ -2602,7 +2636,7 @@
 <p>Now the blast radius is invocation of any function.</p>
 <p>And if you want to have a generic role which can pretty much do anything with lambda functions like create, modify, delete and invoke lambdas, you would use a wildcard to define the Action as "lambda:*". So, the blast radius just increased to include anything which can be done to or with lambda functions. Somebody could just list and delete all your lambda functions.</p>
 <h2 id="when-does-iam-apply">When does IAM apply?<a class="headerlink" href="#when-does-iam-apply" title="Permanent link">&para;</a></h2>
-<p>Whenever you request anything through an AWS API its going to go through IAM. But but, there is a case when it does not apply : When you have an HTTP server running on an AWS EC3 instance and http requests are directly made to the elastic ip address, there is no AWS service in between, so no IAM policy evaluation is done in this case.</p>
+<p>Whenever you request anything through an AWS API its going to go through IAM. But but, there is a case when it does not apply : When you have an HTTP server running on an AWS EC2 instance and http requests are directly made to the elastic ip address, there is no AWS service in between, so no IAM policy evaluation is done in this case.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
 <span class="w">          </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -2676,6 +2710,8 @@ A clearer way to write the same policy is using two separate statemnets, one for
 <p>If they belong to different accounts: Both, the resource policy AND the policy attached to the principal (i.e. user/role) MUST explicitly Allow the action on the target resource.</p>
 </li>
 </ol>
+<h2 id="user-groups">User Groups<a class="headerlink" href="#user-groups" title="Permanent link">&para;</a></h2>
+<p>A user group is a collection of IAM users. User groups are used to specify permissions to a collection of users. Groups simplify permission management by letting us grant, change, and remove permissions for multiple users at once.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
