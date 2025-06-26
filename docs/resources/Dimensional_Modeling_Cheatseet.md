@@ -1,5 +1,7 @@
 # Dimensional Data Modeling Cheatsheet
 
+!!! note "AI Assisted (Claude Sonnet 4)"
+
 ## Core Concepts
 
 ### What is Dimensional Modeling?
