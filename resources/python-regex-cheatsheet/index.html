@@ -1,0 +1,3725 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Personal Website">
+      
+      
+        <meta name="author" content="pbprasad99">
+      
+      
+        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/resources/python-regex-cheatsheet/">
+      
+      
+        <link rel="prev" href="../python-lists-cheatsheet/">
+      
+      
+        <link rel="next" href="../python-sets-cheatsheet/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Python Regular Expressions Cheatsheet - patibanb.me</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Python Regular Expressions Cheatsheet - patibanb.me" >
+      
+        <meta  property="og:description"  content="Personal Website" >
+      
+        <meta  property="og:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/resources/python-regex-cheatsheet.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://pbprasad99.github.io/algorithmic_pareto/resources/python-regex-cheatsheet/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Python Regular Expressions Cheatsheet - patibanb.me" >
+      
+        <meta  name="twitter:description"  content="Personal Website" >
+      
+        <meta  name="twitter:image"  content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/resources/python-regex-cheatsheet.png" >
+      
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-regular-expressions-cheatsheet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="patibanb.me" class="md-header__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            patibanb.me
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python Regular Expressions Cheatsheet
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Algorithms/Array_Partitioning/Introduction/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Algorithms - The Pareto Set
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../blog/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Dimensional_Modeling_Cheatseet/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../About/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="patibanb.me" class="md-nav__button md-logo" aria-label="patibanb.me" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    patibanb.me
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Algorithms/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Algorithms - The Pareto Set
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithms - The Pareto Set
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Array Partitioning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Array Partitioning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Array_Partitioning/Introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Array_Partitioning/Hoare/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hoare Partition
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Array_Partitioning/Lomuto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lomuto Partition
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Array_Partitioning/In-Place_Deduplication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In-Place Deduplication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Algorithms/Quickselect/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Quickselect
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Quickselect
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Algorithms/Quicksort/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Quicksort
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Quicksort
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Algorithms/Two_Way_Merge/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Two Way Merge
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Two Way Merge
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Algorithms/Merge_Sort/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Merge Sort
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Merge Sort
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Algorithms/K_Way_Merge/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    K Way Merge
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            K Way Merge
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comparison Based Sorting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/External_Sorting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    External Sorting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Array Linearization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            Array Linearization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Array_Linearization/Mapping_2d_to_1d_Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mapping 2D Array to 1D Array
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Array_Linearization/Mapping_1d_to_2d_Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mapping 1D Array to 2D Array
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Misc Array Problems
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            Misc Array Problems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Misc_Array_Problems/Copying_and_allocating/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Allocate, Copy and Transpose 2D Matrix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Misc_Array_Problems/Diagonal_and_Antidiagonal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Diagonal and Antidiagonal traversal of Square Matrix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Misc_Array_Problems/In_Place_Transpose_of_a_Square_Matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In Place Transpose of a Square Matrix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Binary search
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            Binary search
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Binary_search/Introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Binary_search/Median_of_two_sorted_arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Median of two sorted arrays
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Algorithms/Basic_Recursion/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Basic Recursion
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_12">
+            <span class="md-nav__icon md-icon"></span>
+            Basic Recursion
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Algorithms/Backtracking/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Backtracking
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_13">
+            <span class="md-nav__icon md-icon"></span>
+            Backtracking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_14">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Math/Division_Algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The Division Algorithm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_14_2" id="__nav_2_14_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Fundamental Theorem Of Arithmetic
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_14_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_14_2">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamental Theorem Of Arithmetic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Math/Fundamental_Theorem_Of_Arithmetic/Introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Math/Fundamental_Theorem_Of_Arithmetic/claude_ugly_number_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The Ugly Number Problem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Algorithms/Math/Arithmetic_Series_and_Gauss_Summation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Arithmetic Series and Gauss Summation
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_14_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_14_3">
+            <span class="md-nav__icon md-icon"></span>
+            Arithmetic Series and Gauss Summation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_14_4" id="__nav_2_14_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Appendix
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_14_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_14_4">
+            <span class="md-nav__icon md-icon"></span>
+            Appendix
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Math/Appendix/Number_Theoretic_Notation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Number Theoretic Notation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Math/Appendix/Set_Theoretic_Notation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Set Theoretic Notation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../blog/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Archive
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2025
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Categories
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Categories
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/category/aws/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/category/basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/category/c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/category/etl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ETL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/category/encodings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Encodings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/category/iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/category/serverless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serverless
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dimensional_Modeling_Cheatseet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dimensional Data Modeling Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-dictionary-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Dictionary Methods Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-lists-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Lists Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Python Regular Expressions Cheatsheet
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Regular Expressions Cheatsheet
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#literal-characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Literal Characters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metacharacters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metacharacters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#character-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Character Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Character Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-character-matchers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single Character Matchers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#character-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Character Sets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#negated-character-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Negated Character Sets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predefined-character-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Predefined Character Classes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anchors-and-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anchors and Boundaries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Anchors and Boundaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-dual-meaning-of" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Dual Meaning of ^
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantifiers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quantifiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#greedy-vs-non-greedy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Greedy vs. Non-Greedy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grouping-and-capturing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grouping and Capturing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grouping and Capturing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#named-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Named Groups
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-capturing-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Capturing Groups
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lookahead-and-lookbehind" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lookahead and Lookbehind
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#research" class="md-nav__link">
+    <span class="md-ellipsis">
+      re.search()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rematch" class="md-nav__link">
+    <span class="md-ellipsis">
+      re.match()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refindall" class="md-nav__link">
+    <span class="md-ellipsis">
+      re.findall()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refinditer" class="md-nav__link">
+    <span class="md-ellipsis">
+      re.finditer()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resub" class="md-nav__link">
+    <span class="md-ellipsis">
+      re.sub()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      re.split()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flags
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raw-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw Strings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#email-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Email Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      URL Extraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#date-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Date Formatting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#password-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Password Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stripping-html-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stripping HTML Tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extracting-quoted-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extracting Quoted Text
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Tips
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-sets-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Sets Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-strings-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Strings Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terraform_Data_Engineer_Cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terraform_Scenarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform Scenarios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../About/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#literal-characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Literal Characters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metacharacters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metacharacters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#character-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Character Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Character Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-character-matchers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single Character Matchers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#character-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Character Sets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#negated-character-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Negated Character Sets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predefined-character-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Predefined Character Classes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anchors-and-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anchors and Boundaries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Anchors and Boundaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-dual-meaning-of" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Dual Meaning of ^
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantifiers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quantifiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#greedy-vs-non-greedy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Greedy vs. Non-Greedy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grouping-and-capturing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grouping and Capturing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grouping and Capturing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#named-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Named Groups
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-capturing-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Capturing Groups
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lookahead-and-lookbehind" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lookahead and Lookbehind
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#research" class="md-nav__link">
+    <span class="md-ellipsis">
+      re.search()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rematch" class="md-nav__link">
+    <span class="md-ellipsis">
+      re.match()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refindall" class="md-nav__link">
+    <span class="md-ellipsis">
+      re.findall()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refinditer" class="md-nav__link">
+    <span class="md-ellipsis">
+      re.finditer()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resub" class="md-nav__link">
+    <span class="md-ellipsis">
+      re.sub()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      re.split()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flags
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raw-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw Strings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#email-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Email Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      URL Extraction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#date-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Date Formatting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#password-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Password Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stripping-html-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stripping HTML Tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extracting-quoted-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extracting Quoted Text
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Tips
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="python-regular-expressions-cheatsheet">Python Regular Expressions Cheatsheet<a class="headerlink" href="#python-regular-expressions-cheatsheet" title="Permanent link">&para;</a></h1>
+<h2 id="basic-patterns">Basic Patterns<a class="headerlink" href="#basic-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="literal-characters">Literal Characters<a class="headerlink" href="#literal-characters" title="Permanent link">&para;</a></h3>
+<p>Regular expressions match literal characters by default.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Python is powerful&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># Matches &quot;Python&quot;</span>
+</code></pre></div>
+<h3 id="metacharacters">Metacharacters<a class="headerlink" href="#metacharacters" title="Permanent link">&para;</a></h3>
+<p>Special characters with meaning in regex must be escaped with a backslash <code>\</code> to match literally.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Metacharacters: . ^ $ * + ? { } [ ] \ | ( )</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Cost: $25.99&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;\$\d+\.\d+&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># Matches &quot;$25.99&quot;</span>
+</code></pre></div>
+<h2 id="character-classes">Character Classes<a class="headerlink" href="#character-classes" title="Permanent link">&para;</a></h2>
+<h3 id="single-character-matchers">Single Character Matchers<a class="headerlink" href="#single-character-matchers" title="Permanent link">&para;</a></h3>
+<p><code>.</code> (dot) matches any character except a newline.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;c.t&quot;</span>
+<span class="c1"># Matches &quot;cat&quot;, &quot;cut&quot;, &quot;c@t&quot;, etc.</span>
+</code></pre></div>
+<h3 id="character-sets">Character Sets<a class="headerlink" href="#character-sets" title="Permanent link">&para;</a></h3>
+<p><code>[ ]</code> define a character set - matches any single character within the brackets.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;[aeiou]&quot;</span>  <span class="c1"># Matches any single vowel</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">)</span>  <span class="c1"># Returns [&#39;a&#39;, &#39;e&#39;]</span>
+
+<span class="c1"># Range of characters</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;[a-z]&quot;</span>  <span class="c1"># Matches any lowercase letter</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;[A-Za-z]&quot;</span>  <span class="c1"># Matches any letter</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;[0-9]&quot;</span>  <span class="c1"># Matches any digit</span>
+</code></pre></div>
+<h3 id="negated-character-sets">Negated Character Sets<a class="headerlink" href="#negated-character-sets" title="Permanent link">&para;</a></h3>
+<p><code>[^ ]</code> matches any character NOT in the set.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;[^0-9]&quot;</span>  <span class="c1"># Matches any non-digit</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;abc123&quot;</span><span class="p">)</span>  <span class="c1"># Returns [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
+</code></pre></div>
+<h2 id="predefined-character-classes">Predefined Character Classes<a class="headerlink" href="#predefined-character-classes" title="Permanent link">&para;</a></h2>
+<p>Shorthand notation for common character sets:</p>
+<div class="highlight"><pre><span></span><code>\<span class="n">d</span>  <span class="c1"># Matches any digit [0-9]</span>
+\<span class="n">D</span>  <span class="c1"># Matches any non-digit [^0-9]</span>
+\<span class="n">w</span>  <span class="c1"># Matches any word character [a-zA-Z0-9_]</span>
+\<span class="n">W</span>  <span class="c1"># Matches any non-word character</span>
+\<span class="n">s</span>  <span class="c1"># Matches any whitespace character (space, tab, newline)</span>
+\<span class="n">S</span>  <span class="c1"># Matches any non-whitespace character</span>
+
+<span class="c1"># Example</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\d\s\w+&quot;</span>  <span class="c1"># Digit, followed by whitespace, followed by 1+ word chars</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;7 apples&quot;</span><span class="p">)</span>  <span class="c1"># Matches &quot;7 apples&quot;</span>
+</code></pre></div>
+<h2 id="anchors-and-boundaries">Anchors and Boundaries<a class="headerlink" href="#anchors-and-boundaries" title="Permanent link">&para;</a></h2>
+<p>Anchors match positions rather than characters:</p>
+<div class="highlight"><pre><span></span><code><span class="o">^</span>  <span class="c1"># Matches the start of a string</span>
+<span class="err">$</span>  <span class="c1"># Matches the end of a string</span>
+\<span class="n">b</span>  <span class="c1"># Matches a word boundary</span>
+\<span class="n">B</span>  <span class="c1"># Matches a non-word boundary</span>
+
+<span class="c1"># Examples</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^Python&quot;</span>  <span class="c1"># Matches &quot;Python&quot; only at the start</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;Python is great&quot;</span><span class="p">)</span>  <span class="c1"># Match</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;I love Python&quot;</span><span class="p">)</span>    <span class="c1"># No match</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;Python$&quot;</span>  <span class="c1"># Matches &quot;Python&quot; only at the end</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;I love Python&quot;</span><span class="p">)</span>    <span class="c1"># Match</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;Python is great&quot;</span><span class="p">)</span>  <span class="c1"># No match</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\bcat\b&quot;</span>  <span class="c1"># Matches the word &quot;cat&quot; with boundaries</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;The cat sits&quot;</span><span class="p">)</span>     <span class="c1"># Match</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;category&quot;</span><span class="p">)</span>         <span class="c1"># No match</span>
+</code></pre></div>
+<h3 id="the-dual-meaning-of">The Dual Meaning of ^<a class="headerlink" href="#the-dual-meaning-of" title="Permanent link">&para;</a></h3>
+<p>It's important to note that the caret symbol <code>^</code> has two distinct meanings in regular expressions:</p>
+<ol>
+<li>
+<p><strong>Outside square brackets</strong>: When used at the beginning of a pattern, it's an anchor that matches the start of a string or line.
+   <div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^abc&quot;</span>  <span class="c1"># Matches &quot;abc&quot; only at the start of the string</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Inside square brackets</strong>: When used as the first character inside square brackets, it negates the character class, meaning "match any character EXCEPT these."
+   <div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[^0-9]&quot;</span>  <span class="c1"># Matches any character that is NOT a digit</span>
+</code></pre></div></p>
+</li>
+</ol>
+<p>This distinction is crucial when reading and writing regex patterns. For example, in an email validation pattern:
+<div class="highlight"><pre><span></span><code><span class="n">email_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$&quot;</span>
+</code></pre></div>
+The first <code>^</code> indicates the match must start at the beginning of the string, while in <code>[a-zA-Z0-9._%+-]</code> the characters are simply a positive character class defining what's allowed in the username portion of the email.</p>
+<h2 id="quantifiers">Quantifiers<a class="headerlink" href="#quantifiers" title="Permanent link">&para;</a></h2>
+<p>Quantifiers specify how many times a pattern should match:</p>
+<div class="highlight"><pre><span></span><code><span class="o">*</span>      <span class="c1"># 0 or more repetitions</span>
+<span class="o">+</span>      <span class="c1"># 1 or more repetitions</span>
+<span class="err">?</span>      <span class="c1"># 0 or 1 repetition</span>
+<span class="p">{</span><span class="n">n</span><span class="p">}</span>    <span class="c1"># Exactly n repetitions</span>
+<span class="p">{</span><span class="n">n</span><span class="p">,}</span>   <span class="c1"># n or more repetitions</span>
+<span class="p">{</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">}</span>  <span class="c1"># Between n and m repetitions</span>
+
+<span class="c1"># Examples</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;ab*c&quot;</span>     <span class="c1"># Matches &quot;ac&quot;, &quot;abc&quot;, &quot;abbc&quot;, etc.</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;ab+c&quot;</span>     <span class="c1"># Matches &quot;abc&quot;, &quot;abbc&quot;, etc. (not &quot;ac&quot;)</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;colou?r&quot;</span>  <span class="c1"># Matches &quot;color&quot; or &quot;colour&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\d{2,4}&quot;</span>  <span class="c1"># Matches 2 to 4 digits</span>
+</code></pre></div>
+<h3 id="greedy-vs-non-greedy">Greedy vs. Non-Greedy<a class="headerlink" href="#greedy-vs-non-greedy" title="Permanent link">&para;</a></h3>
+<p>Quantifiers are greedy by default (match as much as possible). Adding <code>?</code> after a quantifier makes it non-greedy.</p>
+<div class="highlight"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&lt;div&gt;Content&lt;/div&gt;&lt;div&gt;More&lt;/div&gt;&quot;</span>
+
+<span class="c1"># Greedy matching</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&lt;div&gt;.*&lt;/div&gt;&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># Returns [&#39;&lt;div&gt;Content&lt;/div&gt;&lt;div&gt;More&lt;/div&gt;&#39;]</span>
+
+<span class="c1"># Non-greedy matching</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&lt;div&gt;.*?&lt;/div&gt;&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># Returns [&#39;&lt;div&gt;Content&lt;/div&gt;&#39;, &#39;&lt;div&gt;More&lt;/div&gt;&#39;]</span>
+</code></pre></div>
+<h2 id="grouping-and-capturing">Grouping and Capturing<a class="headerlink" href="#grouping-and-capturing" title="Permanent link">&para;</a></h2>
+<p>Parentheses <code>( )</code> create capture groups:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\d</span><span class="si">{3}</span><span class="s2">)-(\d</span><span class="si">{3}</span><span class="s2">)-(\d</span><span class="si">{4}</span><span class="s2">)&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;Phone: 123-456-7890&quot;</span><span class="p">)</span>
+<span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Entire match: &quot;123-456-7890&quot;</span>
+<span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># First group: &quot;123&quot;</span>
+<span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Second group: &quot;456&quot;</span>
+<span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Third group: &quot;7890&quot;</span>
+<span class="k">match</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>  <span class="c1"># All groups: (&quot;123&quot;, &quot;456&quot;, &quot;7890&quot;)</span>
+</code></pre></div>
+<h3 id="named-groups">Named Groups<a class="headerlink" href="#named-groups" title="Permanent link">&para;</a></h3>
+<p>Use <code>(?P&lt;name&gt;...)</code> for named groups:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(?P&lt;area&gt;\d</span><span class="si">{3}</span><span class="s2">)-(?P&lt;prefix&gt;\d</span><span class="si">{3}</span><span class="s2">)-(?P&lt;line&gt;\d</span><span class="si">{4}</span><span class="s2">)&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;Phone: 123-456-7890&quot;</span><span class="p">)</span>
+<span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;area&quot;</span><span class="p">)</span>    <span class="c1"># &quot;123&quot;</span>
+<span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;prefix&quot;</span><span class="p">)</span>  <span class="c1"># &quot;456&quot;</span>
+<span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>    <span class="c1"># &quot;7890&quot;</span>
+</code></pre></div>
+<h3 id="non-capturing-groups">Non-Capturing Groups<a class="headerlink" href="#non-capturing-groups" title="Permanent link">&para;</a></h3>
+<p>Use <code>(?:...)</code> for non-capturing groups:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(?:\d</span><span class="si">{3}</span><span class="s2">)-\d</span><span class="si">{3}</span><span class="s2">-(\d</span><span class="si">{4}</span><span class="s2">)&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;123-456-7890&quot;</span><span class="p">)</span>
+<span class="k">match</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>  <span class="c1"># Only contains (&quot;7890&quot;), the first part isn&#39;t captured</span>
+</code></pre></div>
+<h2 id="alternation">Alternation<a class="headerlink" href="#alternation" title="Permanent link">&para;</a></h2>
+<p>The pipe symbol <code>|</code> works as an OR operator:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;cat|dog&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;I have a cat and a dog&quot;</span><span class="p">)</span>  <span class="c1"># Returns [&#39;cat&#39;, &#39;dog&#39;]</span>
+
+<span class="c1"># Grouped alternation</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(cat|dog)s?&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;I have cats and a dog&quot;</span><span class="p">)</span>  <span class="c1"># Returns [&#39;cat&#39;, &#39;dog&#39;]</span>
+</code></pre></div>
+<h2 id="lookahead-and-lookbehind">Lookahead and Lookbehind<a class="headerlink" href="#lookahead-and-lookbehind" title="Permanent link">&para;</a></h2>
+<p>These are zero-width assertions that don't consume characters:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Positive lookahead (?=...): Match if followed by pattern</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\w+(?=\s+is)&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;Python is great, Java is powerful&quot;</span><span class="p">)</span>  <span class="c1"># [&#39;Python&#39;, &#39;Java&#39;]</span>
+
+<span class="c1"># Negative lookahead (?!...): Match if NOT followed by pattern</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;Python(?!\s+3)&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;Python 2.7&quot;</span><span class="p">)</span>  <span class="c1"># Match</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;Python 3.9&quot;</span><span class="p">)</span>  <span class="c1"># No match</span>
+
+<span class="c1"># Positive lookbehind (?&lt;=...): Match if preceded by pattern</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(?&lt;=\$)\d+&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;Items: $10, $25, €30&quot;</span><span class="p">)</span>  <span class="c1"># [&#39;10&#39;, &#39;25&#39;]</span>
+
+<span class="c1"># Negative lookbehind (?&lt;!...): Match if NOT preceded by pattern</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(?&lt;!\$)\d+&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;$10, 20, $30&quot;</span><span class="p">)</span>  <span class="c1"># [&#39;0&#39;, &#39;20&#39;, &#39;0&#39;]</span>
+</code></pre></div>
+<h2 id="common-functions">Common Functions<a class="headerlink" href="#common-functions" title="Permanent link">&para;</a></h2>
+<h3 id="research">re.search()<a class="headerlink" href="#research" title="Permanent link">&para;</a></h3>
+<p>Finds the first match of the pattern:</p>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="s2">&quot;abc123def456&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>  <span class="c1"># &quot;123&quot;</span>
+</code></pre></div>
+<h3 id="rematch">re.match()<a class="headerlink" href="#rematch" title="Permanent link">&para;</a></h3>
+<p>Matches pattern only at the beginning of the string:</p>
+<div class="highlight"><pre><span></span><code><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="s2">&quot;123abc&quot;</span><span class="p">)</span>   <span class="c1"># Match</span>
+<span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="s2">&quot;abc123&quot;</span><span class="p">)</span>   <span class="c1"># No match</span>
+</code></pre></div>
+<h3 id="refindall">re.findall()<a class="headerlink" href="#refindall" title="Permanent link">&para;</a></h3>
+<p>Returns all non-overlapping matches as a list:</p>
+<div class="highlight"><pre><span></span><code><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="s2">&quot;abc123def456&quot;</span><span class="p">)</span>  <span class="c1"># Returns [&#39;123&#39;, &#39;456&#39;]</span>
+</code></pre></div>
+<h3 id="refinditer">re.finditer()<a class="headerlink" href="#refinditer" title="Permanent link">&para;</a></h3>
+<p>Returns an iterator of match objects:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="s2">&quot;abc123def456&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(),</span> <span class="n">match</span><span class="o">.</span><span class="n">span</span><span class="p">())</span>  <span class="c1"># &quot;123&quot; (3, 6), &quot;456&quot; (9, 12)</span>
+</code></pre></div>
+<h3 id="resub">re.sub()<a class="headerlink" href="#resub" title="Permanent link">&para;</a></h3>
+<p>Substitutes matches with a replacement:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Basic substitution</span>
+<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="s2">&quot;NUM&quot;</span><span class="p">,</span> <span class="s2">&quot;abc123def456&quot;</span><span class="p">)</span>  <span class="c1"># Returns &quot;abcNUMdefNUM&quot;</span>
+
+<span class="c1"># Using backreferences</span>
+<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\d</span><span class="si">{3}</span><span class="s2">)-(\d</span><span class="si">{3}</span><span class="s2">)-(\d</span><span class="si">{4}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;(\1) \2-\3&quot;</span><span class="p">,</span> <span class="s2">&quot;123-456-7890&quot;</span><span class="p">)</span>
+<span class="c1"># Returns &quot;(123) 456-7890&quot;</span>
+
+<span class="c1"># Using a function for replacement</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">double_digits</span><span class="p">(</span><span class="n">match</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="n">double_digits</span><span class="p">,</span> <span class="s2">&quot;abc123def456&quot;</span><span class="p">)</span>  <span class="c1"># Returns &quot;abc246def912&quot;</span>
+</code></pre></div>
+<h3 id="resplit">re.split()<a class="headerlink" href="#resplit" title="Permanent link">&para;</a></h3>
+<p>Splits a string by pattern matches:</p>
+<div class="highlight"><pre><span></span><code><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">,</span> <span class="s2">&quot;Split   these words&quot;</span><span class="p">)</span>  <span class="c1"># Returns [&#39;Split&#39;, &#39;these&#39;, &#39;words&#39;]</span>
+<span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[,;]&quot;</span><span class="p">,</span> <span class="s2">&quot;apple,orange;banana&quot;</span><span class="p">)</span>  <span class="c1"># Returns [&#39;apple&#39;, &#39;orange&#39;, &#39;banana&#39;]</span>
+</code></pre></div>
+<h2 id="flags">Flags<a class="headerlink" href="#flags" title="Permanent link">&para;</a></h2>
+<p>Modify regex behavior with flags:</p>
+<div class="highlight"><pre><span></span><code><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span>  <span class="c1"># or re.I: Case-insensitive matching</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>  <span class="c1"># Match</span>
+
+<span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span>  <span class="c1"># or re.M: ^ and $ match start/end of each line</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Line 1</span><span class="se">\n</span><span class="s2">Line 2&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^Line&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">)</span>  <span class="c1"># Returns [&#39;Line&#39;, &#39;Line&#39;]</span>
+
+<span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span>  <span class="c1"># or re.S: Dot matches any character including newline</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Line 1.+Line 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Line 1</span><span class="se">\n</span><span class="s2">Line 2&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>  <span class="c1"># Match</span>
+
+<span class="n">re</span><span class="o">.</span><span class="n">VERBOSE</span>  <span class="c1"># or re.X: Allow whitespace and comments in pattern</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    \d</span><span class="si">{3}</span><span class="s2">  # Area code</span>
+<span class="s2">    [-.]?  # Optional separator</span>
+<span class="s2">    \d</span><span class="si">{3}</span><span class="s2">  # Prefix</span>
+<span class="s2">    [-.]?  # Optional separator</span>
+<span class="s2">    \d</span><span class="si">{4}</span><span class="s2">  # Line number</span>
+<span class="s2">    &quot;&quot;&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">VERBOSE</span><span class="p">)</span>
+
+<span class="c1"># Multiple flags</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="raw-strings">Raw Strings<a class="headerlink" href="#raw-strings" title="Permanent link">&para;</a></h2>
+<p>Use raw strings (<code>r"..."</code>) to avoid issues with backslashes:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Without raw string</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">d+&quot;</span><span class="p">,</span> <span class="s2">&quot;123&quot;</span><span class="p">)</span>  <span class="c1"># Need double backslash</span>
+
+<span class="c1"># With raw string (recommended)</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="s2">&quot;123&quot;</span><span class="p">)</span>  <span class="c1"># Much cleaner</span>
+</code></pre></div>
+<h2 id="practical-examples">Practical Examples<a class="headerlink" href="#practical-examples" title="Permanent link">&para;</a></h2>
+<h3 id="email-validation">Email Validation<a class="headerlink" href="#email-validation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">email_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">email_pattern</span><span class="p">,</span> <span class="s2">&quot;user@example.com&quot;</span><span class="p">)</span>  <span class="c1"># Match</span>
+<span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">email_pattern</span><span class="p">,</span> <span class="s2">&quot;invalid@email&quot;</span><span class="p">)</span>     <span class="c1"># No match</span>
+</code></pre></div>
+<h3 id="url-extraction">URL Extraction<a class="headerlink" href="#url-extraction" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">url_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;https?://(?:www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_+.~#?&amp;/=]*)&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">url_pattern</span><span class="p">,</span> <span class="s2">&quot;Visit https://example.com and http://test.org&quot;</span><span class="p">)</span>
+<span class="c1"># Returns [&#39;https://example.com&#39;, &#39;http://test.org&#39;]</span>
+</code></pre></div>
+<h3 id="date-formatting">Date Formatting<a class="headerlink" href="#date-formatting" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Convert MM/DD/YYYY to YYYY-MM-DD</span>
+<span class="n">date_text</span> <span class="o">=</span> <span class="s2">&quot;Today&#39;s date: 12/25/2023&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\d</span><span class="si">{2}</span><span class="s2">)/(\d</span><span class="si">{2}</span><span class="s2">)/(\d</span><span class="si">{4}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\3-\1-\2&quot;</span><span class="p">,</span> <span class="n">date_text</span><span class="p">)</span>
+<span class="c1"># Returns &quot;Today&#39;s date: 2023-12-25&quot;</span>
+</code></pre></div>
+<h3 id="password-validation">Password Validation<a class="headerlink" href="#password-validation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># At least 8 chars with 1+ uppercase, 1+ lowercase, 1+ digit, 1+ special char</span>
+<span class="n">password_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&amp;])[A-Za-z\d@$!%*?&amp;]{8,}$&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">password_pattern</span><span class="p">,</span> <span class="s2">&quot;Passw0rd!&quot;</span><span class="p">)</span>  <span class="c1"># Match</span>
+<span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">password_pattern</span><span class="p">,</span> <span class="s2">&quot;password&quot;</span><span class="p">)</span>   <span class="c1"># No match</span>
+</code></pre></div>
+<h3 id="stripping-html-tags">Stripping HTML Tags<a class="headerlink" href="#stripping-html-tags" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">html_text</span> <span class="o">=</span> <span class="s2">&quot;&lt;p&gt;This is &lt;b&gt;bold&lt;/b&gt; text.&lt;/p&gt;&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;[^&gt;]*&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">html_text</span><span class="p">)</span>  <span class="c1"># Returns &quot;This is bold text.&quot;</span>
+</code></pre></div>
+<h3 id="extracting-quoted-text">Extracting Quoted Text<a class="headerlink" href="#extracting-quoted-text" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;She said &quot;hello&quot; and he replied &quot;goodbye&quot;&#39;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&quot;([^&quot;]*)&quot;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># Returns [&#39;hello&#39;, &#39;goodbye&#39;]</span>
+</code></pre></div>
+<h2 id="performance-tips">Performance Tips<a class="headerlink" href="#performance-tips" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Compile patterns</strong> for repeated use:
+   <div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">)</span>
+<span class="n">pattern</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;123 456&quot;</span><span class="p">)</span>  <span class="c1"># More efficient for multiple operations</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Avoid unnecessary backtracking</strong>:
+   <div class="highlight"><pre><span></span><code><span class="c1"># Instead of r&quot;a.*z&quot;</span>
+<span class="c1"># Use r&quot;a[^z]*z&quot; if possible</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Use non-capturing groups</strong> when you don't need the captured text:
+   <div class="highlight"><pre><span></span><code><span class="c1"># Instead of r&quot;(pattern)&quot;</span>
+<span class="c1"># Use r&quot;(?:pattern)&quot; when you don&#39;t need to reference the group</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Be specific</strong> rather than using broad patterns:
+   <div class="highlight"><pre><span></span><code><span class="c1"># Instead of r&quot;.*&quot;</span>
+<span class="c1"># Use r&quot;\d+&quot; if you&#39;re specifically looking for digits</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Use appropriate anchors</strong> to limit search space:
+   <div class="highlight"><pre><span></span><code><span class="c1"># Instead of r&quot;pattern&quot;</span>
+<span class="c1"># Use r&quot;^pattern$&quot; if you want to match the entire string</span>
+</code></pre></div></p>
+</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../python-lists-cheatsheet/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Python Lists Cheatsheet">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Python Lists Cheatsheet
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../python-sets-cheatsheet/" class="md-footer__link md-footer__link--next" aria-label="Next: Python Sets Cheatsheet">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Python Sets Cheatsheet
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+      
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

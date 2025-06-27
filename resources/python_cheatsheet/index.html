@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/resources/python_cheatsheet/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../python-strings-cheatsheet/">
       
       
         <link rel="next" href="../Terraform_Data_Engineer_Cheatsheet/">
@@ -2196,6 +2196,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2263,6 +2273,121 @@
 
               
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-dictionary-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Dictionary Methods Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-lists-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Lists Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-regex-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Regular Expressions Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-sets-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Sets Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-strings-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Strings Cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -2362,6 +2487,24 @@
   <a href="#sort-by-ascending-with-descending-tie-breaker" class="md-nav__link">
     <span class="md-ellipsis">
       Sort by ascending with descending tie breaker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isinstance" class="md-nav__link">
+    <span class="md-ellipsis">
+      isinstance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-punctutation" class="md-nav__link">
+    <span class="md-ellipsis">
+      removing punctutation
     </span>
   </a>
   
@@ -2564,6 +2707,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#isinstance" class="md-nav__link">
+    <span class="md-ellipsis">
+      isinstance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-punctutation" class="md-nav__link">
+    <span class="md-ellipsis">
+      removing punctutation
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2675,6 +2836,85 @@ If the string contains spaces, special characters, or is empty, it will return F
 
         <span class="k">return</span> <span class="n">count</span>
 </code></pre></div>
+<h3 id="isinstance">isinstance<a class="headerlink" href="#isinstance" title="Permanent link">&para;</a></h3>
+<p>Checks if the object is of a specified type.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#ref : https://www.w3schools.com/python/ref_func_isinstance.asp</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">flatten_list</span><span class="p">(</span><span class="n">nested_list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Flatten a nested list of any depth into a 1D list.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        nested_list: A list that may contain nested lists as elements</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A flattened 1D list containing all elements in the nested list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">nested_list</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">flatten_list</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="n">test_case_1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]]]</span>
+<span class="n">test_case_2</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">3.1415</span><span class="p">,</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">]]]]</span>
+<span class="n">test_case_3</span> <span class="o">=</span> <span class="p">[[[[]]],</span> <span class="p">[],</span> <span class="p">[[],</span> <span class="p">[[],</span> <span class="p">[[]]]]]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">flatten_list</span><span class="p">(</span><span class="n">test_case_1</span><span class="p">))</span>  <span class="c1"># [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">flatten_list</span><span class="p">(</span><span class="n">test_case_2</span><span class="p">))</span>  <span class="c1"># [1, &#39;a&#39;, 3.1415, True, 0, &#39;b&#39;, None, 2, 3, &#39;text&#39;]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">flatten_list</span><span class="p">(</span><span class="n">test_case_3</span><span class="p">))</span>  <span class="c1"># [] </span>
+</code></pre></div>
+<h3 id="removing-punctutation">removing punctutation<a class="headerlink" href="#removing-punctutation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; import string
+&gt;&gt;&gt; string.punctuation
+&#39;!&quot;#$%&amp;\&#39;()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~&#39;
+</code></pre></div>
+<p>string also has :
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; dir(string)
+[&#39;Formatter&#39;, &#39;Template&#39;, &#39;_ChainMap&#39;, &#39;__all__&#39;, &#39;__builtins__&#39;, &#39;__cached__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;_re&#39;, &#39;_sentinel_dict&#39;, &#39;_string&#39;, &#39;ascii_letters&#39;, &#39;ascii_lowercase&#39;, &#39;ascii_uppercase&#39;, &#39;capwords&#39;, &#39;digits&#39;, &#39;hexdigits&#39;, &#39;octdigits&#39;, &#39;printable&#39;, &#39;punctuation&#39;, &#39;whitespace&#39;]
+#example
+&gt;&gt;&gt; string.ascii_letters
+&#39;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;
+</code></pre></div></p>
+<p>How not to use translate. Does not work:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; &#39;a&#39;.translate({&#39;a&#39;:&#39;b&#39;})
+&#39;a&#39; # expected b
+</code></pre></div>
+<p>Use with str.maketrans</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; str.maketrans(&#39;a&#39;,&#39;b&#39;)
+{97: 98}
+&gt;&gt;&gt; &#39;a&#39;.translate({97:98})
+&#39;b&#39;
+</code></pre></div>
+<p>or in one shot :
+<div class="highlight"><pre><span></span><code>&#39;a&#39;.translate(str.maketrans(&#39;a&#39;,&#39;b&#39;))
+</code></pre></div></p>
+<p>You can also remove stuff by combining str.makestrans and translate. str.maketrans takes a third argument for removing characters.
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; str.maketrans(&#39;&#39;,&#39;&#39;,&#39;a&#39;)
+{97: None}
+</code></pre></div></p>
+<p>Cant replace strings with this approach. </p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; str.maketrans(&#39;replacethis&#39;,&#39;withthat&#39;,&#39;andremovethis&#39;)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+ValueError: the first two maketrans arguments must have equal length
+</code></pre></div>
+<p>Its for replacing characters with their mappings:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; str.maketrans(&#39;replacethis&#39;,&#39;replacethat&#39;,&#39;removethis&#39;)
+{114: None, 101: None, 112: 112, 108: 108, 97: 97, 99: 99, 116: None, 104: None, 105: None, 115: None, 109: None, 111: None, 118: None}
+&gt;&gt;&gt; str.maketrans(&#39;r&#39;,&#39;r&#39;)
+{114: 114}
+&gt;&gt;&gt; str.maketrans(&#39;r&#39;,&#39;r&#39;,&#39;r&#39;)
+{114: None}
+# The last argument for removal, overwrites and thus iverrides Mapping arguments.
+&gt;&gt;&gt; &#39;r&#39;.translate(str.maketrans(&#39;r&#39;,&#39;r&#39;,&#39;r&#39;))
+&#39;&#39;
+</code></pre></div>
+<p>See also : <a href="https://stackoverflow.com/questions/59877761/how-to-strip-string-from-punctuation-except-apostrophes-for-nlp">https://stackoverflow.com/questions/59877761/how-to-strip-string-from-punctuation-except-apostrophes-for-nlp</a></p>
+<p>Additional Resources :</p>
+<p><a href="https://www.stratascratch.com/blog/python-string-methods-here-is-how-to-master-them/">https://www.stratascratch.com/blog/python-string-methods-here-is-how-to-master-them/</a></p>
 
 
 
@@ -2709,7 +2949,7 @@ If the string contains spaces, special characters, or is empty, it will return F
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Resources">
+          <a href="../python-strings-cheatsheet/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Python Strings Cheatsheet">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2719,7 +2959,7 @@ If the string contains spaces, special characters, or is empty, it will return F
                 Previous
               </span>
               <div class="md-ellipsis">
-                Resources
+                Python Strings Cheatsheet
               </div>
             </div>
           </a>
