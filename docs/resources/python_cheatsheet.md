@@ -103,3 +103,114 @@ class Solution:
         
         return count
 ```
+
+
+### isinstance
+
+Checks if the object is of a specified type.
+
+```python
+#ref : https://www.w3schools.com/python/ref_func_isinstance.asp
+
+def flatten_list(nested_list):
+    """
+    Flatten a nested list of any depth into a 1D list.
+    
+    Args:
+        nested_list: A list that may contain nested lists as elements
+        
+    Returns:
+        A flattened 1D list containing all elements in the nested list
+    """
+    res = []
+    for item in nested_list :
+        if isinstance(item, list) :
+            res.extend(flatten_list(item))
+        else :
+            res.append(item)
+    return res
+
+test_case_1 = [[1, 2, [3, 4], 5], [6], [7, [8, [9, 10]]]]
+test_case_2 = [[1, "a", [3.1415, [True, 0]], "b"], [None, [2, [3, "text"]]]]
+test_case_3 = [[[[]]], [], [[], [[], [[]]]]]
+
+print(flatten_list(test_case_1))  # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(flatten_list(test_case_2))  # [1, 'a', 3.1415, True, 0, 'b', None, 2, 3, 'text']
+print(flatten_list(test_case_3))  # [] 
+```
+
+### removing punctutation
+
+
+```
+>>> import string
+>>> string.punctuation
+'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+```
+
+string also has :
+```
+>>> dir(string)
+['Formatter', 'Template', '_ChainMap', '__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_re', '_sentinel_dict', '_string', 'ascii_letters', 'ascii_lowercase', 'ascii_uppercase', 'capwords', 'digits', 'hexdigits', 'octdigits', 'printable', 'punctuation', 'whitespace']
+#example
+>>> string.ascii_letters
+'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+```
+
+How not to use translate. Does not work:
+
+```
+>>> 'a'.translate({'a':'b'})
+'a' # expected b
+```
+
+Use with str.maketrans
+
+```
+>>> str.maketrans('a','b')
+{97: 98}
+>>> 'a'.translate({97:98})
+'b'
+```
+
+or in one shot :
+```
+'a'.translate(str.maketrans('a','b'))
+```
+
+You can also remove stuff by combining str.makestrans and translate. str.maketrans takes a third argument for removing characters.
+```
+>>> str.maketrans('','','a')
+{97: None}
+```
+
+Cant replace strings with this approach. 
+
+```
+>>> str.maketrans('replacethis','withthat','andremovethis')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: the first two maketrans arguments must have equal length
+```
+
+Its for replacing characters with their mappings:
+
+```
+>>> str.maketrans('replacethis','replacethat','removethis')
+{114: None, 101: None, 112: 112, 108: 108, 97: 97, 99: 99, 116: None, 104: None, 105: None, 115: None, 109: None, 111: None, 118: None}
+>>> str.maketrans('r','r')
+{114: 114}
+>>> str.maketrans('r','r','r')
+{114: None}
+# The last argument for removal, overwrites and thus iverrides Mapping arguments.
+>>> 'r'.translate(str.maketrans('r','r','r'))
+''
+
+```
+
+See also : https://stackoverflow.com/questions/59877761/how-to-strip-string-from-punctuation-except-apostrophes-for-nlp
+
+
+Additional Resources :
+
+https://www.stratascratch.com/blog/python-string-methods-here-is-how-to-master-them/
