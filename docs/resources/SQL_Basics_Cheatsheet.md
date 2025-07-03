@@ -112,16 +112,12 @@
 
 24. **How many types of clauses in SQL?** There's no fixed "number of types" of clauses, as they serve different purposes. Some common and distinct clauses include: `SELECT`, `FROM`, `WHERE`, `GROUP BY`, `HAVING`, `ORDER BY`, `LIMIT`/`TOP`, `JOIN` (and its variations), `ON`.
 
-25. **What is the difference between UNION and UNION ALL in SQL?** (Already answered in question 23).
-
-26. **What are the various types of relationships in SQL?** (Already answered in question 22).
 
 27. **Difference between Primary Key and Secondary Key?**
 
       * **Primary Key:** Uniquely identifies each record in a table. Must be unique and `NOT NULL`. There can be only one primary key per table.
       * **Secondary Key (or Alternate Key):** A candidate key that is not chosen as the primary key. It can also uniquely identify records, but it's not the designated primary identifier.
 
-28. **What is the difference between where and having?** (Already answered in question 2).
 
 29. **Find the second highest salary of an employee?**
 
