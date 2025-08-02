@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
 """
-python convert_to_mkdocs.py --repo-dir . --username pbprasad99 --repo-name algorithmic_pareto
+Serve Mkdocs site locally using UV and Python 3.10+.
+
+Usage: 
+cd algorithmic_pareto/scripts
+python serve.py --repo-dir .. --username pbprasad99 --repo-name algorithmic_pareto
+
+Notes:
+- On Windows, ensure Python 3.10+ and UV are installed and available in your PATH.
+- If you install Python or UV during your session, restart your terminal or update your PATH.
+- This script is cross-platform and will work on macOS, Linux, and Windows as long as prerequisites are met.
 """
 import os
 import subprocess
 import sys
-import yaml
 import argparse
 import re
 from pathlib import Path
@@ -22,22 +30,44 @@ def run_command(command, error_message="An error occurred"):
         print(f"Error output: {e.stderr}")
         sys.exit(1)
 
+def find_python_and_uv():
+    """Find python3.12, python3.11, python3.10, python3, or python (>=3.10) and uv executables. Error if no suitable python or uv is found."""
+    import shutil
+    # Try python3.12, python3.11, python3.10, python3, python in order
+    for py in ["python3.12", "python3.11", "python3.10", "python3", "python"]:
+        py_exec = shutil.which(py)
+        if py_exec:
+            # Check version
+            try:
+                version_str = subprocess.run([py_exec, "--version"], check=True, text=True, capture_output=True).stdout.strip()
+                version_num = tuple(map(int, version_str.split()[1].split(".")[:2]))
+                if version_num >= (3, 10):
+                    break
+            except Exception:
+                continue
+    else:
+        print("Error: Python 3.10 or greater is required but was not found in your PATH. Please install Python 3.10+ and try again.")
+        sys.exit(1)
+    uv_exec = shutil.which("uv")
+    if not uv_exec:
+        print("Error: uv is required but was not found in your PATH. Please install it from https://github.com/astral-sh/uv.")
+        sys.exit(1)
+    return py_exec, uv_exec
+
 def check_prerequisites():
     """Check if required tools are installed."""
-    # Check for Python 3.6+
-    python_version = sys.version_info
-    if python_version.major < 3 or (python_version.major == 3 and python_version.minor < 6):
-        print("Error: Python 3.6 or higher is required.")
-        sys.exit(1)
-        
-    # Check for pip
+    python_exec, uv_exec = find_python_and_uv()
+    # Check Python version
     try:
-        run_command("pip --version", "pip is not installed")
-        print("✓ pip is installed")
-    except:
-        print("Error: pip is not installed")
+        version_str = run_command(f"{python_exec} --version", "Python 3.10+ is not installed")
+        version_num = tuple(map(int, version_str.strip().split()[1].split(".")[:2]))
+        if version_num < (3, 10):
+            print("Error: Python 3.10 or higher is required.")
+            sys.exit(1)
+        print(f"✓ {python_exec} is installed: {version_str}")
+    except Exception as e:
+        print(f"Error: Could not determine Python 3.10+ version: {e}")
         sys.exit(1)
-        
     # Check for git
     try:
         run_command("git --version", "git is not installed")
@@ -45,67 +75,67 @@ def check_prerequisites():
     except:
         print("Error: git is not installed")
         sys.exit(1)
+    # Check for uv
+    try:
+        run_command(f"{uv_exec} --version", "uv is not installed")
+        print("✓ uv is installed")
+    except:
+        print("Error: uv is not installed. Please install it from https://github.com/astral-sh/uv.")
+        sys.exit(1)
+    return python_exec, uv_exec
 
-def setup_virtual_env(project_dir):
-    """Create and activate a virtual environment."""
-    print("\n🔧 Setting up virtual environment...")
-    venv_dir = os.path.join(project_dir, "venv")
-    
-    # Check if venv already exists
+def setup_uv_env(project_dir, python_exec, uv_exec):
+    """Create a UV venv with Python 3.10+ only."""
+    print(f"\n🔧 Setting up UV environment ({python_exec} only)...")
+    venv_dir = os.path.join(project_dir, ".uv_venv")
     if os.path.exists(venv_dir):
-        print("Virtual environment already exists. Skipping creation.")
+        print("UV environment already exists. Skipping creation.")
     else:
-        # Create virtual environment
-        run_command(f"python -m venv {venv_dir}", 
-                    "Failed to create virtual environment")
-    
-    # Determine the activate script based on the OS
+        run_command(f"{uv_exec} venv {venv_dir} --python={python_exec}", f"Failed to create UV venv with {python_exec}")
+    # Return the path to the Python executable in the venv
+    py_version = os.path.basename(python_exec)
     if sys.platform == "win32":
-        activate_script = os.path.join(venv_dir, "Scripts", "activate")
-        # For Windows, return the command to activate
-        return f"call {activate_script}"
+        python_bin = os.path.join(venv_dir, "Scripts", "python.exe")
+        mkdocs_bin = os.path.join(venv_dir, "Scripts", "mkdocs")
+        venv_bin = os.path.join(venv_dir, "Scripts")
     else:
-        activate_script = os.path.join(venv_dir, "bin", "activate")
-        # For Unix, return the command to activate
-        return f"source {activate_script}"
+        # Try to find the correct python binary in the venv
+        python_bin = os.path.join(venv_dir, "bin", py_version)
+        if not os.path.exists(python_bin):
+            python_bin = os.path.join(venv_dir, "bin", "python3")
+        mkdocs_bin = os.path.join(venv_dir, "bin", "mkdocs")
+        venv_bin = os.path.join(venv_dir, "bin")
+    return python_bin, mkdocs_bin, venv_dir, venv_bin
 
-def install_dependencies(activate_cmd):
-    print("\n📦 Installing MkDocs and plugins...")
-    run_command(f"{activate_cmd}  && pip install -r ../requirements.txt",
-                 "Failed to install dependencies")
+def install_dependencies(venv_dir, venv_bin, uv_exec):
+    print("\n📦 Installing MkDocs and plugins with UV...")
+    req_path = os.path.abspath(os.path.join(venv_dir, "..", "requirements.txt"))
+    env = os.environ.copy()
+    env["VIRTUAL_ENV"] = venv_dir
+    env["PATH"] = venv_bin + os.pathsep + env.get("PATH", "")
+    try:
+        result = subprocess.run(
+            [uv_exec, "pip", "install", "-r", req_path],
+            check=True,
+            text=True,
+            capture_output=True,
+            env=env
+        )
+        print(result.stdout.strip())
+    except subprocess.CalledProcessError as e:
+        print(f"Failed to install dependencies with UV: {e}")
+        print(f"Error output: {e.stderr}")
+        sys.exit(1)
 
-# def install_dependencies(activate_cmd):
-#     """Install MkDocs and required plugins."""
-#     print("\n📦 Installing MkDocs and plugins...")
-    
-#     # List of packages to install
-#     packages = [
-#         "mkdocs",
-#         "mkdocs-material",
-#         "mkdocs-awesome-pages-plugin",
-#         "mkdocs-git-revision-date-localized-plugin",
-#         "mkdocs-minify-plugin",
-#         "pymdown-extensions",
-#         "pillow",
-#         "cairosvg"
-#     ]
-    
-#     # Install packages
-#     packages_str = " ".join(packages)
-#     run_command(f"{activate_cmd} && pip install {packages_str}",
-#                "Failed to install dependencies")
-    
-#     print("✓ All dependencies installed successfully")
-
-
-
-def run_mkdocs_serve(project_dir, activate_cmd):
-    """Run MkDocs serve to preview the site."""
+def run_mkdocs_serve(project_dir, mkdocs_bin, venv_bin):
+    """Run MkDocs serve to preview the site using the UV environment."""
     print("\n🌐 Starting MkDocs server for preview...")
     print("   (Press Ctrl+C to stop the server when done)")
-    
     os.chdir(project_dir)
-    subprocess.run(f"{activate_cmd} && mkdocs serve", shell=True)
+    env = os.environ.copy()
+    env["VIRTUAL_ENV"] = os.path.dirname(venv_bin)
+    env["PATH"] = venv_bin + os.pathsep + env.get("PATH", "")
+    subprocess.run([mkdocs_bin, "serve"], env=env)
 
 def main():
     parser = argparse.ArgumentParser(description="Convert a GitHub repository to MkDocs blog")
@@ -132,13 +162,13 @@ def main():
             sys.exit(0)
     
     # Check prerequisites
-    check_prerequisites()
+    python_exec, uv_exec = check_prerequisites()
     
-    # Setup virtual environment
-    activate_cmd = setup_virtual_env(project_dir)
+    # Setup UV environment
+    python_bin, mkdocs_bin, venv_dir, venv_bin = setup_uv_env(project_dir, python_exec, uv_exec)
     
-    # Install dependencies
-    install_dependencies(activate_cmd)
+    # Install dependencies (use uv)
+    install_dependencies(venv_dir, venv_bin, uv_exec)
     
     print(f"\n✅ Repository successfully converted to MkDocs blog!")
     print(f"   Location: {project_dir}")
@@ -153,7 +183,7 @@ def main():
     print("4. GitHub Actions will automatically deploy the site to GitHub Pages")
     
     if not args.no_serve:
-        run_mkdocs_serve(project_dir, activate_cmd)
+        run_mkdocs_serve(project_dir, mkdocs_bin, venv_bin)
 
 if __name__ == "__main__":
     main()
