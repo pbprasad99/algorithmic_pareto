@@ -16,5 +16,3 @@ Over the past decade, I have worked with diverse teams to design and implement e
 I enjoy collaborating with cross-functional teams, building useful things, solving pesky problems and staying up-to-date with the latest advancements in data engineering, analytics and AI.
 
 Feel free to connect with me on [LinkedIn](http://www.linkedin.com/in/bpatiban) or explore this website!
-
-
