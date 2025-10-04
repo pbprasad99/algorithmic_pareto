@@ -16,7 +16,7 @@ While revisiting my old notes on Standard C , I came across this fun fact: In tw
 
 <!-- more -->
 
-## SIgned Vs Unsigned encoding for integers
+## Signed Vs Unsigned encoding for integers
 
 Most computers use two’s complement to represent negative values. In this system, the most significant bit (MSB) is treated as having a negative weight.
 
