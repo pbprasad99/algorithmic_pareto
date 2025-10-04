@@ -9,28 +9,28 @@
         <meta name="author" content="pbprasad99">
       
       
-        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Array_Partitioning/In-Place_Deduplication/">
+        <link rel="canonical" href="https://pbprasad99.github.io/algorithmic_pareto/blog/What_is_a_tree/">
       
       
-        <link rel="prev" href="../Lomuto/">
+        <link rel="prev" href="../Anatomy%20of%20an%20AWS%20Policy/">
       
       
-        <link rel="next" href="../../Quickselect/">
+        <link rel="next" href="../Fun%20Facts%20about%20two%27s%20complement%20encoding/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.ico">
+      <link rel="icon" href="../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
     
     
       
-        <title>In-Place Deduplication - patb.fyi</title>
+        <title>What exactly is a Tree - patb.fyi</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.2a3383ac.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2a3383ac.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -49,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,11 +60,11 @@
       
         <meta property="og:type" content="website">
       
-        <meta property="og:title" content="In-Place Deduplication - patb.fyi">
+        <meta property="og:title" content="What exactly is a Tree - patb.fyi">
       
         <meta property="og:description" content="Personal Website">
       
-        <meta property="og:image" content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Array_Partitioning/In-Place_Deduplication.png">
+        <meta property="og:image" content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/blog/posts/What_is_a_Tree.png">
       
         <meta property="og:image:type" content="image/png">
       
@@ -72,19 +72,19 @@
       
         <meta property="og:image:height" content="630">
       
-        <meta property="og:url" content="https://pbprasad99.github.io/algorithmic_pareto/Algorithms/Array_Partitioning/In-Place_Deduplication/">
+        <meta property="og:url" content="https://pbprasad99.github.io/algorithmic_pareto/blog/What_is_a_tree/">
       
         <meta name="twitter:card" content="summary_large_image">
       
-        <meta name="twitter:title" content="In-Place Deduplication - patb.fyi">
+        <meta name="twitter:title" content="What exactly is a Tree - patb.fyi">
       
         <meta name="twitter:description" content="Personal Website">
       
-        <meta name="twitter:image" content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/Algorithms/Array_Partitioning/In-Place_Deduplication.png">
+        <meta name="twitter:image" content="https://pbprasad99.github.io/algorithmic_pareto/assets/images/social/blog/posts/What_is_a_Tree.png">
       
     
     
-  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -113,7 +113,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#in-place-deduplication" class="md-skip">
+        <a href="#references" class="md-skip">
           Skip to content
         </a>
       
@@ -127,9 +127,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="patb.fyi" class="md-header__button md-logo" aria-label="patb.fyi" data-md-component="logo">
+    <a href="../.." title="patb.fyi" class="md-header__button md-logo" aria-label="patb.fyi" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -146,7 +146,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              In-Place Deduplication
+              What exactly is a Tree
             
           </span>
         </div>
@@ -247,7 +247,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -264,8 +264,6 @@
   
   
   
-    
-  
   
     
     
@@ -273,13 +271,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../Introduction/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../Algorithms/Array_Partitioning/Introduction/" class="md-tabs__link">
           
   
   
@@ -300,11 +296,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../blog/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -326,7 +324,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../resources/asyncio_deep_dive/" class="md-tabs__link">
+        <a href="../../resources/asyncio_deep_dive/" class="md-tabs__link">
           
   
   
@@ -348,7 +346,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../About/" class="md-tabs__link">
+        <a href="../../About/" class="md-tabs__link">
           
   
   
@@ -373,7 +371,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -384,9 +384,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="patb.fyi" class="md-nav__button md-logo" aria-label="patb.fyi" data-md-component="logo">
+    <a href="../.." title="patb.fyi" class="md-nav__button md-logo" aria-label="patb.fyi" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.png" alt="logo">
 
     </a>
     patb.fyi
@@ -401,7 +401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -420,8 +420,6 @@
       
   
   
-    
-  
   
   
     
@@ -465,21 +463,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../Algorithms/" class="md-nav__link ">
               
   
   
@@ -492,13 +487,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Algorithms - The Pareto Set
@@ -509,10 +504,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -531,11 +524,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1">
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -551,7 +544,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             Array Partitioning
@@ -565,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Introduction/" class="md-nav__link">
+      <a href="../../Algorithms/Array_Partitioning/Introduction/" class="md-nav__link">
         
   
   
@@ -588,7 +581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Hoare/" class="md-nav__link">
+      <a href="../../Algorithms/Array_Partitioning/Hoare/" class="md-nav__link">
         
   
   
@@ -611,7 +604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Lomuto/" class="md-nav__link">
+      <a href="../../Algorithms/Array_Partitioning/Lomuto/" class="md-nav__link">
         
   
   
@@ -631,32 +624,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    In-Place Deduplication
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Array_Partitioning/In-Place_Deduplication/" class="md-nav__link">
         
   
   
@@ -667,143 +638,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#in-place-deduplication-of-sorted-array" class="md-nav__link">
-    <span class="md-ellipsis">
-      In-Place deduplication of Sorted Array
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="In-Place deduplication of Sorted Array">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#defining-the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Defining the Problem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#algorithm" class="md-nav__link">
-    <span class="md-ellipsis">
-      Algorithm
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#complexity" class="md-nav__link">
-    <span class="md-ellipsis">
-      Complexity
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#in-place-deduplication-with-unique-elements-appearing-at-most-twice" class="md-nav__link">
-    <span class="md-ellipsis">
-      In-Place deduplication with Unique Elements appearing at most Twice
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="In-Place deduplication with Unique Elements appearing at most Twice">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#defining-the-problem_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Defining the Problem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#algorithm_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Algorithm
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#complexity_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Complexity
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comparison-with-lomutos-partition" class="md-nav__link">
-    <span class="md-ellipsis">
-      Comparison with Lomuto's Partition
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Comparison with Lomuto's Partition">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#interval-types-and-their-significance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Interval Types and Their Significance
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deduplication-as-a-lomuto-variant" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deduplication as a Lomuto Variant
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -845,7 +679,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Quickselect/" class="md-nav__link ">
+            <a href="../../Algorithms/Quickselect/" class="md-nav__link ">
               
   
   
@@ -904,7 +738,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Quicksort/" class="md-nav__link ">
+            <a href="../../Algorithms/Quicksort/" class="md-nav__link ">
               
   
   
@@ -963,7 +797,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Two_Way_Merge/" class="md-nav__link ">
+            <a href="../../Algorithms/Two_Way_Merge/" class="md-nav__link ">
               
   
   
@@ -1022,7 +856,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Merge_Sort/" class="md-nav__link ">
+            <a href="../../Algorithms/Merge_Sort/" class="md-nav__link ">
               
   
   
@@ -1081,7 +915,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../K_Way_Merge/" class="md-nav__link ">
+            <a href="../../Algorithms/K_Way_Merge/" class="md-nav__link ">
               
   
   
@@ -1119,7 +953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
+      <a href="../../Algorithms/properties_of_comparison_based_sorting_algorithms/" class="md-nav__link">
         
   
   
@@ -1142,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../External_Sorting/" class="md-nav__link">
+      <a href="../../Algorithms/External_Sorting/" class="md-nav__link">
         
   
   
@@ -1212,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Array_Linearization/Mapping_2d_to_1d_Arrays/" class="md-nav__link">
+      <a href="../../Algorithms/Array_Linearization/Mapping_2d_to_1d_Arrays/" class="md-nav__link">
         
   
   
@@ -1235,7 +1069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Array_Linearization/Mapping_1d_to_2d_Arrays/" class="md-nav__link">
+      <a href="../../Algorithms/Array_Linearization/Mapping_1d_to_2d_Arrays/" class="md-nav__link">
         
   
   
@@ -1315,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc_Array_Problems/Copying_and_allocating/" class="md-nav__link">
+      <a href="../../Algorithms/Misc_Array_Problems/Copying_and_allocating/" class="md-nav__link">
         
   
   
@@ -1338,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc_Array_Problems/Diagonal_and_Antidiagonal/" class="md-nav__link">
+      <a href="../../Algorithms/Misc_Array_Problems/Diagonal_and_Antidiagonal/" class="md-nav__link">
         
   
   
@@ -1361,7 +1195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Misc_Array_Problems/In_Place_Transpose_of_a_Square_Matrix/" class="md-nav__link">
+      <a href="../../Algorithms/Misc_Array_Problems/In_Place_Transpose_of_a_Square_Matrix/" class="md-nav__link">
         
   
   
@@ -1439,7 +1273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Binary_search/Introduction/" class="md-nav__link">
+      <a href="../../Algorithms/Binary_search/Introduction/" class="md-nav__link">
         
   
   
@@ -1462,7 +1296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Binary_search/Median_of_two_sorted_arrays/" class="md-nav__link">
+      <a href="../../Algorithms/Binary_search/Median_of_two_sorted_arrays/" class="md-nav__link">
         
   
   
@@ -1514,7 +1348,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Basic_Recursion/" class="md-nav__link ">
+            <a href="../../Algorithms/Basic_Recursion/" class="md-nav__link ">
               
   
   
@@ -1599,7 +1433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Trees/Introduction/" class="md-nav__link">
+      <a href="../../Algorithms/Trees/Introduction/" class="md-nav__link">
         
   
   
@@ -1622,7 +1456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Trees/Properties/" class="md-nav__link">
+      <a href="../../Algorithms/Trees/Properties/" class="md-nav__link">
         
   
   
@@ -1674,7 +1508,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Backtracking/" class="md-nav__link ">
+            <a href="../../Algorithms/Backtracking/" class="md-nav__link ">
               
   
   
@@ -1763,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Math/Division_Algorithm/" class="md-nav__link">
+      <a href="../../Algorithms/Math/Division_Algorithm/" class="md-nav__link">
         
   
   
@@ -1833,7 +1667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Math/Fundamental_Theorem_Of_Arithmetic/Introduction/" class="md-nav__link">
+      <a href="../../Algorithms/Math/Fundamental_Theorem_Of_Arithmetic/Introduction/" class="md-nav__link">
         
   
   
@@ -1856,7 +1690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Math/Fundamental_Theorem_Of_Arithmetic/claude_ugly_number_analysis/" class="md-nav__link">
+      <a href="../../Algorithms/Math/Fundamental_Theorem_Of_Arithmetic/claude_ugly_number_analysis/" class="md-nav__link">
         
   
   
@@ -1908,7 +1742,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Math/Arithmetic_Series_and_Gauss_Summation/" class="md-nav__link ">
+            <a href="../../Algorithms/Math/Arithmetic_Series_and_Gauss_Summation/" class="md-nav__link ">
               
   
   
@@ -1993,7 +1827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Math/Appendix/Number_Theoretic_Notation/" class="md-nav__link">
+      <a href="../../Algorithms/Math/Appendix/Number_Theoretic_Notation/" class="md-nav__link">
         
   
   
@@ -2016,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Math/Appendix/Set_Theoretic_Notation/" class="md-nav__link">
+      <a href="../../Algorithms/Math/Appendix/Set_Theoretic_Notation/" class="md-nav__link">
         
   
   
@@ -2061,6 +1895,8 @@
       
   
   
+    
+  
   
   
     
@@ -2078,18 +1914,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../blog/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -2102,13 +1941,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Blog
@@ -2171,7 +2010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/archive/2025/" class="md-nav__link">
+      <a href="../archive/2025/" class="md-nav__link">
         
   
   
@@ -2263,7 +2102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/aws/" class="md-nav__link">
+      <a href="../category/aws/" class="md-nav__link">
         
   
   
@@ -2288,7 +2127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/basics/" class="md-nav__link">
+      <a href="../category/basics/" class="md-nav__link">
         
   
   
@@ -2313,7 +2152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/c/" class="md-nav__link">
+      <a href="../category/c/" class="md-nav__link">
         
   
   
@@ -2338,7 +2177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/data_structures/" class="md-nav__link">
+      <a href="../category/data_structures/" class="md-nav__link">
         
   
   
@@ -2363,7 +2202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/etl/" class="md-nav__link">
+      <a href="../category/etl/" class="md-nav__link">
         
   
   
@@ -2388,7 +2227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/encodings/" class="md-nav__link">
+      <a href="../category/encodings/" class="md-nav__link">
         
   
   
@@ -2413,7 +2252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/iam/" class="md-nav__link">
+      <a href="../category/iam/" class="md-nav__link">
         
   
   
@@ -2438,7 +2277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/serverless/" class="md-nav__link">
+      <a href="../category/serverless/" class="md-nav__link">
         
   
   
@@ -2523,7 +2362,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../resources/" class="md-nav__link ">
+            <a href="../../resources/" class="md-nav__link ">
               
   
   
@@ -2556,7 +2395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/asyncio_deep_dive/" class="md-nav__link">
+      <a href="../../resources/asyncio_deep_dive/" class="md-nav__link">
         
   
   
@@ -2579,7 +2418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/Dimensional_Modeling_Cheatseet/" class="md-nav__link">
+      <a href="../../resources/Dimensional_Modeling_Cheatseet/" class="md-nav__link">
         
   
   
@@ -2604,7 +2443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/pyinstaller_deep_dive/" class="md-nav__link">
+      <a href="../../resources/pyinstaller_deep_dive/" class="md-nav__link">
         
   
   
@@ -2627,7 +2466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/python-dictionary-cheatsheet/" class="md-nav__link">
+      <a href="../../resources/python-dictionary-cheatsheet/" class="md-nav__link">
         
   
   
@@ -2650,7 +2489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/python-lists-cheatsheet/" class="md-nav__link">
+      <a href="../../resources/python-lists-cheatsheet/" class="md-nav__link">
         
   
   
@@ -2673,7 +2512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/python-regex-cheatsheet/" class="md-nav__link">
+      <a href="../../resources/python-regex-cheatsheet/" class="md-nav__link">
         
   
   
@@ -2696,7 +2535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/python-sets-cheatsheet/" class="md-nav__link">
+      <a href="../../resources/python-sets-cheatsheet/" class="md-nav__link">
         
   
   
@@ -2719,7 +2558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/python-strings-cheatsheet/" class="md-nav__link">
+      <a href="../../resources/python-strings-cheatsheet/" class="md-nav__link">
         
   
   
@@ -2742,7 +2581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/python_cheatsheet/" class="md-nav__link">
+      <a href="../../resources/python_cheatsheet/" class="md-nav__link">
         
   
   
@@ -2765,7 +2604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/SQL_Basics_Cheatsheet/" class="md-nav__link">
+      <a href="../../resources/SQL_Basics_Cheatsheet/" class="md-nav__link">
         
   
   
@@ -2788,7 +2627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/Terraform_Data_Engineer_Cheatsheet/" class="md-nav__link">
+      <a href="../../resources/Terraform_Data_Engineer_Cheatsheet/" class="md-nav__link">
         
   
   
@@ -2811,7 +2650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/Terraform_Scenarios/" class="md-nav__link">
+      <a href="../../resources/Terraform_Scenarios/" class="md-nav__link">
         
   
   
@@ -2834,7 +2673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resources/uv_cheatsheet/" class="md-nav__link">
+      <a href="../../resources/uv_cheatsheet/" class="md-nav__link">
         
   
   
@@ -2885,7 +2724,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../About/" class="md-nav__link ">
+            <a href="../../About/" class="md-nav__link ">
               
   
   
@@ -2923,6 +2762,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -2932,8 +2773,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2942,119 +2781,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#in-place-deduplication-of-sorted-array" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
-      In-Place deduplication of Sorted Array
+      References:
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="In-Place deduplication of Sorted Array">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#defining-the-problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Defining the Problem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#algorithm" class="md-nav__link">
-    <span class="md-ellipsis">
-      Algorithm
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#complexity" class="md-nav__link">
-    <span class="md-ellipsis">
-      Complexity
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#in-place-deduplication-with-unique-elements-appearing-at-most-twice" class="md-nav__link">
-    <span class="md-ellipsis">
-      In-Place deduplication with Unique Elements appearing at most Twice
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="In-Place deduplication with Unique Elements appearing at most Twice">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#defining-the-problem_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Defining the Problem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#algorithm_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Algorithm
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#complexity_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Complexity
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comparison-with-lomutos-partition" class="md-nav__link">
-    <span class="md-ellipsis">
-      Comparison with Lomuto's Partition
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Comparison with Lomuto's Partition">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#interval-types-and-their-significance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Interval Types and Their Significance
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deduplication-as-a-lomuto-variant" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deduplication as a Lomuto Variant
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3067,287 +2798,151 @@
             
           
           
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-
-
-<h1 id="in-place-deduplication">In-Place Deduplication<a class="headerlink" href="#in-place-deduplication" title="Permanent link">¶</a></h1>
-<h2 id="in-place-deduplication-of-sorted-array">In-Place deduplication of Sorted Array<a class="headerlink" href="#in-place-deduplication-of-sorted-array" title="Permanent link">¶</a></h2>
-<h3 id="defining-the-problem">Defining the Problem<a class="headerlink" href="#defining-the-problem" title="Permanent link">¶</a></h3>
-<p>The task is to partition a sorted array s.t the left partition contains only unique elements. The relative order of elements must be maintained. The function should return the length of the left partition.
-(<a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/" target="_blank">Leetcode Link</a>)</p>
-<details class="example">
-<summary>Example</summary>
-<div class="highlight"><pre><span></span><code>Example 1:
-
-Input: nums = [1,1,2]
-Output: 2, nums = [1,2,_]
-Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
-Example 2:
-
-Input: nums = [0,0,1,1,1,2,2,3,3,4]
-Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
-Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
-</code></pre></div>
-</details>
-<h3 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permanent link">¶</a></h3>
-<div class="admonition tip">
-<p class="admonition-title">Key Ideas</p>
-<ul>
-<li>[0,s] - Is the inclusive interval containing only non-duplicate elements</li>
-<li>(s,f) - Is the exclusive interval containing duplicates from [0,s]</li>
-</ul>
-<p>Initialize s=0 and f=0.</p>
-<p>s+1 is the write position for the next unique element. f scouts ahead for the next unique element.</p>
-<p>The key insight is to compare f with s. Since the array is sorted, all elements between s and f that equal arr[s] are duplicates. </p>
-<ul>
-<li>
-<p>s stays at the inclusive right boundary of the interval with no duplicates.</p>
-</li>
-<li>
-<p>To maintain this invariant, f moves forward to find the next unique element which should be placed at s+1. </p>
-</li>
-<li>
-<p>This means if s and f are equal, we move only f ahead to find the next unique element.</p>
-</li>
-<li>
-<p>Once a swap is made the interval with duplicates increases by 1 so s is incremented and Invariant 1 is maintained.</p>
-</li>
-</ul>
-<p>Notice that f is incremented in both cases. But s is only incremented if a swap is made.</p>
-</div>
-<p><strong>Algorithm Steps:</strong></p>
-<ol>
-<li>Initialize s=0, f=0 (both pointing to first element)</li>
-<li>
-<p>For each position f:</p>
-<ul>
-<li>
-<p>If nums[f] ≠ nums[s]:</p>
-<ul>
-<li>Write nums[f] to position s+1</li>
-<li>Increment s</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Return s+1 as the length of valid partition</p>
-</li>
-</ol>
-<p><strong>Initially,</strong></p>
-<ul>
-<li>s,f = 0,0</li>
-<li>[0,0] - Has only 1 element. First Invariant is trivially True.</li>
-<li>(0,0) - Empty set. Second Invariant is trivially True.</li>
-</ul>
-<p><strong>Maintenance</strong></p>
-<p>In the loop we will maintain the invariants. Here is the dry run:</p>
-<div class="admonition info">
-<p class="admonition-title">DRY RUN</p>
-<div class="highlight"><pre><span></span><code>    [ 1  1  1  2  2  3  4  5]
-      sf                      # s and f are equal, only f moves forward  
-      s  f                    # ----"----
-      s     f                 # ----"----
-      s        f              # ----"----
-    [ 1  2  1  1  2  3  4  5] # s and f are not equal ; f is at next unique element; Swap s+1 with f and move both pointers forward
-         s        f           # s and f are equal, only f moves forward
-         s           f        # s and f are not equal ;f is at next unique element; Swap s+1 with f and move both pointers forward
-    [ 1  3  1  1  2  2  4  5]
-            s           f     # s and f are not equal ;f is at next unique element; Swap s+1 with f and move both pointers forward
-    [ 1  3  4  1  2  2  1  5]
-               s           f  # s and f are not equal ;f is at next unique element; Swap s+1 with f and move both pointers forward 
-    [ 1  3  4  5  2  2  1  1]
-                  s           f  # Final state after loop ends     
-
-    Notice that (s,f) always contains duplicates of elements from [0,s]
-</code></pre></div>
-</div>
-<div class="admonition code">
-<p class="admonition-title">Code</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">removeDuplicates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="n">s</span> <span class="o">=</span><span class="mi">0</span>
-        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span> <span class="p">:</span>
-            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="p">:</span>
-                <span class="n">nums</span><span class="p">[</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">f</span><span class="p">],</span><span class="n">nums</span><span class="p">[</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
-                <span class="n">s</span><span class="o">+=</span><span class="mi">1</span>
-        <span class="c1">#[0,s] is the interval with no duplicates</span>
-        <span class="n">k</span> <span class="o">=</span> <span class="n">s</span><span class="o">+</span><span class="mi">1</span> <span class="c1"># k is the number of elements in the first interval</span>
-        <span class="k">return</span> <span class="n">k</span> 
-</code></pre></div>
-</div>
-<h3 id="complexity">Complexity<a class="headerlink" href="#complexity" title="Permanent link">¶</a></h3>
-<ul>
-<li><code>O(n) time complexity</code></li>
-<li><code>O(1) Space Complexity</code></li>
-</ul>
-<h2 id="in-place-deduplication-with-unique-elements-appearing-at-most-twice">In-Place deduplication with Unique Elements appearing at most Twice<a class="headerlink" href="#in-place-deduplication-with-unique-elements-appearing-at-most-twice" title="Permanent link">¶</a></h2>
-<h3 id="defining-the-problem_1">Defining the Problem<a class="headerlink" href="#defining-the-problem_1" title="Permanent link">¶</a></h3>
-<p>Partition a sorted array s.t. the left partition contains at most two duplicates for each value. The relative order should be maintained. </p>
-<p>More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.</p>
-<p>This is similar to the first problem with a relaxed constraint that allows one duplicate in the left partition.(<a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/" target="_blank">Leetcode Link</a>)</p>
-<details class="example">
-<summary>Example</summary>
-<div class="highlight"><pre><span></span><code>Example 1:
-
-Input: nums = [1,1,1,2,2,3]
-Output: 5, nums = [1,1,2,2,3,_]
-Explanation: Your function should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
-Example 2:
-
-Input: nums = [0,0,1,1,1,1,2,3,3]
-Output: 7, nums = [0,0,1,1,2,3,3,_,_]
-Explanation: Your function should return k = 7, with the first seven elements of nums being 0, 0, 1, 1, 2, 3 and 3 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
-</code></pre></div>
-</details>
-<h3 id="algorithm_1">Algorithm<a class="headerlink" href="#algorithm_1" title="Permanent link">¶</a></h3>
-<p>This problem is all about defining the invariant correctly. Let's dig into the solution.</p>
-<div class="admonition tip">
-<p class="admonition-title">Key Ideas</p>
-<ul>
-<li>[0,s] - Is the inclusive interval containing no more than two duplicate</li>
-<li>(s,f) - Is the exclusive interval containing duplicates from [0,s]</li>
-</ul>
-<p>Initialize s=1 and f=2.</p>
-<p>s+1 is the write position for the next valid element. f scouts for the next valid element which can be placed at s+1.</p>
-<p>The key insight is to look two positions back to identify when we've seen more than two of the same element. Since the array is sorted, we can identify duplicates by comparing with the element at position s-1. We know that if arr[f] == arr[s-1] -&gt; arr[f] == arr[s] as well.</p>
-<p>If it's same as s-1, we've seen this element more than twice, therefore only f moves forward and s stays where it is.</p>
-<p>If it is different, then it is the next element which belongs at position s+1. Swap s+1 with f and move both s and f forward.</p>
-</div>
-<p><strong>Algorithm Steps:</strong></p>
-<ol>
-<li>Handle edge case of array with length ≤ 1</li>
-<li>Initialize s=1, accepting first two elements by default</li>
-<li>For each position f starting from 2:</li>
-<li>If nums[f] ≠ nums[s-1]:<ul>
-<li>Write nums[f] to position s+1</li>
-<li>Increment s</li>
-</ul>
-</li>
-<li>Return s+1 as the length of valid partition</li>
-</ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>#s,f= 1,1 # Cannot Initialize like this. f has to be s+1 initially for swapping to work correctly. If f=s, you will end up putting s ahead of f initially if f !=s-1, since we are swapping s+1 with f. Besides if (s,f) is an exclusive interval, f should be initialized to s+1.</p>
-</div>
-<p><strong>Initially,</strong></p>
-<ul>
-<li>s,f = 1,2</li>
-<li>[0,1] - Has only two elements. First Invariant is Trivially True.</li>
-<li>(1,2) - Empty set. Second Invariant is Trivially True.</li>
-</ul>
-<p><strong>Maintenance</strong></p>
-<p>In the loop we will maintain the invariants. Here is the dry run: </p>
-<div class="admonition info">
-<p class="admonition-title">DRY RUN</p>
-<div class="highlight"><pre><span></span><code>[1,1,1,2,2,3] # everything before s including s is good
-   s f        # (s,f) empty,  f = s-1 . Only f moves ahead, After f moves ahead : (s,f) will contain the excess 1. 1 is a duplicate wrt to elements in [0,1]. This works because array is sorted. We know that if arr[f] == arr[s-1] -&gt; arr[f] == arr[s] as well..
-   s   f      # If we move f ahead now, it will contain 2 which is not a duplicate,swap s+1 with f and move both ahead to maintain both invariants 
-[1,1,2,1,2,3] # swapped s+1 with f and s+=1, f+=1
-     s   f    # f!=s-1 : swap s+1 with f
-[1,1,2,2,1,3] #swapped s+1 with f and s+=1,f+=1
-       s   f  # f!=s-1  : swap f with s+1 
-[1,1,2,2,3,1] #swapped s+1 with f and s+=1,f+=1
-         s   f
-</code></pre></div>
-</div>
-<div class="admonition code">
-<p class="admonition-title">Code</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">removeDuplicates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="c1">#Edge case - nums has only one element</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">:</span>
-            <span class="k">return</span> <span class="mi">1</span>
-
-        <span class="c1">#Initialization: s=1 and f=2</span>
-        <span class="n">s</span><span class="o">=</span><span class="mi">1</span>
-        <span class="k">for</span> <span class="n">f</span>  <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span> <span class="p">:</span>
-            <span class="c1">#Maintenance</span>
-            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="p">[</span><span class="n">s</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">:</span>
-                <span class="n">nums</span><span class="p">[</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">nums</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">f</span><span class="p">],</span><span class="n">nums</span><span class="p">[</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
-                <span class="n">s</span><span class="o">+=</span><span class="mi">1</span>
-        <span class="k">return</span> <span class="n">s</span><span class="o">+</span><span class="mi">1</span>
-</code></pre></div>
-</div>
-<h3 id="complexity_1">Complexity<a class="headerlink" href="#complexity_1" title="Permanent link">¶</a></h3>
-<ul>
-<li><code>O(n) time complexity</code></li>
-<li><code>O(1) Space Complexity</code></li>
-</ul>
-<h2 id="comparison-with-lomutos-partition">Comparison with Lomuto's Partition<a class="headerlink" href="#comparison-with-lomutos-partition" title="Permanent link">¶</a></h2>
-<p>The deduplication algorithm looks awfully similar to <a href="../Lomuto/" target="_blank">Lomuto</a>, but there are subtle and crucial differences.While both algorithms use two-pointer techniques, their invariants reveal fascinating differences in how they handle elements:</p>
-<h3 id="interval-types-and-their-significance">Interval Types and Their Significance<a class="headerlink" href="#interval-types-and-their-significance" title="Permanent link">¶</a></h3>
-<p>A key distinction lies in how these algorithms define their intervals:</p>
-<p><strong>Lomuto's Partition</strong>: Uses half-open intervals</p>
-<ul>
-<li><code>[lo,s)</code> ≤ pivot: Excludes s</li>
-<li><code>[s,f)</code> &gt; pivot: Excludes f</li>
-<li>This makes sense because s acts as a boundary between two partitions</li>
-<li>Next valid element (≤ pivot) is written at position s</li>
-</ul>
-<p><strong>Deduplication</strong>: Uses closed interval for primary invariant</p>
-<ul>
-<li><code>[0,s]</code>: Includes s</li>
-<li>This is necessary because s marks the last valid unique element</li>
-<li>The next unique element will be placed at s+1</li>
-</ul>
-<p>Deduplication needs s to be part of the valid region since it represents the last confirmed unique element</p>
-<h3 id="deduplication-as-a-lomuto-variant">Deduplication as a Lomuto Variant<a class="headerlink" href="#deduplication-as-a-lomuto-variant" title="Permanent link">¶</a></h3>
-<p>The deduplication algorithm can be viewed as a specialized variant of Lomuto's partition where:</p>
-<ol>
-<li>
-<p><strong>Pivot Selection</strong>: Instead of a fixed pivot, we use a "moving pivot" (nums[s]) that changes as we progress</p>
-</li>
-<li>
-<p><strong>Partition Criteria</strong>: Rather than comparing with a fixed value:</p>
-<ul>
-<li>Lomuto: Elements ≤ pivot go left</li>
-<li>Deduplication: Elements ≠ current value go to next position</li>
-</ul>
-</li>
-<li>
-<p><strong>Pointer Movement</strong>: </p>
-<ul>
-<li>Both use s as a boundary of the "accepted" elements</li>
-<li>Both increment f to scan through remaining elements</li>
-<li>Both swap when their condition is met</li>
-</ul>
-</li>
-</ol>
-<p>The key insight is that deduplication adapts Lomuto's two-pointer partitioning strategy but:</p>
-<ul>
-<li>Uses equality comparison instead of less-than</li>
-<li>Updates its "pivot" value after each partition</li>
-<li>Requires input to be sorted </li>
-</ul>
-<p>This connection explains why both algorithms share similar pointer movement patterns despite serving different purposes.</p>
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-                
-              </article>
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
             </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
+                        <time datetime="2025-05-17 00:00:00+00:00" class="md-ellipsis">May 17, 2025</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"></path></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../category/data_structures/">Data_Structures</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"></path></svg>
+                          <span class="md-ellipsis">
+                            
+                              2 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
           
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags">
+    
+      
+      
+      
+        <span class="md-tag">Data_Structures</span>
+      
+    
+  </nav>
+
+
+
+  <h1>What exactly is a Tree</h1>
+
+<p>For quite some time, there used to be great confusion in my mind about the exact nature of a tree. </p>
+<!-- more -->
+
+<p>Some sources defined trees as undirected graphs and others said they were directed graphs. Some said that trees must have a root and others said, not really. It Took me some time to understand that there are in fact two different species of 'trees'.</p>
+<p>Generally, when we talk about trees we are talking about <strong><em>rooted</em></strong> trees and to be even more specific, <a href="https://www.cs.umd.edu/class/fall2019/cmsc420-0201/Lects/lect03-trees.pdf" target="_blank"><strong><em>rooted out-trees</em></strong></a>. These are linked recursive data structures in which there is a strict parent-child relationship between nodes. The root node in a rooted tree does not have a parent. All other nodes do. There are no cycles and edges are directed from parent down to its children.</p>
+<p>A rooted out-tree in terms of graph theory is a digraph ( directed graph) such that :</p>
+<ul>
+<li>One of the vertices is a root node with no in edges.</li>
+<li>All other vertices have only one in-edge</li>
+<li>There is a path from root to all other vertices. </li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Free_vs_rooted_tree.png" data-desc-position="bottom"><img alt="Free Vs Rooted Tree" src="../Free_vs_rooted_tree.png"></a></p>
+<p>A (rooted) binary tree is one in which a node can have at most two children. If there is no such restriction, then we have a (rooted) multi-way or N-ary tree</p>
+<p>Technically, trees can also be undirected and thereby unrooted. These are defined as connected (there is a path between any two nodes), acyclic (a path cannot visit any  node twice) and undirected (an edge is two way connected) graphs. In other words, they are undirected graphs in which for any two vertices x and y, there is a <strong><em>unique simple path</em></strong> from x to y. A simple path is one in which vertices are not repeated. It is better to think of these as specific types of graphs and not confuse them with the usual rooted trees. They are also called free trees by the way.</p>
+<h2 id="references">References:<a class="headerlink" href="#references" title="Permanent link">¶</a></h2>
+<ol>
+<li>
+<p><a href="https://www.cs.cmu.edu/afs/cs/academic/class/15210-s15/www/lectures/preliminaries-notes.pdf#page=2" target="_blank">Roooted Trees</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Tree_(graph_theory)#:~:text=In%20graph%20theory%2C%20a%20tree%20is%20an,or%20equivalently%2C%20a%20connected%20acyclic%20undirected%20graph." target="_blank">Unrooted Trees</a></p>
+</li>
+<li>
+<p><a href="https://www.cs.sfu.ca/~ggbaker/zju/math/trees.html" target="_blank">Rooted vs Unrooted</a></p>
+</li>
+<li>
+<p><a href="https://www.geeksforgeeks.org/engineering-mathematics/walks-trails-paths-cycles-and-circuits-in-graph/" target="_blank">Paths, Walks and Trails</a></p>
+</li>
+<li>
+<p><a href="https://www.geeksforgeeks.org/dsa/some-theorems-on-trees/" target="_blank">Some theorems on Trees</a></p>
+</li>
+<li>
+<p><a href="https://people.cs.umass.edu/~barring/cs250s12/lecture/22.pdf" target="_blank">Unique Simple Path Theorem</a></p>
+</li>
+<li>
+<p><a href="https://www.cs.umd.edu/class/fall2019/cmsc420-0201/Lects/lect03-trees.pdf" target="_blank">In-Tree vs Out-Tree</a></p>
+</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
           
   <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
 
@@ -3360,10 +2955,12 @@ It does not matter what you leave beyond the returned k (hence they are undersco
   
     
       
+        
+      
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../Lomuto/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lomuto Partition">
+          <a href="../Anatomy%20of%20an%20AWS%20Policy/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Anatomy of an AWS Policy">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -3373,20 +2970,20 @@ It does not matter what you leave beyond the returned k (hence they are undersco
                 Previous
               </span>
               <div class="md-ellipsis">
-                Lomuto Partition
+                Anatomy of an AWS Policy
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../Quickselect/" class="md-footer__link md-footer__link--next" aria-label="Next: QuickSelect">
+          <a href="../Fun%20Facts%20about%20two%27s%20complement%20encoding/" class="md-footer__link md-footer__link--next" aria-label="Next: Fun Facts about two's complement encoding">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                QuickSelect
+                Fun Facts about two's complement encoding
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3422,10 +3019,10 @@ It does not matter what you leave beyond the returned k (hence they are undersco
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.path", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
