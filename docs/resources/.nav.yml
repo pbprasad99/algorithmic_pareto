@@ -1,5 +1,6 @@
 # .site
 nav :
+ - index.md 
  - "*"
 
  

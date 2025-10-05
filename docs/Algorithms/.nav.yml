@@ -1,4 +1,5 @@
 nav :
+ - index.md
  - Array_Partitioning
  - Quickselect
  - Quicksort

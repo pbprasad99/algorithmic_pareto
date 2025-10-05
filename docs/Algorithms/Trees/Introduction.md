@@ -4,10 +4,7 @@
 
 For quite some time, there used to be great confusion in my mind about the exact nature of a tree. 
 # --8<-- [start:blog]
-Some sources defined trees as undirected graphs and others said they were directed graphs. Some said that trees must have a root and others said, not really. It Took me some time to understand that there are in fact two different species of 'trees'.
-
-
-
+Some sources defined trees as undirected graphs and others said they were directed graphs. Some said that trees must have a root and others said, not really. It turns out that there are in fact two different species of 'trees'.
 
 Generally, when we talk about trees we are talking about ***rooted*** trees and to be even more specific, [***rooted out-trees***](https://www.cs.umd.edu/class/fall2019/cmsc420-0201/Lects/lect03-trees.pdf){target="_blank"}. These are linked recursive data structures in which there is a strict parent-child relationship between nodes. The root node in a rooted tree does not have a parent. All other nodes do. There are no cycles and edges are directed from parent down to its children.
 
