@@ -36,7 +36,7 @@ divmod(b,a) -> (b//a,b%a)
     0
     ```
 
-## Python Rounds Negative Nymbers away from zero
+## Python Rounds Negative Numbers away from zero
 
 In python :
 

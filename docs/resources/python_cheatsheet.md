@@ -208,7 +208,108 @@ Its for replacing characters with their mappings:
 
 ```
 
+So finally this is how to do it :
+```
+s = "Hello, World! Python is amazing."
+
+# Create translation table
+import string
+translator = str.maketrans('', '', string.punctuation)
+
+# Remove punctuation
+clean_text = s.translate(translator)
+print(clean_text)
+```
+
+But one big problem : It removes apostrophe from 'shouldn't', 'how's' 
+
+You could just exclude apostrophe from string.punctutaion and use translate + str.maketrans.
+
+Or use a regex. The following is from Claude :
+
+
+
+```python
+import re
+
+s = "This is a test string, with punctuation. This shouldn't fail...!"
+
+# re.sub(pattern,with_whatever, input_string)
+text = re.sub(r'[^\w\d\s\']+', '', s)
+print(text)
+```
+
+In this code:
+
+1. `re.sub()` is being used to substitute matches of a pattern with a replacement string (empty string in this case).
+
+2. The regex pattern `r'[^\w\d\s\']+` breaks down as:
+   - `[^...]`: A negated character class (matches any character NOT in the brackets)
+   - `\w`: Word characters (letters, digits, underscores)
+   - `\d`: Digits (0-9)
+   - `\s`: Whitespace characters (spaces, tabs, newlines)
+   - `\'`: The apostrophe character (')
+   - `+`: One or more occurrences of the preceding character class
+
+3. So this pattern will match one or more characters that are NOT:
+   - Letters, digits, or underscores
+   - Digits (redundant, as digits are already covered by \w)
+   - Whitespace characters
+   - Apostrophes
+
+4. When these matched characters are replaced with an empty string, you get a string with:
+   - All punctuation marks removed EXCEPT for apostrophes
+   - All letters, numbers, spaces, and apostrophes preserved
+
+The output would be:
+```
+This is a test string with punctuation This shouldn't fail
+```
+
+This approach is useful when you want to preserve contractions and possessives in English text (like "shouldn't", "John's", etc.) while removing other punctuation marks. It's a selective punctuation removal that's more language-aware than simply removing all punctuation.
+
 See also : https://stackoverflow.com/questions/59877761/how-to-strip-string-from-punctuation-except-apostrophes-for-nlp
+
+## Raw Strings
+
+The `r` before the string in `r'[^\w\s]'` is a prefix that denotes a "raw string" in Python. It's particularly useful when working with regular expressions. Here's what it does:
+
+## Raw String Prefix (`r`)
+
+When you place an `r` before a string literal in Python, it tells the interpreter to treat backslashes (`\`) as literal characters rather than escape characters.
+
+### Without the `r` prefix:
+```python
+pattern = '\w'  # Python interprets \w as a special escape sequence
+```
+In a normal string, backslashes have special meaning. For example, `\n` represents a newline, `\t` represents a tab, etc.
+
+### With the `r` prefix:
+```python
+pattern = r'\w'  # Python treats \w literally as backslash + w
+```
+In a raw string, backslashes are treated as literal backslashes, not as the start of an escape sequence.
+
+## Why it's important for regex:
+
+Regular expressions use backslashes extensively to denote special character classes:
+- `\w` matches word characters
+- `\d` matches digits
+- `\s` matches whitespace
+
+Without the `r` prefix, you would need to escape each backslash in your regex pattern:
+```python
+# Without raw string - need to double escape
+pattern = '\\w\\s'  # To match a word character followed by whitespace
+```
+
+With the `r` prefix, you can write regex patterns more naturally:
+```python
+# With raw string - cleaner syntax
+pattern = r'\w\s'  # Same pattern, more readable
+```
+
+Using raw strings makes regular expressions much more readable and less prone to errors, as you don't need to worry about Python's string escape processing interfering with regex syntax.
 
 
 Additional Resources :

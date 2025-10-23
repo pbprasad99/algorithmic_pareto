@@ -39,4 +39,4 @@ def longest_consecutive_sequence(nums):
 print(longest_consecutive_sequence([100, 4, 200, 1, 3, 2]))  # Expected: 4 (the sequence 1,2,3,4)
 print(longest_consecutive_sequence([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]))  # Expected: 9 (the sequence 0,1,2,3,4,5,6,7,8)
 print(longest_consecutive_sequence([]))  # Expected: 0
-print(longest_consecutive_sequence([5]))  # Expected: 1
+print(longest_consecutive_sequence([5,6,7,8]))  # Expected: 1
