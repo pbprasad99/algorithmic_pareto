@@ -2766,6 +2766,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#raw-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw Strings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raw-string-prefix-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw String Prefix (r)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Raw String Prefix (r)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#without-the-r-prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Without the r prefix:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-the-r-prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      With the r prefix:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-its-important-for-regex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why it's important for regex:
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3027,6 +3078,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#raw-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw Strings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raw-string-prefix-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw String Prefix (r)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Raw String Prefix (r)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#without-the-r-prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Without the r prefix:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-the-r-prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      With the r prefix:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-its-important-for-regex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why it's important for regex:
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3209,7 +3311,90 @@ ValueError: the first two maketrans arguments must have equal length
 &gt;&gt;&gt; 'r'.translate(str.maketrans('r','r','r'))
 ''
 </code></pre></div>
+<p>So finally this is how to do it :
+</p><div class="highlight"><pre><span></span><code>s = "Hello, World! Python is amazing."
+
+# Create translation table
+import string
+translator = str.maketrans('', '', string.punctuation)
+
+# Remove punctuation
+clean_text = s.translate(translator)
+print(clean_text)
+</code></pre></div><p></p>
+<p>But one big problem : It removes apostrophe from 'shouldn't', 'how's' </p>
+<p>You could just exclude apostrophe from string.punctutaion and use translate + str.maketrans.</p>
+<p>Or use a regex. The following is from Claude :</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="s2">"This is a test string, with punctuation. This shouldn't fail...!"</span>
+
+<span class="c1"># re.sub(pattern,with_whatever, input_string)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'[^\w\d\s</span><span class="se">\'</span><span class="s1">]+'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<p>In this code:</p>
+<ol>
+<li>
+<p><code>re.sub()</code> is being used to substitute matches of a pattern with a replacement string (empty string in this case).</p>
+</li>
+<li>
+<p>The regex pattern <code>r'[^\w\d\s\']+</code> breaks down as:</p>
+</li>
+<li><code>[^...]</code>: A negated character class (matches any character NOT in the brackets)</li>
+<li><code>\w</code>: Word characters (letters, digits, underscores)</li>
+<li><code>\d</code>: Digits (0-9)</li>
+<li><code>\s</code>: Whitespace characters (spaces, tabs, newlines)</li>
+<li><code>\'</code>: The apostrophe character (')</li>
+<li>
+<p><code>+</code>: One or more occurrences of the preceding character class</p>
+</li>
+<li>
+<p>So this pattern will match one or more characters that are NOT:</p>
+</li>
+<li>Letters, digits, or underscores</li>
+<li>Digits (redundant, as digits are already covered by \w)</li>
+<li>Whitespace characters</li>
+<li>
+<p>Apostrophes</p>
+</li>
+<li>
+<p>When these matched characters are replaced with an empty string, you get a string with:</p>
+</li>
+<li>All punctuation marks removed EXCEPT for apostrophes</li>
+<li>All letters, numbers, spaces, and apostrophes preserved</li>
+</ol>
+<p>The output would be:
+</p><div class="highlight"><pre><span></span><code>This is a test string with punctuation This shouldn't fail
+</code></pre></div><p></p>
+<p>This approach is useful when you want to preserve contractions and possessives in English text (like "shouldn't", "John's", etc.) while removing other punctuation marks. It's a selective punctuation removal that's more language-aware than simply removing all punctuation.</p>
 <p>See also : <a href="https://stackoverflow.com/questions/59877761/how-to-strip-string-from-punctuation-except-apostrophes-for-nlp">https://stackoverflow.com/questions/59877761/how-to-strip-string-from-punctuation-except-apostrophes-for-nlp</a></p>
+<h2 id="raw-strings">Raw Strings<a class="headerlink" href="#raw-strings" title="Permanent link">¶</a></h2>
+<p>The <code>r</code> before the string in <code>r'[^\w\s]'</code> is a prefix that denotes a "raw string" in Python. It's particularly useful when working with regular expressions. Here's what it does:</p>
+<h2 id="raw-string-prefix-r">Raw String Prefix (<code>r</code>)<a class="headerlink" href="#raw-string-prefix-r" title="Permanent link">¶</a></h2>
+<p>When you place an <code>r</code> before a string literal in Python, it tells the interpreter to treat backslashes (<code>\</code>) as literal characters rather than escape characters.</p>
+<h3 id="without-the-r-prefix">Without the <code>r</code> prefix:<a class="headerlink" href="#without-the-r-prefix" title="Permanent link">¶</a></h3>
+<p></p><div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="s1">'\w'</span>  <span class="c1"># Python interprets \w as a special escape sequence</span>
+</code></pre></div>
+In a normal string, backslashes have special meaning. For example, <code>\n</code> represents a newline, <code>\t</code> represents a tab, etc.<p></p>
+<h3 id="with-the-r-prefix">With the <code>r</code> prefix:<a class="headerlink" href="#with-the-r-prefix" title="Permanent link">¶</a></h3>
+<p></p><div class="highlight"><pre><span></span><code><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'\w'</span>  <span class="c1"># Python treats \w literally as backslash + w</span>
+</code></pre></div>
+In a raw string, backslashes are treated as literal backslashes, not as the start of an escape sequence.<p></p>
+<h2 id="why-its-important-for-regex">Why it's important for regex:<a class="headerlink" href="#why-its-important-for-regex" title="Permanent link">¶</a></h2>
+<p>Regular expressions use backslashes extensively to denote special character classes:
+- <code>\w</code> matches word characters
+- <code>\d</code> matches digits
+- <code>\s</code> matches whitespace</p>
+<p>Without the <code>r</code> prefix, you would need to escape each backslash in your regex pattern:
+</p><div class="highlight"><pre><span></span><code><span class="c1"># Without raw string - need to double escape</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\\</span><span class="s1">w</span><span class="se">\\</span><span class="s1">s'</span>  <span class="c1"># To match a word character followed by whitespace</span>
+</code></pre></div><p></p>
+<p>With the <code>r</code> prefix, you can write regex patterns more naturally:
+</p><div class="highlight"><pre><span></span><code><span class="c1"># With raw string - cleaner syntax</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'\w\s'</span>  <span class="c1"># Same pattern, more readable</span>
+</code></pre></div><p></p>
+<p>Using raw strings makes regular expressions much more readable and less prone to errors, as you don't need to worry about Python's string escape processing interfering with regex syntax.</p>
 <p>Additional Resources :</p>
 <p><a href="https://www.stratascratch.com/blog/python-string-methods-here-is-how-to-master-them/">https://www.stratascratch.com/blog/python-string-methods-here-is-how-to-master-them/</a></p>
 
