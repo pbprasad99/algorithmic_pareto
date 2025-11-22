@@ -7,7 +7,7 @@ hide:
 
 #
 
-<img src="BHANU_DP_BW.jpeg" style = "width: 300px; padding: 1em; float: right; border-radius: 10%;"/>
+<img src="headshot.jpeg" style = "width: 300px; padding: 1em; float: right; border-radius: 10%;"/>
 
 Hello! I'm P. Bhanuprasad , an Engineer with 10 years of experience building robust data pipelines, scalable analytics platforms, and cloud-based solutions. My expertise spans across data engineering, ETL development, big data technologies, and cloud infrastructure.
 
