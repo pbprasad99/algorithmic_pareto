@@ -63,6 +63,9 @@ A curated collection of learning materials, documentation, and references.
 - [Spark MapReduce Internals](https://stackoverflow.com/questions/54501612/does-spark-internally-use-map-reduce){target="_blank"}
 - [JDBC - a short guide](https://www.marcobehler.com/guides/jdbc){target="_blank"}
 
+### Data Mesh
+- [Data Mesh Architecture](https://martinfowler.com/articles/data-monolith-to-mesh.html#DataMeshArchitecture){target="_blank"
+
 ### Cloud Computing
 - [AWS App Runner Discussion](https://www.reddit.com/r/aws/comments/1eseqlh/aws_app_runner_is_garbage/){target="_blank"}
 - [AWS App Runner Issues](https://github.com/aws/apprunner-roadmap/issues/110){target="_blank"}
