@@ -1,285 +1,34 @@
 {% extends "main.html" %}
+
 {% block tabs %}
-  {{ super() }}
-
-  <style>
-    /* Define font stack variable */
-    :root {
-      --font-stack: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
-                    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-    
-    /* Update all font-family declarations */
-    .homepage-title,
-    .homepage-subtitle,
-    .homepage-tagline,
-    .homepage-link-btn,
-    .md-post__meta,
-    .md-post__content,
-    .md-post__content h2,
-    .md-post__header {
-      font-family: var(--font-stack);
-    }
-
-    /* Modernize the front page styles */
-    .homepage-header {
-      /*background: linear-gradient(145deg, #2c3e50 0%, #3498db 100%);*/
-      background: linear-gradient(360deg, #2c3e50 0%, #111111 100%);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      height: 85vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      box-shadow: none;
-    }
-    .homepage-profile-img {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-      margin-bottom: 1.5rem;
-      background: #eee;
-    }
-    .homepage-title {
-      font-size: 2.2rem;
-      font-weight: 500;
-      letter-spacing: -0.5px;
-      text-transform: none;
-      margin-bottom: 0.5rem;
-      color: #fff;
-      text-shadow: none;
-    }
-    .homepage-subtitle {
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0;
-    }
-    .homepage-tagline {
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.75);
-      margin-bottom: 2rem;
-      font-weight: 400;
-      line-height: 1.6;
-      max-width: 600px;
-    }
-    .homepage-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-      padding: 0 1rem;
-      max-width: 100%;
-    }
-    .homepage-link-btn {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 6px;
-      padding: 0.7rem 1.4rem;
-      font-size: 0.9rem;
-      font-weight: 400;
-      letter-spacing: 0;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      white-space: nowrap;
-    }
-    .homepage-link-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.3);
-      color: #fff;
-      transform: translateY(-1px);
-    }
-    .homepage-link-btn svg {
-      width: 18px;
-      height: 18px;
-      opacity: 0.9;
-      stroke-width: 2;
-      fill: none;
-      stroke: currentColor;
-    }
-    .homepage-arrow {
-      margin-top: 2rem;
-      display: inline-block;
-      animation: bounce 1.5s infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0);}
-      50% { transform: translateY(10px);}
-    }
-    /* Blog post excerpts */
-    .md-post--excerpt {
-      background: #fff;
-      border: 1px solid #edf2f7;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-      transition: all 0.2s ease;
-    }
-    .md-post--excerpt:hover {
-      border-color: #e2e8f0;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-    }
-    .md-post__meta {
-      font-size: 0.8rem;
-      color: #718096;
-      letter-spacing: 0;
-    }
-    .md-post__content h2 {
-      font-size: 1.25rem;
-      font-weight: 500;
-      margin: 0.5rem 0;
-      color: #2d3748;
-      letter-spacing: -0.3px;
-    }
-    .md-post__content h2 a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .md-post__content h2 a:hover {
-      color: #3498db;
-    }
-    .md-post__content {
-      font-size: 0.95rem; /* Slightly smaller font size */
-      line-height: 1.4; /* Improved line height for readability */
-    }
-    .md-post__header, .md-post__content {
-      font-family: 'Inter', sans-serif;
-    }
-    @media (max-width: 600px) {
-      .homepage-header { 
-        height: auto; 
-        min-height: 100vh;
-        padding: 2rem 1rem; 
-      }
-      .homepage-title { 
-        font-size: 1.8rem;
-        padding: 0 1rem;
-      }
-      .homepage-subtitle { 
-        font-size: 0.95rem;
-        padding: 0 1rem;
-      }
-      .homepage-tagline { 
-        font-size: 0.9rem;
-        padding: 0 1.5rem;
-      }
-      .homepage-links {
-        gap: 0.5rem;
-        padding: 0 0.5rem;
-      }
-      .homepage-link-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.85rem;
-      }
-      .homepage-link-btn svg {
-        width: 16px;
-        height: 16px;
-      }
-      .md-post--excerpt { 
-        padding: 1rem;
-        margin: 0.5rem 1rem;
-      }
-    }
-    
-    @media (max-width: 380px) {
-      .homepage-links {
-        flex-direction: column;
-        width: 100%;
-        max-width: 280px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .homepage-link-btn {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-  </style>
-
-  <header class="homepage-header">
-    <!-- Optional: Add your profile image here -->
-    <!--<img src="assets/images/profile.jpg" alt="Profile" class="homepage-profile-img" onerror="this.style.display='none'">-->
-    <h1 class="homepage-title">P. Bhanuprasad</h1>
-    <div class="homepage-subtitle">Data Engineer | West Chester, PA</div>
-    <div class="homepage-tagline">
-     This is my personal website where I curate and share knowledge on algorithms, engineering, and tech. Welcome to my digital garden!
-    </div>
-    <div class="homepage-links">
-      <a href="About/" class="homepage-link-btn">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="8" r="4"/>
-          <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
-        </svg>
-        About
-      </a>
-      <a href="Algorithms/" class="homepage-link-btn">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="16 18 22 12 16 6"/>
-          <polyline points="8 6 2 12 8 18"/>
-        </svg>
-        Algorithms
-      </a>
-      <a href="resources/" class="homepage-link-btn">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-        </svg>
-        Resources
-      </a>
-      <a href="blog/" class="homepage-link-btn">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 20h9"/>
-          <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-        </svg>
-        Blog
-      </a>
-    </div>
-    <a href="#start-blog-entries-overview" title="Scroll down to blog entries" class="homepage-arrow">
-      <span class="twemoji homepage_icon homepage_arrow" style="width: 1.5rem; opacity: 0.7;">
-        {% include ".icons/octicons/chevron-down-24.svg" %} 
-      </span>
-    </a>
-  </header>
+{{ super() }}
 {% endblock %}
 
 {% block content %}
+<div class="home-intro">
+    <h1 class="home-intro__name">Pat Prasad</h1>
+    <p class="home-intro__tagline">Notes on algorithms, data engineering, and software.</p>
+</div>
 
-  <div id="start-blog-entries-overview"></div>
+<div class="home-posts">
+    <h2 class="home-posts__heading">Recent Posts</h2>
 
-  {% for post in blog_pages|reverse %}
-  
-  <article class="md-post md-post--excerpt">
-    <header class="md-post__header">
-      <div class="md-post__meta md-meta">
-        <time datetime="{{ post.config.date.created }}">
-          {{- post.config.date.created | date -}}
-        </time> - {{ post.config.readtime }} min read          
-      </div>
-    </header>
-
-    <div class="md-post__content md-typeset">
-      <h2><a class="toclink" href="{{ post.url }}">{{ post.title }}</a></h2>
-    </div>
-
-  </article>
-    
-  {% endfor %}
-
+    {% for post in blog_pages | reverse %}
+    <article class="home-post">
+        <time class="home-post__date" datetime="{{ post.config.date.created }}">
+            {{- post.config.date.created | date -}}
+        </time>
+        <h3 class="home-post__title">
+            <a href="{{ post.url | url }}">{{ post.title }}</a>
+        </h3>
+        {% if post.meta.description %}
+        <p class="home-post__excerpt">{{ post.meta.description }}</p>
+        {% endif %}
+    </article>
+    {% endfor %}
+</div>
 {% endblock %}
 
 {% block footer %}
-  {{ super() }}
+{{ super() }}
 {% endblock %}

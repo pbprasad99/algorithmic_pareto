@@ -1,39 +1,349 @@
-.homepage_icon {
-    fill: #fff;
-    width: 3rem;
+/* ==========================================================================
+   Homepage – Intro
+   ========================================================================== */
+
+.home-intro {
+    max-width: 42rem;
+    padding: 0.75rem 0 0.5rem;
+}
+
+.home-intro__name {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin: 0 0 0.25rem;
+    color: var(--md-default-fg-color);
+}
+
+.home-intro__tagline {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--md-default-fg-color--light);
+    margin: 0;
+}
+
+/* ==========================================================================
+   Homepage – Post List
+   ========================================================================== */
+
+.home-posts {
+    max-width: 42rem;
+    padding-bottom: 2rem;
+}
+
+.home-posts__heading {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--md-default-fg-color--light);
+    margin: 0.75rem 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.home-post {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+    transition: opacity 0.15s ease;
+}
+
+.home-post:last-child {
+    border-bottom: none;
+}
+
+.home-post:hover {
+    opacity: 0.75;
+}
+
+.home-post__date {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--md-default-fg-color--lighter);
+    margin-bottom: 0.3rem;
+}
+
+.home-post__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.home-post__title a {
+    color: var(--md-default-fg-color);
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.home-post__title a:hover {
+    border-bottom: none;
+    color: var(--md-accent-fg-color);
+}
+
+.home-post__excerpt {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--md-default-fg-color--light);
+    margin: 0.5rem 0 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+.md-typeset {
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+}
+
+.md-typeset h1 {
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-top: 0;
+}
+
+.md-typeset h2 {
+    margin-top: 1.8rem;
+}
+
+.md-typeset h3 {
+    margin-top: 1.4rem;
+}
+
+.md-typeset p {
+    margin-bottom: 1.6rem;
+}
+
+/* Let content fill the space between sidebars */
+.md-content__inner {
+    max-width: none;
+    padding-top: 0.5rem;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+.md-typeset a {
+    color: #808080;
+    text-decoration: underline;
+    border-bottom: none;
+}
+
+.md-typeset a:hover {
+    color: #555;
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   Inline Code – signature simple-blog inverted look
+   ========================================================================== */
+
+.md-typeset code {
+    background-color: #1a1a1a;
+    color: #e5e5e5;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+}
+
+/* ==========================================================================
+   Blockquotes
+   ========================================================================== */
+
+.md-typeset blockquote {
+    border-left: 3px solid #dcdcdc;
+    font-style: italic;
+    color: var(--md-default-fg-color--light);
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+.md-typeset table:not([class]) {
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+    border: 1px solid #000;
+    padding: 0.6rem 1rem;
+}
+
+.md-typeset table:not([class]) th {
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   Dark Mode
+   ========================================================================== */
+
+[data-md-color-scheme="slate"] {
+    --md-hue: 210;
+    --md-default-bg-color: hsla(var(--md-hue), 15%, 12%, 1);
+    --md-code-bg-color: hsla(var(--md-hue), 15%, 15%, 1);
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+    background-color: #000;
+    color: #e5e5e5;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a {
+    color: #a0a0a0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+    color: #ccc;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+    border-color: #555;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th,
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) td {
+    border-color: #555;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+    background-color: hsla(var(--md-hue), 15%, 18%, 1);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:hover {
+    background-color: hsla(var(--md-hue), 15%, 17%, 1);
+}
+
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+    border-left-color: #555;
+}
+
+/* ==========================================================================
+   About Page
+   ========================================================================== */
+
+/* About page – terminal window style */
+.about-page .md-clipboard {
+    display: none;
+}
+
+.about-page .highlight {
+    position: relative;
+    background: #000;
+    border-radius: 8px;
+    margin: 0 0 1rem;
+    padding-top: 2rem;
+    border: 1px solid #333;
+}
+
+/* Traffic light dots */
+.about-page .highlight::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 14px;
+    width: 12px;
+    height: 12px;
+    background: #ff5f56;
+    border-radius: 50%;
+    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+}
+
+.about-page .highlight pre {
+    background: #000;
+    margin: 0;
+}
+
+.about-page .highlight pre code {
+    background: #000;
+    color: #e5e5e5;
+    padding: 0.8rem 1.2rem 1rem;
+}
+
+/* ==========================================================================
+   Algorithm Styles
+   ========================================================================== */
+
+.algorithm {
+    border-left: 4px solid var(--md-primary-fg-color);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.algorithm h3 {
+    color: var(--md-primary-fg-color);
+    margin-top: 0;
+}
+
+/* Complexity badges */
+.complexity-badge {
     display: inline-block;
-    transition: all 0.2s ease-in-out;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-  }
-  
-.homepage_icon:hover {
-  fill: #ccc;
-  transform: scale(1.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 0.5rem;
 }
 
-.homepage_arrow {
-  animation: pulse 2s infinite;
+.time-complexity {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
 }
 
-@keyframes pulse {
-  0% {
-    opacity: 0.5;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-0.2rem);
-  }
-  100% {
-    opacity: 0.5;
-    transform: translateY(0);
-  }
+.space-complexity {
+    background-color: rgba(33, 150, 243, 0.2);
+    color: #2196f3;
 }
 
-/* mailchimp signup form on blog page */
-#mc_embed_signup{
-  clear:left; 
-  width: 400px;
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    .home-intro {
+        padding: 2rem 0 1rem;
+    }
+
+    .home-intro__name {
+        font-size: 1.75rem;
+    }
+
+    .home-post__title {
+        font-size: 1.1rem;
+    }
 }
 
+/* Mobile */
+@media (max-width: 480px) {
+    .home-intro {
+        padding: 1.5rem 0 0.75rem;
+    }
+
+    .home-intro__name {
+        font-size: 1.5rem;
+    }
+
+    .home-intro__tagline {
+        font-size: 0.95rem;
+    }
+
+    .home-post {
+        padding: 1rem 0;
+    }
+
+    .home-post__title {
+        font-size: 1rem;
+    }
+
+    .home-post__excerpt {
+        font-size: 0.85rem;
+    }
+
+    .home-posts__heading {
+        font-size: 0.85rem;
+    }
+}

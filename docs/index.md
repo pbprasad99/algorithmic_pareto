@@ -3,10 +3,8 @@ template: home.html
 title: Home
 social:
   cards_layout_options:
-    title: Personal website patibanb
+    title: patb.fyi
 hide:
   - navigation
   - toc
 ---
-
-Welcome to patb.fyi

@@ -1,8 +1,6 @@
-# .site
-nav :
+nav:
  - "*"
- - Algorithms - The Pareto Set : ./Algorithms
+ - Algorithms: ./Algorithms
  - ./blog
  - ./resources
  - ./About
- 

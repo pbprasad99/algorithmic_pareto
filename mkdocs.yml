@@ -10,6 +10,9 @@ theme:
   custom_dir: overrides
   logo: assets/images/logo.png
   favicon : assets/images/favicon.ico
+  font:
+    text: Fira Mono
+    code: Fira Mono
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
@@ -73,6 +76,7 @@ markdown_extensions:
 - admonition
 - footnotes
 - attr_list
+- md_in_html
 - toc:
     permalink: true
 plugins:
