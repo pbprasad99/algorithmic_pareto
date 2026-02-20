@@ -141,7 +141,8 @@
    Inline Code – signature simple-blog inverted look
    ========================================================================== */
 
-.md-typeset code {
+/* Inline code only (not inside code blocks) */
+.md-typeset :not(pre) > code {
     background-color: #1a1a1a;
     color: #e5e5e5;
     padding: 0.3rem 0.6rem;
@@ -187,7 +188,7 @@
     --md-code-bg-color: hsla(var(--md-hue), 15%, 15%, 1);
 }
 
-[data-md-color-scheme="slate"] .md-typeset code {
+[data-md-color-scheme="slate"] .md-typeset :not(pre) > code {
     background-color: #000;
     color: #e5e5e5;
 }
@@ -232,11 +233,22 @@
 
 .about-page .highlight {
     position: relative;
-    background: #000;
+    background: #f5f5f5;
     border-radius: 8px;
     margin: 0 0 1rem;
-    padding-top: 2rem;
-    border: 1px solid #333;
+    padding-top: 2.5rem;
+    border: 1px solid #ddd;
+}
+
+/* Title bar */
+.about-page .highlight::after {
+    content: "";
+    position: absolute;
+    top: 2.2rem;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #ddd;
 }
 
 /* Traffic light dots */
@@ -250,17 +262,34 @@
     background: #ff5f56;
     border-radius: 50%;
     box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+    z-index: 1;
 }
 
 .about-page .highlight pre {
-    background: #000;
+    background: #f5f5f5;
     margin: 0;
 }
 
 .about-page .highlight pre code {
-    background: #000;
-    color: #e5e5e5;
+    background: #f5f5f5;
+    color: #333;
     padding: 0.8rem 1.2rem 1rem;
+}
+
+/* Dark mode terminal */
+[data-md-color-scheme="slate"] .about-page .highlight {
+    background: #1a1a1a;
+    border-color: #333;
+}
+
+[data-md-color-scheme="slate"] .about-page .highlight::after {
+    background: #333;
+}
+
+[data-md-color-scheme="slate"] .about-page .highlight pre,
+[data-md-color-scheme="slate"] .about-page .highlight pre code {
+    background: #1a1a1a;
+    color: #e5e5e5;
 }
 
 /* ==========================================================================
