@@ -1,6 +1,6 @@
 nav:
- - "*"
- - Algorithms: ./Algorithms
- - ./blog
- - ./resources
- - ./About
+  - "*"
+  - Algorithms: ./Algorithms
+  - ./blog
+  - ./resources
+  - ./About

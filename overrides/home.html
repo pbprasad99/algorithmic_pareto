@@ -1,13 +1,10 @@
-{% extends "main.html" %}
-
-{% block tabs %}
-{{ super() }}
-{% endblock %}
-
-{% block content %}
+{% extends "main.html" %} {% block tabs %} {{ super() }} {% endblock %} {% block
+content %}
 <div class="home-intro">
-    <h1 class="home-intro__name">Pat Prasad</h1>
-    <p class="home-intro__tagline">Notes on algorithms, data engineering, and software.</p>
+    <h1 class="home-intro__name">P. Bhanuprasad</h1>
+    <p class="home-intro__tagline">
+        Notes on algorithms, data engineering, and software.
+    </p>
 </div>
 
 <div class="home-posts">
@@ -27,8 +24,4 @@
     </article>
     {% endfor %}
 </div>
-{% endblock %}
-
-{% block footer %}
-{{ super() }}
-{% endblock %}
+{% endblock %} {% block footer %} {{ super() }} {% endblock %}

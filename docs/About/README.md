@@ -31,6 +31,6 @@ collaborating with cross-functional teams
 $ cat links.txt
 ```
 
-[LinkedIn](http://www.linkedin.com/in/bpatiban) | [Explore this site](../)
+[LinkedIn](http://www.linkedin.com/in/bpatiban) | [Email](mailto:&#98;&#112;&#97;&#116;&#105;&#98;&#97;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;) | [Explore this site](../)
 
 </div>
